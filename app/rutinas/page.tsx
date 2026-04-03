@@ -1,13 +1,31 @@
 // app/rutinas/page.tsx
 'use client';
 
+import { useRouter } from 'next/navigation';
 import RoutineCard from '@/components/RoutineCard';
 import { prebuiltRoutines } from '@/lib/routines-data';
 import Link from 'next/link';
 
 export default function RutinasPage() {
+  const router = useRouter();
+
   return (
     <div>
+      {/* Back Button Header */}
+      <div className="bg-white border-b border-gray-200 py-3 sm:py-4 sticky top-0 z-40">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-3">
+          <button
+            onClick={() => router.back()}
+            className="flex items-center gap-2 text-gray-900 hover:text-gray-700 hover:bg-gray-100 px-3 py-2 rounded-lg transition-all font-500"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+            <span className="text-sm sm:text-base">Atrás</span>
+          </button>
+        </div>
+      </div>
+
       {/* Hero */}
       <section className="py-12 md:py-16 bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -153,22 +171,6 @@ export default function RutinasPage() {
         </div>
       </section>
 
-      {/* Ad Space */}
-      <section className="py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="ad-space">
-            <p className="text-gray-500">Espacio publicitario</p>
-          </div>
-        </div>
-      </section>
-      {/* Ad Space */}
-      <section className="py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="ad-space">
-            <p className="text-gray-500">Espacio publicitario</p>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

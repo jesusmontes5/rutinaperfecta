@@ -2,6 +2,7 @@
 'use client';
 
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import RoutineCard from '@/components/RoutineCard';
 import { downloadRoutineAsPDF } from '@/lib/download-utils';
 import type { PrebuiltRoutine, Routine } from '@/types';
@@ -12,22 +13,23 @@ interface RoutineDetailClientProps {
 }
 
 export default function RoutineDetailClient({ routine, allRoutines }: RoutineDetailClientProps) {
+  const router = useRouter();
+
   return (
     <div>
-      {/* Breadcrumb */}
-      <div className="bg-gray-50 border-b border-gray-200 py-4">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2 text-sm">
-            <Link href="/" className="text-gray-900 hover:text-gray-700">
-              Home
-            </Link>
-            <span className="text-gray-400">/</span>
-            <Link href="/rutinas" className="text-gray-900 hover:text-gray-700">
-              Rutinas
-            </Link>
-            <span className="text-gray-400">/</span>
-            <span className="text-gray-900 font-medium">{routine.title}</span>
-          </div>
+      {/* Back Button Header */}
+      <div className="bg-white border-b border-gray-200 py-3 sm:py-4 sticky top-0 z-40">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+          <button
+            onClick={() => router.back()}
+            className="flex items-center gap-2 text-gray-900 hover:text-gray-700 hover:bg-gray-100 px-3 py-2 rounded-lg transition-all font-500"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+            <span className="text-sm sm:text-base">Atrás</span>
+          </button>
+          <h1 className="text-lg sm:text-xl font-700 text-gray-900 truncate flex-1 ml-4">{routine.title}</h1>
         </div>
       </div>
 
@@ -129,12 +131,12 @@ export default function RoutineDetailClient({ routine, allRoutines }: RoutineDet
               <div className="flex flex-col sm:flex-row gap-3 justify-center mb-6">
                 <button
                   onClick={() => downloadRoutineAsPDF(routine as any)}
-                  className="px-8 py-3 bg-black text-white font-semibold rounded-lg hover:bg-gray-900 transition transform hover:scale-105 flex items-center justify-center gap-2 flex-1"
+                  className="px-8 py-3 bg-black text-white font-semibold rounded-lg hover:bg-gray-900 transition transform hover:scale-105 flex items-center justify-center gap-2 flex-1 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8m0 8a8 8 0 100-16 8 8 0 000 16z" />
                   </svg>
-                  Descargar en PDF
+                  Descargar PDF
                 </button>
               </div>
 
@@ -219,11 +221,6 @@ export default function RoutineDetailClient({ routine, allRoutines }: RoutineDet
                   </>
                 )}
               </ul>
-            </div>
-
-            {/* Ad Space */}
-            <div className="ad-space">
-              <p className="text-gray-500 text-sm">Espacio publicitario</p>
             </div>
           </div>
         </div>

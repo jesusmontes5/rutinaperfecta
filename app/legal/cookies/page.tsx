@@ -1,20 +1,29 @@
 // app/legal/cookies/page.tsx
-import { Metadata } from 'next';
-import Link from 'next/link';
+'use client';
 
-export const metadata: Metadata = {
-  title: 'Política de Cookies - Rutina Perfecta',
-  description: 'Política de uso de cookies en Rutina Perfecta',
-};
+import { useRouter } from 'next/navigation';
 
 export default function CookiesPage() {
+  const router = useRouter();
+
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
-      <div className="mb-8">
-        <Link href="/" className="text-gray-900 hover:text-gray-700">
-          ← Volver
-        </Link>
+    <div>
+      {/* Back Button Header */}
+      <div className="bg-white border-b border-gray-200 py-3 sm:py-4 sticky top-0 z-40">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-3">
+          <button
+            onClick={() => router.back()}
+            className="flex items-center gap-2 text-gray-900 hover:text-gray-700 hover:bg-gray-100 px-3 py-2 rounded-lg transition-all font-500"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+            <span className="text-sm sm:text-base">Atrás</span>
+          </button>
+        </div>
       </div>
+
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
 
       <article className="prose prose-sm sm:prose max-w-none text-gray-700">
         <h1 className="text-4xl font-bold text-gray-900 mb-6">Política de Cookies</h1>
@@ -106,6 +115,7 @@ export default function CookiesPage() {
           </p>
         </section>
       </article>
+      </div>
     </div>
   );
 }
