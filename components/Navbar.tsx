@@ -22,31 +22,31 @@ export default function Navbar() {
     <nav 
       className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled 
-          ? 'bg-white/80 backdrop-blur-md border-b border-gray-200/30 shadow-sm' 
+          ? 'bg-white/95 backdrop-blur-xl border-b border-gray-200/50 shadow-sm' 
           : 'bg-white'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-14 sm:h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+          <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity shrink-0">
             <Logo size="small" />
-            <span className="font-700 text-lg text-black hidden sm:inline">
+            <span className="font-700 text-base sm:text-lg text-black hidden sm:inline">
               Rutina Perfecta
             </span>
           </Link>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
-            <Link href="/" className="text-sm text-gray-600 hover:text-black transition">
-              Home
+            <Link href="/" className="text-sm font-500 text-gray-700 hover:text-black transition">
+              Inicio
             </Link>
-            <Link href="/rutinas" className="text-sm text-gray-600 hover:text-black transition">
+            <Link href="/rutinas" className="text-sm font-500 text-gray-700 hover:text-black transition">
               Rutinas
             </Link>
             <a
               href="#wizard"
-              className="text-sm px-6 py-2 bg-black text-white rounded-full hover:bg-gray-800 transition"
+              className="text-sm px-6 py-2 bg-black text-white font-600 rounded-lg hover:bg-gray-900 active:scale-95 transition-all"
             >
               Comenzar
             </a>
@@ -59,7 +59,7 @@ export default function Navbar() {
             aria-label="Toggle menu"
           >
             <svg
-              className={`w-5 h-5 transition-transform ${isMenuOpen ? 'rotate-90' : ''}`}
+              className={`w-5 h-5 transition-transform duration-300 ${isMenuOpen ? 'rotate-90' : ''}`}
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -76,24 +76,24 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden pb-4 border-t border-gray-100 space-y-2 animate-slideInDown">
+          <div className="md:hidden pb-4 border-t border-gray-200/50 space-y-2 animate-slideInDown">
             <Link 
               href="/" 
-              className="block px-4 py-3 text-gray-600 hover:text-black transition rounded-lg"
+              className="block px-4 py-3 text-gray-700 hover:bg-gray-50 rounded-lg font-500 text-sm transition"
               onClick={() => setIsMenuOpen(false)}
             >
-              Home
+              Inicio
             </Link>
             <Link 
               href="/rutinas" 
-              className="block px-4 py-3 text-gray-600 hover:text-black transition rounded-lg"
+              className="block px-4 py-3 text-gray-700 hover:bg-gray-50 rounded-lg font-500 text-sm transition"
               onClick={() => setIsMenuOpen(false)}
             >
               Rutinas
             </Link>
             <a
               href="#wizard"
-              className="block px-4 py-3 bg-black text-white font-medium rounded-lg hover:bg-gray-800 transition text-center"
+              className="block px-4 py-3 bg-black text-white font-600 rounded-lg hover:bg-gray-900 text-sm transition text-center"
               onClick={() => setIsMenuOpen(false)}
             >
               Comenzar

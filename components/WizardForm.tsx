@@ -143,23 +143,23 @@ export default function WizardForm() {
   }
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6 sm:space-y-8">
       {/* Progress Section */}
-      <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
-        <div className="flex items-center justify-between mb-4">
-          <div>
-            <h3 className="font-600 text-gray-900">Paso {step} de {getActualTotalSteps()}</h3>
-            <p className="text-xs text-gray-600 mt-1">Casi listo para tu rutina personalizada</p>
+      <div className="bg-gradient-to-r from-gray-50 to-gray-100 rounded-2xl border border-gray-200/50 p-6 md:p-8">
+        <div className="flex items-center justify-between mb-4 md:mb-6 gap-4">
+          <div className="flex-1">
+            <h3 className="font-700 text-gray-900 text-lg md:text-xl">Paso {step} de {getActualTotalSteps()}</h3>
+            <p className="text-xs md:text-sm text-gray-600 mt-1 md:mt-2">Casi listo para generar tu rutina perfecta</p>
           </div>
-          <div className="text-3xl font-700 text-gray-900 bg-gray-100 px-4 py-2 rounded-lg">
+          <div className="text-2xl md:text-4xl font-700 text-gray-900 bg-white px-4 md:px-6 py-2 md:py-3 rounded-xl border border-gray-200/50 flex-shrink-0">
             {Math.round((step / getActualTotalSteps()) * 100)}%
           </div>
         </div>
 
         {/* Progress Bar */}
-        <div className="w-full bg-gray-200 rounded-full h-2.5 overflow-hidden">
+        <div className="w-full bg-gray-200/50 rounded-full h-2 md:h-3 overflow-hidden">
           <div
-            className="bg-gradient-to-r from-gray-900 to-gray-700 h-full transition-all duration-500"
+            className="bg-black h-full transition-all duration-500 rounded-full"
             style={{ width: `${(step / getActualTotalSteps()) * 100}%` }}
           ></div>
         </div>
@@ -169,28 +169,28 @@ export default function WizardForm() {
       {step === 1 && (
         <div className="animate-fadeIn space-y-6">
           <div>
-            <h2 className="text-3xl font-700 text-gray-900 mb-2">¿Cuál es tu objetivo?</h2>
-            <p className="text-gray-600 text-base">Esto define todo: ejercicios, nutrición y progresión</p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-700 text-gray-900 mb-2 md:mb-3">¿Cuál es tu objetivo?</h2>
+            <p className="text-gray-600 text-sm md:text-base">Esto define todo: ejercicios, nutrición y progresión personalizada</p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4">
             {[
-              { value: 'masa', label: 'Ganar Masa', emoji: '💪', desc: 'Aumentar tamaño y definición muscular' },
+              { value: 'masa', label: 'Ganar Masa', emoji: '💪', desc: 'Aumentar tamaño muscular' },
               { value: 'grasa', label: 'Perder Grasa', emoji: '🔥', desc: 'Definir y reducir peso' },
-              { value: 'mantener', label: 'Mantener', emoji: '⚖️', desc: 'Preservar sin cambios grandes' },
+              { value: 'mantener', label: 'Mantener', emoji: '⚖️', desc: 'Preservar estado actual' },
             ].map(({ value, label, emoji, desc }) => (
               <button
                 key={value}
                 onClick={() => setData({ ...data, objective: value as any })}
-                className={`p-6 rounded-xl border-2 font-500 text-center transition-all transform hover:scale-105 ${
+                className={`p-5 md:p-6 rounded-xl md:rounded-2xl border-2 font-600 text-center transition-all duration-200 transform hover:scale-105 active:scale-95 ${
                   data.objective === value
                     ? 'bg-black text-white border-black shadow-lg'
-                    : 'bg-white text-gray-900 border-gray-200 hover:border-gray-400'
+                    : 'bg-white text-gray-900 border-gray-200/50 hover:border-gray-300'
                 }`}
               >
-                <div className="text-4xl mb-3">{emoji}</div>
-                <div className="font-700 text-lg">{label}</div>
-                <div className={`text-xs mt-2 ${data.objective === value ? 'text-gray-200' : 'text-gray-600'}`}>{desc}</div>
+                <div className="text-3xl md:text-4xl mb-3 md:mb-4">{emoji}</div>
+                <div className="font-700 text-base md:text-lg">{label}</div>
+                <div className={`text-xs md:text-sm mt-2 md:mt-3 ${data.objective === value ? 'text-gray-200' : 'text-gray-600'}`}>{desc}</div>
               </button>
             ))}
           </div>

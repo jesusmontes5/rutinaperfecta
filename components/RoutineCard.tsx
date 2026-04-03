@@ -16,32 +16,32 @@ export default function RoutineCard({ routine, expanded = false }: RoutineCardPr
   const isPrebuilt = 'fullContent' in routine;
 
   return (
-    <div className="bg-white rounded-xl border border-gray-200 overflow-hidden hover:border-gray-300 hover:shadow-lg transition-all duration-300 flex flex-col h-full">
-      {/* Header - Simple & Clean */}
-      <div className="p-6 border-b border-gray-200">
-        <h3 className="text-xl font-700 mb-3 text-gray-900 line-clamp-2">{routine.title}</h3>
-        <p className="text-gray-600 text-sm leading-relaxed line-clamp-3">{routine.description}</p>
+    <div className="bg-white rounded-2xl border border-gray-200/50 overflow-hidden hover:border-gray-300 hover:shadow-xl transition-all duration-300 flex flex-col h-full group">
+      {/* Header - Enhanced */}
+      <div className="p-6 sm:p-7 md:p-8 border-b border-gray-200/50 group-hover:bg-gray-50/50 transition">
+        <h3 className="text-lg sm:text-xl md:text-2xl font-700 mb-3 text-gray-900 line-clamp-2">{routine.title}</h3>
+        <p className="text-gray-600 text-sm sm:text-base leading-relaxed line-clamp-3">{routine.description}</p>
       </div>
 
-      {/* Info Grid - Minimalist */}
-      <div className="p-6 border-b border-gray-200">
-        <div className="grid grid-cols-2 gap-4">
-          <div className="p-4 bg-gray-50 rounded-lg border border-gray-200 text-center">
-            <div className="text-3xl font-700 text-gray-900">{routine.days}</div>
-            <div className="text-xs text-gray-600 font-500 uppercase tracking-wide mt-1">Días</div>
+      {/* Info Grid - Improved Responsivity */}
+      <div className="p-6 sm:p-7 md:p-8 border-b border-gray-200/50 bg-white/50">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+          <div className="p-3 sm:p-4 bg-gray-50/80 border border-gray-200/50 rounded-xl text-center hover:bg-gray-100/80 transition">
+            <div className="text-2xl sm:text-3xl font-700 text-gray-900">{routine.days}</div>
+            <div className="text-xs text-gray-600 font-600 uppercase tracking-wide mt-2">Días</div>
           </div>
-          <div className="p-4 bg-gray-50 rounded-lg border border-gray-200 text-center">
-            <div className="text-lg font-700 text-gray-900 capitalize line-clamp-1">{routine.level}</div>
-            <div className="text-xs text-gray-600 font-500 uppercase tracking-wide mt-1">Nivel</div>
+          <div className="p-3 sm:p-4 bg-gray-50/80 border border-gray-200/50 rounded-xl text-center hover:bg-gray-100/80 transition">
+            <div className="text-sm sm:text-lg font-700 text-gray-900 capitalize line-clamp-1">{routine.level}</div>
+            <div className="text-xs text-gray-600 font-600 uppercase tracking-wide mt-2">Nivel</div>
           </div>
-          <div className="p-4 bg-gray-50 rounded-lg border border-gray-200 text-center">
-            <div className="text-lg font-700 text-gray-900 capitalize line-clamp-1">{routine.objective}</div>
-            <div className="text-xs text-gray-600 font-500 uppercase tracking-wide mt-1">Objetivo</div>
+          <div className="p-3 sm:p-4 bg-gray-50/80 border border-gray-200/50 rounded-xl text-center hover:bg-gray-100/80 transition">
+            <div className="text-sm sm:text-lg font-700 text-gray-900 capitalize line-clamp-1">{routine.objective}</div>
+            <div className="text-xs text-gray-600 font-600 uppercase tracking-wide mt-2">Objetivo</div>
           </div>
           {!isPrebuilt && 'location' in routine && (
-            <div className="p-4 bg-gray-50 rounded-lg border border-gray-200 text-center">
-              <div className="text-lg font-700 text-gray-900 capitalize line-clamp-1">{routine.location}</div>
-              <div className="text-xs text-gray-600 font-500 uppercase tracking-wide mt-1">Lugar</div>
+            <div className="p-3 sm:p-4 bg-gray-50/80 border border-gray-200/50 rounded-xl text-center hover:bg-gray-100/80 transition md:col-span-1">
+              <div className="text-sm sm:text-lg font-700 text-gray-900 capitalize line-clamp-1">{routine.location}</div>
+              <div className="text-xs text-gray-600 font-600 uppercase tracking-wide mt-2">Lugar</div>
             </div>
           )}
         </div>
