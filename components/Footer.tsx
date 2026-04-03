@@ -100,13 +100,6 @@ export default function Footer() {
             </div>
           </div>
         </div>
-
-        {/* AdSense Ad Space */}
-        <div className="py-8 sm:py-12 border-t border-gray-200/50">
-          <div className="bg-gray-50/50 rounded-xl p-8 sm:p-12 text-center min-h-[90px] sm:min-h-[100px] flex items-center justify-center border border-gray-200/50">
-            {/* Google AdSense ad will be displayed here */}
-          </div>
-        </div>
       </div>
     </footer>
   );

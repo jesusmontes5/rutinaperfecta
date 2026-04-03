@@ -24,24 +24,24 @@ export default function RoutineCard({ routine, expanded = false }: RoutineCardPr
       </div>
 
       {/* Info Grid - Improved Responsivity */}
-      <div className="p-6 sm:p-7 md:p-8 border-b border-gray-200/50 bg-white/50">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
-          <div className="p-3 sm:p-4 bg-gray-50/80 border border-gray-200/50 rounded-xl text-center hover:bg-gray-100/80 transition">
-            <div className="text-2xl sm:text-3xl font-700 text-gray-900">{routine.days}</div>
-            <div className="text-xs text-gray-600 font-600 uppercase tracking-wide mt-2">Días</div>
+      <div className="p-4 sm:p-6 md:p-8 border-b border-gray-200/50 bg-white/50">
+        <div className="grid grid-cols-3 md:grid-cols-4 gap-2 sm:gap-3 md:gap-4">
+          <div className="p-3 sm:p-4 md:p-5 bg-gradient-to-br from-gray-50 to-gray-100/50 border border-gray-200/70 rounded-lg sm:rounded-xl text-center hover:from-gray-100 hover:to-gray-100/50 transition-all">
+            <div className="text-xl sm:text-2xl md:text-3xl font-800 text-gray-900 leading-none">{routine.days}</div>
+            <div className="text-xs sm:text-sm text-gray-600 font-700 uppercase tracking-wider mt-1.5 sm:mt-2">Días</div>
           </div>
-          <div className="p-3 sm:p-4 bg-gray-50/80 border border-gray-200/50 rounded-xl text-center hover:bg-gray-100/80 transition">
-            <div className="text-sm sm:text-lg font-700 text-gray-900 capitalize line-clamp-1">{routine.level}</div>
-            <div className="text-xs text-gray-600 font-600 uppercase tracking-wide mt-2">Nivel</div>
+          <div className="p-3 sm:p-4 md:p-5 bg-gradient-to-br from-gray-50 to-gray-100/50 border border-gray-200/70 rounded-lg sm:rounded-xl text-center hover:from-gray-100 hover:to-gray-100/50 transition-all">
+            <div className="text-sm sm:text-base md:text-lg font-800 text-gray-900 capitalize line-clamp-2 leading-tight">{routine.level}</div>
+            <div className="text-xs sm:text-sm text-gray-600 font-700 uppercase tracking-wider mt-1.5 sm:mt-2">Nivel</div>
           </div>
-          <div className="p-3 sm:p-4 bg-gray-50/80 border border-gray-200/50 rounded-xl text-center hover:bg-gray-100/80 transition">
-            <div className="text-sm sm:text-lg font-700 text-gray-900 capitalize line-clamp-1">{routine.objective}</div>
-            <div className="text-xs text-gray-600 font-600 uppercase tracking-wide mt-2">Objetivo</div>
+          <div className="p-3 sm:p-4 md:p-5 bg-gradient-to-br from-gray-50 to-gray-100/50 border border-gray-200/70 rounded-lg sm:rounded-xl text-center hover:from-gray-100 hover:to-gray-100/50 transition-all">
+            <div className="text-sm sm:text-base md:text-lg font-800 text-gray-900 capitalize line-clamp-2 leading-tight">{routine.objective}</div>
+            <div className="text-xs sm:text-sm text-gray-600 font-700 uppercase tracking-wider mt-1.5 sm:mt-2">Objetivo</div>
           </div>
           {!isPrebuilt && 'location' in routine && (
-            <div className="p-3 sm:p-4 bg-gray-50/80 border border-gray-200/50 rounded-xl text-center hover:bg-gray-100/80 transition md:col-span-1">
-              <div className="text-sm sm:text-lg font-700 text-gray-900 capitalize line-clamp-1">{routine.location}</div>
-              <div className="text-xs text-gray-600 font-600 uppercase tracking-wide mt-2">Lugar</div>
+            <div className="hidden md:block p-3 sm:p-4 md:p-5 bg-gradient-to-br from-gray-50 to-gray-100/50 border border-gray-200/70 rounded-lg sm:rounded-xl text-center hover:from-gray-100 hover:to-gray-100/50 transition-all">
+              <div className="text-sm sm:text-base md:text-lg font-800 text-gray-900 capitalize line-clamp-2 leading-tight">{routine.location}</div>
+              <div className="text-xs sm:text-sm text-gray-600 font-700 uppercase tracking-wider mt-1.5 sm:mt-2">Lugar</div>
             </div>
           )}
         </div>
