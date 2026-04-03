@@ -90,6 +90,13 @@ export default function RootLayout({
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
         
+        {/* Google AdSense */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7194910562579872"
+          crossOrigin="anonymous"
+        ></script>
+        
         {/* Schema Markup */}
         <SchemaMarkup />
       </head>
