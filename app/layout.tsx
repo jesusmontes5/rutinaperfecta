@@ -59,6 +59,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://rutinaperfecta.com',
   },
+  verification: {
+    google: 'XRcgIUp-HIJ8ET-vUVtRiA2UT6_E5TS9zl64IZxPT0E',
+  },
 };
 
 export default function RootLayout({
