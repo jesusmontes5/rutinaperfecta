@@ -1,0 +1,77 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradientes mejorados - Negro a gris oscuro -->
+    <linearGradient id="mainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#000000;stop-opacity:1" />
+    </linearGradient>
+    
+    <radialGradient id="glowGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.15" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0" />
+    </radialGradient>
+    
+    <!-- Filtro de sombra mejorado -->
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-opacity="0.25" />
+    </filter>
+    
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Fondo principal - Círculo principal con gradiente -->
+  <circle cx="100" cy="100" r="95" fill="url(#mainGradient)" filter="url(#shadow)" />
+  
+  <!-- Efecto de brillo interno sutil -->
+  <circle cx="100" cy="100" r="95" fill="url(#glowGradient)" />
+  
+  <!-- Anillo exterior elegante -->
+  <circle cx="100" cy="100" r="95" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" />
+  <circle cx="100" cy="100" r="92" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="0.8" />
+  
+  <!-- ELEMENTO CENTRAL - Línea vertical principal (Fuerza/Estabilidad) -->
+  <line x1="100" y1="50" x2="100" y2="150" stroke="white" stroke-width="3.5" opacity="0.95" stroke-linecap="round" filter="url(#glow)" />
+  
+  <!-- Línea horizontal (Equilibrio) -->
+  <line x1="60" y1="100" x2="140" y2="100" stroke="white" stroke-width="2.5" opacity="0.8" stroke-linecap="round" />
+  
+  <!-- Línea diagonal ascendente derecha (Progreso) -->
+  <line x1="65" y1="135" x2="115" y2="65" stroke="white" stroke-width="2.2" opacity="0.75" stroke-linecap="round" />
+  
+  <!-- Línea diagonal descendente izquierda (Dinamismo) -->
+  <line x1="135" y1="135" x2="85" y2="65" stroke="white" stroke-width="2.2" opacity="0.7" stroke-linecap="round" />
+  
+  <!-- Punto central - Nexo de energía -->
+  <circle cx="100" cy="100" r="5" fill="white" opacity="0.95" filter="url(#glow)" />
+  
+  <!-- Punto decorativo superior -->
+  <circle cx="100" cy="55" r="2" fill="white" opacity="0.5" />
+  
+  <!-- Puntos decorativos laterales -->
+  <circle cx="65" cy="100" r="1.5" fill="white" opacity="0.4" />
+  <circle cx="135" cy="100" r="1.5" fill="white" opacity="0.4" />
+  
+  <!-- Acentos en diagonales -->
+  <circle cx="118" cy="82" r="1.2" fill="white" opacity="0.35" />
+  <circle cx="82" cy="118" r="1.2" fill="white" opacity="0.35" />
+  
+  <!-- Triángulos de movimiento en las puntas diagonales -->
+  <g opacity="0.4">
+    <polygon points="115,62 120,65 112,68" fill="white" />
+    <polygon points="85,138 80,135 88,132" fill="white" />
+  </g>
+  
+  <!-- Elementos decorativos sutiles en esquinas -->
+  <g opacity="0.15">
+    <line x1="50" y1="50" x2="60" y2="50" stroke="white" stroke-width="1" stroke-linecap="round" />
+    <line x1="50" y1="50" x2="50" y2="60" stroke="white" stroke-width="1" stroke-linecap="round" />
+    <line x1="150" y1="150" x2="140" y2="150" stroke="white" stroke-width="1" stroke-linecap="round" />
+    <line x1="150" y1="150" x2="150" y2="140" stroke="white" stroke-width="1" stroke-linecap="round" />
+  </g>
+</svg>

@@ -1,0 +1,27 @@
+# Robots.txt - Rutina Perfecta
+User-agent: *
+Allow: /
+Allow: /api/
+Allow: /rutinas
+
+# Desallow private areas
+Disallow: /.next/
+Disallow: /admin/
+Disallow: /private/
+Disallow: /_next/
+
+# Sitemap location
+Sitemap: https://rutinaperfecta.com/sitemap.xml
+
+# Crawl delay (seconds) - be respectful
+Crawl-delay: 1
+
+# Google specific
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
