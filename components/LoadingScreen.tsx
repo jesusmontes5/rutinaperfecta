@@ -3,7 +3,25 @@
 import { useEffect, useState } from 'react';
 
 export default function LoadingScreen() {
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    // Only show loading screen on initial page load, not on navigation
+    const hasShownLoading = sessionStorage.getItem('__loading_shown__');
+    
+    if (!hasShownLoading) {
+      // First load - show loading screen
+      setIsVisible(true);
+      
+      // Hide after 2.5 seconds
+      const timer = setTimeout(() => {
+        setIsVisible(false);
+        sessionStorage.setItem('__loading_shown__', 'true');
+      }, 2500);
+
+      return () => clearTimeout(timer);
+    }
+  }, []);
 
   useEffect(() => {
     // Control del body overflow
@@ -13,13 +31,7 @@ export default function LoadingScreen() {
       document.body.style.overflow = 'unset';
     }
 
-    // Mostrar loading por 2-3 segundos después de que la página cargue
-    const timer = setTimeout(() => {
-      setIsVisible(false);
-    }, 2500);
-
     return () => {
-      clearTimeout(timer);
       document.body.style.overflow = 'unset';
     };
   }, [isVisible]);

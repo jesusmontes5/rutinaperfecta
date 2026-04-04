@@ -22,33 +22,41 @@ export default function Navbar() {
     <nav 
       className={`sticky top-0 z-40 transition-all duration-300 ${
         scrolled 
-          ? 'bg-white/95 backdrop-blur-xl border-b border-gold-light/20 shadow-md' 
+          ? 'bg-white/95 backdrop-blur-xl border-b border-gold-light/20 shadow-sm' 
           : 'bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-14 sm:h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity shrink-0 group">
+          <Link href="/" className="flex items-center gap-2 hover:opacity-90 transition-opacity shrink-0 group">
             <Logo size="small" />
-            <span className="font-900 text-base sm:text-lg text-gold-dark hidden sm:inline group-hover:scale-105 transition-transform">
+            <span className="font-800 text-base sm:text-lg text-gold-dark hidden sm:inline group-hover:text-[#c9a563] transition-colors">
               Rutina Perfecta
             </span>
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-6">
-            <Link href="/" className="text-sm font-500 text-color-text hover:text-gold-primary transition">
-              Inicio
+          <div className="hidden md:flex items-center gap-1">
+            <Link 
+              href="/" 
+              className="relative px-4 py-2 text-sm font-600 text-color-text group transition-colors duration-200"
+            >
+              <span className="relative z-10 group-hover:text-gold-dark">Inicio</span>
+              <span className="absolute bottom-1 left-4 right-4 h-0.5 bg-gradient-to-r from-gold-dark to-[#c9a563] scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
             </Link>
-            <Link href="/rutinas" className="text-sm font-500 text-color-text hover:text-gold-primary transition">
-              Rutinas
+            <Link 
+              href="/rutinas" 
+              className="relative px-4 py-2 text-sm font-600 text-color-text group transition-colors duration-200"
+            >
+              <span className="relative z-10 group-hover:text-gold-dark">Rutinas</span>
+              <span className="absolute bottom-1 left-4 right-4 h-0.5 bg-gradient-to-r from-gold-dark to-[#c9a563] scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
             </Link>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 hover:bg-gold-light/10 rounded-lg transition text-gold-dark"
+            className="md:hidden p-2 hover:bg-gold-light/10 rounded-lg transition text-gold-dark hover:text-[#c9a563]"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -70,17 +78,17 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden pb-4 border-t border-color-border-light space-y-1 animate-slideDown">
+          <div className="md:hidden pb-4 border-t border-gold-light/20 space-y-2 animate-slideDown">
             <Link 
               href="/" 
-              className="block px-4 py-2.5 text-color-text hover:text-gold-primary hover:bg-color-bg-secondary rounded-lg font-500 text-sm transition"
+              className="block px-4 py-3 text-color-text hover:text-gold-dark hover:bg-gold-light/5 rounded-lg font-600 text-sm transition-all duration-200"
               onClick={() => setIsMenuOpen(false)}
             >
               Inicio
             </Link>
             <Link 
               href="/rutinas" 
-              className="block px-4 py-2.5 text-color-text hover:text-gold-primary hover:bg-color-bg-secondary rounded-lg font-500 text-sm transition"
+              className="block px-4 py-3 text-color-text hover:text-gold-dark hover:bg-gold-light/5 rounded-lg font-600 text-sm transition-all duration-200"
               onClick={() => setIsMenuOpen(false)}
             >
               Rutinas

@@ -210,15 +210,20 @@ export default function Home() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 justify-center pt-4">
-              <a
-                href="#wizard"
-                className="btn-primary inline-flex items-center justify-center gap-2"
+              <button
+                onClick={() => {
+                  const element = document.getElementById('wizard');
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                }}
+                className="btn-primary inline-flex items-center justify-center gap-2 cursor-pointer"
               >
                 Comenzar
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
-              </a>
+              </button>
               <a
                 href="/rutinas"
                 className="btn-primary inline-flex items-center justify-center gap-2"
@@ -354,12 +359,17 @@ export default function Home() {
           <p className="text-lg text-color-text-muted mb-8">
             Tu rutina personalizada te espera. Solo 2 minutos.
           </p>
-          <a
-            href="#wizard"
-            className="btn-primary inline-flex items-center justify-center"
+          <button
+            onClick={() => {
+              const element = document.getElementById('wizard');
+              if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }
+            }}
+            className="btn-primary inline-flex items-center justify-center cursor-pointer"
           >
             Comenzar
-          </a>
+          </button>
         </div>
       </section>
     </main>
