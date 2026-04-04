@@ -3,8 +3,9 @@ User-agent: *
 Allow: /
 Allow: /api/
 Allow: /rutinas
+Allow: /ads.txt
 
-# Desallow private areas
+# Disallow private areas
 Disallow: /.next/
 Disallow: /admin/
 Disallow: /private/
@@ -19,9 +20,17 @@ Crawl-delay: 1
 # Google specific
 User-agent: Googlebot
 Allow: /
+Allow: /ads.txt
+Crawl-delay: 0
+
+# Google AdSense crawler
+User-agent: Googlebot-Mobile
+Allow: /
+Allow: /ads.txt
 Crawl-delay: 0
 
 # Bing
 User-agent: Bingbot
 Allow: /
+Allow: /ads.txt
 Crawl-delay: 1

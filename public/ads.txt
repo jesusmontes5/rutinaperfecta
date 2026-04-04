@@ -1,1 +1,6 @@
+# Ads.txt file for Rutina Perfecta
+# Google AdSense
 google.com, ca-pub-7194910562579872, DIRECT, f08c47fec0942fa0
+
+# Google Ad Manager
+google.com, pub-7194910562579872, RESELLER, f08c47fec0942fa0
