@@ -37,7 +37,7 @@ export default function RutinasPage() {
           </p>
           <Link
             href="/"
-            className="inline-block px-6 py-3 bg-gradient-to-r from-gold-primary to-gold-dark text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-gold-primary/30 transition"
+            className="inline-block px-6 py-3 bg-[#997a3c] text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-[#997a3c]/30 transition"
           >
             Crear rutina personalizada →
           </Link>
@@ -104,18 +104,18 @@ export default function RutinasPage() {
 
             {/* Rutina Casa */}
             <div className="prose prose-sm sm:prose max-w-none">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Rutina en Casa: Entrena sin Equipamiento</h2>
-              <p className="text-gray-700 leading-relaxed mb-4">
+              <h2 className="text-3xl font-bold text-gold-dark mb-4">Rutina en Casa: Entrena sin Equipamiento</h2>
+              <p className="text-color-text leading-relaxed mb-4">
                 No necesitas un gimnasio costoso para ganar músculo y mejorar tu condición física. Las rutinas de 
                 casa utilizan peso corporal y movimientos fundamentales que han demostrado ser altamente efectivos.
               </p>
-              <p className="text-gray-700 leading-relaxed mb-4">
+              <p className="text-color-text leading-relaxed mb-4">
                 Ejercicios como flexiones, dominadas, sentadillas y fondos pueden proveer estimulo suficiente para 
                 la hipertrofia muscular cuando se aplican correctamente. La clave es la progresión: aumentar reps, 
                 sets, o dificultad del movimiento consistentemente.
               </p>
-              <h3 className="text-2xl font-bold text-gray-900 mt-6 mb-3">Ventajas de Entrenar en Casa</h3>
-              <ul className="list-disc list-inside space-y-2 text-gray-700">
+              <h3 className="text-2xl font-bold text-gold-dark mt-6 mb-3">Ventajas de Entrenar en Casa</h3>
+              <ul className="list-disc list-inside space-y-2 text-color-text">
                 <li>Flexibilidad total de horarios</li>
                 <li>Sin costo de membresía</li>
                 <li>Mayor privacidad</li>
@@ -126,18 +126,18 @@ export default function RutinasPage() {
 
             {/* Rutina 5 Días */}
             <div className="prose prose-sm sm:prose max-w-none">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Rutina 5 Días: Para Atletas Avanzados</h2>
-              <p className="text-gray-700 leading-relaxed mb-4">
+              <h2 className="text-3xl font-bold text-gold-dark mb-4">Rutina 5 Días: Para Atletas Avanzados</h2>
+              <p className="text-color-text leading-relaxed mb-4">
                 Si tienes más de 2 años de experiencia consistente en el entrenamiento, la rutina de 5 días es 
                 tu siguiente paso. Este programa permite el máximo volumen de entrenamiento con especificidad extrema.
               </p>
-              <p className="text-gray-700 leading-relaxed mb-4">
+              <p className="text-color-text leading-relaxed mb-4">
                 Con dos sesiones de push, dos de pull y una de pierna alterada, puedes atacar cada grupo muscular 
                 con múltiples ángulos y rangos de reps. Esto resulta en hipertrofia optimizada y desarrollo muscular 
                 máximo, siempre que tu nutrición y recuperación sean impecables.
               </p>
-              <h3 className="text-2xl font-bold text-gray-900 mt-6 mb-3">Estructura 5 Días</h3>
-              <ul className="list-disc list-inside space-y-2 text-gray-700">
+              <h3 className="text-2xl font-bold text-gold-dark mt-6 mb-3">Estructura 5 Días</h3>
+              <ul className="list-disc list-inside space-y-2 text-color-text">
                 <li>Lunes: Push pesado</li>
                 <li>Martes: Pull pesado</li>
                 <li>Miércoles: Pierna</li>
@@ -149,19 +149,19 @@ export default function RutinasPage() {
             </div>
 
             {/* Nutrition and Recovery */}
-            <div className="prose prose-sm sm:prose max-w-none bg-gray-50 border border-gray-200 rounded-lg p-6">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Nutrición y Recuperación</h2>
-              <p className="text-gray-700 leading-relaxed mb-4">
+            <div className="prose prose-sm sm:prose max-w-none bg-gold-light/5 border border-gold-light/30 rounded-lg p-6">
+              <h2 className="text-3xl font-bold text-gold-dark mb-4">Nutrición y Recuperación</h2>
+              <p className="text-color-text leading-relaxed mb-4">
                 No importa cuál rutina elijas, sin nutrición y recuperación adecuadas, no verás resultados óptimos.
               </p>
-              <h3 className="text-xl font-bold text-gray-900 mt-4 mb-2">Para Ganar Masa:</h3>
-              <ul className="list-disc list-inside space-y-2 text-gray-700">
+              <h3 className="text-xl font-bold text-gold-dark mt-4 mb-2">Para Ganar Masa:</h3>
+              <ul className="list-disc list-inside space-y-2 text-color-text">
                 <li>Superávit calórico de 300-500 kcal</li>
                 <li>1.6-2.2 g de proteína por kg de peso corporal</li>
                 <li>6-8 horas de sueño mínimo</li>
               </ul>
-              <h3 className="text-xl font-bold text-gray-900 mt-4 mb-2">Para Perder Grasa:</h3>
-              <ul className="list-disc list-inside space-y-2 text-gray-700">
+              <h3 className="text-xl font-bold text-gold-dark mt-4 mb-2">Para Perder Grasa:</h3>
+              <ul className="list-disc list-inside space-y-2 text-color-text">
                 <li>Déficit calórico de 300-500 kcal</li>
                 <li>Mantener proteína alta (2+ g/kg)</li>
                 <li>Cardio moderado 2-3 veces por semana</li>
