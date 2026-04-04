@@ -192,7 +192,7 @@ export default function WizardForm() {
                     </svg>
                   </div>
                 )}
-                <div className="text-3xl mb-2">{emoji}</div>
+                <div className="text-3xl mb-2">{emoji} </div>
                 <div className="font-700 text-sm">{label}</div>
                 <div className={`text-xs mt-2 font-400 ${data.objective === value ? 'text-white/90' : 'text-color-text-muted'}`}>{desc}</div>
               </button>

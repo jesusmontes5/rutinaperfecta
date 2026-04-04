@@ -9,7 +9,7 @@ import { LenisProvider } from '@/components/LenisProvider';
 import { SchemaMarkup } from './schema';
 
 export const metadata: Metadata = {
-  title: 'Rutina Perfecta - Generador de Rutinas de Fitness Personalizado',
+  title: 'Generador de Rutinas Personalizadas - Fitness IA',
   description:
     'Crea tu rutina de fitness personalizada en minutos con IA. Generador de rutinas inteligente, 100% gratis, totalmente personalizable y adaptado a tu nivel.',
   keywords: [
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Rutina Perfecta - Tu Rutina Personalizada en 2 Minutos',
+    title: 'Generador de Rutinas Personalizadas - Fitness IA',
     description: 'Crea tu rutina de fitness personalizada con IA. 100% gratis, sin suscripciones. Descarga en PDF.',
     type: 'website',
     locale: 'es_ES',
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Rutina Perfecta - Generador de Fitness',
+    title: 'Generador de Rutinas Personalizadas - Fitness IA',
     description: 'Crea tu rutina personalizada en minutos',
   },
   alternates: {
