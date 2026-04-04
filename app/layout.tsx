@@ -85,7 +85,7 @@ export default function RootLayout({
         <meta name="author" content="Rutina Perfecta" />
         
         {/* Favicon */}
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%23997a3c%22/></svg>" />
+        <link rel="icon" href="/logo.png" />
         
         {/* PWA Manifest */}
         <link rel="manifest" href="/manifest.json" />
