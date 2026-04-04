@@ -20,41 +20,35 @@ export default function Navbar() {
 
   return (
     <nav 
-      className={`sticky top-0 z-50 transition-all duration-300 ${
+      className={`sticky top-0 z-40 transition-all duration-300 ${
         scrolled 
-          ? 'bg-white/95 backdrop-blur-xl border-b border-gray-200/50 shadow-sm' 
-          : 'bg-white'
+          ? 'bg-white/95 backdrop-blur-xl border-b border-gold-light/20 shadow-md' 
+          : 'bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-14 sm:h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity shrink-0">
+          <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity shrink-0 group">
             <Logo size="small" />
-            <span className="font-700 text-base sm:text-lg text-black hidden sm:inline">
+            <span className="font-900 text-base sm:text-lg text-gold-dark hidden sm:inline group-hover:scale-105 transition-transform">
               Rutina Perfecta
             </span>
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-8">
-            <Link href="/" className="text-sm font-500 text-gray-700 hover:text-black transition">
+          <div className="hidden md:flex items-center gap-6">
+            <Link href="/" className="text-sm font-500 text-color-text hover:text-gold-primary transition">
               Inicio
             </Link>
-            <Link href="/rutinas" className="text-sm font-500 text-gray-700 hover:text-black transition">
+            <Link href="/rutinas" className="text-sm font-500 text-color-text hover:text-gold-primary transition">
               Rutinas
             </Link>
-            <a
-              href="#wizard"
-              className="text-sm px-6 py-2 bg-black text-white font-600 rounded-lg hover:bg-gray-900 active:scale-95 transition-all"
-            >
-              Comenzar
-            </a>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 hover:bg-gray-100 rounded-lg transition"
+            className="md:hidden p-2 hover:bg-gold-light/10 rounded-lg transition text-gold-dark"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -76,28 +70,21 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden pb-4 border-t border-gray-200/50 space-y-2 animate-slideInDown">
+          <div className="md:hidden pb-4 border-t border-color-border-light space-y-1 animate-slideDown">
             <Link 
               href="/" 
-              className="block px-4 py-3 text-gray-700 hover:bg-gray-50 rounded-lg font-500 text-sm transition"
+              className="block px-4 py-2.5 text-color-text hover:text-gold-primary hover:bg-color-bg-secondary rounded-lg font-500 text-sm transition"
               onClick={() => setIsMenuOpen(false)}
             >
               Inicio
             </Link>
             <Link 
               href="/rutinas" 
-              className="block px-4 py-3 text-gray-700 hover:bg-gray-50 rounded-lg font-500 text-sm transition"
+              className="block px-4 py-2.5 text-color-text hover:text-gold-primary hover:bg-color-bg-secondary rounded-lg font-500 text-sm transition"
               onClick={() => setIsMenuOpen(false)}
             >
               Rutinas
             </Link>
-            <a
-              href="#wizard"
-              className="block px-4 py-3 bg-black text-white font-600 rounded-lg hover:bg-gray-900 text-sm transition text-center"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Comenzar
-            </a>
           </div>
         )}
       </div>

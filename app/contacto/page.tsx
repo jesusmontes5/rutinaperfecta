@@ -53,12 +53,12 @@ export default function ContactoPage() {
   return (
     <div className="bg-white">
       {/* Header */}
-      <section className="py-12 md:py-16 bg-white border-b border-gray-200">
+      <section className="py-12 md:py-16 bg-white border-b border-gold-light/30">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-gold-dark mb-4">
             Contacto
           </h1>
-          <p className="text-lg text-gray-600">
+          <p className="text-lg text-color-text-muted">
             ¿Tienes preguntas? Estamos aquí para ayudarte
           </p>
         </div>
@@ -72,24 +72,24 @@ export default function ContactoPage() {
             {/* Contact Info */}
             <div className="space-y-8">
               <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">Información de Contacto</h2>
+                <h2 className="text-2xl font-bold text-gold-dark mb-6">Información de Contacto</h2>
                 <div className="space-y-6">
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Email</h3>
+                    <h3 className="font-semibold text-color-text mb-2">Email</h3>
                     <a 
                       href="mailto:contacto@rutinaperfecta.com"
-                      className="text-gray-700 hover:text-gray-900"
+                      className="text-color-text-muted hover:text-gold-dark transition-colors"
                     >
                       contacto@rutinaperfecta.com
                     </a>
                   </div>
                   
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Soporte Técnico</h3>
-                    <p className="text-gray-700">
+                    <h3 className="font-semibold text-color-text mb-2">Soporte Técnico</h3>
+                    <p className="text-color-text-muted">
                       Si tienes problemas técnicos, envía un email detallando:
                     </p>
-                    <ul className="list-disc list-inside text-gray-700 mt-2 space-y-1">
+                    <ul className="list-disc list-inside text-color-text-muted mt-2 space-y-1">
                       <li>El navegador que usas</li>
                       <li>Tu dispositivo (móvil, tablet, PC)</li>
                       <li>Descripción del problema</li>
@@ -98,11 +98,11 @@ export default function ContactoPage() {
                   </div>
 
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Preguntas Frecuentes</h3>
-                    <p className="text-gray-700 mb-3">
+                    <h3 className="font-semibold text-color-text mb-2">Preguntas Frecuentes</h3>
+                    <p className="text-color-text-muted mb-3">
                       Antes de contactar, revisa nuestras preguntas frecuentes:
                     </p>
-                    <ul className="space-y-2 text-gray-700">
+                    <ul className="space-y-2 text-color-text-muted">
                       <li className="flex items-start gap-2">
                         <span>•</span>
                         <span><strong>¿Es gratis?</strong> Sí, totalmente gratis.</span>
@@ -122,9 +122,9 @@ export default function ContactoPage() {
                     </ul>
                   </div>
 
-                  <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
-                    <h3 className="font-semibold text-gray-900 mb-2">Tiempo de Respuesta</h3>
-                    <p className="text-gray-700 text-sm">
+                  <div className="bg-color-bg-secondary p-4 rounded-lg border border-gold-light/30">
+                    <h3 className="font-semibold text-color-text mb-2">Tiempo de Respuesta</h3>
+                    <p className="text-color-text-muted text-sm">
                       Respondemos a todos los emails dentro de 48 horas. Si no recibes respuesta, 
                       revisa tu carpeta de spam.
                     </p>
@@ -135,11 +135,11 @@ export default function ContactoPage() {
 
             {/* Contact Form */}
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Envíanos un Mensaje</h2>
+              <h2 className="text-2xl font-bold text-gold-dark mb-6">Envía nos un Mensaje</h2>
               
               {enviado && (
-                <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
-                  <p className="text-green-900 font-semibold">
+                <div className="mb-6 p-4 bg-gold-light/20 border border-gold-light/40 rounded-lg">
+                  <p className="text-gold-dark font-semibold">
                     ✓ Mensaje enviado con éxito. Te responderemos pronto.
                   </p>
                 </div>
@@ -147,7 +147,7 @@ export default function ContactoPage() {
 
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label htmlFor="nombre" className="block text-sm font-semibold text-gray-900 mb-1">
+                  <label htmlFor="nombre" className="block text-sm font-semibold text-color-text mb-1">
                     Nombre *
                   </label>
                   <input
@@ -157,13 +157,13 @@ export default function ContactoPage() {
                     value={formData.nombre}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-gray-900 focus:ring-1 focus:ring-gray-900"
+                    className="w-full px-4 py-2 border border-gold-light/30 rounded-lg focus:outline-none focus:border-gold-dark focus:ring-1 focus:ring-gold-primary bg-white text-color-text placeholder-color-text-muted/50"
                     placeholder="Tu nombre"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-semibold text-gray-900 mb-1">
+                  <label htmlFor="email" className="block text-sm font-semibold text-color-text mb-1">
                     Email *
                   </label>
                   <input
@@ -173,13 +173,13 @@ export default function ContactoPage() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-gray-900 focus:ring-1 focus:ring-gray-900"
+                    className="w-full px-4 py-2 border border-gold-light/30 rounded-lg focus:outline-none focus:border-gold-dark focus:ring-1 focus:ring-gold-primary bg-white text-color-text placeholder-color-text-muted/50"
                     placeholder="tu@email.com"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="asunto" className="block text-sm font-semibold text-gray-900 mb-1">
+                  <label htmlFor="asunto" className="block text-sm font-semibold text-color-text mb-1">
                     Asunto *
                   </label>
                   <select
@@ -188,9 +188,9 @@ export default function ContactoPage() {
                     value={formData.asunto}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-gray-900 focus:ring-1 focus:ring-gray-900"
+                    className="w-full px-4 py-2 border border-gold-light/30 rounded-lg focus:outline-none focus:border-gold-dark focus:ring-1 focus:ring-gold-primary bg-white text-color-text"
                   >
-                    <option value="">Selecciona un asunto</option>
+                    <option value="" className="text-color-text-muted">Selecciona un asunto</option>
                     <option value="soporte">Soporte Técnico</option>
                     <option value="pregunta">Pregunta General</option>
                     <option value="sugerencia">Sugerencia</option>
@@ -200,7 +200,7 @@ export default function ContactoPage() {
                 </div>
 
                 <div>
-                  <label htmlFor="mensaje" className="block text-sm font-semibold text-gray-900 mb-1">
+                  <label htmlFor="mensaje" className="block text-sm font-semibold text-color-text mb-1">
                     Mensaje *
                   </label>
                   <textarea
@@ -210,7 +210,7 @@ export default function ContactoPage() {
                     onChange={handleChange}
                     required
                     rows={5}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-gray-900 focus:ring-1 focus:ring-gray-900 resize-none"
+                    className="w-full px-4 py-2 border border-gold-light/30 rounded-lg focus:outline-none focus:border-gold-dark focus:ring-1 focus:ring-gold-primary resize-none bg-white text-color-text placeholder-color-text-muted/50"
                     placeholder="Cuéntanos cómo podemos ayudarte..."
                   />
                 </div>
@@ -218,12 +218,12 @@ export default function ContactoPage() {
                 <button
                   type="submit"
                   disabled={cargando}
-                  className="w-full px-6 py-3 bg-black text-white font-semibold rounded-lg hover:bg-gray-900 transition disabled:bg-gray-400 disabled:cursor-not-allowed"
+                  className="w-full px-6 py-3 bg-[#997a3c] text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-[#997a3c]/30 transition disabled:bg-[#e8dcc8]/30 disabled:text-color-text-muted disabled:cursor-not-allowed"
                 >
                   {cargando ? 'Enviando...' : 'Enviar Mensaje'}
                 </button>
 
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-color-text-muted">
                   * Campos obligatorios. Tu información será usada solo para responder a tu consulta.
                 </p>
               </form>
@@ -233,30 +233,30 @@ export default function ContactoPage() {
       </section>
 
       {/* Additional Info */}
-      <section className="py-12 bg-gray-50 border-t border-gray-200">
+      <section className="py-12 bg-color-bg-secondary border-t border-gold-light/30">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">
+          <h2 className="text-2xl font-bold text-gold-dark mb-8 text-center">
             Otras Formas de Ayuda
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="text-4xl mb-4">📚</div>
-              <h3 className="font-semibold text-gray-900 mb-2">Centro de Ayuda</h3>
-              <p className="text-gray-700 text-sm">
+              <h3 className="font-semibold text-color-text mb-2">Centro de Ayuda</h3>
+              <p className="text-color-text-muted text-sm">
                 Explora nuestros artículos y guías sobre fitness y uso de la plataforma.
               </p>
             </div>
             <div className="text-center">
-              <div className="text-4xl mb-4">🔒</div>
-              <h3 className="font-semibold text-gray-900 mb-2">Privacidad</h3>
-              <p className="text-gray-700 text-sm">
+              <div className="text-4xl mb-4">🔐</div>
+              <h3 className="font-semibold text-color-text mb-2">Privacidad</h3>
+              <p className="text-color-text-muted text-sm">
                 Lee nuestra política de privacidad completa y cómo protegemos tus datos.
               </p>
             </div>
             <div className="text-center">
               <div className="text-4xl mb-4">⚖️</div>
-              <h3 className="font-semibold text-gray-900 mb-2">Términos Legales</h3>
-              <p className="text-gray-700 text-sm">
+              <h3 className="font-semibold text-color-text mb-2">Términos Legales</h3>
+              <p className="text-color-text-muted text-sm">
                 Revisa nuestros términos de servicio y acuerdos legales.
               </p>
             </div>

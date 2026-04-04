@@ -12,11 +12,11 @@ export default function RutinasPage() {
   return (
     <div>
       {/* Back Button Header */}
-      <div className="bg-white border-b border-gray-200 py-3 sm:py-4 sticky top-0 z-40">
+      <div className="bg-white border-b border-gold-light/30 py-3 sm:py-4 sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-3">
           <button
             onClick={() => router.back()}
-            className="flex items-center gap-2 text-gray-900 hover:text-gray-700 hover:bg-gray-100 px-3 py-2 rounded-lg transition-all font-500"
+            className="flex items-center gap-2 text-color-text hover:text-gold-dark hover:bg-gold-light/10 px-3 py-2 rounded-lg transition-all font-500"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -27,17 +27,17 @@ export default function RutinasPage() {
       </div>
 
       {/* Hero */}
-      <section className="py-12 md:py-16 bg-white border-b border-gray-200">
+      <section className="py-12 md:py-16 bg-white border-b border-gold-light/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-gold-dark mb-4">
             Todas nuestras rutinas
           </h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-6">
+          <p className="text-lg text-color-text-muted max-w-2xl mx-auto mb-6">
             Selecciona una rutina pre-diseñada o crea la tuya personalizada
           </p>
           <Link
             href="/"
-            className="inline-block px-6 py-3 bg-black text-white font-semibold rounded-lg hover:bg-gray-900 transition"
+            className="inline-block px-6 py-3 bg-gradient-to-r from-gold-primary to-gold-dark text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-gold-primary/30 transition"
           >
             Crear rutina personalizada →
           </Link>
@@ -59,20 +59,20 @@ export default function RutinasPage() {
           <div className="space-y-12 mt-20 pt-20 border-t border-gray-200">
             {/* Rutina 3 Días */}
             <div className="prose prose-sm sm:prose max-w-none">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Rutina 3 Días: La Mejor Opción para Principiantes</h2>
-              <p className="text-gray-700 leading-relaxed mb-4">
+              <h2 className="text-3xl font-bold text-gold-dark mb-4">Rutina 3 Días: La Mejor Opción para Principiantes</h2>
+              <p className="text-color-text leading-relaxed mb-4">
                 La rutina de 3 días es la opción más popular entre aquellos que comienzan su viaje en el fitness. 
                 Este programa ofrece el equilibrio perfecto entre volumen de entrenamiento suficiente para estimular 
                 el crecimiento muscular y la recuperación adecuada que los principiantes necesitan.
               </p>
-              <p className="text-gray-700 leading-relaxed mb-4">
+              <p className="text-color-text leading-relaxed mb-4">
                 Con solo 60-75 minutos por sesión, esta rutina es altamente sostenible. Es lo suficientemente corta 
                 para no interferir con tu vida diaria, pero lo suficientemente larga para provocar adaptaciones significativas 
                 en fuerza e hipertrofia. Cada grupo muscular se trabaja dos veces por semana, lo que es óptimo para 
                 la síntesis proteica muscular.
               </p>
-              <h3 className="text-2xl font-bold text-gray-900 mt-6 mb-3">Beneficios de la Rutina 3 Días</h3>
-              <ul className="list-disc list-inside space-y-2 text-gray-700">
+              <h3 className="text-2xl font-bold text-gold-dark mt-6 mb-3">Beneficios de la Rutina 3 Días</h3>
+              <ul className="list-disc list-inside space-y-2 text-color-text">
                 <li>Mayor frecuencia de entrenamiento para cada grupo muscular</li>
                 <li>Excelente recuperación entre sesiones</li>
                 <li>Mayor adherencia: es fácil mantener consistencia</li>
@@ -83,19 +83,19 @@ export default function RutinasPage() {
 
             {/* Rutina 4 Días */}
             <div className="prose prose-sm sm:prose max-w-none">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Rutina 4 Días: PPL (Push/Pull/Legs)</h2>
-              <p className="text-gray-700 leading-relaxed mb-4">
+              <h2 className="text-3xl font-bold text-gold-dark mb-4">Rutina 4 Días: PPL (Push/Pull/Legs)</h2>
+              <p className="text-color-text leading-relaxed mb-4">
                 La rutina de 4 días con divisón Torso/Pierna es perfecta para atletas intermedios que desean 
                 mayor volumen y especificidad. Este programa permite entrenar push (pecho, hombros, tríceps) 
                 y pull (espalda, bíceps) en días separados, además de dos días dedicados a las piernas.
               </p>
-              <p className="text-gray-700 leading-relaxed mb-4">
+              <p className="text-color-text leading-relaxed mb-4">
                 Cada grupo muscular recibe aproximadamente 5-6 ejercicios por sesión, lo que permite atacar desde 
                 múltiples ángulos y con diferentes patrones de movimiento. Esto resulta en mayor hipertrofia y desarrollo 
                 funcional más completo.
               </p>
-              <h3 className="text-2xl font-bold text-gray-900 mt-6 mb-3">Estructura PPL</h3>
-              <ul className="list-disc list-inside space-y-2 text-gray-700">
+              <h3 className="text-2xl font-bold text-gold-dark mt-6 mb-3">Estructura PPL</h3>
+              <ul className="list-disc list-inside space-y-2 text-color-text">
                 <li><strong>Push Day:</strong> Press de banca, press militar, dips, fondos</li>
                 <li><strong>Pull Day:</strong> Dominadas, remo inclinado, curls de bíceps</li>
                 <li><strong>Leg Day:</strong> Sentadillas, peso muerto, extensiones, curls de isquios</li>

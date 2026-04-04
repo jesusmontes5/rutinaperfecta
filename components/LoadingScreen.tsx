@@ -27,7 +27,7 @@ export default function LoadingScreen() {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed inset-0 bg-gradient-to-br from-white via-white to-gray-50 z-[9999] flex items-center justify-center overflow-hidden">
+    <div className="fixed inset-0 bg-gradient-to-br from-white via-white to-gray-50 z-50 flex items-center justify-center overflow-hidden pointer-events-none">
       {/* Elementos de fondo decorativos */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 right-20 w-72 h-72 bg-black/5 rounded-full blur-3xl animate-pulse"></div>

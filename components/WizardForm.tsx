@@ -94,12 +94,12 @@ export default function WizardForm() {
         <div className="text-center space-y-6 p-8">
           <div className="inline-block">
             <div className="relative w-20 h-20">
-              <div className="absolute inset-0 border-4 border-gray-200 rounded-full animate-spin border-t-black"></div>
+              <div className="absolute inset-0 border-4 border-gold-light rounded-full animate-spin border-t-gold-primary"></div>
             </div>
           </div>
           <div className="space-y-2">
-            <h2 className="text-3xl font-700 text-gray-900">Generando tu rutina...</h2>
-            <p className="text-gray-600 text-base">Estamos creando la rutina perfecta para ti</p>
+            <h2 className="text-3xl font-700 text-color-text">Generando tu rutina...</h2>
+            <p className="text-color-text-muted text-base">Estamos creando la rutina perfecta para ti</p>
           </div>
         </div>
       </div>
@@ -111,31 +111,31 @@ export default function WizardForm() {
     return (
       <div className="space-y-8 animate-fadeIn">
         <div className="text-center space-y-4 pb-8">
-          <h2 className="text-5xl font-700 text-gray-900">Tu rutina está lista</h2>
-          <p className="text-lg text-gray-600">Está completamente personalizada y optimizada para ti</p>
+          <h2 className="text-5xl font-700 text-color-text">Tu rutina está lista</h2>
+          <p className="text-lg text-color-text-muted">Está completamente personalizada y optimizada para ti</p>
         </div>
 
         <RoutineCard routine={generatedRoutine} expanded={true} />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4">
-          <button
-            onClick={() => downloadRoutineAsPDF(generatedRoutine)}
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-black text-white font-600 rounded-lg hover:bg-gray-800 transition-all text-base"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <button
+              onClick={() => downloadRoutineAsPDF(generatedRoutine)}
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#997a3c] text-white font-500 rounded-lg hover:shadow-md transition text-base outline-none"
+            >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
             </svg>
-            Descargar PDF
+            Descargar
           </button>
 
           <button
             onClick={resetWizard}
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gray-100 text-gray-900 font-600 rounded-lg hover:bg-gray-200 transition-all text-base"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-color-bg-secondary text-color-text font-500 rounded-lg hover:bg-color-border transition text-base border border-color-border-light outline-none"
           >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
             </svg>
-            Otra rutina
+            Nueva
           </button>
         </div>
       </div>
@@ -143,22 +143,20 @@ export default function WizardForm() {
   }
 
   return (
-    <div className="space-y-4 sm:space-y-6">
-      {/* Progress Section - Compact */}
-      <div className="bg-gradient-to-r from-white to-gray-50 rounded-xl border border-gray-100 p-4 sm:p-5">
-        <div className="flex items-center justify-between mb-3 gap-3">
-          <div className="flex-1">
-            <h3 className="font-600 text-gray-900 text-base sm:text-lg">Paso {step} de {getActualTotalSteps()}</h3>
-          </div>
-          <div className="text-sm font-600 text-gray-600 bg-gray-100 px-3 py-1.5 rounded-lg flex-shrink-0">
+    <div className="space-y-6 sm:space-y-8">
+      {/* Progress Section - Modern Minimalist */}
+      <div className="space-y-3">
+        <div className="flex items-center justify-between">
+          <h3 className="text-sm font-600 text-color-text-muted uppercase tracking-wider">Paso {step} de {getActualTotalSteps()}</h3>
+          <div className="text-sm font-700 text-gold-primary bg-gold-light/20 px-3 py-1 rounded-full">
             {Math.round((step / getActualTotalSteps()) * 100)}%
           </div>
         </div>
 
-        {/* Progress Bar */}
-        <div className="w-full bg-gray-200 rounded-full h-1.5 overflow-hidden">
+        {/* Progress Bar - Clean & Modern */}
+        <div className="w-full bg-color-border-light rounded-full h-1 overflow-hidden">
           <div
-            className="bg-black h-full transition-all duration-500 rounded-full"
+            className="bg-gold-primary h-full transition-all duration-500 rounded-full"
             style={{ width: `${(step / getActualTotalSteps()) * 100}%` }}
           ></div>
         </div>
@@ -168,8 +166,8 @@ export default function WizardForm() {
       {step === 1 && (
         <div className="animate-fadeIn space-y-4">
           <div>
-            <h2 className="text-xl sm:text-2xl font-700 text-gray-900 mb-1">¿Cuál es tu objetivo?</h2>
-            <p className="text-gray-600 text-xs sm:text-sm">Define ejercicios, nutrición y progresión</p>
+            <h2 className="text-xl sm:text-2xl font-700 text-color-text mb-1">¿Cuál es tu objetivo?</h2>
+            <p className="text-color-text-muted text-xs sm:text-sm">Define ejercicios, nutrición y progresión</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
@@ -181,15 +179,22 @@ export default function WizardForm() {
               <button
                 key={value}
                 onClick={() => setData({ ...data, objective: value as any })}
-                className={`p-4 rounded-lg border-1.5 font-500 text-center transition-all duration-200 transform hover:scale-102 active:scale-95 ${
+                className={`p-4 rounded-xl border-2 font-500 text-center transition-all duration-300 transform outline-none focus:outline-none relative ${
                   data.objective === value
-                    ? 'bg-black text-white border-black shadow-md'
-                    : 'bg-white text-gray-900 border-gray-200 hover:border-gray-300'
+                    ? 'bg-[#997a3c] text-white border-[#997a3c] shadow-lg scale-105'
+                    : 'bg-white text-[#997a3c] border-[#e8dcc8] hover:border-[#c9a563] hover:shadow-md'
                 }`}
               >
-                <div className="text-2xl mb-2">{emoji}</div>
-                <div className="font-600 text-sm">{label}</div>
-                <div className={`text-xs mt-1.5 ${data.objective === value ? 'text-gray-300' : 'text-gray-500'}`}>{desc}</div>
+                {data.objective === value && (
+                  <div className="absolute top-2 right-2 w-5 h-5 bg-white rounded-full flex items-center justify-center">
+                    <svg className="w-3 h-3 text-gold-primary" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                )}
+                <div className="text-3xl mb-2">{emoji}</div>
+                <div className="font-700 text-sm">{label}</div>
+                <div className={`text-xs mt-2 font-400 ${data.objective === value ? 'text-white/90' : 'text-color-text-muted'}`}>{desc}</div>
               </button>
             ))}
           </div>
@@ -200,8 +205,8 @@ export default function WizardForm() {
       {step === 2 && (
         <div className="animate-slideInRight space-y-4">
           <div>
-            <h2 className="text-xl sm:text-2xl font-700 text-gray-900 mb-1">¿Cuál es tu experiencia?</h2>
-            <p className="text-gray-600 text-xs sm:text-sm">Adapto dificultad y progresión a tu nivel</p>
+            <h2 className="text-xl sm:text-2xl font-700 text-color-text mb-1">¿Cuál es tu experiencia?</h2>
+            <p className="text-color-text-muted text-xs sm:text-sm">Adapto dificultad y progresión a tu nivel</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
@@ -213,15 +218,22 @@ export default function WizardForm() {
               <button
                 key={value}
                 onClick={() => setData({ ...data, level: value as any })}
-                className={`p-4 rounded-lg border-1.5 font-500 text-center transition-all transform hover:scale-102 ${
+                className={`p-4 rounded-xl border-2 font-500 text-center transition-all duration-300 transform outline-none focus:outline-none relative ${
                   data.level === value
-                    ? 'bg-black text-white border-black shadow-md'
-                    : 'bg-white text-gray-900 border-gray-200 hover:border-gray-300'
+                    ? 'bg-[#997a3c] text-white border-[#997a3c] shadow-lg scale-105'
+                    : 'bg-white text-[#997a3c] border-[#e8dcc8] hover:border-[#c9a563] hover:shadow-md'
                 }`}
               >
-                <div className="text-2xl mb-2">{emoji}</div>
-                <div className="font-600 text-sm">{label}</div>
-                <div className={`text-xs mt-1.5 ${data.level === value ? 'text-gray-300' : 'text-gray-500'}`}>{desc}</div>
+                {data.level === value && (
+                  <div className="absolute top-2 right-2 w-5 h-5 bg-white rounded-full flex items-center justify-center">
+                    <svg className="w-3 h-3 text-gold-primary" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                )}
+                <div className="text-3xl mb-2">{emoji}</div>
+                <div className="font-700 text-sm">{label}</div>
+                <div className={`text-xs mt-2 font-400 ${data.level === value ? 'text-white/90' : 'text-color-text-muted'}`}>{desc}</div>
               </button>
             ))}
           </div>
@@ -232,8 +244,8 @@ export default function WizardForm() {
       {step === 3 && (
         <div className="animate-slideInRight space-y-4">
           <div>
-            <h2 className="text-xl sm:text-2xl font-700 text-gray-900 mb-1">¿Cuántos días puedes entrenar?</h2>
-            <p className="text-gray-600 text-xs sm:text-sm">Consistencia &gt; Intensidad</p>
+            <h2 className="text-xl sm:text-2xl font-700 text-color-text mb-1">¿Cuántos días puedes entrenar?</h2>
+            <p className="text-color-text-muted text-xs sm:text-sm">Consistencia &gt; Intensidad</p>
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
@@ -246,15 +258,22 @@ export default function WizardForm() {
               <button
                 key={days}
                 onClick={() => setData({ ...data, days })}
-                className={`p-3.5 rounded-lg border-1.5 font-500 text-center transition-all transform hover:scale-102 ${
+                className={`p-3.5 rounded-xl border-2 font-500 text-center transition-all duration-300 transform outline-none focus:outline-none relative ${
                   data.days === days
-                    ? 'bg-black text-white border-black shadow-md'
-                    : 'bg-white text-gray-900 border-gray-200 hover:border-gray-300'
+                    ? 'bg-[#997a3c] text-white border-[#997a3c] shadow-lg scale-105'
+                    : 'bg-white text-[#997a3c] border-[#e8dcc8] hover:border-[#c9a563] hover:shadow-md'
                 }`}
               >
-                <div className="text-2xl font-600">{days}</div>
-                <div className="text-xl my-1">{emoji}</div>
-                <div className={`text-xs font-500 ${data.days === days ? 'text-gray-300' : 'text-gray-500'}`}>{desc}</div>
+                {data.days === days && (
+                  <div className="absolute top-1.5 right-1.5 w-4 h-4 bg-white rounded-full flex items-center justify-center">
+                    <svg className="w-2.5 h-2.5 text-gold-primary" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                )}
+                <div className="font-700 text-lg">{days}</div>
+                <div className="text-xl my-1.5">{emoji}</div>
+                <div className={`text-xs font-500 ${data.days === days ? 'text-white/90' : 'text-color-text-muted'}`}>{desc}</div>
               </button>
             ))}
           </div>
@@ -265,8 +284,8 @@ export default function WizardForm() {
       {step === 4 && (
         <div className="animate-slideInRight space-y-4">
           <div>
-            <h2 className="text-xl sm:text-2xl font-700 text-gray-900 mb-1">¿Dónde entrenarás?</h2>
-            <p className="text-gray-600 text-xs sm:text-sm">Define ejercicios disponibles</p>
+            <h2 className="text-xl sm:text-2xl font-700 text-color-text mb-1">¿Dónde entrenarás?</h2>
+            <p className="text-color-text-muted text-xs sm:text-sm">Define ejercicios disponibles</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
@@ -277,15 +296,22 @@ export default function WizardForm() {
               <button
                 key={value}
                 onClick={() => setData({ ...data, location: value as any })}
-                className={`p-4 rounded-lg border-1.5 font-500 text-center transition-all transform hover:scale-102 ${
+                className={`p-4 rounded-xl border-2 font-500 text-center transition-all duration-300 transform outline-none focus:outline-none relative ${
                   data.location === value
-                    ? 'bg-black text-white border-black shadow-md'
-                    : 'bg-white text-gray-900 border-gray-200 hover:border-gray-300'
+                    ? 'bg-[#997a3c] text-white border-[#997a3c] shadow-lg scale-105'
+                    : 'bg-white text-[#997a3c] border-[#e8dcc8] hover:border-[#c9a563] hover:shadow-md'
                 }`}
               >
+                {data.location === value && (
+                  <div className="absolute top-2 right-2 w-5 h-5 bg-white rounded-full flex items-center justify-center">
+                    <svg className="w-3 h-3 text-gold-primary" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                )}
                 <div className="text-4xl mb-2">{emoji}</div>
-                <div className="font-600 text-sm">{label}</div>
-                <div className={`text-xs mt-2 ${data.location === value ? 'text-gray-300' : 'text-gray-500'}`}>{desc}</div>
+                <div className="font-700 text-sm">{label}</div>
+                <div className={`text-xs mt-2 font-400 ${data.location === value ? 'text-white/90' : 'text-color-text-muted'}`}>{desc}</div>
               </button>
             ))}
           </div>
@@ -296,8 +322,8 @@ export default function WizardForm() {
       {step === 5 && (
         <div className="animate-slideInRight space-y-3">
           <div>
-            <h2 className="text-lg sm:text-xl font-700 text-gray-900 mb-1">¿Cuánto tiempo tienes por sesión?</h2>
-            <p className="text-gray-600 text-xs sm:text-sm">Efectivo en cualquier duración</p>
+            <h2 className="text-lg sm:text-xl font-700 text-color-text mb-1">¿Cuánto tiempo tienes por sesión?</h2>
+            <p className="text-color-text-muted text-xs sm:text-sm">Efectivo en cualquier duración</p>
           </div>
 
           <div className="space-y-2.5">
@@ -310,14 +336,21 @@ export default function WizardForm() {
               <button
                 key={value}
                 onClick={() => setData({ ...data, sessionDuration: value })}
-                className={`w-full p-3 rounded-lg border-1.5 font-500 text-left transition-all transform hover:scale-102 ${
+                className={`w-full p-3 rounded-xl border-2 font-500 text-left transition-all duration-300 transform outline-none focus:outline-none relative ${
                   data.sessionDuration === value
-                    ? 'bg-black text-white border-black shadow-md'
-                    : 'bg-white text-gray-900 border-gray-200 hover:border-gray-300'
+                    ? 'bg-[#997a3c] text-white border-[#997a3c] shadow-lg'
+                    : 'bg-white text-[#997a3c] border-[#e8dcc8] hover:border-[#c9a563] hover:shadow-md'
                 }`}
               >
-                <div className="font-600 text-sm">{label}</div>
-                <div className={`text-xs mt-1 ${data.sessionDuration === value ? 'text-gray-300' : 'text-gray-600'}`}>{desc}</div>
+                {data.sessionDuration === value && (
+                  <div className="absolute top-2 right-2 w-4 h-4 bg-white rounded-full flex items-center justify-center">
+                    <svg className="w-2.5 h-2.5 text-gold-primary" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                )}
+                <div className="font-700 text-sm">{label}</div>
+                <div className={`text-xs mt-1.5 font-400 ${data.sessionDuration === value ? 'text-white/90' : 'text-color-text-muted'}`}>{desc}</div>
               </button>
             ))}
           </div>
@@ -328,8 +361,8 @@ export default function WizardForm() {
       {step === 6 && (
         <div className="animate-slideInRight space-y-3">
           <div>
-            <h2 className="text-lg sm:text-xl font-700 text-gray-900 mb-1">¿Tienes limitaciones?</h2>
-            <p className="text-gray-600 text-xs sm:text-sm">Adaptaré ejercicios para ti (várias)</p>
+            <h2 className="text-lg sm:text-xl font-700 text-color-text mb-1">¿Tienes limitaciones?</h2>
+            <p className="text-color-text-muted text-xs sm:text-sm">Adaptaré ejercicios para ti (várias)</p>
           </div>
 
           <div className="space-y-2.5">
@@ -355,14 +388,21 @@ export default function WizardForm() {
                     }
                   }
                 }}
-                className={`w-full p-3 rounded-lg border-1.5 font-500 text-left transition-all transform hover:scale-102 ${
+                className={`w-full p-3 rounded-xl border-2 font-500 text-left transition-all duration-300 transform outline-none focus:outline-none relative ${
                   data.injuries?.includes(id) || (id === 'ninguna' && data.injuries?.length === 0)
-                    ? 'bg-black text-white border-black shadow-md'
-                    : 'bg-white text-gray-900 border-gray-200 hover:border-gray-300'
+                    ? 'bg-[#997a3c] text-white border-[#997a3c] shadow-lg'
+                    : 'bg-white text-[#997a3c] border-[#e8dcc8] hover:border-[#c9a563] hover:shadow-md'
                 }`}
               >
-                <div className="font-600 text-sm">{label}</div>
-                <div className={`text-xs mt-1 ${data.injuries?.includes(id) || (id === 'ninguna' && data.injuries?.length === 0) ? 'text-gray-300' : 'text-gray-600'}`}>{desc}</div>
+                {(data.injuries?.includes(id) || (id === 'ninguna' && data.injuries?.length === 0)) && (
+                  <div className="absolute top-2 right-2 w-4 h-4 bg-white rounded-full flex items-center justify-center">
+                    <svg className="w-2.5 h-2.5 text-gold-primary" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                )}
+                <div className="font-700 text-sm">{label}</div>
+                <div className={`text-xs mt-1.5 font-400 ${data.injuries?.includes(id) || (id === 'ninguna' && data.injuries?.length === 0) ? 'text-white/90' : 'text-color-text-muted'}`}>{desc}</div>
               </button>
             ))}
           </div>
@@ -373,8 +413,8 @@ export default function WizardForm() {
       {step === 7 && (
         <div className="animate-slideInRight space-y-3">
           <div>
-            <h2 className="text-lg sm:text-xl font-700 text-gray-900 mb-1">¿Qué ejercicios prefieres?</h2>
-            <p className="text-gray-600 text-xs sm:text-sm">Selecciona tus favoritos</p>
+            <h2 className="text-lg sm:text-xl font-700 text-color-text mb-1">¿Qué ejercicios prefieres?</h2>
+            <p className="text-color-text-muted text-xs sm:text-sm">Selecciona tus favoritos</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
@@ -394,14 +434,21 @@ export default function WizardForm() {
                     setData({ ...data, exercisePreferences: [...current, id] });
                   }
                 }}
-                className={`p-3.5 rounded-lg border-1.5 font-500 text-center transition-all transform hover:scale-102 ${
+                className={`p-3.5 rounded-xl border-2 font-500 text-center transition-all duration-300 transform outline-none focus:outline-none relative ${
                   data.exercisePreferences?.includes(id)
-                    ? 'bg-black text-white border-black shadow-md'
-                    : 'bg-white text-gray-900 border-gray-200 hover:border-gray-300'
+                    ? 'bg-[#997a3c] text-white border-[#997a3c] shadow-lg scale-105'
+                    : 'bg-white text-[#997a3c] border-[#e8dcc8] hover:border-[#c9a563] hover:shadow-md'
                 }`}
               >
-                <div className="font-600 text-sm">{label}</div>
-                <div className={`text-xs mt-1 ${data.exercisePreferences?.includes(id) ? 'text-gray-300' : 'text-gray-600'}`}>{desc}</div>
+                {data.exercisePreferences?.includes(id) && (
+                  <div className="absolute top-1.5 right-1.5 w-4 h-4 bg-white rounded-full flex items-center justify-center">
+                    <svg className="w-2.5 h-2.5 text-gold-primary" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                )}
+                <div className="font-700 text-sm">{label}</div>
+                <div className={`text-xs mt-1.5 font-400 ${data.exercisePreferences?.includes(id) ? 'text-white/90' : 'text-color-text-muted'}`}>{desc}</div>
               </button>
             ))}
           </div>
@@ -410,10 +457,10 @@ export default function WizardForm() {
 
       {/* Step 8: Cardio Level */}
       {step === 8 && (
-        <div className="animate-slideInRight space-y-3">
+        <div className="animate-slideInRight space-y-4">
           <div>
-            <h2 className="text-lg sm:text-xl font-700 text-gray-900 mb-1">¿Cuánto cardio deseas?</h2>
-            <p className="text-gray-600 text-xs sm:text-sm">Afecta la recuperación general</p>
+            <h2 className="text-xl sm:text-2xl font-700 text-color-text mb-1">¿Cuánto cardio deseas?</h2>
+            <p className="text-color-text-muted text-xs sm:text-sm">Afecta la recuperación general</p>
           </div>
 
           <div className="space-y-2.5">
@@ -425,14 +472,21 @@ export default function WizardForm() {
               <button
                 key={value}
                 onClick={() => setData({ ...data, cardio: value as any })}
-                className={`w-full p-3 rounded-lg border-1.5 font-500 text-left transition-all transform hover:scale-102 ${
+                className={`w-full p-3 rounded-xl border-2 font-500 text-left transition-all duration-300 transform outline-none focus:outline-none relative ${
                   data.cardio === value
-                    ? 'bg-black text-white border-black shadow-md'
-                    : 'bg-white text-gray-900 border-gray-200 hover:border-gray-300'
+                    ? 'bg-[#997a3c] text-white border-[#997a3c] shadow-lg'
+                    : 'bg-white text-[#997a3c] border-[#e8dcc8] hover:border-[#c9a563] hover:shadow-md'
                 }`}
               >
-                <div className="font-600 text-sm">{label}</div>
-                <div className={`text-xs mt-1 ${data.cardio === value ? 'text-gray-300' : 'text-gray-600'}`}>{desc}</div>
+                {data.cardio === value && (
+                  <div className="absolute top-2 right-2 w-4 h-4 bg-white rounded-full flex items-center justify-center">
+                    <svg className="w-2.5 h-2.5 text-gold-primary" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                )}
+                <div className="font-700 text-sm">{label}</div>
+                <div className={`text-xs mt-1.5 font-400 ${data.cardio === value ? 'text-white/90' : 'text-color-text-muted'}`}>{desc}</div>
               </button>
             ))}
           </div>
@@ -441,10 +495,10 @@ export default function WizardForm() {
 
       {/* Step 9: Training Style */}
       {step === 9 && (
-        <div className="animate-slideInRight space-y-3">
+        <div className="animate-slideInRight space-y-4">
           <div>
-            <h2 className="text-lg sm:text-xl font-700 text-gray-900 mb-1">¿Cuál es tu estilo?</h2>
-            <p className="text-gray-600 text-xs sm:text-sm">Elige tu preferencia</p>
+            <h2 className="text-xl sm:text-2xl font-700 text-color-text mb-1">¿Cuál es tu estilo?</h2>
+            <p className="text-color-text-muted text-xs sm:text-sm">Elige tu preferencia</p>
           </div>
 
           <div className="space-y-2.5">
@@ -473,14 +527,21 @@ export default function WizardForm() {
               <button
                 key={value}
                 onClick={() => setData({ ...data, trainingStyle: value as any })}
-                className={`w-full p-3 rounded-lg border-1.5 font-500 text-left transition-all transform hover:scale-102 ${
+                className={`w-full p-3 rounded-xl border-2 font-500 text-left transition-all duration-300 transform outline-none focus:outline-none relative ${
                   data.trainingStyle === value
-                    ? 'bg-black text-white border-black shadow-lg'
-                    : 'bg-white text-gray-900 border-gray-200 hover:border-gray-300'
+                    ? 'bg-[#997a3c] text-white border-[#997a3c] shadow-lg'
+                    : 'bg-white text-[#997a3c] border-[#e8dcc8] hover:border-[#c9a563] hover:shadow-md'
                 }`}
               >
-                <div className="font-700 text-base">{label}</div>
-                <div className={`text-sm mt-2 ${data.trainingStyle === value ? 'text-gray-300' : 'text-gray-600'}`}>{desc}</div>
+                {data.trainingStyle === value && (
+                  <div className="absolute top-2 right-2 w-4 h-4 bg-white rounded-full flex items-center justify-center">
+                    <svg className="w-2.5 h-2.5 text-gold-primary" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                )}
+                <div className="font-700 text-sm">{label}</div>
+                <div className={`text-xs mt-1.5 font-400 ${data.trainingStyle === value ? 'text-white/90' : 'text-color-text-muted'}`}>{desc}</div>
               </button>
             ))}
           </div>
@@ -489,15 +550,15 @@ export default function WizardForm() {
 
       {/* Step 10: Availability */}
       {step === 10 && (
-        <div className="animate-slideInRight space-y-6">
+        <div className="animate-slideInRight space-y-4">
           <div>
-            <h2 className="text-3xl font-700 text-gray-900 mb-2">¿A qué hora prefieres entrenar?</h2>
-            <p className="text-gray-600 text-base">Optimizaré nutrición y energía según tu horario</p>
+            <h2 className="text-xl sm:text-2xl font-700 text-color-text mb-1">¿A qué hora prefieres entrenar?</h2>
+            <p className="text-color-text-muted text-xs sm:text-sm">Optimizaré nutrición y energía según tu horario</p>
           </div>
 
-          <div className="space-y-3">
+          <div className="space-y-2.5">
             {[
-              { value: 'manana', label: '🌅 Mañana (6-9 AM)', desc: 'Aprovechar energía matutina fresca' },
+              { value: 'manana', label: '🌅 Mañana (6-9 AM)', desc: 'Energía matutina fresca' },
               { value: 'mediodía', label: '☀️ Mediodía (12-1)', desc: 'Descanso de trabajo' },
               { value: 'tarde', label: '🌤️ Tarde (3-6)', desc: 'Mejor rendimiento' },
               { value: 'noche', label: '🌙 Noche (6-9)', desc: 'Post-trabajo' },
@@ -505,14 +566,21 @@ export default function WizardForm() {
               <button
                 key={value}
                 onClick={() => setData({ ...data, trainingTime: value as any })}
-                className={`w-full p-3 rounded-lg border-1.5 font-500 text-left transition-all transform hover:scale-102 ${
+                className={`w-full p-3 rounded-xl border-2 font-500 text-left transition-all duration-300 transform outline-none focus:outline-none relative ${
                   data.trainingTime === value
-                    ? 'bg-black text-white border-black shadow-lg'
-                    : 'bg-white text-gray-900 border-gray-200 hover:border-gray-300'
+                    ? 'bg-[#997a3c] text-white border-[#997a3c] shadow-lg'
+                    : 'bg-white text-[#997a3c] border-[#e8dcc8] hover:border-[#c9a563] hover:shadow-md'
                 }`}
               >
-                <div className="font-700">{label}</div>
-                <div className={`text-sm mt-2 ${data.trainingTime === value ? 'text-gray-300' : 'text-gray-600'}`}>{desc}</div>
+                {data.trainingTime === value && (
+                  <div className="absolute top-2 right-2 w-4 h-4 bg-white rounded-full flex items-center justify-center">
+                    <svg className="w-2.5 h-2.5 text-gold-primary" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                )}
+                <div className="font-700 text-sm">{label}</div>
+                <div className={`text-xs mt-1.5 font-400 ${data.trainingTime === value ? 'text-white/90' : 'text-color-text-muted'}`}>{desc}</div>
               </button>
             ))}
           </div>
@@ -521,10 +589,10 @@ export default function WizardForm() {
 
       {/* Step 11: Recovery Priority */}
       {step === 11 && (
-        <div className="animate-slideInRight space-y-3">
+        <div className="animate-slideInRight space-y-4">
           <div>
-            <h2 className="text-lg sm:text-xl font-700 text-gray-900 mb-1">¿Tu prioridad de recuperación?</h2>
-            <p className="text-gray-600 text-xs sm:text-sm">Base del éxito</p>
+            <h2 className="text-xl sm:text-2xl font-700 text-color-text mb-1">¿Tu prioridad de recuperación?</h2>
+            <p className="text-color-text-muted text-xs sm:text-sm">Base del éxito</p>
           </div>
 
           <div className="space-y-2.5">
@@ -548,14 +616,21 @@ export default function WizardForm() {
               <button
                 key={value}
                 onClick={() => setData({ ...data, recoveryPriority: value as any })}
-                className={`w-full p-3 rounded-lg border-1.5 font-500 text-left transition-all transform hover:scale-102 ${
+                className={`w-full p-3 rounded-xl border-2 font-500 text-left transition-all duration-300 transform outline-none focus:outline-none relative ${
                   data.recoveryPriority === value
-                    ? 'bg-black text-white border-black shadow-md'
-                    : 'bg-white text-gray-900 border-gray-200 hover:border-gray-300'
+                    ? 'bg-[#997a3c] text-white border-[#997a3c] shadow-lg'
+                    : 'bg-white text-[#997a3c] border-[#e8dcc8] hover:border-[#c9a563] hover:shadow-md'
                 }`}
               >
-                <div className="font-600 text-sm">{label}</div>
-                <div className={`text-xs mt-1 ${data.recoveryPriority === value ? 'text-gray-300' : 'text-gray-600'}`}>{desc}</div>
+                {data.recoveryPriority === value && (
+                  <div className="absolute top-2 right-2 w-4 h-4 bg-white rounded-full flex items-center justify-center">
+                    <svg className="w-2.5 h-2.5 text-gold-primary" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                )}
+                <div className="font-700 text-sm">{label}</div>
+                <div className={`text-xs mt-1.5 font-400 ${data.recoveryPriority === value ? 'text-white/90' : 'text-color-text-muted'}`}>{desc}</div>
               </button>
             ))}
           </div>
@@ -564,13 +639,13 @@ export default function WizardForm() {
 
       {/* Step 12: Equipment (if home) */}
       {data.location === 'casa' && step === 12 && (
-        <div className="animate-slideInRight space-y-6">
+        <div className="animate-slideInRight space-y-4">
           <div>
-            <h2 className="text-3xl font-700 text-gray-900 mb-2">¿Qué equipamiento tienes?</h2>
-            <p className="text-gray-600 text-base">Selecciona al menos uno para personalizar ejercicios (puedes marcar varios)</p>
+            <h2 className="text-xl sm:text-2xl font-700 text-color-text mb-1">¿Qué equipamiento tienes?</h2>
+            <p className="text-color-text-muted text-xs sm:text-sm">Selecciona al menos uno para personalizar ejercicios</p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
             {[
               { id: 'mancuernas', label: '🔵 Mancuernas', desc: 'Versátil y eficaz' },
               { id: 'barra', label: '🟠 Barra + Discos', desc: 'Máxima carga' },
@@ -589,14 +664,21 @@ export default function WizardForm() {
                     setData({ ...data, equipment: [...current, id] });
                   }
                 }}
-                className={`p-4 rounded-xl border-2 font-500 text-center transition-all transform hover:scale-105 text-sm ${
+                className={`p-3.5 rounded-xl border-2 font-500 text-center transition-all duration-300 transform outline-none focus:outline-none relative text-sm ${
                   data.equipment?.includes(id)
-                    ? 'bg-black text-white border-black shadow-md'
-                    : 'bg-white text-gray-900 border-gray-200 hover:border-gray-300'
+                    ? 'bg-[#997a3c] text-white border-[#997a3c] shadow-lg scale-105'
+                    : 'bg-white text-[#997a3c] border-[#e8dcc8] hover:border-[#c9a563] hover:shadow-md'
                 }`}
               >
-                <div className="font-700">{label}</div>
-                <div className={`text-xs mt-1 ${data.equipment?.includes(id) ? 'text-gray-300' : 'text-gray-600'}`}>{desc}</div>
+                {data.equipment?.includes(id) && (
+                  <div className="absolute top-1.5 right-1.5 w-4 h-4 bg-white rounded-full flex items-center justify-center">
+                    <svg className="w-2.5 h-2.5 text-gold-primary" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                )}
+                <div className="font-700 text-xs">{label}</div>
+                <div className={`text-xs mt-1.5 font-400 ${data.equipment?.includes(id) ? 'text-white/90' : 'text-color-text-muted'}`}>{desc}</div>
               </button>
             ))}
           </div>
@@ -605,10 +687,10 @@ export default function WizardForm() {
 
       {/* Step 12 (if gym): Experience */}
       {data.location === 'gimnasio' && step === 12 && (
-        <div className="animate-slideInRight space-y-3">
+        <div className="animate-slideInRight space-y-4">
           <div>
-            <h2 className="text-lg sm:text-xl font-700 text-gray-900 mb-1">¿Tu experiencia previa?</h2>
-            <p className="text-gray-600 text-xs sm:text-sm">Calibra dificultad y progresión</p>
+            <h2 className="text-xl sm:text-2xl font-700 text-color-text mb-1">¿Tu experiencia previa?</h2>
+            <p className="text-color-text-muted text-xs sm:text-sm">Calibra dificultad y progresión</p>
           </div>
 
           <div className="space-y-2.5">
@@ -637,26 +719,33 @@ export default function WizardForm() {
               <button
                 key={value}
                 onClick={() => setData({ ...data, experienceMonths: value as any })}
-                className={`w-full p-3 rounded-lg border-1.5 font-500 text-left transition-all transform hover:scale-102 ${
+                className={`w-full p-3 rounded-xl border-2 font-500 text-left transition-all duration-300 transform outline-none focus:outline-none relative ${
                   data.experienceMonths === value
-                    ? 'bg-black text-white border-black shadow-md'
-                    : 'bg-white text-gray-900 border-gray-200 hover:border-gray-300'
+                    ? 'bg-[#997a3c] text-white border-[#997a3c] shadow-lg'
+                    : 'bg-white text-[#997a3c] border-[#e8dcc8] hover:border-[#c9a563] hover:shadow-md'
                 }`}
               >
-                <div className="font-600 text-sm">{label}</div>
-                <div className={`text-xs mt-1 ${data.experienceMonths === value ? 'text-gray-300' : 'text-gray-600'}`}>{desc}</div>
+                {data.experienceMonths === value && (
+                  <div className="absolute top-2 right-2 w-4 h-4 bg-white rounded-full flex items-center justify-center">
+                    <svg className="w-2.5 h-2.5 text-gold-primary" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                )}
+                <div className="font-700 text-sm">{label}</div>
+                <div className={`text-xs mt-1.5 font-400 ${data.experienceMonths === value ? 'text-white/90' : 'text-color-text-muted'}`}>{desc}</div>
               </button>
             ))}
           </div>
         </div>
       )}
 
-      {/* Step 13 (if casa): Experience */}
+      {/* Step 13 (if cas): Experience */}
       {data.location === 'casa' && step === 13 && (
-        <div className="animate-slideInRight space-y-3">
+        <div className="animate-slideInRight space-y-4">
           <div>
-            <h2 className="text-lg sm:text-xl font-700 text-gray-900 mb-1">¿Tu experiencia previa?</h2>
-            <p className="text-gray-600 text-xs sm:text-sm">Calibra dificultad y progresión</p>
+            <h2 className="text-xl sm:text-2xl font-700 text-color-text mb-1">¿Tu experiencia previa?</h2>
+            <p className="text-color-text-muted text-xs sm:text-sm">Calibra dificultad y progresión</p>
           </div>
 
           <div className="space-y-2.5">
@@ -685,14 +774,21 @@ export default function WizardForm() {
               <button
                 key={value}
                 onClick={() => setData({ ...data, experienceMonths: value as any })}
-                className={`w-full p-3 rounded-lg border-1.5 font-500 text-left transition-all transform hover:scale-102 ${
+                className={`w-full p-3 rounded-xl border-2 font-500 text-left transition-all duration-300 transform outline-none focus:outline-none relative ${
                   data.experienceMonths === value
-                    ? 'bg-black text-white border-black shadow-md'
-                    : 'bg-white text-gray-900 border-gray-200 hover:border-gray-300'
+                    ? 'bg-[#997a3c] text-white border-[#997a3c] shadow-lg'
+                    : 'bg-white text-[#997a3c] border-[#e8dcc8] hover:border-[#c9a563] hover:shadow-md'
                 }`}
               >
-                <div className="font-600 text-sm">{label}</div>
-                <div className={`text-xs mt-1 ${data.experienceMonths === value ? 'text-gray-300' : 'text-gray-600'}`}>{desc}</div>
+                {data.experienceMonths === value && (
+                  <div className="absolute top-2 right-2 w-4 h-4 bg-white rounded-full flex items-center justify-center">
+                    <svg className="w-2.5 h-2.5 text-gold-primary" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                )}
+                <div className="font-700 text-sm">{label}</div>
+                <div className={`text-xs mt-1.5 font-400 ${data.experienceMonths === value ? 'text-white/90' : 'text-color-text-muted'}`}>{desc}</div>
               </button>
             ))}
           </div>
@@ -703,36 +799,36 @@ export default function WizardForm() {
       {(data.location === 'casa' ? step === 14 : step === 13) && (
         <div className="animate-slideInRight space-y-3">
           <div>
-            <h2 className="text-lg sm:text-xl font-700 text-gray-900 mb-1">✅ ¡Listo para tu rutina!</h2>
-            <p className="text-gray-600 text-xs sm:text-sm">Información personalizada</p>
+            <h2 className="text-lg sm:text-xl font-700 text-color-text mb-1">✅ ¡Listo para tu rutina!</h2>
+            <p className="text-color-text-muted text-xs sm:text-sm">Información personalizada</p>
           </div>
 
-          <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg p-4 space-y-2 border border-gray-200">
+          <div className="bg-gradient-to-br from-color-bg via-color-bg-secondary to-color-bg rounded-lg p-4 space-y-2 border border-gold-light/20">
             <div className="text-xs space-y-2">
-              <div className="flex justify-between items-center p-2 bg-white rounded text-sm">
-                <span className="text-gray-600 font-500">🎯 Objetivo:</span>
-                <span className="font-700 text-gray-900 capitalize bg-gray-100 px-2 py-0.5 rounded text-xs">{data.objective}</span>
+              <div className="flex justify-between items-center p-2 bg-white/50 rounded text-sm border border-gold-light/30">
+                <span className="text-color-text-muted font-500">🎯 Objetivo:</span>
+                <span className="font-700 text-gold-dark bg-gold-light/40 px-2 py-0.5 rounded text-xs">{data.objective}</span>
               </div>
-              <div className="flex justify-between items-center p-2 bg-white rounded text-sm">
-                <span className="text-gray-600 font-500">📊 Nivel:</span>
-                <span className="font-700 text-gray-900 capitalize bg-gray-100 px-2 py-0.5 rounded text-xs">{data.level}</span>
+              <div className="flex justify-between items-center p-2 bg-white/50 rounded text-sm border border-gold-light/30">
+                <span className="text-color-text-muted font-500">📊 Nivel:</span>
+                <span className="font-700 text-gold-dark bg-gold-light/40 px-2 py-0.5 rounded text-xs">{data.level}</span>
               </div>
-              <div className="flex justify-between items-center p-2 bg-white rounded text-sm">
-                <span className="text-gray-600 font-500">📅 Días:</span>
-                <span className="font-700 text-gray-900 bg-gray-100 px-2 py-0.5 rounded text-xs">{data.days}d</span>
+              <div className="flex justify-between items-center p-2 bg-white/50 rounded text-sm border border-gold-light/30">
+                <span className="text-color-text-muted font-500">📅 Días:</span>
+                <span className="font-700 text-gold-dark bg-gold-light/40 px-2 py-0.5 rounded text-xs">{data.days}d</span>
               </div>
-              <div className="flex justify-between items-center p-2 bg-white rounded text-sm">
-                <span className="text-gray-600 font-500">📍 Lugar:</span>
-                <span className="font-700 text-gray-900 capitalize bg-gray-100 px-2 py-0.5 rounded text-xs">{data.location}</span>
+              <div className="flex justify-between items-center p-2 bg-white/50 rounded text-sm border border-gold-light/30">
+                <span className="text-color-text-muted font-500">📍 Lugar:</span>
+                <span className="font-700 text-gold-dark bg-gold-light/40 px-2 py-0.5 rounded text-xs capitalize">{data.location}</span>
               </div>
             </div>
           </div>
 
-          <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg p-3 border-2 border-green-200">
-            <p className="text-sm text-green-900 font-600">
+          <div className="bg-gradient-to-r from-gold-light/20 to-golden-light/10 rounded-lg p-3 border-2 border-gold-light/40">
+            <p className="text-sm text-gold-dark font-600">
               ✨ 100% personalizada
             </p>
-            <p className="text-xs text-green-800 mt-1">
+            <p className="text-xs text-color-text-muted mt-1">
               Ejercicios adaptados, nutrición y progresión para tu nivel
             </p>
           </div>
@@ -740,20 +836,20 @@ export default function WizardForm() {
       )}
 
       {/* Buttons */}
-      <div className="flex gap-2 justify-between pt-4 sm:pt-5 border-t border-gray-200">
+      <div className="flex gap-3 justify-between pt-6 border-t border-color-border-light bg-white/95 backdrop-blur-sm sticky bottom-0 -mx-6 px-6 pb-6 z-40">
         <button
           onClick={handleBack}
           disabled={step === 1}
-          className={`flex-1 px-4 py-2.5 rounded-lg font-500 transition-all flex items-center justify-center gap-1.5 text-xs sm:text-sm ${
+          className={`flex-1 px-4 py-3 rounded-xl font-600 transition-all duration-300 flex items-center justify-center gap-2 text-sm outline-none ${
             step === 1
-              ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-              : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
+              ? 'bg-color-bg-secondary text-color-text-muted cursor-not-allowed'
+              : 'bg-color-bg-secondary text-color-text hover:bg-color-border hover:shadow-sm'
           }`}
         >
-          <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
-          <span className="hidden sm:inline">Atrás</span>
+          <span>Atrás</span>
         </button>
 
         <button
@@ -773,7 +869,7 @@ export default function WizardForm() {
             (step === 13 && data.location === 'casa' && !data.experienceMonths) ||
             (step === 12 && data.location === 'gimnasio' && !data.experienceMonths)
           }
-          className={`flex-1 px-4 py-2.5 rounded-lg font-600 transition-all flex items-center justify-center gap-1.5 text-xs sm:text-sm ${
+          className={`flex-1 px-4 py-3 rounded-xl font-700 transition-all duration-300 flex items-center justify-center gap-2 text-sm outline-none ${
             (step === 1 && !data.objective) ||
             (step === 2 && !data.level) ||
             (step === 3 && !data.days) ||
@@ -787,17 +883,12 @@ export default function WizardForm() {
             (step === 12 && data.location === 'casa' && (!data.equipment || data.equipment.length === 0)) ||
             (step === 13 && data.location === 'casa' && !data.experienceMonths) ||
             (step === 12 && data.location === 'gimnasio' && !data.experienceMonths)
-              ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
-              : 'bg-black text-white hover:bg-gray-800'
+              ? 'bg-color-bg-secondary text-color-text-muted cursor-not-allowed'
+              : 'bg-[#997a3c] text-white hover:shadow-lg hover:scale-105'
           }`}
         >
           {step === getActualTotalSteps() ? (
-            <>
-              <span>Generar</span>
-              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
-            </>
+            <>✨ Generar Rutina</>
           ) : (
             <>
               <span>Siguiente</span>
