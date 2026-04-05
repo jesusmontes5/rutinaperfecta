@@ -111,7 +111,7 @@ const generateHomeExercises = (
       {
         day: 'Día 2',
         exercises: [
-          { name: 'Dominadas en rama', sets: 3, reps: '8-15' },
+          { name: 'Dominadas en barra', sets: 3, reps: '8-15' },
           { name: 'Fondos en silla', sets: 3, reps: '10-15' },
           { name: 'Sentadillas búlgaro', sets: 3, reps: '10-15' },
           { name: 'Flexiones inclinadas', sets: 3, reps: '10-15' },
@@ -128,9 +128,9 @@ const generateHomeExercises = (
         exercises: [
           { name: 'Flexiones', sets: 3, reps: level === 'principiante' ? '10-12' : '15-20' },
           { name: 'Sentadillas', sets: 4, reps: '15-20' },
-          { name: 'Remos en rama', sets: 3, reps: '10-12' },
+          { name: 'Remos en barra', sets: 3, reps: '10-12' },
           { name: 'Estocadas alternas', sets: 3, reps: '12-15' },
-          { name: 'Abdominales', sets: 3, reps: '15-20' },
+          { name: 'Flexiones abdominales', sets: 3, reps: '15-20' },
         ],
       },
       {
@@ -150,7 +150,7 @@ const generateHomeExercises = (
           { name: 'Flexiones inclinadas', sets: 3, reps: '10-15' },
           { name: 'Sentadillas de pistola (modificada)', sets: 2, reps: '5-10' },
           { name: 'Dominadas australianas', sets: 3, reps: '10-15' },
-          { name: 'Montañeros', sets: 3, reps: '20-30' },
+          { name: 'Escalada de montaña', sets: 3, reps: '20-30' },
         ],
       },
     ];
@@ -172,10 +172,10 @@ const generateHomeExercises = (
         day: 'Día 2 (Pull)',
         exercises: [
           { name: 'Dominadas', sets: 4, reps: '8-12' },
-          { name: 'Remos en rama', sets: 3, reps: '12-15' },
+          { name: 'Remos en barra', sets: 3, reps: '12-15' },
           { name: 'Dominadas australianas', sets: 3, reps: '12-15' },
-          { name: 'Encogimientos de espalda', sets: 3, reps: '15-20' },
-          { name: 'Trabajar core', sets: 3, reps: 'variable' },
+          { name: 'Encogimientos de hombros', sets: 3, reps: '15-20' },
+          { name: 'Tablón frontal', sets: 3, reps: '45-60 seg' },
         ],
       },
       {
@@ -185,7 +185,7 @@ const generateHomeExercises = (
           { name: 'Sentadillas búlgaro', sets: 3, reps: '12-15' },
           { name: 'Estocadas', sets: 3, reps: '12-15' },
           { name: 'Saltos', sets: 3, reps: '12-15' },
-          { name: 'Core', sets: 3, reps: 'variable' },
+          { name: 'Cardio: Carrera o saltar cuerda', sets: 1, reps: '10-15 min' },
         ],
       },
       {
@@ -195,7 +195,7 @@ const generateHomeExercises = (
           { name: 'Sentadillas', sets: 3, reps: '15-20' },
           { name: 'Dominadas', sets: 3, reps: '8-12' },
           { name: 'Fondos en silla', sets: 3, reps: '10-12' },
-          { name: 'Estocadas alternas', sets: 2, reps: '12-15' },
+          { name: 'Cardio: HIIT (intervalos sprint/descanso)', sets: 6, reps: '30 seg / 30 seg' },
         ],
       },
     ];
@@ -217,9 +217,9 @@ const generateHomeExercises = (
       day: 'Día 2 (Pull)',
       exercises: [
         { name: 'Dominadas', sets: 4, reps: '8-12' },
-        { name: 'Remos en rama', sets: 3, reps: '12-15' },
+        { name: 'Remos en barra', sets: 3, reps: '12-15' },
         { name: 'Dominadas australianas', sets: 3, reps: '12-15' },
-        { name: 'Encogimientos', sets: 3, reps: '15-20' },
+        { name: 'Encogimientos de hombros', sets: 3, reps: '15-20' },
         { name: 'Curl con botella', sets: 2, reps: '12-15' },
       ],
     },
@@ -240,7 +240,7 @@ const generateHomeExercises = (
         { name: 'Fondos en silla', sets: 3, reps: '12-15' },
         { name: 'Flexiones inclinadas', sets: 3, reps: '10-12' },
         { name: 'Elevaciones laterales', sets: 3, reps: '12-15' },
-        { name: 'Estiramiento', sets: 1, reps: 'variable' },
+        { name: 'Cardio ligero: Caminar rápido o movilidad', sets: 1, reps: '10-20 min' },
       ],
     },
     {
@@ -248,9 +248,9 @@ const generateHomeExercises = (
       exercises: [
         { name: 'Dominadas', sets: 3, reps: '8-10' },
         { name: 'Sentadillas', sets: 3, reps: '15-20' },
-        { name: 'Remos en rama', sets: 3, reps: '12-15' },
+        { name: 'Remos en barra', sets: 3, reps: '12-15' },
         { name: 'Estocadas', sets: 3, reps: '12-15' },
-        { name: 'Core + cardio ligero', sets: 2, reps: 'variable' },
+        { name: 'Carrera ligera o bicicleta', sets: 2, reps: '10-15 min' },
       ],
     },
   ];
