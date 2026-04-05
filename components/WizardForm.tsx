@@ -10,6 +10,7 @@ export default function WizardForm() {
   const [step, setStep] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const [generatedRoutine, setGeneratedRoutine] = useState<Routine | null>(null);
+  const [validationError, setValidationError] = useState<string>('');
 
   const [data, setData] = useState<WizardData>({
     objective: null,
@@ -28,12 +29,103 @@ export default function WizardForm() {
     return data.location === 'casa' ? 14 : 13;
   };
 
+  const validateCurrentStep = (): boolean => {
+    setValidationError('');
+    
+    switch (step) {
+      case 1:
+        if (!data.objective) {
+          setValidationError('Por favor selecciona un objetivo');
+          return false;
+        }
+        break;
+      case 2:
+        if (!data.level) {
+          setValidationError('Por favor selecciona tu nivel de experiencia');
+          return false;
+        }
+        break;
+      case 3:
+        if (!data.days) {
+          setValidationError('Por favor selecciona cuántos días puedes entrenar');
+          return false;
+        }
+        break;
+      case 4:
+        if (!data.location) {
+          setValidationError('Por favor selecciona dónde entrenarás');
+          return false;
+        }
+        break;
+      case 5:
+        if (!data.sessionDuration) {
+          setValidationError('Por favor selecciona la duración de tus sesiones');
+          return false;
+        }
+        break;
+      case 7:
+        if (!data.exercisePreferences || data.exercisePreferences.length === 0) {
+          setValidationError('Por favor selecciona al menos un tipo de ejercicio');
+          return false;
+        }
+        break;
+      case 8:
+        if (!data.cardio) {
+          setValidationError('Por favor selecciona tu preferencia de cardio');
+          return false;
+        }
+        break;
+      case 9:
+        if (!data.trainingStyle) {
+          setValidationError('Por favor selecciona tu estilo de entrenamiento');
+          return false;
+        }
+        break;
+      case 10:
+        if (!data.trainingTime) {
+          setValidationError('Por favor selecciona tu momento del día');
+          return false;
+        }
+        break;
+      case 11:
+        if (!data.recoveryPriority) {
+          setValidationError('Por favor selecciona tu prioridad de recuperación');
+          return false;
+        }
+        break;
+      case 12:
+        if (data.location === 'casa') {
+          if (!data.equipment || data.equipment.length === 0) {
+            setValidationError('Por favor selecciona qué equipamiento tienes disponible');
+            return false;
+          }
+        } else {
+          if (!data.experienceMonths) {
+            setValidationError('Por favor selecciona tu experiencia en meses');
+            return false;
+          }
+        }
+        break;
+      case 13:
+        if (data.location === 'casa') {
+          if (!data.experienceMonths) {
+            setValidationError('Por favor selecciona tu experiencia en meses');
+            return false;
+          }
+        }
+        break;
+    }
+    return true;
+  };
+
   const handleNext = () => {
     const actualTotal = getActualTotalSteps();
-    if (step < actualTotal) {
-      setStep(step + 1);
-    } else {
-      generateRoutineHandler();
+    if (validateCurrentStep()) {
+      if (step < actualTotal) {
+        setStep(step + 1);
+      } else {
+        generateRoutineHandler();
+      }
     }
   };
 
@@ -832,6 +924,16 @@ export default function WizardForm() {
               Ejercicios adaptados, nutrición y progresión para tu nivel
             </p>
           </div>
+        </div>
+      )}
+
+      {/* Validation Error Message */}
+      {validationError && (
+        <div className="px-4 py-3 bg-red-50 border-l-4 border-red-500 rounded flex items-start gap-3 mb-4 animate-pulse">
+          <svg className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+          </svg>
+          <p className="text-sm font-600 text-red-700">{validationError}</p>
         </div>
       )}
 
