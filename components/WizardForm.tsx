@@ -166,15 +166,15 @@ export default function WizardForm() {
       {step === 1 && (
         <div className="animate-fadeIn space-y-4">
           <div>
-            <h2 className="text-xl sm:text-2xl font-700 text-color-text mb-1">¿Cuál es tu objetivo?</h2>
-            <p className="text-color-text-muted text-xs sm:text-sm">Define ejercicios, nutrición y progresión</p>
+            <h2 className="text-xl sm:text-2xl font-700 text-color-text mb-1">¿Cuál es tu objetivo principal?</h2>
+            <p className="text-color-text-muted text-xs sm:text-sm">Esto determinará ejercicios, volumen, intensidad y nutrición recomendada para máximos resultados</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
             {[
-              { value: 'masa', label: 'Ganar Masa', emoji: '💪', desc: 'Aumentar tamaño muscular' },
-              { value: 'grasa', label: 'Perder Grasa', emoji: '🔥', desc: 'Definir y reducir peso' },
-              { value: 'mantener', label: 'Mantener', emoji: '⚖️', desc: 'Preservar estado actual' },
+              { value: 'masa', label: 'Ganar Masa', emoji: '💪', desc: 'Aumentar tamaño muscular (superávit calórico + hipertrofia)' },
+              { value: 'grasa', label: 'Perder Grasa', emoji: '🔥', desc: 'Definición muscular (déficit + preservación de masa)' },
+              { value: 'mantener', label: 'Mantener', emoji: '⚖️', desc: 'Preservar forma actual (equilibrio y wellness)' },
             ].map(({ value, label, emoji, desc }) => (
               <button
                 key={value}
@@ -205,15 +205,15 @@ export default function WizardForm() {
       {step === 2 && (
         <div className="animate-slideInRight space-y-4">
           <div>
-            <h2 className="text-xl sm:text-2xl font-700 text-color-text mb-1">¿Cuál es tu experiencia?</h2>
-            <p className="text-color-text-muted text-xs sm:text-sm">Adapto dificultad y progresión a tu nivel</p>
+            <h2 className="text-xl sm:text-2xl font-700 text-color-text mb-1">¿Cuál es tu experiencia en entrenamiento?</h2>
+            <p className="text-color-text-muted text-xs sm:text-sm">Esto determina progresión, técnica y adaptación del programa a tu capacidad actual</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
             {[
-              { value: 'principiante', label: 'Principiante', emoji: '🌱', desc: 'Menos de 6 meses o soy completamente nuevo' },
-              { value: 'intermedio', label: 'Intermedio', emoji: '🏋️', desc: '6-18 meses con entrenamiento consistente' },
-              { value: 'avanzado', label: 'Avanzado', emoji: '🦾', desc: '+18 meses o muy entrenado' },
+              { value: 'principiante', label: 'Principiante', emoji: '🌱', desc: 'Menos de 6 meses o sin experiencia previa. Aprenderé técnica básica.' },
+              { value: 'intermedio', label: 'Intermedio', emoji: '🏋️', desc: '6-18 meses de entrenamiento consistente. Conozco movimientos principales.' },
+              { value: 'avanzado', label: 'Avanzado', emoji: '🦾', desc: '+18 meses o muy entrenado. Busco progresión avanzada y periodización.' },
             ].map(({ value, label, emoji, desc }) => (
               <button
                 key={value}
@@ -244,16 +244,16 @@ export default function WizardForm() {
       {step === 3 && (
         <div className="animate-slideInRight space-y-4">
           <div>
-            <h2 className="text-xl sm:text-2xl font-700 text-color-text mb-1">¿Cuántos días puedes entrenar?</h2>
-            <p className="text-color-text-muted text-xs sm:text-sm">Consistencia &gt; Intensidad</p>
+            <h2 className="text-xl sm:text-2xl font-700 text-color-text mb-1">¿Cuántos días puedes entrenar por semana?</h2>
+            <p className="text-color-text-muted text-xs sm:text-sm">La consistencia es más importante que la intensidad. Elige lo que puedas mantener regularmente</p>
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
             {[
-              { days: 2, emoji: '📆', desc: 'Rápido' },
-              { days: 3, emoji: '⚡', desc: 'Ideal' },
-              { days: 4, emoji: '💪', desc: 'Intenso' },
-              { days: 5, emoji: '🔥', desc: 'Máximo' }
+              { days: 2, emoji: '📆', desc: 'Iniciante. 1 sesión cada 3-4 días' },
+              { days: 3, emoji: '⚡', desc: 'Ideal. Balance y recuperación óptima' },
+              { days: 4, emoji: '💪', desc: 'Volumen moderado. Mayor frecuencia' },
+              { days: 5, emoji: '🔥', desc: 'Máximo volumen. Muy dedicado' }
             ].map(({ days, emoji, desc }) => (
               <button
                 key={days}
@@ -284,14 +284,14 @@ export default function WizardForm() {
       {step === 4 && (
         <div className="animate-slideInRight space-y-4">
           <div>
-            <h2 className="text-xl sm:text-2xl font-700 text-color-text mb-1">¿Dónde entrenarás?</h2>
-            <p className="text-color-text-muted text-xs sm:text-sm">Define ejercicios disponibles</p>
+            <h2 className="text-xl sm:text-2xl font-700 text-color-text mb-1">¿Dónde realizarás tus entrenamientos?</h2>
+            <p className="text-color-text-muted text-xs sm:text-sm">Esto determina disponibilidad de equipamiento, ejercicios y progresión posible</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
             {[
-              { value: 'gimnasio', label: 'Gimnasio', emoji: '🏢', desc: 'Acceso a pesas, máquinas y todo equipamiento' },
-              { value: 'casa', label: 'Casa', emoji: '🏠', desc: 'Peso corporal o equipamiento limitado' },
+              { value: 'gimnasio', label: 'Gimnasio', emoji: '🏢', desc: 'Acceso a pesas, mancuernas, máquinas y toda gama de ejercicios' },
+              { value: 'casa', label: 'Casa', emoji: '🏠', desc: 'Peso corporal o equipamiento limitado. Usaré movimientos adaptados' },
             ].map(({ value, label, emoji, desc }) => (
               <button
                 key={value}
@@ -322,16 +322,16 @@ export default function WizardForm() {
       {step === 5 && (
         <div className="animate-slideInRight space-y-3">
           <div>
-            <h2 className="text-lg sm:text-xl font-700 text-color-text mb-1">¿Cuánto tiempo tienes por sesión?</h2>
-            <p className="text-color-text-muted text-xs sm:text-sm">Efectivo en cualquier duración</p>
+            <h2 className="text-lg sm:text-xl font-700 text-color-text mb-1">¿Cuánto tiempo disponible tienes por sesión?</h2>
+            <p className="text-color-text-muted text-xs sm:text-sm">Determina volumen de ejercicios, descanso entre series y eficiencia del entrenamiento</p>
           </div>
 
           <div className="space-y-2.5">
             {([
-              { value: '30' as const, label: '⚡ 30 min', desc: 'Comprimido' },
-              { value: '45' as const, label: '💪 45 min', desc: 'Balance' },
-              { value: '60' as const, label: '⏱️ 60 min', desc: 'Estándar' },
-              { value: '90' as const, label: '🔥 90+ min', desc: 'Máximo' },
+              { value: '30' as const, label: '⚡ 30 min', desc: 'Muy comprimido. Solo ejercicios clave' },
+              { value: '45' as const, label: '💪 45 min', desc: 'Balance efectivo. Tiempo suficiente' },
+              { value: '60' as const, label: '⏱️ 60 min', desc: 'Estándar ideal. Calentamiento + volumen' },
+              { value: '90' as const, label: '🔥 90+ min', desc: 'Máximo tiempo. Más volumen y accesorios' },
             ] as const).map(({ value, label, desc }) => (
               <button
                 key={value}
@@ -361,18 +361,18 @@ export default function WizardForm() {
       {step === 6 && (
         <div className="animate-slideInRight space-y-3">
           <div>
-            <h2 className="text-lg sm:text-xl font-700 text-color-text mb-1">¿Tienes limitaciones?</h2>
-            <p className="text-color-text-muted text-xs sm:text-sm">Adaptaré ejercicios para ti (várias)</p>
+            <h2 className="text-lg sm:text-xl font-700 text-color-text mb-1">¿Tienes lesiones o limitaciones físicas?</h2>
+            <p className="text-color-text-muted text-xs sm:text-sm">Selecciona las que apliquen. Adaptaré ejercicios para proteger esas zonas (puedes seleccionar varias)</p>
           </div>
 
           <div className="space-y-2.5">
             {[
-              { id: 'espalda', label: '🔵 Espalda baja', desc: 'Limitado' },
-              { id: 'rodilla', label: '🟠 Rodillas', desc: 'Limitado' },
-              { id: 'hombro', label: '🟡 Hombros', desc: 'Limitado' },
-              { id: 'muñeca', label: '🟢 Muñecas', desc: 'Push limitado' },
-              { id: 'cuello', label: '🔴 Cuello', desc: 'Restricción' },
-              { id: 'ninguna', label: '✅ Sin limitaciones', desc: 'Acceso completo' },
+              { id: 'espalda', label: '🔵 Espalda baja', desc: 'Evitaré extensión forzada de columna' },
+              { id: 'rodilla', label: '🟠 Rodillas', desc: 'Limitaré profundidad y impacto' },
+              { id: 'hombro', label: '🟡 Hombros', desc: 'Reduciré rango y presión' },
+              { id: 'muñeca', label: '🟢 Muñecas', desc: 'Modificaré agarres y empujes' },
+              { id: 'cuello', label: '🔴 Cuello', desc: 'Evitaré flexión/extensión extrema' },
+              { id: 'ninguna', label: '✅ Sin limitaciones', desc: 'Acceso a todos los ejercicios' },
             ].map(({ id, label, desc }) => (
               <button
                 key={id}
@@ -413,16 +413,16 @@ export default function WizardForm() {
       {step === 7 && (
         <div className="animate-slideInRight space-y-3">
           <div>
-            <h2 className="text-lg sm:text-xl font-700 text-color-text mb-1">¿Qué ejercicios prefieres?</h2>
-            <p className="text-color-text-muted text-xs sm:text-sm">Selecciona tus favoritos</p>
+            <h2 className="text-lg sm:text-xl font-700 text-color-text mb-1">¿Qué tipos de ejercicios prefieres?</h2>
+            <p className="text-color-text-muted text-xs sm:text-sm">Selecciona los que más te gustan. Prioridad en tu plan (puedes marcar varios)</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
             {[
-              { id: 'compuestos', label: '🏋️ Compuestos', desc: 'Máximo impacto' },
-              { id: 'aislamiento', label: '💪 Aislamiento', desc: 'Músculo específico' },
-              { id: 'cardio', label: '🏃 Cardio', desc: 'Resistencia' },
-              { id: 'funcional', label: '⚙️ Funcional', desc: 'Fuerza práctica' },
+              { id: 'compuestos', label: '🏋️ Compuestos', desc: 'Sentadilla, press, remo. Máxima fuerza' },
+              { id: 'aislamiento', label: '💪 Aislamiento', desc: 'Rosca, extensión. Trabajo específico' },
+              { id: 'cardio', label: '🏃 Cardio', desc: 'Correr, bicicleta. Resistencia cardiovascular' },
+              { id: 'funcional', label: '⚙️ Funcional', desc: 'Movimientos prácticos. Fuerza aplicada' },
             ].map(({ id, label, desc }) => (
               <button
                 key={id}
@@ -459,15 +459,15 @@ export default function WizardForm() {
       {step === 8 && (
         <div className="animate-slideInRight space-y-4">
           <div>
-            <h2 className="text-xl sm:text-2xl font-700 text-color-text mb-1">¿Cuánto cardio deseas?</h2>
-            <p className="text-color-text-muted text-xs sm:text-sm">Afecta la recuperación general</p>
+            <h2 className="text-xl sm:text-2xl font-700 text-color-text mb-1">¿Cuánto énfasis en cardio?</h2>
+            <p className="text-color-text-muted text-xs sm:text-sm">Balance entre fuerza y resistencia según tu objetivo y recuperación</p>
           </div>
 
           <div className="space-y-2.5">
             {[
-              { value: 'bajo', label: '🏋️ Bajo', desc: 'Máx fuerza' },
-              { value: 'moderado', label: '⚖️ Moderado', desc: 'Balance pesas-cardio' },
-              { value: 'alto', label: '🏃 Alto', desc: 'Resistencia + definición' },
+              { value: 'bajo', label: '🏋️ Bajo', desc: 'Máximo enfoque en fuerza e hipertrofia' },
+              { value: 'moderado', label: '⚖️ Moderado', desc: 'Balance entre pesas y cardio. Recomendado' },
+              { value: 'alto', label: '🏃 Alto', desc: 'Mucho cardio. Resistencia y definición' },
             ].map(({ value, label, desc }) => (
               <button
                 key={value}
@@ -497,8 +497,8 @@ export default function WizardForm() {
       {step === 9 && (
         <div className="animate-slideInRight space-y-4">
           <div>
-            <h2 className="text-xl sm:text-2xl font-700 text-color-text mb-1">¿Cuál es tu estilo?</h2>
-            <p className="text-color-text-muted text-xs sm:text-sm">Elige tu preferencia</p>
+            <h2 className="text-xl sm:text-2xl font-700 text-color-text mb-1">¿Cuáles es tu estilo de entrenamiento preferido?</h2>
+            <p className="text-color-text-muted text-xs sm:text-sm">Determina estructura, frecuencia y cómo se agrupan los ejercicios</p>
           </div>
 
           <div className="space-y-2.5">
@@ -506,22 +506,22 @@ export default function WizardForm() {
               { 
                 value: 'ppl', 
                 label: '🔄 Push/Pull/Legs', 
-                desc: 'Grupos musculares' 
+                desc: 'Divide por tracción/empuje. Ideal para volumen' 
               },
               { 
                 value: 'upperlower', 
                 label: '↕️ Upper/Lower', 
-                desc: 'Tren sup/inferior' 
+                desc: 'Tren superior e inferior alternados. Muy efectivo' 
               },
               { 
                 value: 'fullbody', 
                 label: '🌟 Full Body', 
-                desc: 'Cuerpo completo' 
+                desc: 'Todo el cuerpo cada sesión. Máxima frecuencia muscular' 
               },
               { 
                 value: 'roulet', 
                 label: '⭐ Mi rutina anterior', 
-                desc: 'Adaptación previa' 
+                desc: 'Adaptación de tu estilo previo' 
               },
             ].map(({ value, label, desc }) => (
               <button
@@ -558,10 +558,10 @@ export default function WizardForm() {
 
           <div className="space-y-2.5">
             {[
-              { value: 'manana', label: '🌅 Mañana (6-9 AM)', desc: 'Energía matutina fresca' },
-              { value: 'mediodía', label: '☀️ Mediodía (12-1)', desc: 'Descanso de trabajo' },
-              { value: 'tarde', label: '🌤️ Tarde (3-6)', desc: 'Mejor rendimiento' },
-              { value: 'noche', label: '🌙 Noche (6-9)', desc: 'Post-trabajo' },
+              { value: 'manana', label: '🌅 Mañana (6-9 AM)', desc: 'Energía matutina fresca. Hormonal óptimo' },
+              { value: 'mediodía', label: '☀️ Mediodía (12-1 PM)', desc: 'Descanso laboral. Nutrición pre-entreno' },
+              { value: 'tarde', label: '🌤️ Tarde (3-6 PM)', desc: 'Mejor rendimiento y máxima fuerza' },
+              { value: 'noche', label: '🌙 Noche (6-9 PM)', desc: 'Post-trabajo. Mayor volumen posible' },
             ].map(({ value, label, desc }) => (
               <button
                 key={value}
@@ -591,26 +591,26 @@ export default function WizardForm() {
       {step === 11 && (
         <div className="animate-slideInRight space-y-4">
           <div>
-            <h2 className="text-xl sm:text-2xl font-700 text-color-text mb-1">¿Tu prioridad de recuperación?</h2>
-            <p className="text-color-text-muted text-xs sm:text-sm">Base del éxito</p>
+            <h2 className="text-xl sm:text-2xl font-700 text-color-text mb-1">¿Cuál es tu capacidad de recuperación?</h2>
+            <p className="text-color-text-muted text-xs sm:text-sm">Sueño, nutrición y estrés. CRÍTICO para resultados</p>
           </div>
 
           <div className="space-y-2.5">
             {[
               { 
                 value: 'alto', 
-                label: '✅ Máxima', 
-                desc: 'Sueño 8+h, nutrición ok, bajo estrés' 
+                label: '✅ Excelente', 
+                desc: '8+ h de sueño, nutrición consistente, bajo estrés' 
               },
               { 
                 value: 'medio', 
-                label: '⚠️ Media', 
-                desc: 'Sueño 6-7h, nutrición regular' 
+                label: '⚠️ Promedio', 
+                desc: '6-7h de sueño, nutrición regular, estrés moderado' 
               },
               { 
                 value: 'bajo', 
                 label: '⛔ Limitada', 
-                desc: 'Poco sueño, estrés alto' 
+                desc: '<6h de sueño, nutrición variable, estrés alto' 
               },
             ].map(({ value, label, desc }) => (
               <button
@@ -641,17 +641,17 @@ export default function WizardForm() {
       {data.location === 'casa' && step === 12 && (
         <div className="animate-slideInRight space-y-4">
           <div>
-            <h2 className="text-xl sm:text-2xl font-700 text-color-text mb-1">¿Qué equipamiento tienes?</h2>
-            <p className="text-color-text-muted text-xs sm:text-sm">Selecciona al menos uno para personalizar ejercicios</p>
+            <h2 className="text-xl sm:text-2xl font-700 text-color-text mb-1">¿Qué equipamiento tienes en casa?</h2>
+            <p className="text-color-text-muted text-xs sm:text-sm">Determina ejercicios posibles. Puedes seleccionar múltiples opciones</p>
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
             {[
-              { id: 'mancuernas', label: '🔵 Mancuernas', desc: 'Versátil y eficaz' },
-              { id: 'barra', label: '🟠 Barra + Discos', desc: 'Máxima carga' },
+              { id: 'mancuernas', label: '🔵 Mancuernas', desc: 'Versátil y con progresión' },
+              { id: 'barra', label: '🟠 Barra + Discos', desc: 'Máxima carga posible' },
               { id: 'bandas', label: '🟡 Bandas Elásticas', desc: 'Resistencia variable' },
-              { id: 'domina', label: '🟢 Barra Dominadas', desc: 'Tren superior' },
-              { id: 'kettlebell', label: '🔴 Kettlebell', desc: 'Explosividad' },
+              { id: 'domina', label: '🟢 Barra Dominadas', desc: 'Ejercicios tracción' },
+              { id: 'kettlebell', label: '🔴 Kettlebell', desc: 'Movimientos explosivos' },
               { id: 'poco', label: '⚪ Solo peso corporal', desc: 'Sin equipamiento' },
             ].map(({ id, label, desc }) => (
               <button
@@ -689,31 +689,31 @@ export default function WizardForm() {
       {data.location === 'gimnasio' && step === 12 && (
         <div className="animate-slideInRight space-y-4">
           <div>
-            <h2 className="text-xl sm:text-2xl font-700 text-color-text mb-1">¿Tu experiencia previa?</h2>
-            <p className="text-color-text-muted text-xs sm:text-sm">Calibra dificultad y progresión</p>
+            <h2 className="text-xl sm:text-2xl font-700 text-color-text mb-1">¿Cuál es tu experiencia con pesas?</h2>
+            <p className="text-color-text-muted text-xs sm:text-sm">Adaptaré progresión y volumen a tu nivel actual</p>
           </div>
 
           <div className="space-y-2.5">
             {[
               { 
                 value: 'novato', 
-                label: '🌱 Nuevo', 
-                desc: 'Sin entrenamiento previo' 
+                label: '🌱 Totalmente nuevo', 
+                desc: 'Sin experiencia. Aprenderé técnica base' 
               },
               { 
                 value: '0-6m', 
-                label: '🌿 <6 meses', 
-                desc: 'Básico, construyo fundamentos' 
+                label: '🌿 Menos de 6 meses', 
+                desc: 'Iniciante con bases empezando' 
               },
               { 
                 value: '6-12m', 
                 label: '🌳 6-12 meses', 
-                desc: 'Bases sólidas de técnica' 
+                desc: 'Técnica sólida en ejercicios principales' 
               },
               { 
                 value: '+1año', 
-                label: '🏋️ >1 año', 
-                desc: 'Entrenimiento consistente' 
+                label: '🏋️ Más de 1 año', 
+                desc: 'Entrenamiento consistente y experiencia' 
               },
             ].map(({ value, label, desc }) => (
               <button
@@ -740,35 +740,35 @@ export default function WizardForm() {
         </div>
       )}
 
-      {/* Step 13 (if cas): Experience */}
+      {/* Step 13 (if casa): Experience */}
       {data.location === 'casa' && step === 13 && (
         <div className="animate-slideInRight space-y-4">
           <div>
-            <h2 className="text-xl sm:text-2xl font-700 text-color-text mb-1">¿Tu experiencia previa?</h2>
-            <p className="text-color-text-muted text-xs sm:text-sm">Calibra dificultad y progresión</p>
+            <h2 className="text-xl sm:text-2xl font-700 text-color-text mb-1">¿Cuál es tu experiencia en entrenamiento?</h2>
+            <p className="text-color-text-muted text-xs sm:text-sm">Modificaré progresión, intensidad y adaptaciones</p>
           </div>
 
           <div className="space-y-2.5">
             {[
               { 
                 value: 'novato', 
-                label: '🌱 Nuevo', 
-                desc: 'Sin entrenamiento' 
+                label: '🌱 Totalmente nuevo', 
+                desc: 'Sin entrenamiento previo. Aprenderé técnica base' 
               },
               { 
                 value: '0-6m', 
-                label: '🌿 <6 meses', 
-                desc: 'Bases en construcción' 
+                label: '🌿 Menos de 6 meses', 
+                desc: 'Bases en construcción, técnica en aprendizaje' 
               },
               { 
                 value: '6-12m', 
                 label: '🌳 6-12 meses', 
-                desc: 'Bases sólidas' 
+                desc: 'Técnica sólida, progresión consistente' 
               },
               { 
                 value: '+1año', 
-                label: '🏋️ >1 año', 
-                desc: 'Consistente' 
+                label: '🏋️ Más de 1 año', 
+                desc: 'Experiencia consistente, progresión avanzada' 
               },
             ].map(({ value, label, desc }) => (
               <button
@@ -799,8 +799,8 @@ export default function WizardForm() {
       {(data.location === 'casa' ? step === 14 : step === 13) && (
         <div className="animate-slideInRight space-y-3">
           <div>
-            <h2 className="text-lg sm:text-xl font-700 text-color-text mb-1">✅ ¡Listo para tu rutina!</h2>
-            <p className="text-color-text-muted text-xs sm:text-sm">Información personalizada</p>
+            <h2 className="text-lg sm:text-xl font-700 text-color-text mb-1">✅ ¡Perfil completado! 🎯</h2>
+            <p className="text-color-text-muted text-xs sm:text-sm">Generando tu rutina personalizada basada en tus datos...</p>
           </div>
 
           <div className="bg-gradient-to-br from-color-bg via-color-bg-secondary to-color-bg rounded-lg p-4 space-y-2 border border-gold-light/20">
@@ -814,7 +814,7 @@ export default function WizardForm() {
                 <span className="font-700 text-gold-dark bg-gold-light/40 px-2 py-0.5 rounded text-xs">{data.level}</span>
               </div>
               <div className="flex justify-between items-center p-2 bg-white/50 rounded text-sm border border-gold-light/30">
-                <span className="text-color-text-muted font-500">📅 Días:</span>
+                <span className="text-color-text-muted font-500">📅 Días/Semana:</span>
                 <span className="font-700 text-gold-dark bg-gold-light/40 px-2 py-0.5 rounded text-xs">{data.days}d</span>
               </div>
               <div className="flex justify-between items-center p-2 bg-white/50 rounded text-sm border border-gold-light/30">
