@@ -184,28 +184,250 @@ Cambia algunos ejercicios cada 4 semanas:
 ### Meses 9+: Periodización Avanzada
 Considera dividir en Push/Pull/Legs o agregar 4º día si tienes más tiempo
 
-## Checklist de Éxito
+## Planes Nutricionales Detallados Según Peso Corporal
 
-- ✅ Come en superávit calórico (300-500 cal)
-- ✅ Consume 160-180g proteína (si pesas 70-80kg)
-- ✅ Aumenta peso cada 7-10 días en ejercicios principales
-- ✅ Duerme 7-9 horas cada noche
-- ✅ Descansa 2-3 minutos entre sets pesados
-- ✅ Mantén forma perfecta (mejor 10kg con forma que 20kg con ego)
-- ✅ Registra tus entrenamientos en app o cuaderno
-- ✅ Toma máximo 3-4 minutos de descanso total por sesión
+### PARA 60KG DE PESO
 
-## Conclusión
+**Mantenimiento:** 60 × 31 = 1,860 kcal  
+**Superávit:** 1,860 + 350 = **2,210 kcal** objetivo
 
-Con esta rutina + nutrición + recuperación correctas, es **realista esperar**:
-- **Mes 1**: +3-5kg (parcialmente agua/glucógeno)
-- **Mes 2**: +2-3kg tejido muscular real
-- **Mes 3**: +1-2kg tejido muscular real
-- **Total 3 meses**: +6-10kg con bajo aumento de grasa
+**Macros:**
+- Proteína: 60 × 2.0g = 120g/día
+- Carbohidratos: 60 × 5g = 300g/día  
+- Grasas: 60 × 1.0g = 60g/día
 
-Eso es transformación notable en solo 12 semanas. La clave es **consistencia sin perfeccionismo**.
+**Plan de comidas ejemplo:**
+- Desayuno: 3 huevos + 80g avena = 720 kcal
+- Snack: Yogur griego 150g + 1 plátano = 260 kcal
+- Almuerzo: 200g pollo + 200g arroz = 700 kcal
+- Pre-entreno: Tostadas + miel = 350 kcal
+- Post-entreno: Proteína + plátano = 300 kcal
+- Cena: 150g salmón + 200g papas = 600 kcal
+- **TOTAL REAL: ~2,930 kcal** (ajusta según necesidad)
 
-¡Tu mejor versión te espera del otro lado del compromiso!
+### PARA 80KG DE PESO (RECOMENDADO PARA EMPEZAR)
+
+**Mantenimiento:** 80 × 31 = 2,480 kcal  
+**Superávit:** 2,480 + 400 = **2,880 kcal** objetivo
+
+**Macros:**
+- Proteína: 80 × 2.0g = 160g/día
+- Carbohidratos: 80 × 5g = 400g/día
+- Grasas: 80 × 1.0g = 80g/día
+
+**Plan de comidas ejemplo:**
+- Desayuno: 4 huevos + 100g avena + 1 plátano = 850 kcal
+- Snack: Yogur + granola = 300 kcal
+- Almuerzo: 250g pollo + 300g arroz + brócoli = 900 kcal
+- Pre-entreno: Pan blanco + mermelada + proteína = 450 kcal
+- Post-entreno: Proteína + dextrosa + plátano = 450 kcal
+- Cena: 200g salmón + 200g papas + ensalada = 650 kcal
+- **TOTAL REAL: ~3,600 kcal**
+
+### PARA 100KG DE PESO
+
+**Mantenimiento:** 100 × 31 = 3,100 kcal  
+**Superávit:** 3,100 + 450 = **3,550 kcal** objetivo
+
+**Macros:**
+- Proteína: 100 × 2.0g = 200g/día
+- Carbohidratos: 100 × 5g = 500g/día
+- Grasas: 100 × 1.0g = 100g/día
+
+**Necesitas más volumen de comida:** Probablemente 5-6 comidas/día
+
+---
+
+## Tips Avanzados de Ejecución
+
+### Tempo (Ritmo de Movimiento)
+
+**Recomendado para hipertrofia:**
+- **Bajada (excéntrica): 2-3 segundos** (máximo daño microscópico)
+- **Pausa: 0-1 segundos** en bottom
+- **Subida (concéntrica): 1-2 segundos** explosiva
+- **Pausa: 1-2 segundos** en top (máxima contracción)
+
+**Ejemplo:**
+- Press de banca: Baja 3 seg → Pausa 1 seg → Sube 1 seg → Pausa 2 seg = **~7 segundos por rep**
+- 8 reps × 7 seg = 56 segundos bajo tensión por set = **ÓPTIMO**
+
+### Mind-Muscle Connection (La Conexión Mental)
+
+**Qué es:** Enfoque mental en el músculo específico siendo trabajado
+
+**Por qué importa:** +15-20% más activación muscular = más crecimiento
+
+**Cómo hacer:**
+1. Movimiento lento (temporal arriba)
+2. Visualiza la fibra muscular contrayéndose
+3. Siente el estiramiento en la posición bottom
+4. Máxima contracción en el top (2 segundos apretando)
+
+**Ejemplo Press de Banca:**
+- NO pienses "empujar la barra"
+- SÍ piensa "acercar los pectorales juntos"
+- Siente pectoral estirado cuando baja
+- Contracción máxima en arriba
+
+---
+
+## Drop Sets: Técnica de Intensidad
+
+**Qué son:** Llega a fallo, reduce peso inmediatamente 20%, continúa hasta nuevo fallo
+
+**Ejemplo (Curls de Bíceps):**
+1. 15kg × 10 reps a FALLO muscular
+2. Reduce inmediatamente a 12kg
+3. Continúa 12kg × 8-10 reps a FALLO
+4. Drop final a 10kg × 6-8 reps a FALLO
+
+**Resultado:** 
+- 20-30 reps total en 2 minutos
+- Estrés metabólico MÁXIMO
+- Bomba muscular extrema
+- 48+ horas de síntesis proteica elevada
+
+**Cuándo usar:**
+- **SÍ:** Útimo set de accesorios (bíceps, hombros, etc)
+- **NO:** Nunca en ejercicios principales (peso muerto, press)
+
+---
+
+## Rest-Pause Sets
+
+**Similar a drop sets pero MANTIENE PESO:**
+
+Ejemplo:
+1. 60kg Press de Banca × 6 reps a FALLO
+2. Apoya barra 10-15 segunda (en seguro)
+3. Continúa 60kg × 3-4 reps
+4. TOTAL: 9-10 reps con peso pesado = **máxima tensión mecánica con volumen**
+
+---
+
+## FAQs y Troubleshooting
+
+### "No veo progreso después de 2 semanas"
+
+**Realidad:** 2 semanas es adaptación neural, no crecimiento real
+
+**Solución:**  
+- Paciencia hasta semana 3-4 (es cuando inicia síntesis proteica real)
+- Toma una foto HOY, otra en semana 4 (verás diferencia)
+- Mide cintura/brazos en cm (más exacto que peso)
+
+### "Gano demasiada grasa"
+
+**Problema:** Superávit muy agresivo
+
+**Solución:**
+1. Reduce calorías 150-200 kcal/día
+2. Aumenta caminar 20-30 min 2x/semana  
+3. Re-calcula macros (probablemente proteína muy baja)
+
+### "Siento dolor en articulaciones (no muscular)"
+
+**ALERTA:** Forma incorrecta
+
+**Qué hacer:**
+1. Videos tu forma, compara video "perfecto"
+2. Reduce peso 20%, aprende forma correcta
+3. Si persiste: consulta fisioterapeuta
+
+### "Llegué a meseta (sin progreso 2 semanas)"
+
+**Causas probables (en orden):**
+1. **No aumentando peso** (progressive overload fallido)
+2. **Nutrición insuficiente** (<300 kcal superávit)
+3. **Sueño insuficiente** (< 7 horas)
+4. **Volumen excesivo** (sobreentreno)
+
+**Solución (toma TODAS):**
+1. **Deload:** Reduce volumen 40%, haz entrenamientos "fáciles" 5-7 días
+2. **Aumenta calorías:** +150 kcal/día  
+3. **Aumenta sueño:** +1 hora extra
+4. **Reinicia:** Después deload, vuelve con agresividad
+
+---
+
+## Suplementación Recomendada (OPCIONAL)
+
+| Suplemento | Dosis | Costo/mes | Evidencia |
+|-----------|-------|-----------|-----------|
+| **Proteína Whey** | 30-40g post-entreno | $15-30 | ⭐⭐⭐⭐⭐ CRUCIAL |
+| **Creatina** | 5g/día (monohidratada) | $5-10 | ⭐⭐⭐⭐⭐ PROVEN |
+| **Multivitamínico** | 1/día | $10-15 | ⭐⭐⭐ Bueno |
+| **Omega-3** | 2-3g/día | $8-12 | ⭐⭐⭐ Sano |
+| **Vitamina D3** | 2000-4000 IU/día | $5 | ⭐⭐⭐ Si indoor |
+| **Zinc** | 15-30mg/día | $5 | ⭐⭐⭐ Hormonal |
+
+**Mi recomendación:** Proteína + Creatina (comprobado científicamente, presupuesto amigable)
+
+---
+
+## Checklist Final de Éxito (USAR CADA SEMANA)
+
+### Entrenamientos ✅
+- [ ] Entrenar EXACTAMENTE 3 días (lunes, miércoles, viernes)
+- [ ] Forma perfecta en TODOS los sets
+- [ ] Registrar cada set/rep (app, cuaderno)
+- [ ] Aumentar peso cada semana (si completaste reps)
+- [ ] Descanso exacto entre sets (timer)
+
+### Nutrición ✅
+- [ ] Comer en superávit 300-500 kcal
+- [ ] Proteína mínimo 1.6g/kg peso
+- [ ] Comidas consistentes (mismo horario)
+- [ ] Post-entreno dentro 2 horas
+
+### Recuperación ✅
+- [ ] Dormir 7-9 horas CADA noche
+- [ ] Cero alcohol durante ganancia
+- [ ] Estrés bajo (yoga, meditación)
+- [ ] Movilidad 10 min tras entrenar
+
+### Progressive Overload (CRITICAL) ✅
+- [ ] NUNCA mismo peso 2 semanas seguidas
+- [ ] Incremento: Peso > Reps > Volumen
+- [ ] Deload cada 4-8 semanas (50% volumen)
+- [ ] Registrar maximos personales
+
+---
+
+## Línea de Meta: Tu Transformación Total
+
+### Con esta rutina COMPLETA + Nutrición + Recuperación:
+
+**REALISTA ESPERAR EN 12 SEMANAS:**
+
+| Período | Ganancia Total | Composición | Fuerza |
+|---------|-----------------|-------------|--------|
+| **Mes 1** | +3-5kg | 90% agua | +10% aprox |
+| **Mes 2** | +2-3kg real | 80% músculo | +20% aprox |
+| **Mes 3** | +1-2kg real | 95% músculo | +30% aprox |
+| **3 MESES TOTAL** | +6-10kg | 85% músculo puro | +35-40% |
+
+**Esto es transformación SERIA en 12 semanas.**
+
+### Resultados Visuales:
+- Ropa queda notablemente apretada de músculos
+- Definición muscular visible
+- Espalda mucho más ancha
+- Brazos/piernas notablemente más grandes
+- Cambio de composición dramático
+
+---
+
+## CONCLUSIÓN FINAL
+
+Con **CONSISTENCIA + DISCIPLINA + PACIENCIA:**
+
+La mejor versión de ti te espera del otro lado del compromiso.
+
+**El viaje de 1,000 millas comienza con un primer entrenamiento.**
+
+¡Hora de actuar! 💪
     `,
     exercises: [
       {
@@ -321,7 +543,7 @@ Existe debate sobre qué es mejor, pero ambas son excelentes. Esta rutina usa **
 
 6. **Extensiones Triceptes por Cabeza** (3x12-15) - AISLAMIENTO TRICEPTES
    - Descanso: 90 segundos
-   - Posible con cuerda, barra o mancerna
+   - Posible con cuerda, barra o mancuernas
 
 **Total Push**: 20-22 sets, 70-80 minutos
 
@@ -362,7 +584,7 @@ Existe debate sobre qué es mejor, pero ambas son excelentes. Esta rutina usa **
 
 6. **Flexiones Inversas** (3x12-15) - VOLUMEN BICEPS
    - Descanso: 90 segundos
-   - O curls con mancerna si prefieres
+   - O curls con mancuernas si prefieres
    - Máxima contracción en el pico
 
 **Total Pull**: 20-22 sets, 75-85 minutos
@@ -497,24 +719,127 @@ Necesitas más energía que con 3 días. Calcula así:
 - ✅ Descansa 3-4 minutos entre sets pesados
 - ✅ Registra cada entrenamiento
 
-## Resultados Esperados
+## Nutrición para 4 Días: Más Volumen = Más Calorías
 
-Con 4 días de entrenamiento + nutrición + recuperación correctas:
+Necesitas más energía que rutina 3 días. Recalcula:
 
-- **Mes 1**: +4-6kg (agua/glucógeno mayormente)
-- **Mes 2**: +2-3kg tejido muscular real
-- **Mes 3**: +2-3kg tejido muscular real
-- **Total 3 meses**: +8-12kg con ganancia de grasa controlada
+**PARA 80KG:**
+- Mantenimiento: 80 × 31 = 2,480 kcal
+- Superávit 4 días: +450 kcal = **2,930 kcal objetivo**
+- Proteína: 160g (1.6g × 80kg)
+- Carbohidratos: 400-450g (días entrenamiento)
+- Grasas: 80g
 
-A este nivel (4 días), es posible alcanzar ganancia de 1kg músculo puro por mes con disciplina perfecta.
+**Distribución estratégica:**
+- **Días PUSH/PULL petados**: +carbos (cuerpo completo)
+- **Días PIERNA:** +carbos (musculo más grande)
+- **Promedio:** 2,900-3,100 kcal/día
 
-## Próximos Pasos Después de 3 Meses
+---
 
-1. Si sobrentrenado: Descanso de 5-7 días (deload)
-2. Si sientes progreso: Continúa rutina 12 semanas más
-3. Si busca cambio: Pasa a 5-6 días o intenta periodización diferente
+## Progresión Lineal en 4 Días
 
-¡Este es el punto donde tu transformación se vuelve seria!
+### Semana 1-2: Establece Baseline
+- Aprende forma de TODOS los movimientos
+- Push: +20% fuerza
+- Pull: +20% fuerza
+- Pierna: +10% fuerza
+
+### Semana 3-12: PROGRESIÓN AGRESIVA
+- **Push pesado:** +2kg cada 1-2 semanas
+- **Pull pesado:** +2kg cada 1-2 semanas
+- **Pierna:** +2.5-5kg cada 1-2 semanas
+- **Accesorios:** +1 rep o reduce descanso
+
+**Ejemplo en 12 semanas:**
+- Semana 1: Press 70kg × 8-10
+- Semana 4: Press 76kg × 8-10
+- Semana 8: Press 82kg × 8-10
+- Semana 12: Press 88kg × 8-10
+
+= **+25% fuerza en 12 semanas**
+
+---
+
+## Indicadores de Sobreentrenamiento
+
+En 4 días es posible hacer demasiado. Cuidado con:
+
+❌ **Síntomas de Overtraining:**
+- Motivación baja a entrenar
+- Fuerza DECRECE (no aumenta)
+- Soreness NO desaparece
+- Sueño pobre
+- Enfermedad frecuente
+- Performance cae
+
+**Solución:** Deload 5-7 días (reduce volumen 50%)
+
+---
+
+## FAQ Rutina 4 Días
+
+**P: ¿Puedo hacer 4 días consecutivos?**
+R: NO. Estructura ideal es MaTu-MiViSabDo (descanso miércoles jueves)
+
+**P: ¿Qué hago los días de descanso?**
+R: Descanso completo O cardio muy ligero (caminata 20-30 min)
+
+**P: ¿Siento muy cansado?**
+R: Come más calorías (+100-150), duerme más (7-8 horas mín)
+
+**P: Llegué a meseta**
+R: 1) Deload 5 días, 2) Aumenta calorías, 3) Duerme más
+
+---
+
+## Expectativas Realistas 4 Días
+
+### **REALISTA EN 12 SEMANAS:**
+
+- **Ganancia total:** +8-12kg
+- **Estimado real músculo:** 6-9kg
+- **Cambio fuerza:** +40-50%
+- **Cambio visual:** DRAMÁTICO (ropa queda apretada de músculos)
+
+**Composición Corporal:**
+- Mes 1: +4-6kg (90% agua)
+- Mes 2: +2-3kg (70% músculo)
+- Mes 3: +2-3kg (80% músculo)
+
+A este nivel, ganancias serias y consistentes si haces bien la nutrición.
+
+---
+
+## Checklist 4 Días
+
+- ✅ 4 días exactos (no 5, no 3)
+- ✅ Forma perfecta cada set
+- ✅ Crecimiento calórico suficiente (2,900+ kcal)
+- ✅ Proteína 160g+ diarios
+- ✅ Progressive overload CADA semana
+- ✅ Dormir 8+ horas
+- ✅ Deload cada 4-6 semanas
+
+---
+
+## Próximos Pasos Después de 12 Semanas
+
+**Opción 1: Continúa 4 días (RECOMENDADO)**
+- Cambios ejercicios cada 4 semanas
+- Progresión continua
+- Resultados siguen llegando
+
+**Opción 2: Sube a 5-6 días**
+- Si quieres especialización más
+- Si tiempo lo permite
+
+**Opción 3: Deload + Reinicia**
+- Reduce volumen 50% semana 13
+- Descansa nerviamente
+- Reinicia semana 14 con +10% peso
+
+¡Este es el punto donde transformación se vuelve SERIO! 💪
     `,
     exercises: [
       {
@@ -603,16 +928,230 @@ Todo lo demás es peso corporal.
 4. **Paciencia**: Los resultados llegan en semanas
 5. **Consistencia**: 3 sesiones por semana son suficientes
 
-## Movimientos progresivos
+## Progresión de Ejercicios: De Principiante a Intermedio
 
-Muchos ejercicios tienen variantes fáciles y difíciles:
-- Flexiones en pared → Flexiones en rodillas → Flexiones normales
-- Dominadas con asistencia → Dominadas normales
-- Sentadillas de pistola (avanzado)
+### FLEXIONES: 3 Niveles
 
-## Duración de sesiones
+**Nivel 1 (Muy Fácil):**
+- Flexiones en pared
+- 3 sets × 20-30 reps
+- Aprende el movimiento
 
-Aproximadamente 40-50 minutos por sesión.
+**Nivel 2 (Intermedio):**
+- Flexiones en rodillas
+- 3 sets × 15-20 reps
+- Más dificultad
+
+**Nivel 3 (Avanzado):**
+- Flexiones normales
+- 3 sets × 10-15 reps
+- Peso corporal completo
+
+**Cuando progresar:** Cuando completes FÁCILMENTE (no llegues a fallo)
+
+### DOMINADAS: 3 Niveles
+
+**Nivel 1:**
+- Dominadas con banda gruesa (asistencia máxima)
+- 3 sets × 5-8 reps
+- Aprendes pull vertical
+
+**Nivel 2:**
+- Banda delgada O negativas (saltas arriba, bajas lentamente 5 seg)
+- 3 sets × 5-10 reps
+
+**Nivel 3:**
+- Dominadas sin asistencia
+- 3 sets × 5-12 reps
+- ¡Eres intermedio!
+
+---
+
+## Nutrición para Principiantes EN CASA
+
+No necesitas suplementos. Comida real basta:
+
+**Si buscas GANAR MÚSCULO:**
+- Superávit calórico: +300-350 kcal
+- Proteína: Carnes, huevos, yogur, queso
+- Carbos: Arroz, papas, pan, avena
+- Grasas: Aceite, frutos secos, aguacate
+
+**Comida simple (60kg persona):**
+- Desayuno: 3 huevos + avena = 500 kcal
+- Almuerzo: Pollo + arroz = 650 kcal
+- Cena: Salmón + papas = 650 kcal
+- Snack: Plátano + maní = 300 kcal
+- **TOTAL: ~2,100 kcal** (perfecto para principiante)
+
+---
+
+## Tips Especiales para Principiantes
+
+### 1. Aprende la Forma ANTES del Peso
+
+- Semana 1: 50% capacidad máxima (aprendes)
+- Semana 2: 70% capacidad
+- Semana 3+: Aumenta según progreso
+
+### 2. Sentirás Soreness (DOMS) la Semana 1
+
+- Es NORMAL (adaptación muscular)
+- Desaparece después semana 2
+- NO es señal de mala forma
+
+### 3. La Consistencia es Mayor que Intensidad
+
+- 3 sesiones fáciles TODAS las semanas > 1 sesión brutal
+- Principiantes ganan incluso con peso ligero
+- Consistencia = 90% del éxito
+
+### 4. Tu Mejor Arma: Progressive Overload
+
+**Cada semana:**
+- +1-2 reps, O
+- +1 set, O
+- -10 segundos descanso
+
+Ejemplo Flexiones:
+- Semana 1: 10 reps × 3 sets
+- Semana 2: 12 reps × 3 sets
+- Semana 3: 14 reps × 3 sets
+- Semana 4: 10 reps × 4 sets (nuevo set)
+
+= **Progreso consistente sin aumentar peso**
+
+---
+
+## Video Mental: Cómo se Ven los Resultados
+
+### DESPUÉS DE 8 SEMANAS (Realista)
+
+- +2-4kg ganancia (70% músculo, 30% agua)
+- **Visual:**
+  - Brazos notablemente más grandes
+  - Espalda más ancha
+  - Pecho más pronunciado
+  - Abdominales más definidos
+  - Ropa queda apretada
+
+- **Performance:**
+  - +50% flexiones (10 → 15 reps)
+  - +30% dominadas
+  - Mucha más fuerza
+
+- **Salud:**
+  - Más energía
+  - Mejor sueño
+  - Mejor postura
+
+---
+
+## FAQ Principiantes EN CASA
+
+**P: ¿Es suficiente peso corporal?**
+R: SÍ. Principiantes ganan con peso corporal. Después de 6 meses, considera mancuernas.
+
+**P: ¿Puedo entrenar en departamento pequeño?**
+R: SÍ. Necesitas solo 2×2 metros. Flexiones, sentadillas, tablones NO necesitan espacio.
+
+**P: ¿No tengo barra de dominadas?**
+R: Improvisá:
+- Rama de árbol (parque)
+- Marco de puerta (barra de resistencia)
+- Viga (si tienes)
+- O haz "Australian pull-ups" (sin barra)
+
+**P: Siento dolor articular**
+R: MALO. Reduce peso 20%, aprende forma perfecta. Si persiste → fisio.
+
+**P: Debo comer suplementos protein?**
+R: NO. Pollo, huevos, yogur suficiente. Suplementos solo si no puedes comer proteína normal.
+
+**P: ¿3 días es suficiente?**
+R: SÍ. Para principiantes, 3 días es ÓPTIMO. Cuerpo necesita mucha recuperación.
+
+---
+
+## Señales de Progreso (Más Allá del Weight)
+
+✅ **Acabas tus sets fácilmente** (próxima semana aumenta reps)  
+✅ **Ropa queda apretada de músculos**  
+✅ **Puedes hacer más reps** que inicio  
+✅ **Energía aumenta**  
+✅ **Músculos visibles** cuando estás relajado (no solo bombeado)  
+
+---
+
+## Transición a Intermedio (Después 3 Meses)
+
+Una vez completes 12 semanas de principiante, dos opciones:
+
+**Opción 1: Compra mancuernas**
+- Amazon/local: Se consiguen baratas
+- Pasa a Rutina 3 Días (con mancuernas)
+- Ganancias se aceleran
+
+**Opción 2: Continúa en casa**
+- Busca variantes más duras
+- Flexiones en pino
+- Pistol squats unilaterales
+- Hand stand training
+
+---
+
+## Transformación Esperada: Principiante 12 Semanas
+
+**REALISTA:**
+- Mes 1: +2-3kg (mayormente agua/glucógeno)
+- Mes 2: +1-2kg real (músculo puro)
+- Mes 3: +1-2kg real (músculo puro)
+- **3 MESES TOTAL: +4-7kg con definición visible**
+
+**Visual Cambio:** DRAMÁTICO
+- Antes: Blando, sin definición
+- Después: Músculos visibles, definido, tonificado
+
+---
+
+## Checklist Éxito Principiante
+
+- ✅ Entrenar EXACTAMENTE 3 días (no 2, no 4)
+- ✅ Forma perfecta (video si no estás seguro)
+- ✅ Progresar cada semana (+reps O -descanso)
+- ✅ Comer en superávit pequeño (+300 kcal)
+- ✅ Proteína suficiente (carnes, huevos)
+- ✅ Dormir 7-8 horas CADA noche
+- ✅ Paciencia (resultados llegan Semana 4-6)
+
+---
+
+## Tu Diario 1: PRIMER DÍA
+
+**Lo que esperar:**
+- Bombas musculares (normal, bonito)
+- Puede que no llegues a todas las reps (normal)
+- Agujetas mañana/pasado (NORMAL para principiante)
+- Motivación ALTA (aprovecharla)
+
+**Lo que NO esperar:**
+- Músculos enormes hoy (toma 12 semanas)
+- Fuerza de héroe (lleva tiempo)
+- Sin soreness (garantizado si nuevo)
+
+---
+
+## TÚ PUEDES. EMPIEZA HOY.
+
+La transformación comienza con una decisión.  
+Hoy es tu día.  
+No esperes al lunes.  
+No esperes al 1.  
+Empieza AHORA. 
+
+¡Te espera una versión increíble de ti mismo! 💪
+
+**"No necesitas ser excelente para empezar, pero necesitas empezar para ser excelente."**
     `,
     exercises: [
       {
@@ -688,15 +1227,167 @@ Estructura:
 4. **Escalabilidad**: Puedes agregar muchos ejercicios complementarios
 5. **Flexibilidad**: Fácil de adaptar según el tiempo
 
-## Para atletas avanzados
+## Para Atletas Avanzados - 2+ AÑOS EXPERIENCIA
 
-Este programa es mejor para personas con 2+ años de entrenamiento consistente.
+Este programa PPL es próximo nivel después 3-4 meses de Full Body
 
-Debes tener:
-- Buena técnica en movimientos compuestos
-- Capacidad de escucha corporal
-- Nutrición adecuada
-- Sueño suficiente
+**Debes tener:**
+- ✅ Técnica PERFECTA en movimientos principales
+- ✅ Capacidad de escucha corporal (saber cuándo parar)
+- ✅ Nutrición disciplinada (+400-500 kcal)
+- ✅ Sueño consistente (8 horas mín)
+- ✅ Capacidad de 5 intensas sesiones/semana
+
+---
+
+## Estructura Semanal Recomendada
+
+**LUNES:** Push 1  
+**MARTES:** Pull 1  
+**MIÉRCOLES:** Pierna 1  
+**JUEVES:** DESCANSO (crítico)  
+**VIERNES:** Push 2 (variante)  
+**SÁBADO:** Pull 2 (variante)  
+**DOMINGO:** Pierna 2 (ligera)
+
+**Lógica:**
+- Push/Pull × 2 = máximo volumen (4 sesiones = 40+ sets/semana)
+- Pierna × 2 = especificación pesada + ligera
+- Descanso jueves = recuperación CNS
+
+---
+
+## Nutrición Avanzada 5 Días
+
+**Necesitas MÁS calorías.**
+
+Para 80kg:
+- Mantenimiento: 2,480 kcal (×1.55 actividad)
+- Superávit: +500 kcal = **2,980 kcal**
+- Proteína: 160-200g (1.8-2.5g/kg avanzado)
+- Carbohidratos: 450-500g (días entrenamiento)
+- Grasas: 80g
+
+**Distribución:**
+- PUSH/PULL: +carbos (muchos sets)
+- PIERNA: ++carbos (mayoría)
+- Promedio: 3,000-3,200 kcal/día
+
+---
+
+## Periodización en 12 Semanas
+
+### Bloque 1 (Semana 1-4): Adaptación
+- Aprende variantes nuevas
+- Establece pesos baseline
+- Acciones: 15-20 sets por sesión
+
+### Bloque 2 (Semana 5-8): HIPERTROFIA PURA
+- Focus: 8-12 reps en accesorios
+- Volumen máximo sin overtraining
+- Progressive overload agresiva
+- +2.5kg semana típicamente
+
+### Bloque 3 (Semana 9-12): Consolidación
+- Aumenta volumen ligeramente
+- Experimenta con técnicas (dropsets, pausa)
+- Deload final (semana 13)
+
+---
+
+## Técnicas Avanzadas Para PPL
+
+### 1. Superseries (Aumentan Volumen, Ahorran Tiempo)
+
+Push exemplo:
+- A1: Press de banca 70kg × 8 (descanso 0 seg)
+- A2: Flexiones × 12-15 INMEDIATAMENTE
+- Descanso 2 min
+- Repetir 4 sets
+
+= **Máximo volumen en mínimo tiempo**
+
+### 2. Density Training
+
+Mismo volumen, menos tiempo = progreso
+
+Ejemplo (Push día 1):
+- Semana 1: 20 sets en 90 min
+- Semana 4: 20 sets en 75 min (más denso)
+- Semana 8: 20 sets en 60 min
+
+= Presión metabólica sin agregar volumen
+
+### 3. Undulating Periodization
+
+Cambia reps cada sesión del mismo grupo:
+
+Push 1 (Lunes): 6-8 reps (fuerza)  
+Push 2 (Viernes): 10-12 reps (hipertrofia)
+
+= Todos los estímulos, menos overuse injury
+
+---
+
+## Indicadores Avanzados de Overtraining
+
+Con 5 días intensos, riesgo es real:
+
+❌ **CUIDADO:**
+- Fuerza decrece 2 semanas (overtraining)
+- Soreness NO disminuye (CNS fatigado)
+- Insomnia (overtraining cortisol)
+- Libido baja (testosterone suprimido)
+- Performance inconsistente
+
+**Solución:** Deload 1 semana (50% volumen)
+
+---
+
+## Ganancias Esperadas PPL - 12 Semanas
+
+- **Mes 1:** +4-6kg (adaptación)
+- **Mes 2:** +3-4kg (hipertrofia pura)
+- **Mes 3:** +2-3kg (consolidación)
+- **Total:** +9-13kg con baja grasa acumulada
+
+**A nivel avanzado:**
+- +7-9kg real músculo (70-80%)
+- Cambio visual TRANSFORMADOR
+- Fuerza +50% en principales
+
+---
+
+## PPL Checklist
+
+- ✅ 5 días exactos (no 4, no 6)
+- ✅ Descanso jueves (NO opcional)
+- ✅ 3,000+ calorías diarias
+- ✅ Proteína 160-200g
+- ✅ Progressive overload CADA sesión
+- ✅ Duerme 8+ horas
+- ✅ Deload cada 4 semanas mínimo
+
+---
+
+## ¿Cuándo Cambiar De PPL?
+
+Continúa PPL si:
+- ✅ Progreso lineal continúa
+- ✅ No tienes síntomas overtraining
+- ✅ Nutrición/sueño óptimos
+
+Cambia si:
+- ❌ Plateau 3+ semanas
+- ❌ Síntomas overtraining
+- ❌ Aburrimiento (cambia variantes)
+
+ALTERNATIVAS:
+- Upper/Lower
+- Full Body Avanzado
+- Periodización Undulante 6 días
+
+Este es el nivel donde disciplina diaria genera resultados extraordinarios. 💪
     `,
     exercises: [
       {
@@ -747,7 +1438,7 @@ Debes tener:
         day: 'Sábado - Pull 2',
         exercises: [
           { name: 'Jalón lateral', sets: 4, reps: '10-12', rest: '2 min' },
-          { name: 'Remo con mancerna', sets: 4, reps: '10-12', rest: '2 min' },
+          { name: 'Remo con mancuernas', sets: 4, reps: '10-12', rest: '2 min' },
           { name: 'Remo en T', sets: 3, reps: '10-12', rest: '2 min' },
           { name: 'Curl martillo', sets: 3, reps: '12-15', rest: '90 seg' },
           { name: 'Curl predicador', sets: 3, reps: '12-15', rest: '90 seg' },
@@ -831,14 +1522,167 @@ Con esta rutina + déficit adecuado + nutrición:
 - Semana 3-8: 0.5-1% de peso corporal por semana
 - Semana 8+: Mantiene pero define cada vez más
 
-## Indicadores de progreso
+## Déficit Calórico Profundo: Ciencia Del Cutting
 
-- Medidas en cm (mejor que peso)
-- Fotos cada 2 semanas
-- Cintura y caderas
-- Fuerza en ejercicios principales
+### ¿Cuánto Déficit?
 
-Este es un viaje, no una carrera. La consistencia es clave.
+| Velocidad | Déficit | Resultado |
+|----------|---------|-----------|
+| **Lento** | -200 kcal | -1kg/mes, máximo músculo preservado |
+| **Medio** | -350 kcal | -1.5kg/mes, buen balance (RECOMENDADO) |
+| **Agresivo** | -500 kcal | -2kg/mes, alguna pérdida muscular |
+| **Extremo** | -750+ | -3+kg/mes, PIERDE MUCHO MÚSCULO ❌ |
+
+**Recomendación:** -300-350 kcal (deficiticio pero muscular)
+
+### Cálculo Para 80kg
+
+- Mantenimiento: 2,480 kcal
+- Cutting: 2,480 - 350 = **2,130 kcal**
+- Proteína: 160-180g (CRÍTICA, máximo posible)
+- Grasas: Mantén 60-70g (hormonal)
+- Carbos: El resto
+
+---
+
+## Cardio ESTRATÉGICO para Cutting
+
+### HIIT (High Intensity Interval Training)
+
+**Cuándo:** 2-3 veces/semana
+
+**Beneficio:**
+- Máxima quema calórica en mín tiempo (20 min = 300+ kcal)
+- Preserva mejor músculo que cardio largo
+- Efecto EPOC (sigues quemando 24-48 horas después)
+
+**Protocolo:**
+- Calentamiento: 5 min
+- Work: 30-40 seg máximo esfuerzo
+- Rest: 20-30 seg recuperación ligera
+- Sets: 8-10 rondas
+- Enfriamiento: 5 min
+
+= **20-30 min total**
+
+### LISS (Low Intensity Steady State)
+
+**Cuándo:** 1-2 veces/semana como activo recovery
+
+**Benefit:**
+- Bajo cortisol (no degrada músculo)
+- Quema grasa sin fatiga
+- Activa recuperación
+
+**Protocolo:**
+- 45-60 minutos caminar/bicicleta ligera
+- Ritmo conversacional
+- Puedes hacer mientras lees/podcast
+
+---
+
+## Tracking de Composición: MÁS IMPORTANTE QUE PESO
+
+❌ **MALO:** Pesarse diario (fluctúa 2-3kg agua)
+
+✅ **BUENO:**
+1. **Fotos:** Cada 2 semanas (misma hora, misma luz)
+2. **Medidas:** Cintura, caderas, pecho, brazos (cinta métrica)
+3. **Peso:** 1-2 veces/semana (promedio)
+4. **Espejo:** Observa definición (mejor que número)
+
+**Ejemplo tabla:**
+| Semana | Peso | Cintura | Foto | Definición |
+|--------|------|---------|------|-----------|
+| 1 | 80kg | 82cm | Baseline | Baja |
+| 4 | 79kg | 80cm | Más definido | Media |
+| 8 | 77kg | 78cm | CAMBIO CLARO | Alta |
+| 12 | 75kg | 76cm | TRANSFORMADO | MUY Alta |
+
+---
+
+##Suplemetnación Para Cutting
+
+| Suplemento | Beneficio |
+|-----------|----------|
+| **Proteína** | Crítica (mantiene músculo) |
+| **Creatina** | Mantiene fuerza/músculo |
+| **Cafeína** | Aumenta EPOC, suprime apetito |
+| **Green Tea Extract** | +50 kcal quema/día (mínimo) |
+| **Glucomannan** | Fibra, saciedad, sin calorías |
+
+---
+
+## ANTES de hacer CUT: 3 Preguntas
+
+1. ❓ **¿Tienes masa muscular base?**
+   - SI: Comienza cutting
+   - NO: Haz 8-12 semanas masa muscular primero
+
+2. ❓ **¿Puedes comer en déficit?**
+   - SI: Listo
+   - NO: Practica menus deficitarios primero
+
+3. ❓ **¿Estás listo psicológicamente?**
+   - SI: Mental fuerte
+   - NO: Wait, cutting es 90% mental
+
+---
+
+## Salida del Cutting: ¿Cuándo PARAR?
+
+**Señales de PARAR cutting:**
+- ✅ Llegaste a % grasa objetivo (12-15% visible)
+- ✅ Fuerza cayó mucho (pierde funcionalidad)
+- ✅ Cansancio extremo (T4 bajó mucho)
+- ✅ Obsesión con comida (salud mental)
+
+**Post-Cutting:**
+- Manten 1-2 semanas en mantenimiento (psicológico)
+- Vuelve a GANANCIA 320+ kcal
+- Cicla: 12 sem ganancia → 8 sem cutting → repeat
+
+---
+
+## Cutting Checklist
+
+- ✅ Déficit -300-350 kcal (no más)
+- ✅ Proteína 160+ g (máximas)
+- ✅ HIIT 2-3×/semana
+- ✅ LISS 1-2×/semana
+- ✅ Fotos cada 2 sem (tracking real)
+- ✅ Duerme 8+ (crítico para quemar grasa)
+- ✅ Mentalidad fuerte (cutting = 90% mental)
+
+---
+
+## Roadmap Cutting 12 Semanas
+
+**Semana 1-4:** Adaptación
+- Te acostumbras al déficit
+- Hambre está -alta (normal)
+- Energía cae pero mejora después
+
+**Semana 5-8:** Pura Definición
+- Cuerpo se adapta a déficit
+- Cuerpo tira grasa consistente
+- Definición CLARA aparece
+
+**Semana 9-12:** Finalización
+- Energía puede caer (menor T4)
+- Músculos MÁS definidos
+- Cambio TOTAL logrado
+
+**Resultado esperado:**
+- **-3 a -5kg total** (-2 a -4kg grasa pura, algo agua)
+- **Definición visible:** ABDOMINALES, músculos claros
+- **Fuerza:** -10-15% (normal en déficit)
+
+---
+
+**Este es un viaje, no una carrera. Cutting es MENTAL.**
+
+Tu mejor versión definida te espera 💪
     `,
     exercises: [
       {
@@ -966,14 +1810,168 @@ Esta rutina es sostenible porque:
 - Aumento de fuerza en ejercicios complementarios
 - Sensación de poder y control en movimientos
 
-## Timeline esperado
+## Periodización Powerlifting en 12 Semanas
 
-- Semanas 1-2: Aprendes la rutina
-- Semanas 3-8: Mejoras rápidas de fuerza
-- Semanas 8+: Progresión consistente pero más lenta
-- 3-6 meses: Cambio notable en tu fuerza máxima
+### Block 1 (Semana 1-4): Adaptación Técnica
 
-Recuerda: la fuerza es la base de todo en fitness. Todo lo demás (músculo, resistencia) se construye sobre esta base.
+- 65-75% de 1RM
+- Aprende forma perfecta
+- "Greasing the groove" (muchas repeticiones técnicas)
+- Sets: 5×5 a 8×3 principales
+
+### Block 2 (Semana 5-8): MAXIMAL STRENGTH
+
+- 85-95% de 1RM (PESO PESADO)
+- Baja reps: 3-5 máximo
+- Mucho descanso: 4-5 minutos
+- Progressive: +2.5-5kg cada semana
+
+**ESPERADO:** +15-20% fuerza en 4 semanas
+
+### Block 3 (Semana 9-12): Consolidación + Dynamic Effort
+
+- 80% de 1RM pero velocidad explosiva
+- Reps: 6-8 movimiento rápido
+- Sets: 6-8 sets
+- Enfoque: "speed + strength"
+
+= **Fuerza máxima + Potencia**
+
+---
+
+## Nutrición Para Fuerza Pura
+
+Distinto a hipertrofia. FUERZA = Proteína + Calorías consistentes
+
+Para 80kg:
+- **Mantenimiento:** 2,480
+- **Superávit:** +200-300 kcal = **2,700-2,800** (suficiente)
+- **Proteína:** 140-160g (menos que hipertrofia)
+- **Carbos:** Énfasis PRE y POST entreno
+- **Grasas:** 0.8-1.0g/kg (hormonal)
+
+**Timing crítico:**
+- PRE-entreno (-2h): Carbos + proteína
+- POST-entreno (+0.5h): Carbos + proteína (rápido)
+
+---
+
+## Técnicas Avanzadas Fuerza
+
+###  "Greasing The Groove" (GTG)
+
+- Haz movimiento 6-8x/día en baja reps
+- Acumula volumen sin fatiga
+- Ejemplo: Press de banco GTG
+  - 8am: 1 rep @ 80kg (fácil)
+  - 10am: 1 rep @ 80kg
+  - 1pm: 2 reps @ 80kg (no a fallo)
+  - etc
+
+= **20-30 reps diarios sin fatiga acumulada**
+
+### Wave Loading
+
+Aumenta y baja peso mismo set:
+
+Ejemplo Sentadillas:
+- Set 1: 120kg × 3 reps
+- Set 2: 125kg × 2 reps  
+- Set 3: 130kg × 1 rep
+- Set 4: 120kg × 5 reps (fácil después pesada)
+- Set5: 125kg × 4 reps  
+- Set 6: 130kg × 2 reps
+
+= **Volumen + Intensidad en mismo set**
+
+---
+
+## Indicadores de Fuerza Real
+
+✅ **Sabes tu máximo real:** Déjate probar con seguridad  
+✅ **Vídeo forma:** Registra cada sesión (mejora/empeora?)  
+✅ **Volumen progresa:** Sets×reps×peso sube  
+✅ **Movilidad mejora:** ROM = eficiencia neuromuscular  
+✅ **Velocidad aumenta:** Mismo peso más rápido = mejor CNS  
+
+---
+
+## Cuando Hacer MAX Tests
+
+❌ **NO:** Semanalmente (acumula fatiga)  
+✅ **SÍ:** Cada 4-6 semanas (deload + test)
+
+Protocolo:
+1. Calenta 10 min
+2. Series progresivas hasta ~80%
+3. Intenta nuevo 1RM (máximo 3 intentos)
+4. Descansa 5-10 min
+5. Celebra si ligas (o acepta y reintenta próxima)
+
+---
+
+## Fuerza vs Hipertrofia: Entender Las Diferencias
+
+| Factor | FUERZA | HIPERTROFIA |
+|--------|--------|-----------|
+| **Reps** | 1-5 | 6-12 |
+| **Sets** | Muchos, varios | más sets, menos intensos |
+| **Descanso** | 4-5 min | 1.5-2 min |
+| **Velocidad** | Controlada explosiva | Controlada |
+| **Progreso** | +Peso | +Reps después +Peso |
+| **Resultado** | +30-40% fuerza | +2-3kg músculo |
+
+**Nota:** Fuerza También construye músculo, pero menos hipertrofia específica
+
+---
+
+## Timeline Fuerza Realista - 12 Semanas
+
+| Semana | Progreso |
+|--------|----------|
+| 1-2 | Adaptación neural (+5% fuerza) |
+| 3-4 | +10% fuerza (rápido) |
+| 5-8 | +20% fuerza (consistente) |
+| 9-12 | +25-35% fuerza TOTAL |
+
+**Ejemplo Press de Banca:**
+- Semana 1: 80kg × 5 (baseline)
+- Semana 6: 95kg × 5 (+18%)
+- Semana 12: 105kg × 5 (+31%)
+
+= **+25kg = DRAMÁTICO**
+
+---
+
+## Fuerza Pura Checklist
+
+- ✅ Forma PERFECTA (video cada semana)
+- ✅ Progresión lineal (weight cada semana)
+- ✅ Descanso máximo (4-5 min entre sets)
+- ✅ Nutrición suficiente (+200-300 kcal)
+- ✅ CNS recuperada (dormir 8 horas)
+- ✅ Deload cada 4-6 semanas (crítico)
+
+---
+
+## Carrera Powerlifting
+
+Si te encanta fuerza, opciones:
+
+1. **Sigue Fuerza Pura** - Continúa 3 días indefinidamente
+2. **Usa Fuerza Como Base** - Add hypertrophy accesorios después
+3. **Compite** - Join local competitions (muy motivador)
+4. **Hybrid Program** - Fuerza + Hipertrofia complementarios
+
+---
+
+**La fuerza es la FUNDACIÓN de todo en fitness.**
+
+El músculo, potencia, resistencia, todo se construye sobre base de fuerza.
+
+Terminarás 12 semanas PODEROSO, controlado, y listo para vencer desafíos.
+
+¡Eres más fuerte de lo que crees! 💪
     `,
     exercises: [
       {
@@ -1109,28 +2107,199 @@ Esta es la mejor opción si tu objetivo es verte más tonificado y en forma, con
 ## Resultados esperados
 
 Con consistencia + nutrición:
-- Semana 1-2: Sentirás más energía
-- Semana 2-4: Cambios visibles primeros
-- Semana 4-8: Definición clara
-- Semana 8+: Transformación notable
+- Semana 1-2: Sentirás más energía, bomba muscular
+- Semana 2-4: Cambios visibles primeros (definición abdominal inicio)
+- Semana 4-8: Definición CLARA (músculos muy visibles)
+- Semana 8+: Transformación TOTAL (tonificado máximo)
 
-## Tips de éxito
+---
 
-1. **Escucha tu cuerpo**: Si estás exhausto, haz LISS en lugar de HIIT
-2. **Refuerza nutrición**: El cardio extra requiere más nutrientes
-3. **Duerme adecuadamente**: 7-8 horas es crítico
-4. **Sé consistente**: Los resultados vienen de la consistencia
-5. **Mide progreso**: Fotos, medidas, ropa (más que peso)
+## Cardio Inteligente: No Todos Son Iguales
 
-Esta rutina es perfecta si amas el cardio pero aún quieres verte tonificado y musculoso.
+### HIIT (High Intensity Interval Training)
+
+**Qué es:** Sprints cortos alternados con recuperación
+
+**Ventajas:**
+- ⏱️ Solo 20 min total
+- 🔥 +300 kcal quema
+- 💪 Preserva mejor músculos que LISS
+- ⚡ Efecto EPOC 24-48 horas
+
+**Riesgo:** Mayor lesión, requiere buena condición
+
+**Protocolo:**
+- Calenta 5 min
+- 40 seg máximo esfuerzo
+- 20 seg recuperación
+- 6-8 rondas
+- Enfría 5 min total 20 min
+
+---
+
+### LISS (Low Intensity Steady State)
+
+**Qué es:** Caminata/carrera ligera ritmo constante
+
+**Ventajas:**
+- 🛡️ Bajo cortisolriesgo lesión
+- ❤️ Beneficio cardiorespiratorio
+- 🧠 Descanso mental (podcast/música)
+- 💯 Sostenible largo plazo
+
+**Protocolo:**
+- 45-60 min
+- Ritmo conversacional (podrías hablar)
+- Constante
+
+---
+
+### Cardio Funcional
+
+**Qué es:** Ejercicios corporales + cardio (burpees, mountain climbers, saltos)
+
+**Ventajas:**
+- 💪 Tonifica + quema simultáneo
+- ⏱️ 20-30 min eficiente
+- 🎯 Trabajo completo cuerpo
+- 🔥 Muy alto EPOC
+
+**Ejercicios:**
+- Burpees
+- Mountain climbers
+- Jump squats
+- Box jumps
+- Lateral bounds
+- Battling ropes
+
+---
+
+## Nutrición Para Cardio + Tonificación
+
+**Objetivo:** Déficit pequeño + Preservar músculo
+
+Para 80kg:
+- **Mantenimiento:** 2,480
+- **Déficit:** -200 kcal = **2,280 kcal** (más conservador que cutting)
+- **Proteína:** 150-160g (máxima para preservación)
+- **Grasas:** 60-70g (salud)
+- **Carbos:** 2-3g/kg (energía para cardio)
+
+**Timing:**
+- **PRE-cardio (-30 min):** Carbos rápidos (plátano, bebida deportiva)
+- **PRE-pesas (-90 min):** Comida normal proteína + carbos
+- **POST-entreno (+30 min):** Proteína + carbos rápidos
+
+---
+
+## Suplementación Recomendada
+
+| Suplemento | Dosis | Razón |
+|-----------|-------|-------|
+| **Proteína** | 30-40g post | Preserva músculo en déficit |
+| **BCAA** | 5-10g pre-cardio | Opcional pero utila preservación |
+| **Cafeína** | 200mg pre | Aumenta quema, energía cardio |
+| **Electrolitos** | Durante cardio largo | +60 min LISS |
+| **Omega-3** | 2-3g/día | Inflamación post-cardio |
+
+---
+
+## Estructura de Semana Eficiente
+
+**LUNES:** Push + HIIT (alta intensidad)  
+**MARTES:** LISS 45-60 min (recovery activa  
+**MIÉRCOLES:** Pierna + Cardio Funcional  
+**JUEVES:** LISS O Descanso  
+**VIERNES:** Full Body + HIIT  
+**SÁBADO:** LISS ligero (45 min)  
+**DOMINGO:** Completo descanso
+
+= **Máximo cardio + Tonificación + Recuperación**
+
+---
+
+## Indicadores de ÉXITO Cardio+Tonificación
+
+✅ **Resistencia aumenta:** Más rápido sin secuencia
+✅ **Definición muscular:** Abdominales, brazos definidos  
+✅ **Ropa queda apretada:** Músculos notorios
+✅ **Composición mejora:** -2-3% grasa corporal  
+✅ **Capacidad cardio:** Menos cansancio diario
+
+---
+
+## Cuando Detenerse y Cambiar
+
+**Continúa Cardio+Tonificación si:**
+- ✅ Amas el cardio
+- ✅ Cambio visual sigue
+- ✅ Energía buena
+
+**Cambia a otra rutina si:**
+- ❌ Plateau composición 4+ semanas
+- ❌ Cansancio crónico
+- ❌ Performance cardio cae
+- ❌ Objetivo es más músculo (cambia a hipertrofia)
+
+---
+
+## Cardio+Tonificación Checklist
+
+- ✅ Cardio HIIT 2×/semana (máximo)
+- ✅ LISS 2×/semana (recuperación)
+- ✅ Tonificación 3×/semana (preservación)
+- ✅ Déficit -200 kcal (mejor composición)
+- ✅ Proteína 150-160g (músculo protegido)
+- ✅ Dormir 7-8 horas (crucial post-cardio)
+
+---
+
+## Timeline 12 Semanas Realista
+
+| Semana | Cardio | Composición | Visual |
+|--------|--------|-------------|--------|
+| 1-2 | Adaptación | -0.5kg | Imperceptible |
+| 3-4 | Mejora | -1.5kg | Definición inicio |
+| 5-8 | Mantenible | -2-3kg | MUY DEFINIDO |  
+| 9-12 | Excelente | -1-2kg más | TONIFICADO MÁXIMO |
+
+**Total 12 sem:** -5 a -7kg (90% grasa, mantienes músculo)
+
+**Visual:** De blanda a TONIFICADA Y FUERTE
+
+---
+
+## Bonus: Entrenamiento Metabólico para Quemar Grasa
+
+**Qué es:** Combinación ejercicios + cardio = máxima quema
+
+**Ejemplo Metabólico Circuit:**
+1. Sentadillas × 15 (0 descanso)
+2. Push-ups × 15 (0 descanso)
+3. Row × 15 (0 descanso)
+4. Saltos × 15 (0 descanso)
+5. Descanso 60 seg
+6. Repetir 4-5 rondas
+
+= **15-20 min, 400+ kcal quema, TODO el cuerpo tonificado**
+
+---
+
+**Esta rutina es PERFECTA si amas cardio pero quieres verse tonificado fuerte.**
+
+Es el balance definitivo: **Salud cardiovascular + Músculos Visibles + Energía**.
+
+Terminarás 12 semanas DEFINIDO, cardio-fit, y poderoso. 💪
+
+**¡Empieza HOY!**
     `,
     exercises: [
       {
         day: 'Lunes - Torso + Cardio HIIT',
         exercises: [
-          { name: 'Press de banca mancerna', sets: 3, reps: '12-15', rest: '90 seg' },
+          { name: 'Press de banca con mancuernas', sets: 3, reps: '12-15', rest: '90 seg' },
           { name: 'Remo inclinado', sets: 3, reps: '12-15', rest: '90 seg' },
-          { name: 'Press militar mancerna', sets: 3, reps: '12-15', rest: '90 seg' },
+          { name: 'Press militar con mancuernas', sets: 3, reps: '12-15', rest: '90 seg' },
           { name: 'Jalón lateral', sets: 3, reps: '12-15', rest: '90 seg' },
           { name: 'Curl bíceps + extensión tríceps (superset)', sets: 3, reps: '12-15', rest: '60 seg' },
           { name: 'HIIT: 40 seg trabajo + 20 seg descanso x6', sets: 1, reps: '6 rondas', rest: '0' },
@@ -1146,8 +2315,8 @@ Esta rutina es perfecta si amas el cardio pero aún quieres verte tonificado y m
       {
         day: 'Miércoles - Pierna + Cardio Funcional',
         exercises: [
-          { name: 'Sentadillas mancerna', sets: 3, reps: '15-20', rest: '2 min' },
-          { name: 'Peso muerto rumano mancerna', sets: 3, reps: '15-20', rest: '2 min' },
+          { name: 'Sentadillas con mancuernas', sets: 3, reps: '15-20', rest: '2 min' },
+          { name: 'Peso muerto rumano con mancuernas', sets: 3, reps: '15-20', rest: '2 min' },
           { name: 'Sentadillas búlgaro', sets: 3, reps: '12-15 c/pierna', rest: '90 seg' },
           { name: 'Extensiones cubíceps + curls isquios (superset)', sets: 3, reps: '12-15', rest: '90 seg' },
           { name: 'Cardio funcional: Burpees, mountain climbers, sprints (HIIT ligero)', sets: 1, reps: '20 min', rest: '0' },

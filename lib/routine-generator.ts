@@ -420,7 +420,7 @@ const generateGymExercises = (
       day: 'Sábado - Pull 2 + Pierna',
       exercises: [
         { name: 'Jalón lateral', sets: 4, reps: '10-12', rest: '2 min' },
-        { name: 'Remo con mancerna', sets: 3, reps: '10-12', rest: '2 min' },
+        { name: 'Remo con mancuernas', sets: 3, reps: '10-12', rest: '2 min' },
         { name: 'Sentadillas búlgaro', sets: 3, reps: '10-12', rest: '2 min' },
         { name: 'Curl martillo', sets: 2, reps: '12-15', rest: '90 seg' },
         { name: 'Pantorrillas', sets: 2, reps: '15-20', rest: '60 seg' },
