@@ -12,25 +12,64 @@ const logger = {
   timing: (label: string, ms: number) => console.log(`⏱️  [AI Service] ${label} - ${ms}ms`),
 };
 
-// Fallback values - MEJORADAS Y MÁS DETALLADAS
-const FALLBACK_DESCRIPTIONS = [
-  'Rutina personalizada de alto rendimiento diseñada científicamente para maximizar tus resultados. Este programa combina principios de periodización con ejercicios compuestos efectivos, permitiéndote progresar de forma consistente.',
-  'Programa de entrenamiento profesional estructurado estratégicamente para tu nivel. Incluye progresión planificada, variación de estímulos y recuperación optimizada para resultados visibles en 4-6 semanas.',
-  'Rutina intensiva y bien planificada que aplica las últimas metodologías de entrenamiento de fuerza. Diseñada para maximizar ganancia muscular, mejorar rendimiento y prevenir lesiones con técnica correcta.',
-  'Entrenamiento personalizado adaptado a tu objetivo específico y limitaciones. Estructura progresiva que balancean volumen, intensidad y recuperación para resultados sostenibles a largo plazo.',
-  'Programa de fitness basado en evidencia científica, optimizado para tu nivel y disponibilidad. Combina ejercicios principales con accesorios estratégicos para máxima efectividad y adherencia.',
+// Fallback values - Mejoradas significativamente por objetivo
+const FALLBACK_DESCRIPTIONS_MASA = [
+  'Rutina de hipertrofia diseñada científicamente para maximizar ganancia muscular. Enfatiza ejercicios compuestos en rango 6-12 reps con énfasis en la tensión mecánica, el principal factor de crecimiento muscular. Estructura de volumen alto con suficiente recuperación entre sets para mantener intensidad. Resultados realistas: 3-5kg de músculo puro en 8-12 semanas con nutrición y sueño adecuados.',
+  'Programa profesional de ganancia de masa musculoesquelética basado en periodización lineal. Combina fases de fuerza (6-8 reps) con hipertrofia (8-12 reps) para máximo crecimiento. Incluye progresión de peso planificada, variación de ejercicios cada 4 semanas y recuperación estratégica. Diseñado para principiantes a avanzados.',
+  'Rutina de musculación que aplica los 3 pilares de la hipertrofia: tensión mecánica, daño muscular y estrés metabólico. Estructura full-body o PPL según tu disponibilidad, con cardio moderado para preservar musculatura mientras mejoras salud cardiovascular. Progressive overload es clave.',
+  'Entrenamiento de construcción muscular optimizado para tu nivel y experiencia. Utiliza periodización para evitar mesetas, varía ángulos y ejercicios sistemáticamente, e integra deload weeks cada 4-5 semanas. Resultado esperado: crecimiento consistente sin lesiones.',
+  'Programa de hipertrofia miofibrilar y sarcoplasmática diseñado para máximo y rápido crecimiento muscular. Combina densidad ideal de sets (16-20 sets/grupo muscular/semana), recuperación suficiente (48-72 horas entre grupos) y progresión consistente. Base científica sólida.',
 ];
 
-const FALLBACK_TIPS = [
-  '📈 Progressive Overload: Aumenta peso, reps o sets cada semana. La progresión constante es la clave del éxito en cualquier entrenamiento.',
-  '💪 Consistencia > Perfección: Entrenar 3 días de forma disciplinada supera entrenar 6 días sin compromiso. La consistencia gana siempre.',
-  '⏱️ Descansa Activamente: Los días de descanso son cuando crece el músculo. Incorpora caminar, estirar o movilidad para recuperación óptima.',
-  '🥗 Nutrición es 70%: Sin superávit calórico (masa) o déficit (grasa), entrenar es solo la mitad de la ecuación. Come inteligentemente.',
-  '😴 Sueño es Anabólico: 7-9 horas de calidad permite síntesis proteica. Duerme suficiente para que tu entrenamiento vale la pena.',
-  '📱 Registra tu Progreso: Apunta sets, reps y peso. Datos visuales mantienen motivación y permiten ajustes inteligentes.',
-  '🔄 Varía los Ejercicios: Cada 4-6 semanas, cambia movimientos. La variación previene mesetas y lesiones por uso repetitivo.',
-  '🎯 Forma > Ego: Un ejercicio con técnica perfecta supera un peso más pesado con movimiento marrullero. Lesionarse retrocede meses.',
+const FALLBACK_DESCRIPTIONS_GRASA = [
+  'Rutina de pérdida de grasa preservando músculo máximo. Combina entrenamiento de resistencia intenso (para preservar proteína muscular) con cardio estratégico. Estructura de volumen moderado en rango 8-12 reps alta intensidad, minimizando catabolismo. Cardio HIIT incorporado 2-3 veces/semana. Déficit calórico + proteína alta = éxito.',
+  'Programa profesional de definición y recomposición corporal. Énfasis máximo en preservar/construir músculo mientras pierdes grasa. Combina pesos pesados (fuerza) + volumen moderado + cardio HIIT. Requiere disciplina nutricional estricta pero resultados visibles en 6-8 semanas.',
+  'Rutina de cutting basada en evidencia para máxima pérdida de grasa minimizando pérdida muscular. Utiliza entrenamiento de resistencia frecuente, cardio HIIT de baja duración, y déficit calórico moderado. Incluye estrategias de periodización para mantener fuerza y volumen.',
+  'Entrenamiento de transformación corporal para pérdida de grasa sin sacrificar musculatura. Estructura funcional con pesos compuestos pesados + cardio metabólico. Resultado esperado: cambio visual significativo en 10-12 semanas con adherencia nutricional.',
+  'Programa de definición muscular que prioriza preservación de masa magra mediante entrenamiento inteligente. Énfasis en progressive overload incluso en déficit, cardio eficiente, y nutrición optimizada. Ideal para aquellos que desean verse musculosos y definidos.',
 ];
+
+const FALLBACK_DESCRIPTIONS_MANTENER = [
+  'Rutina de mantenimiento y tonificación diseñada para preservar musculatura mientras mejoras composición corporal. Estructura balanceada con volumen moderado, enfoque en movimientos funcionales, y cardio ligero. Sostenible a largo plazo como estilo de vida fitness.',
+  'Programa de fitness integral para mantener e incrementar calidad muscular. Combina entrenamiento de resistencia, cardio moderado y movilidad. Ideal para personas que desean permanecer activas, saludables y fuertes sin obsesión por cambios extremos.',
+  'Rutina de entrenamiento funcional para mantenimiento de fuerza, masa y salud general. Estructura versátil que permite variar según disponibilidad, con énfasis en técnica y movimiento calidad. Cardio ligero a moderado para preservar salud cardiovascular.',
+  'Programa de wellness y tonificación corporal balanceado entre fuerza y cardio. Estructura flexible que permite consistencia año redondo sin fatiga mental. Ideal para mantener un físico saludable y atractivo sin stress nutricional extremo.',
+  'Entrenamiento de estilo de vida enfocado en preservar masa muscular, mejorar funcionalidad y mantener salud óptima. Estructura sostenible diseñada como hábito permanente, no como fase temporal. Incluye flexibilidad nutricional y adaptabilidad.',
+];
+
+const FALLBACK_TIPS_MASA = [
+  'Superávit calórico es obligatorio: 300-500 calorías sobre mantenimiento. Sin excedente, simplemente no crecerás. Calcula mantenimiento y suma: peso(kg) × 30 = calorías diarias aproximadas.',
+  'Proteína mínima: 1.6-2.2g por kg de peso corporal. Un atleta de 80kg necesita 128-176g diarios. Distribuye en 4-5 comidas para máxima síntesis proteica.',
+  'Progressive overload es clave: aumenta peso 1-2kg cada semana en ejercicios principales o +1 rep. Sin progresión, sin crecimiento. Registra tus entrenamientos religiosamente.',
+  'Sueño 7-9 horas cada noche. Durante sueño profundo ocurre síntesis proteica y hormona de crecimiento. Dormir poco reduce crecimiento 30-40%.',
+  'Entrenamiento 3-5 días/semana es suficiente. Más no es mejor. Recuperación entre sesiones es donde crece el músculo. No necesitas estar siempre en el gym.',
+  'Variación cada 4-6 semanas: cambia ejercicios, reps, o ángulos. Previene adaptación y mesetas. El músculo necesita nuevos estímulos para continuar creciendo.',
+  'Deload week cada 4-5 semanas: reduce volumen 40-50% para recuperación nerviosa. Mantiene fuerza y previene lesiones por fatiga acumulada.',
+  'Prioritiza ejercicios compuestos: Sentadillas, Peso Muerto, Press de Banca, Remos. 70% del volumen debe ser compuesto. Son los que más hipertrofia generan.',
+];
+
+const FALLBACK_TIPS_GRASA = [
+  'Déficit calórico 300-500 calorías: demasiado agresivo = pérdida muscular. Muy ligero = sin cambios. El punto dulce es -400 kcal/día = ~0.5kg/semana.',
+  'Proteína ALTA: 2-2.5g por kg de peso corporal. Crítica para preservar músculo en déficit. A mayor proteína, más fácil mantener volumen durante cutting.',
+  'Entrenamiento de resistencia PRIORITARIO: pesas pesadas preservan musculatura. Combina con cardio pero no reemplaces pesos por cardio. Pesas salvan músculos en déficit.',
+  'Cardio HIIT 20-30 min: 2-3 veces/semana es óptimo. Más eficiente que cardio lento para perder grasa sin catabolismo. 30seg intensidad / 30seg descanso.',
+  'Sueño 7-8 horas: déficit de sueño aumenta cortisol y apetito, saboteando tu déficit. Duerme bien para mantener disciplina nutricional.',
+  'Paciencia: 0.5kg/semana es ideal. Rápido = músculo perdido. Lento = adherencia fácil. 10-12 semanas para transformación visible es realista.',
+  'Macros: 40% proteína / 40% carbs / 20% grasas es un buen start. Ajusta según tu respuesta. Algunos prefieren menos carbs, otros más.',
+  'Cardio después de pesas o separado: nunca antes. Pre-cardio compromete fuerza. Haz pesas primero con máxima energía, luego cardio si es necesario.',
+];
+
+const FALLBACK_TIPS_MANTENER = [
+  'Mantén mantenimiento calórico: peso actual × 28-30 = calorías diarias. Variar ±200-300 es normal. El objetivo es estabilidad, no obsesión.',
+  'Proteína moderada: 1.2-1.6g por kg de peso corporal es suficiente para preservar. No necesitas exceso extremo si no buscas crecimiento rápido.',
+  'Entrenamientos 3-4 días/semana es ideal: suficiente para mantener, bajo compromiso de tiempo. Consistencia es más importante que volumen extremo.',
+  'Cardio 150min/semana moderado O 75min/semana intenso: recomendación OMS para salud cardiovascular. Mantiene resistencia y ayuda composición corporal.',
+  'Sueño 7-8 horas: fundamental para recuperación cotidiana y salud general. A largo plazo, dormir bien es tu mejor inversión.',
+  'Flexibilidad nutricional: puedes permitirte 1-2 comidas "libres"/semana si mantienes disciplina el resto. Sostenibilidad = consistencia a largo plazo.',
+  'Varía ejercicios cada 2-3 meses: previene aburrimiento y lesiones por repetición. Mantén movimientos principales pero experimenta variaciones.',
+  'Evalúa composición, no solo peso: una persona tonificada pesa lo mismo que una con grasa. Espejo y cómo te ves es mejor métrica que la báscula.',
+];
+
 
 
 interface RoutineAIData {
@@ -55,7 +94,7 @@ export async function generateRoutineDescriptionAI(data: RoutineAIData): Promise
     // Check if API key is configured
     if (!process.env.GROQ_API_KEY) {
       logger.warn('GROQ_API_KEY not configured');
-      return getFallbackDescription();
+      return getFallbackDescription(data.objective);
     }
 
     const objectiveLabel = {
@@ -121,7 +160,7 @@ Adelante, genera la descripción profesional ahora:
     // Validate response
     if (!message.choices || message.choices.length === 0) {
       logger.warn('Empty response from Groq API');
-      return getFallbackDescription();
+      return getFallbackDescription(data.objective);
     }
 
     const content = message.choices[0].message.content;
@@ -132,19 +171,43 @@ Adelante, genera la descripción profesional ahora:
     }
 
     logger.warn('Invalid response format from API');
-    return getFallbackDescription();
+    return getFallbackDescription(data.objective);
   } catch (error: any) {
     logger.error('Failed to generate routine description', error);
     logger.info('Using fallback description');
-    return getFallbackDescription();
+    return getFallbackDescription(data.objective);
   }
 }
 
 /**
- * Fallback function for routine description
+ * Fallback function for routine description by objective
  */
-function getFallbackDescription(): string {
-  return FALLBACK_DESCRIPTIONS[Math.floor(Math.random() * FALLBACK_DESCRIPTIONS.length)];
+function getFallbackDescription(objective: string): string {
+  const descriptions = {
+    masa: FALLBACK_DESCRIPTIONS_MASA,
+    grasa: FALLBACK_DESCRIPTIONS_GRASA,
+    mantener: FALLBACK_DESCRIPTIONS_MANTENER,
+  };
+  
+  const array = descriptions[objective as keyof typeof descriptions] || FALLBACK_DESCRIPTIONS_MASA;
+  return array[Math.floor(Math.random() * array.length)];
+}
+
+/**
+ * Fallback function for motivational tips by objective
+ */
+function getFallbackTips(objective: string): string[] {
+  const tips = {
+    masa: FALLBACK_TIPS_MASA,
+    grasa: FALLBACK_TIPS_GRASA,
+    mantener: FALLBACK_TIPS_MANTENER,
+  };
+  
+  const array = tips[objective as keyof typeof tips] || FALLBACK_TIPS_MASA;
+  
+  // Retorna 5-6 tips aleatorios de la lista
+  const shuffled = [...array].sort(() => Math.random() - 0.5);
+  return shuffled.slice(0, 6);
 }
 
 /**
@@ -222,7 +285,7 @@ export async function generateMotivationalTipsAI(objective: string, level: strin
   try {
     if (!process.env.GROQ_API_KEY) {
       logger.warn('GROQ_API_KEY not configured');
-      return getFallbackTips();
+      return getFallbackTips(objective);
     }
 
     const styleContext = trainingStyle ? ` con enfoque ${trainingStyle}` : '';
@@ -281,7 +344,7 @@ Adelante - genera los 6 tips ahora:
     // Validate response
     if (!message.choices || message.choices.length === 0) {
       logger.warn('Empty response from Groq API for tips');
-      return getFallbackTips();
+      return getFallbackTips(objective);
     }
 
     const content = message.choices[0].message.content;
@@ -301,19 +364,10 @@ Adelante - genera los 6 tips ahora:
     }
 
     logger.warn('Invalid or insufficient tips response', { objective, level });
-    return getFallbackTips();
+    return getFallbackTips(objective);
   } catch (error: any) {
     logger.error(`Failed to generate motivational tips for ${objective}`, error);
     logger.info('Using fallback tips');
-    return getFallbackTips();
+    return getFallbackTips(objective);
   }
-}
-
-/**
- * Fallback function for motivational tips
- */
-function getFallbackTips(): string[] {
-  // Shuffle and return 3 random fallback tips
-  const shuffled = [...FALLBACK_TIPS].sort(() => Math.random() - 0.5);
-  return shuffled.slice(0, 3);
 }
