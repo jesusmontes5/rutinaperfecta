@@ -309,15 +309,15 @@ export default function RoutineDetailClient({ routine, allRoutines }: RoutineDet
               </div>
 
               {/* Botones de descarga */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+              <div className="flex flex-col sm:flex-row gap-3 justify-center mb-6">
                 <button
                   onClick={() => downloadRoutineAsPDF(routine as any)}
-                  className="px-8 py-4 bg-gradient-to-r from-gold-dark to-[#a0633d] text-white font-600 rounded-xl hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3 flex-1 disabled:opacity-50 disabled:cursor-not-allowed group"
+                  className="px-6 py-3 bg-[#997a3c] text-white font-500 rounded-lg hover:shadow-md transition flex items-center justify-center gap-2 flex-1 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <svg className="w-5 h-5 group-hover:rotate-12 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8m0 8a8 8 0 100-16 8 8 0 000 16z" />
                   </svg>
-                  <span>Descargar PDF</span>
+                  Descargar
                 </button>
               </div>
 
@@ -325,12 +325,9 @@ export default function RoutineDetailClient({ routine, allRoutines }: RoutineDet
               <div className="text-center">
                 <Link
                   href="/"
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-white border-2 border-gold-dark text-gold-dark font-600 rounded-xl hover:bg-gold-dark hover:text-white hover:shadow-lg transition-all duration-300 group"
+                  className="inline-block px-6 py-3 bg-[#997a3c] text-white font-500 rounded-lg hover:shadow-md transition"
                 >
-                  <span>Personalizar rutina</span>
-                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
+                  Personalizar →
                 </Link>
               </div>
             </div>

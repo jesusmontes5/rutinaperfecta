@@ -150,41 +150,27 @@ export default function RoutineCard({ routine, expanded = false }: RoutineCardPr
       </div>
 
       {/* Actions */}
-      <div className="p-4 bg-gradient-to-r from-gold-very-light/30 to-white border-t border-gold-light/40 flex flex-col sm:flex-row gap-2.5 mt-auto shrink-0 relative z-10">
+      <div className="p-4 bg-color-bg-secondary border-t border-color-border-light flex flex-col sm:flex-row gap-2 mt-auto shrink-0 relative z-10">
         {isPrebuilt && 'slug' in routine && (
           <Link
             href={`/rutinas/${routine.slug}`}
-            className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-gold-dark to-[#a0633d] text-white rounded-lg hover:shadow-lg hover:scale-105 transition-all font-600 text-sm text-center group"
+            className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-[#997a3c] text-white rounded-lg hover:shadow-md transition-all font-500 text-sm text-center"
           >
-            Ver detalle
-            <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            Ver
+            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>
           </Link>
         )}
         <button
           onClick={() => setShowDetails(!showDetails)}
-          className={`flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 rounded-lg transition-all font-600 text-sm border-2 group ${
+          className={`flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg transition-all font-500 text-sm border ${
             showDetails
-              ? 'bg-gold-light/20 text-gold-dark border-gold-light/50 hover:bg-gold-light/30 hover:shadow-md'
-              : 'bg-white text-gold-dark border-gold-light/50 hover:bg-gold-light/10 hover:shadow-md'
+              ? 'bg-[#997a3c] text-white border-[#997a3c]'
+              : 'bg-[#997a3c] text-white border-[#997a3c] hover:shadow-md'
           }`}
         >
-          {showDetails ? (
-            <>
-              <svg className="w-4 h-4 group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-              Menos detalles
-            </>
-          ) : (
-            <>
-              Ver detalles
-              <svg className="w-4 h-4 group-hover:translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7-7-7 7" />
-              </svg>
-            </>
-          )}
+          {showDetails ? 'Menos' : 'Más'}
         </button>
       </div>
     </div>
