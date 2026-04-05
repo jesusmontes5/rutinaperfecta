@@ -335,7 +335,7 @@ const generateGymExercises = (
         day: 'Lunes - Torso (Push)',
         exercises: [
           { name: 'Press de banca', sets: 4, reps: '8-10', rest: '3 min' },
-          { name: 'Press inclinado mancernas', sets: 3, reps: '10-12', rest: '2 min' },
+          { name: 'Press inclinado con mancuernas', sets: 3, reps: '10-12', rest: '2 min' },
           { name: 'Press militar', sets: 3, reps: '8-10', rest: '2.5 min' },
           { name: 'Dips', sets: 3, reps: '8-12', rest: '2 min' },
           { name: 'Elevaciones laterales', sets: 3, reps: '12-15', rest: '90 seg' },
@@ -380,7 +380,7 @@ const generateGymExercises = (
       day: 'Lunes - Push 1',
       exercises: [
         { name: 'Press de banca', sets: 4, reps: '6-8', rest: '3 min' },
-        { name: 'Press inclinado mancernas', sets: 3, reps: '8-10', rest: '2.5 min' },
+        { name: 'Press inclinado con mancuernas', sets: 3, reps: '8-10', rest: '2.5 min' },
         { name: 'Press militar', sets: 3, reps: '8-10', rest: '2.5 min' },
         { name: 'Elevaciones laterales', sets: 4, reps: '12-15', rest: '90 seg' },
         { name: 'Extensiones de tríceps cuerda', sets: 3, reps: '12-15', rest: '90 seg' },

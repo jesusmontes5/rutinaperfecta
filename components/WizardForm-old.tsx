@@ -504,7 +504,6 @@ export default function WizardForm() {
       <div className="flex gap-3 md:gap-4 justify-between pt-8 md:pt-12 border-t border-gray-200">
         <button
           onClick={handleBack}
-          disabled={step === 1}
           className={`flex-1 px-6 py-4 rounded-xl font-semibold transition-all duration-200 flex items-center justify-center gap-2 text-base md:text-lg ${
             step === 1
               ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
@@ -519,23 +518,14 @@ export default function WizardForm() {
 
         <button
           onClick={handleNext}
-          disabled={
-            (step === 1 && !data.objective) ||
+          className={`flex-1 px-6 py-4 rounded-xl font-semibold transition-all duration-200 flex items-center justify-center gap-2 text-base md:text-lg ${
+            ((step === 1 && !data.objective) ||
             (step === 2 && !data.level) ||
             (step === 3 && !data.days) ||
             (step === 4 && !data.location) ||
             (step === 5 && !data.sessionDuration) ||
             (step === 7 && (!data.exercisePreferences || data.exercisePreferences.length === 0)) ||
-            (step === 8 && !data.cardio)
-          }
-          className={`flex-2 px-8 py-4 rounded-xl font-bold transition-all duration-200 flex items-center justify-center gap-2 text-base md:text-lg ${
-            (step === 1 && !data.objective) ||
-            (step === 2 && !data.level) ||
-            (step === 3 && !data.days) ||
-            (step === 4 && !data.location) ||
-            (step === 5 && !data.sessionDuration) ||
-            (step === 7 && (!data.exercisePreferences || data.exercisePreferences.length === 0)) ||
-            (step === 8 && !data.cardio)
+            (step === 8 && !data.cardio))
               ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
               : 'bg-gradient-to-r from-blue-600 to-blue-700 text-white hover:shadow-lg hover:shadow-blue-500/40 active:scale-95'
           }`}

@@ -217,8 +217,11 @@ export default function ContactoPage() {
 
                 <button
                   type="submit"
-                  disabled={cargando}
-                  className="w-full px-6 py-3 bg-[#997a3c] text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-[#997a3c]/30 transition disabled:bg-[#e8dcc8]/30 disabled:text-color-text-muted disabled:cursor-not-allowed"
+                  className={`w-full px-6 py-3 font-semibold rounded-lg transition ${
+                    cargando
+                      ? 'bg-[#e8dcc8]/30 text-color-text-muted cursor-not-allowed'
+                      : 'bg-[#997a3c] text-white hover:shadow-lg hover:shadow-[#997a3c]/30'
+                  }`}
                 >
                   {cargando ? 'Enviando...' : 'Enviar Mensaje'}
                 </button>

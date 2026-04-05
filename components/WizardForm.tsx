@@ -839,7 +839,6 @@ export default function WizardForm() {
       <div className="flex gap-3 justify-between pt-6 border-t border-color-border-light bg-white/95 backdrop-blur-sm sticky bottom-0 -mx-6 px-6 pb-6 z-40">
         <button
           onClick={handleBack}
-          disabled={step === 1}
           className={`flex-1 px-4 py-3 rounded-xl font-600 transition-all duration-300 flex items-center justify-center gap-2 text-sm outline-none ${
             step === 1
               ? 'bg-color-bg-secondary text-color-text-muted cursor-not-allowed'
@@ -854,21 +853,6 @@ export default function WizardForm() {
 
         <button
           onClick={handleNext}
-          disabled={
-            (step === 1 && !data.objective) ||
-            (step === 2 && !data.level) ||
-            (step === 3 && !data.days) ||
-            (step === 4 && !data.location) ||
-            (step === 5 && !data.sessionDuration) ||
-            (step === 7 && (!data.exercisePreferences || data.exercisePreferences.length === 0)) ||
-            (step === 8 && !data.cardio) ||
-            (step === 9 && !data.trainingStyle) ||
-            (step === 10 && !data.trainingTime) ||
-            (step === 11 && !data.recoveryPriority) ||
-            (step === 12 && data.location === 'casa' && (!data.equipment || data.equipment.length === 0)) ||
-            (step === 13 && data.location === 'casa' && !data.experienceMonths) ||
-            (step === 12 && data.location === 'gimnasio' && !data.experienceMonths)
-          }
           className={`flex-1 px-4 py-3 rounded-xl font-700 transition-all duration-300 flex items-center justify-center gap-2 text-sm outline-none ${
             (step === 1 && !data.objective) ||
             (step === 2 && !data.level) ||
@@ -883,8 +867,8 @@ export default function WizardForm() {
             (step === 12 && data.location === 'casa' && (!data.equipment || data.equipment.length === 0)) ||
             (step === 13 && data.location === 'casa' && !data.experienceMonths) ||
             (step === 12 && data.location === 'gimnasio' && !data.experienceMonths)
-              ? 'bg-color-bg-secondary text-color-text-muted cursor-not-allowed'
-              : 'bg-[#997a3c] text-white hover:shadow-lg hover:scale-105'
+              ? 'bg-gold-light/30 text-color-text-muted cursor-not-allowed'
+              : 'bg-[#997a3c] text-white hover:bg-[#8a6a34] hover:shadow-lg shadow-[#997a3c]/20'
           }`}
         >
           {step === getActualTotalSteps() ? (
