@@ -132,18 +132,18 @@ export default function RoutineDetailClient({ routine, allRoutines }: RoutineDet
   return (
     <div>
       {/* Back Button Header */}
-      <div className="bg-white border-b border-gold-light/30 py-3 sm:py-4 sticky top-0 z-40">
+      <div className="bg-gradient-to-r from-white to-gold-very-light/30 border-b border-gold-light/40 py-4 sm:py-5 sticky top-0 z-40 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           <button
             onClick={() => router.back()}
-            className="flex items-center gap-2 text-color-text hover:text-gold-dark hover:bg-gold-light/10 px-3 py-2 rounded-xl transition-all font-500 duration-300"
+            className="flex items-center gap-2 text-color-text hover:text-gold-dark hover:bg-gold-light/20 px-4 py-2 rounded-xl transition-all font-600 duration-300 group"
           >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
             <span className="text-sm sm:text-base">Atrás</span>
           </button>
-          <h1 className="text-lg sm:text-xl font-700 text-gold-dark truncate flex-1 ml-4">{routine.title}</h1>
+          <h1 className="text-lg sm:text-2xl font-700 text-gold-dark truncate flex-1 ml-4">{routine.title}</h1>
         </div>
       </div>
 
@@ -155,24 +155,32 @@ export default function RoutineDetailClient({ routine, allRoutines }: RoutineDet
           <div className="lg:col-span-2 space-y-6">
             {/* Exercises Breakdown */}
             {('exercises' in routine && routine.exercises) && (
-              <div data-exercises className="bg-white border border-gold-light/30 rounded-2xl p-6">
-                <h3 className="text-lg font-bold text-gold-dark mb-4">Desglose diario</h3>
-                <div className="space-y-3">
+              <div data-exercises className="bg-white border border-gold-light/30 rounded-2xl p-6 shadow-md">
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="w-10 h-10 bg-gradient-to-br from-gold-light to-gold-very-light rounded-lg flex items-center justify-center">
+                    <span className="text-xl">💪</span>
+                  </div>
+                  <h3 className="text-xl font-bold text-gold-dark">Desglose diario</h3>
+                </div>
+                <div className="space-y-4">
                   {routine.exercises.map((dayDetail, dayIndex) => (
-                    <div key={dayIndex} className="bg-color-bg-secondary rounded-lg border border-gold-light/30 overflow-hidden">
-                      <div className="px-4 py-3 border-b border-gold-light/20 bg-color-bg">
-                        <h4 className="font-600 text-gold-dark text-sm">{dayDetail.day}</h4>
+                    <div key={dayIndex} className="bg-gradient-to-r from-gold-very-light/50 to-white border border-gold-light/40 rounded-xl overflow-hidden hover:shadow-md transition-shadow">
+                      <div className="px-5 py-4 border-b border-gold-light/30 bg-gradient-to-r from-gold-light/20 to-transparent">
+                        <h4 className="font-700 text-gold-dark text-base flex items-center gap-2">
+                          <span className="inline-block w-2 h-2 bg-gold-dark rounded-full"></span>
+                          {dayDetail.day}
+                        </h4>
                       </div>
-                      <div className="p-4 space-y-2">
+                      <div className="p-5 space-y-3">
                         {dayDetail.exercises.map((exercise, exIndex) => (
-                          <div key={exIndex} className="flex justify-between items-start gap-3 text-sm">
+                          <div key={exIndex} className="flex justify-between items-start gap-4 pb-3 border-b border-gold-light/20 last:border-b-0 last:pb-0">
                             <div className="flex-1">
-                              <div className="font-500 text-color-text">{exercise.name}</div>
+                              <div className="font-600 text-color-text">{exercise.name}</div>
                               {exercise.rest && (
-                                <div className="text-xs text-color-text-muted mt-1">Descanso: {exercise.rest}</div>
+                                <div className="text-xs text-color-text-muted mt-1">⏱️ Descanso: {exercise.rest}</div>
                               )}
                             </div>
-                            <div className="bg-white border border-gold-light/30 px-3 py-1 rounded font-600 text-gold-dark whitespace-nowrap">
+                            <div className="bg-gradient-to-r from-gold-light/30 to-gold-very-light border border-gold-light/50 px-4 py-2 rounded-lg font-700 text-gold-dark whitespace-nowrap">
                               {exercise.sets}×{exercise.reps}
                             </div>
                           </div>
@@ -184,22 +192,64 @@ export default function RoutineDetailClient({ routine, allRoutines }: RoutineDet
               </div>
             )}
 
-            {/* Detailed Content - Limited Height */}
-            <div data-detail-content className="bg-white border border-gold-light/30 rounded-2xl p-6 max-h-96 overflow-y-auto">
-              <div className="space-y-2 text-color-text">
+            {/* Detailed Content - Enhanced Styling */}
+            <div data-detail-content className="bg-white border border-gold-light/30 rounded-2xl p-8 max-h-96 overflow-y-auto">
+              <style>{`
+                .routine-content h2 { color: #997a3c; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; font-size: 1.25rem; }
+                .routine-content h3 { color: #c9a563; font-weight: 600; margin-top: 1rem; margin-bottom: 0.5rem; font-size: 1.1rem; }
+                .routine-content h4 { color: #1d1d1f; font-weight: 600; margin-top: 0.75rem; margin-bottom: 0.5rem; }
+                .routine-content p { line-height: 1.7; margin-bottom: 1rem; color: #1d1d1f; }
+                .routine-content ul { margin-left: 1.5rem; margin-bottom: 1rem; }
+                .routine-content li { margin-bottom: 0.5rem; line-height: 1.6; }
+                .routine-content li::marker { color: #c9a563; font-weight: bold; }
+                .routine-content table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
+                .routine-content th { background: linear-gradient(135deg, #f9f6f0 0%, #efefef 100%); color: #997a3c; font-weight: 700; padding: 0.75rem; border: 1px solid #e8dcc8; text-align: left; }
+                .routine-content td { padding: 0.75rem; border: 1px solid #e8dcc8; color: #1d1d1f; }
+                .routine-content td strong { color: #997a3c; }
+                .routine-content tr:hover { background-color: #f9f6f0; }
+                .routine-content strong { color: #997a3c; font-weight: 700; }
+                .routine-content em { color: #c9a563; font-style: italic; }
+                .routine-content code { background: #f5f5f7; padding: 0.25rem 0.5rem; border-radius: 4px; color: #ff3b30; font-size: 0.9em; }
+              `}</style>
+              <div className="routine-content space-y-3 text-color-text">
                 {('fullContent' in routine ? routine.fullContent : routine.content)
                   ?.split('\n\n')
                   .filter((paragraph) => paragraph.trim().length > 0)
                   .slice(0, 12)
                   .map((paragraph, i) => {
+                    if (paragraph.startsWith('|')) {
+                      // Table rendering
+                      const lines = paragraph.split('\n').filter(l => l.trim());
+                      const headers = lines[0].split('|').map(h => h.trim()).filter(Boolean);
+                      const rows = lines.slice(2).map(line => 
+                        line.split('|').map(cell => cell.trim()).filter((_, idx) => idx < headers.length)
+                      );
+                      return (
+                        <table key={i}>
+                          <thead>
+                            <tr>
+                              {headers.map((h, j) => <th key={j}>{h}</th>)}
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {rows.map((row, rowIdx) => (
+                              <tr key={rowIdx}>
+                                {row.map((cell, cellIdx) => <td key={cellIdx}>{cell}</td>)}
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      );
+                    }
+
                     if (paragraph.startsWith('#')) {
                       const level = paragraph.match(/^#+/)?.[0].length || 1;
                       const text = paragraph.replace(/^#+\s*/, '');
                       const headingClass = {
-                        1: 'text-2xl font-bold mt-2 mb-1',
-                        2: 'text-xl font-bold mt-2 mb-1',
-                        3: 'text-lg font-bold mt-1 mb-0.5',
-                        4: 'text-base font-bold mt-1 mb-0.5',
+                        1: 'text-2xl font-bold',
+                        2: 'text-xl font-bold',
+                        3: 'text-lg font-bold',
+                        4: 'text-base font-bold',
                       }[level] || 'font-bold';
 
                       return (
@@ -210,11 +260,11 @@ export default function RoutineDetailClient({ routine, allRoutines }: RoutineDet
                     }
 
                     if (paragraph.startsWith('- ')) {
-                      const items = paragraph.split('\n').filter((l) => l.startsWith('- '));
+                      const items = paragraph.split('\n').filter((l) => l.trim().startsWith('- '));
                       return (
-                        <ul key={i} className="list-disc list-inside space-y-1 text-color-text text-sm">
+                        <ul key={i} className="list-disc space-y-1.5 text-color-text">
                           {items.map((item, j) => (
-                            <li key={j} className="leading-tight">
+                            <li key={j} className="leading-relaxed ml-5">
                               {item.replace(/^- /, '')}
                             </li>
                           ))}
@@ -222,8 +272,21 @@ export default function RoutineDetailClient({ routine, allRoutines }: RoutineDet
                       );
                     }
 
+                    if (paragraph.includes('**')) {
+                      // Render bold text
+                      return (
+                        <p key={i} className="leading-relaxed text-color-text">
+                          {paragraph.split(/(\*\*.*?\*\*)/).map((part, j) => 
+                            part.startsWith('**') 
+                              ? <strong key={j}>{part.replace(/\*\*/g, '')}</strong>
+                              : part
+                          )}
+                        </p>
+                      );
+                    }
+
                     return (
-                      <p key={i} className="leading-tight text-color-text text-sm">
+                      <p key={i} className="leading-relaxed text-color-text">
                         {paragraph}
                       </p>
                     );
@@ -231,27 +294,30 @@ export default function RoutineDetailClient({ routine, allRoutines }: RoutineDet
               </div>
             </div>
 
-            {/* Call to Action */}
-            <div data-cta-box className="bg-color-bg-secondary border-2 border-gold-light/40 rounded-lg p-6">
-              <div className="text-center mb-6">
-                <h3 className="text-2xl font-bold text-gold-dark mb-4">
+            {/* Call to Action - Enhanced Design */}
+            <div data-cta-box className="bg-gradient-to-br from-gold-very-light via-white to-color-bg-secondary border-2 border-gold-light/50 rounded-2xl p-8 shadow-lg">
+              <div className="text-center mb-8">
+                <div className="inline-block mb-4 px-4 py-2 bg-gold-light/30 rounded-full">
+                  <span className="text-sm font-600 text-gold-dark">🎯 Tu rutina ideal</span>
+                </div>
+                <h3 className="text-3xl font-bold text-gold-dark mb-4">
                   ¿Te gusta esta rutina?
                 </h3>
-                <p className="text-color-text mb-6">
-                  Descarga esta rutina o personalízala usando nuestro generador inteligente.
+                <p className="text-color-text-muted text-base leading-relaxed">
+                  Descarga esta rutina completa en PDF o personalízala usando nuestro generador inteligente de entrenamientos.
                 </p>
               </div>
 
               {/* Botones de descarga */}
-              <div className="flex flex-col sm:flex-row gap-3 justify-center mb-6">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
                 <button
                   onClick={() => downloadRoutineAsPDF(routine as any)}
-                  className="px-6 py-3 bg-[#997a3c] text-white font-500 rounded-lg hover:shadow-md transition flex items-center justify-center gap-2 flex-1 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="px-8 py-4 bg-gradient-to-r from-gold-dark to-[#a0633d] text-white font-600 rounded-xl hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3 flex-1 disabled:opacity-50 disabled:cursor-not-allowed group"
                 >
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8m0 8a8 8 0 100-16 8 8 0 000 16z" />
+                  <svg className="w-5 h-5 group-hover:rotate-12 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                   </svg>
-                  Descargar
+                  <span>Descargar PDF</span>
                 </button>
               </div>
 
@@ -259,9 +325,12 @@ export default function RoutineDetailClient({ routine, allRoutines }: RoutineDet
               <div className="text-center">
                 <Link
                   href="/"
-                  className="inline-block px-6 py-3 bg-[#997a3c] text-white font-500 rounded-lg hover:shadow-md transition"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-white border-2 border-gold-dark text-gold-dark font-600 rounded-xl hover:bg-gold-dark hover:text-white hover:shadow-lg transition-all duration-300 group"
                 >
-                  Personalizar →
+                  <span>Personalizar rutina</span>
+                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
                 </Link>
               </div>
             </div>
@@ -270,24 +339,41 @@ export default function RoutineDetailClient({ routine, allRoutines }: RoutineDet
           {/* Right Column - Sidebar */}
           <div className="space-y-4">
             {/* Info Box - STICKY */}
-            <div data-sidebar-box className="bg-white border border-gold-light/30 rounded-2xl p-6 sticky top-24">
-              <h3 className="font-bold text-gold-dark text-lg mb-4">Información:</h3>
-              <div className="space-y-4">
-                <div className="flex justify-between items-center pb-3 border-b border-gold-light/20">
-                  <span className="text-color-text-muted">Días</span>
-                  <span className="font-semibold text-color-text">{routine.days} días</span>
+            <div data-sidebar-box className="bg-gradient-to-b from-white to-gold-very-light/50 border border-gold-light/40 rounded-2xl p-7 sticky top-24 shadow-md">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 bg-gradient-to-br from-gold-dark to-gold-light rounded-lg flex items-center justify-center text-white font-bold">
+                  ℹ
                 </div>
-                <div className="flex justify-between items-center pb-3 border-b border-gold-light/20">
-                  <span className="text-color-text-muted">Nivel</span>
-                  <span className="font-semibold text-color-text capitalize">{routine.level}</span>
+                <h3 className="font-bold text-gold-dark text-lg">Información</h3>
+              </div>
+              <div className="space-y-5">
+                <div className="flex items-center justify-between pb-4 border-b border-gold-light/30 hover:bg-white/50 px-2 py-1 rounded transition">
+                  <div className="flex items-center gap-2">
+                    <span className="text-gold-dark">📅</span>
+                    <span className="text-color-text-muted font-500">Días</span>
+                  </div>
+                  <span className="font-bold text-gold-dark bg-gold-light/20 px-3 py-1 rounded-lg">{routine.days}</span>
                 </div>
-                <div className="flex justify-between items-center pb-3 border-b border-gold-light/20">
-                  <span className="text-color-text-muted">Objetivo</span>
-                  <span className="font-semibold text-color-text capitalize">{routine.objective}</span>
+                <div className="flex items-center justify-between pb-4 border-b border-gold-light/30 hover:bg-white/50 px-2 py-1 rounded transition">
+                  <div className="flex items-center gap-2">
+                    <span className="text-gold-dark">⭐</span>
+                    <span className="text-color-text-muted font-500">Nivel</span>
+                  </div>
+                  <span className="font-bold text-gold-dark bg-gold-light/20 px-3 py-1 rounded-lg capitalize">{routine.level}</span>
                 </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-color-text-muted">Ubicación</span>
-                  <span className="font-semibold text-color-text capitalize">Gimnasio</span>
+                <div className="flex items-center justify-between pb-4 border-b border-gold-light/30 hover:bg-white/50 px-2 py-1 rounded transition">
+                  <div className="flex items-center gap-2">
+                    <span className="text-gold-dark">🎯</span>
+                    <span className="text-color-text-muted font-500">Objetivo</span>
+                  </div>
+                  <span className="font-bold text-gold-dark bg-gold-light/20 px-3 py-1 rounded-lg capitalize">{routine.objective}</span>
+                </div>
+                <div className="flex items-center justify-between hover:bg-white/50 px-2 py-1 rounded transition">
+                  <div className="flex items-center gap-2">
+                    <span className="text-gold-dark">📍</span>
+                    <span className="text-color-text-muted font-500">Ubicación</span>
+                  </div>
+                  <span className="font-bold text-gold-dark bg-gold-light/20 px-3 py-1 rounded-lg">Gimnasio</span>
                 </div>
               </div>
             </div>
