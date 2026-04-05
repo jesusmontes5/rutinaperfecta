@@ -103,44 +103,67 @@ export async function generateRoutineDescriptionAI(data: RoutineAIData): Promise
       mantener: 'mantenimiento y tonificación muscular',
     }[data.objective] || 'fitness general';
 
-    const cardioNote = data.cardio === 'alto' ? 'con cardio estratégico e intenso' : data.cardio === 'moderado' ? 'con cardio moderado incorporado' : '';
+    const objectiveDetails = {
+      masa: 'Hipertrofia muscular: tensión mecánica, volumen progresivo, 8-12 reps, superávit calórico +300-500kcal',
+      grasa: 'Pérdida de grasa: déficit controlado -300-500kcal, preservación muscular, HIIT estratégico, proteína elevada',
+      mantener: 'Mantenimiento: balance calórico, resistencia + cardio, tono muscular, sostenibilidad a largo plazo'
+    };
+
+    const cardioNote = data.cardio === 'alto' ? 'con cardio estratégico e intenso (energía determinista)' : data.cardio === 'moderado' ? 'con cardio moderado incorporado (balance)' : 'con cardio mínimo (máximo enfoque fuerza)';
     const durationNote = data.sessionDuration ? ` sesiones de ${data.sessionDuration} minutos` : '';
     const styleNote = data.trainingStyle ? ` estructura ${data.trainingStyle}` : '';
-    const recoveryNote = data.recoveryPriority === 'bajo' ? 'adaptada a recuperación limitada' : data.recoveryPriority === 'alto' ? 'maximizando recuperación' : '';
+    const recoveryNote = data.recoveryPriority === 'bajo' ? 'adaptada a recuperación limitada (volumen controlado)' : data.recoveryPriority === 'alto' ? 'maximizando recuperación (volumen óptimo)' : 'recuperación promedio';
+    const levelDetail = data.level === 'principiante' ? 'Principiante (0-6m): Focus en técnica base, aclimatación, fundamentos' : data.level === 'intermedio' ? 'Intermedio (1-3a): Progresión sostenida, técnica sólida, adaptaciones' : 'Avanzado (3+a): Periodización compleja, periodización adaptada, máxima especialización';
 
     const prompt = `
-Eres un entrenador personal profesional con 15+ años certificado en programación de strength training y periodización. 
-Tu tarea es generar una descripción de rutina EXPERTA, motivadora y altamente técnica.
+Eres un coach profesional de strength training certificado (NASM, ISSN, USSF) con 15+ años dirigiendo atletas reales.
+TAREA: Genera descripción de RUTINA PROFESIONAL, técnica, motivadora, específica y realista.
 
-╔═ CONTEXTO DEL CLIENTE ═╗
-• Objetivo Principal: ${objectiveLabel}
-• Nivel: ${data.level === 'principiante' ? 'Principiante (0-6 meses experiencia)' : data.level === 'intermedio' ? 'Intermedio (1-3 años)' : 'Avanzado (3+ años)'}
-• Frecuencia: ${data.days} días/semana
-${durationNote ? `• Sesiones: ${data.sessionDuration}` : ''}
-${cardioNote ? `• Cardio: ${cardioNote}` : ''}
-${styleNote ? `• Estructura: ${styleNote}` : ''}
-${recoveryNote ? `• Énfasis: ${recoveryNote}` : ''}
+╔═ CONTEXTO EXACTO DEL CLIENTE ═╗
+Objetivo: ${objectiveLabel}
+Detalles: ${objectiveDetails[data.objective as keyof typeof objectiveDetails]}
+Nivel: ${levelDetail}
+Volumen: ${data.days} días/semana${durationNote}
+Cardio: ${cardioNote}
+${styleNote ? `Estructura: ${styleNote}` : ''}
+Recuperación: ${recoveryNote}
 
-╔═ ESTRUCTURA REQUERIDA ═╗
-1. **Párrafo 1 (Visión General)**: Define el propósito específico, qué hace única esta rutina y resultados esperados con timeline realista
-2. **Párrafo 2 (Metodología)**: Explica principios científicos, periodización, rango de reps, recuperación y por qué funciona
-3. **Párrafo 3 (Progresión)**: Detalles de progressive overload, cómo escalar y adaptarse después de 4-6 semanas
-4. **Párrafo 4 (Optimización)**: Tips prácticos, nutrición, sueño y factores clave de éxito
+╔═ ESTRUCTURA OBLIGATORIA (4 PÁRRAFOS) ═╗
+Párrafo 1 (PROPÓSITO): Define qué es esta rutina, POR QUÉ funciona para su objetivo específico, resultados esperados con timeline (8-12 semanas mínimo)
+Párrafo 2 (CIENCIA): Principios periodización, rango reps/series, frecuencia muscular, mecanismos adaptativos, por qué vencerá plateaus
+Párrafo 3 (PROGRESIÓN): Progressive overload específico, cuándo incrementar peso/volumen, cómo escalar post-4-6 semanas, flexibilidad adaptativa
+Párrafo 4 (SUCCESS FACTORS): Nutrición exacta (macros), sueño crítico, movilidad, factores no-negociables
 
-╔═ REQUISITOS TÉCNICOS ═╗
-✓ Tono: Experto pero accesible, motivador sin ser ficticio
-✓ Incluye: Datos científicos, términos correctos, evidencia-based
-✓ Varía: Según objetivo (hipertrofia, fuerza, conditioning)
-✓ Realismo: Promete resultados reales en timeframes realistas (8-12 semanas mínimo)
-✓ Personalización: Adapta específicamente al nivel y objetivo
-✓ Máximo: 350 palabras, párrafos bien estructurados
-✓ Responde: SOLO la descripción, sin explicaciones extras
+╔═ CRITERIOS TÉCNICOS ESTRICTOS ═╗
+✓ Tono: Experto, confianza basada en evidencia, motivador SIN promesas falsas
+✓ Específico: Incluye números (reps 8-12, 3-4 sets, +2.5kg/semana, 2.2g proteína/kg)
+✓ Científico: Menciona mecanismos (MTor, NEAT, periodización, frecuencia muscular, etc)
+✓ Realista: Promete cambios verificables en 8-12 semanas, no milagros
+✓ Personal: Diferente según objetivo (masa≠grasa≠mantener)
+✓ Accionable: Cliente entiende exactamente qué hacer lunes a viernes
+✓ Máximo: 400 palabras, 4 párrafos claros, SIN excepciones
 
-╔═ EJEMPLOS DE CUALIDAD ═╗
-MAL: "Esta es una rutina buena para ganar músculo"
-BIEN: "Rutina de hipertrofia basada en periodización lineal con enfoque en rango 8-12 reps que genera tensión mecánica sostenida..."
+╔═ FORMATO RESPUESTA ═╗
+- CUATRO párrafos separados por línea en blanco
+- SIN números romanos, bullets, emojis
+- NO meta-explicación ("Aquí va el párrafo de...")
+- SOLO contenido directo, profesional, listo para leer
 
-Adelante, genera la descripción profesional ahora:
+EJEMPLO PÁRRAFO 1 (BUENO):
+"Esta rutina de 4 días/semana está diseñada específicamente para ganancia muscular sostenida mediante periodización lineal que alterna 3 semanas de volumen alto (8-12 reps, 4 sets) con 1 semana de descarga técnica. Espera ganar 0.5-1kg de masa muscular mensual si mantienes superávit de +400kcal, llegando a +4-6kg en 12 semanas mientras normalizas patrones de movimiento fundamentales."
+
+EJEMPLO PÁRRAFO 2 (BUENO):
+"Científicamente, esta estructura genera tensión mecánica sostenida (estimulo primario hipertrofia) mediante rango 8-12 reps que maximiza eficiencia de tiempo bajo tensión. La frecuencia de 2x por semana per grupo muscular optimiza MPS (síntesis proteica muscular) sin exceder capacidad de recuperación, todo sustentado en periodización de Prilepin y Block Periodization moderna."
+
+PROHIBIDO absolutamente:
+❌ "Esta rutina es buena"
+❌ "Sigue la rutina y verás resultados"
+❌ "Entrena duro"
+❌ Emojis, formatting raro
+❌ Menos de 300 palabras totales
+❌ Generic fitness advice
+
+ADELANTE: Genera la descripción profesional COMPLETA ahora (solo descripción, nada más):
 `;
 
     logger.info('Requesting detailed routine description from Groq', { model: 'llama-3.1-8b-instant', objective: data.objective });
@@ -153,7 +176,7 @@ Adelante, genera la descripción profesional ahora:
         },
       ] as any,
       model: 'llama-3.1-8b-instant',
-      max_tokens: 500,
+      max_tokens: 600,
       temperature: 0.7,
     });
 
@@ -164,7 +187,7 @@ Adelante, genera la descripción profesional ahora:
     }
 
     const content = message.choices[0].message.content;
-    if (content && content.trim().length > 50) {  // At least 50 chars for a good description
+    if (content && content.trim().length > 100) {  // At least 100 chars for a good description
       const result = content.trim();
       logger.timing('generateRoutineDescription', Date.now() - startTime);
       return result;
@@ -289,42 +312,57 @@ export async function generateMotivationalTipsAI(objective: string, level: strin
     }
 
     const styleContext = trainingStyle ? ` con enfoque ${trainingStyle}` : '';
+    
+    // Enhanced objective context
+    const objectiveContext = {
+      'masa': 'Ganancia de masa muscular (hipertrofia): enfoque en volumen, reps 8-12, superávit calórico +300-500kcal, proteína 1.6-2.2g/kg',
+      'grasa': 'Pérdida de grasa preservando masa: déficit controlado -300-500kcal, proteína 2-2.4g/kg, cardio HIIT estratégico',
+      'mantener': 'Mantenimiento y tonificación: balance calórico, resistencia + cardio equilibrado, proteína 1.2-1.6g/kg'
+    };
 
     const prompt = `
-Eres un coach profesional de fitness con certificación NASM/ISSN y experiencia real. 
-Tu tarea: Genera 6 tips ESPECÍFICOS, ACCIONABLES y CIENTÍFICAMENTE RESPALDADOS para máximo éxito.
+Eres un coach profesional de fitness certificado (NASM/ISSN) con 10+ años de experiencia real.
+Genera 6 tips PROFESIONALES, ESPECÍFICOS y CIENTÍFICAMENTE RESPALDADOS para máximo éxito garantizado.
 
-╔═ PERFIL DEL ATLETA ═╗
-• Objetivo: ${objective === 'masa' ? 'Ganancia de masa muscular e hipertrofia' : objective === 'grasa' ? 'Pérdida de grasa preservando músculo' : 'Mantenimiento y tonificación'}
-• Nivel: ${level}${styleContext ? ` (${styleContext})` : ''}
+╔═ CONTEXTO DEL ATLETA ═╗
+Objetivo Específico: ${objectiveContext[objective as keyof typeof objectiveContext] || objectiveContext['mantener']}
+Nivel de Experiencia: ${level}${styleContext}
 
-╔═ ESTRUCTURA DE TIPS ═╗
-Genera 6 tips mezclando estos áreas:
-1. Progressive Overload / Periodización (cómo progresar)
-2. Nutrición Específica (macro/micro según objetivo)
-3. Recuperación (sueño, mobility, active recovery)
-4. Técnica / Ejecución (form perfecta, evitar lesiones)
-5. Tracking / Medición (cómo medir éxito real)
-6. Mentalidad / Consistencia (adherencia a largo plazo)
+╔═ MIX OBLIGATORIO DE TEMAS ═╗
+1. Progressive Overload / Carga (cómo incrementar estímulo cada semana)
+2. Nutrición Exacta (macros concretos, timing, suplementación)
+3. Recuperación Avanzada (sueño, movilidad, deload strategy)
+4. Técnica y Prevención (form perfecta, évita lesiones crónicas)
+5. Medición y Tracking (métricas reales que importan)
+6. Mentalidad y Consistencia (adherencia 12+ meses)
 
-╔═ CRITERIOS OBLIGATORIOS ═╗
-✓ ESPECÍFICO: "Aumenta sentadillas de 140 a 145kg cada semana" NO "levanta más peso"
-✓ NUMÉRICO: Incluye números concretos (reps, minutos, gramos, porcentajes)
-✓ TEMPORAL: Define timeframe ("cada semana", "8 semanas", "cada sesión")
-✓ ACCIONABLE: Puede implementarse HOY sin equipo especial
-✓ CIENTÍFICO: Menciona principio (periodización, NEAT, hipertrofia, etc.)
-✓ PERSONALIZADO: Varía según objetivo (hipertrofia ≠ cutting)
+╔═ REQUISITOS ESTRICTOS POR TIP ═╗
+✓ ESPECÍFICO: NÚMEROS concretos ("+5 reps" o "120min" o "2.2g/kg", nunca genérico)
+✓ TEMPORAL: Define ciclo exacto ("cada semana", "cada 3 semanas", "cada sesión")
+✓ ACCIONABLE: Implementable HOY con recursos disponibles
+✓ CIENTÍFICO: Menciona mecanismo (hipertrofia, NEAT, neuromusculación, etc)
+✓ PERSONALIZADO: Diferente para masa vs grasa vs mantener
+✓ REALISTA: Resultados verificables en 4-12 semanas
 
-╔═ FORMATO DE RESPUESTA ═╗
-Un tip por línea
-SIN números, bullets, emojis ni formateo
-SIN explicaciones extras
-SOLO el tip procesable y completo
+╔═ FORMATO ESTRICTO ═╗
+- UNA línea por tip (natural, sin bullets)
+- Máximo 2 frases por tip
+- SIN emojis, SIN números romanos
+- SIN explicación innecesaria
+- Directo: "Tip completo que puedo ejecutar"
 
-Ejemplo CORRECTO: "Programa 3-4 ejercicios compuestos/sesión en rango 6-12 reps con 3-4 sets manteniendo progresión de peso semanal"
-Ejemplo INCORRECTO: "Hazle más duro" o "Come proteína" o "📈 Sube peso"
+EJEMPLOS CORRECTOS (10/10):
+"Programa 4 ejercicios compuestos por sesión en rango 8-12 reps, 3-4 series cada uno, aumentando peso +2.5-5kg cada semana cuando completes todos los reps"
+"Consume 2.2g de proteína por kilogramo de peso corporal distribuido en 4-5 comidas, con 30g post-entreno dentro de 60 minutos"
+"Duerme 7-9 horas consistentes, incluyendo 2-3 dias de movilidad activa (yoga suave, foam roll) para recuperación nervios centrales"
 
-Adelante - genera los 6 tips ahora:
+EJEMPLOS INCORRECTOS (1/10):
+❌ "Come más proteína" - NO es específico
+❌ "Levanta más" - Muy genérico
+❌ "📈 Progressive overload semanal" - Emojis + sin detalles
+❌ "Recupera bien" - Vago y no accionable
+
+Adelante - GENERA LOS 6 TIPS PROFESIONALES AHORA (nada más, solo los tips limpios):
 `;
 
     logger.info('Requesting professional tips', { objective, level, style: trainingStyle });
@@ -337,7 +375,7 @@ Adelante - genera los 6 tips ahora:
         },
       ] as any,
       model: 'llama-3.1-8b-instant',
-      max_tokens: 400,
+      max_tokens: 500,
       temperature: 0.8,
     });
 
