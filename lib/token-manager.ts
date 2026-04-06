@@ -198,7 +198,9 @@ export function clearCache(): void {
   console.log('🗑️ Cache cleared');
 }
 
-export default {
+
+
+const tokenManager = {
   getCacheKey,
   canMakeAPICall,
   recordTokenUsage,
@@ -209,3 +211,5 @@ export default {
   getFallbackMode,
   clearCache,
 };
+
+export default tokenManager;

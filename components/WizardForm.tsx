@@ -112,11 +112,9 @@ export default function WizardForm() {
             setValidationError('Por favor selecciona qué equipamiento tienes disponible');
             return false;
           }
-        } else {
-          if (!data.experienceMonths) {
-            setValidationError('Por favor selecciona tu experiencia en meses');
-            return false;
-          }
+        } else if (!data.experienceMonths) {
+          setValidationError('Por favor selecciona tu experiencia en meses');
+          return false;
         }
         break;
       case 13:
@@ -250,56 +248,97 @@ export default function WizardForm() {
   return (
     <div ref={stepContainerRef} className="space-y-6 sm:space-y-8">
       {/* Progress Section - Modern Minimalist */}
-      <div className="space-y-3">
+      <div className="space-y-4 px-0.5">
+        {/* Header with Step Counter */}
         <div className="flex items-center justify-between">
-          <h3 className="text-sm font-700 text-color-text-muted uppercase tracking-wider">Paso {step} de {getActualTotalSteps()}</h3>
-          <div className="text-sm font-700 text-white bg-gradient-to-r from-gold-600 to-gold-700 px-3 py-1.5 rounded-full">
-            {Math.round((step / getActualTotalSteps()) * 100)}%
+          <div>
+            <h2 className="text-xs sm:text-sm font-700 text-color-text-muted uppercase tracking-widest">
+              PASO {step}
+            </h2>
+            <p className="text-2xl sm:text-3xl font-700 text-color-text mt-1">
+              {step === 1 && "¿Cuál es tu objetivo?"}
+              {step === 2 && "¿Tu experiencia?"}
+              {step === 3 && "¿Cuántos días?"}
+              {step === 4 && "¿Dónde entrenarás?"}
+              {step === 5 && "¿Duración de sesión?"}
+              {step === 6 && "¿Lesiones o limitaciones?"}
+              {step === 7 && "¿Qué ejercicios prefieres?"}
+              {step === 8 && "¿Énfasis en cardio?"}
+              {step === 9 && "¿Estilo de entrenamiento?"}
+              {step === 10 && "¿A qué hora entrenarás?"}
+              {step === 11 && "¿Recuperación?"}
+              {step === 12 && (data.location === 'casa' ? "¿Equipamiento?" : "¿Experiencia de pesas?")}
+              {step === 13 && (data.location === 'casa' ? "¿Tu experiencia?" : "✨ ¡Perfil completado!")}
+              {step === 14 && "✨ ¡A punto de comenzar!"}
+            </p>
+          </div>
+          <div className="text-right">
+            <div className="inline-flex items-center justify-center gap-1.5 bg-gradient-to-r from-gold-600 to-gold-700 text-white px-3.5 py-1.5 rounded-full text-xs font-700 whitespace-nowrap shadow-md shadow-gold-dark/20">
+              <span>{Math.round((step / getActualTotalSteps()) * 100)}</span>
+              <span className="text-gold-light">%</span>
+            </div>
           </div>
         </div>
 
-        {/* Progress Bar - Clean & Modern with Gradient */}
-        <div className="w-full bg-gold-100/40 rounded-full h-2 overflow-hidden border border-gold-200/50">
+        {/* Progress Bar - Refined */}
+        <div className="w-full h-2 bg-color-bg-secondary rounded-full overflow-hidden border border-color-border-light">
           <div
-            className="bg-gradient-to-r from-gold-600 to-gold-700 h-full transition-all duration-700 rounded-full shadow-md shadow-gold-600/30"
+            className="h-full bg-gradient-to-r from-gold-primary via-gold-dark to-gold-dark rounded-full transition-all duration-1000 ease-out shadow-md shadow-gold-dark/40"
             style={{ width: `${(step / getActualTotalSteps()) * 100}%` }}
           ></div>
         </div>
+
+        {/* Subtitle */}
+        <p className="text-sm sm:text-base text-color-text-muted font-400 leading-relaxed">
+          {step === 1 && "Esto determina ejercicios, volumen e intensidad"}
+          {step === 2 && "Adaptaré progresión y técnica según tu nivel"}
+          {step === 3 && "La consistencia es más importante que la intensidad"}
+          {step === 4 && "Determina ejercicios y disponibilidad"}
+          {step === 5 && "Afecta volumen y eficiencia"}
+          {step === 6 && "Protegeremos zonas sensibles"}
+          {step === 7 && "Adapta a tus preferencias"}
+          {step === 8 && "Balance óptimo según objetivo"}
+          {step === 9 && "Estructura y frecuencia de trabajo"}
+          {step === 10 && "Optimiza rendimiento y energía"}
+          {step === 11 && "Crítico para resultados"}
+          {step === 12 && (data.location === 'casa' ? "Adaptaré ejercicios a tu equipo" : "Progresión según experiencia")}
+          {step === 13 && (data.location === 'casa' ? "Adaptaré intensidad y volumen" : "¡Estamos listos para generar!")}
+          {step === 14 && "Tu rutina se está generando..."}
+        </p>
       </div>
 
       {/* Step 1: Objective */}
       {step === 1 && (
-        <div className="animate-fadeIn space-y-4">
-          <div>
-            <h2 className="text-xl sm:text-2xl font-display font-800 text-color-text mb-2">¿Cuál es tu objetivo principal?</h2>
-            <p className="text-color-text-muted text-xs sm:text-sm font-medium">Esto determinará ejercicios, volumen, intensidad y nutrición recomendada</p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <div className="animate-fadeIn space-y-4 md:space-y-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
             {[
               { value: 'masa', label: 'Ganar Masa', emoji: '💪', desc: 'Superávit + hipertrofia' },
               { value: 'grasa', label: 'Perder Grasa', emoji: '🔥', desc: 'Déficit + preservación' },
-              { value: 'mantener', label: 'Mantener', emoji: '⚖️', desc: 'Equilibrio y wellness' },
+              { value: 'mantener', label: 'Mantener', emoji: '⚖️', desc: 'Balance y wellness' },
             ].map(({ value, label, emoji, desc }) => (
               <button
                 key={value}
                 onClick={() => setData({ ...data, objective: value as any })}
-                className={`p-5 rounded-xl border-2 font-600 text-center transition-all duration-300 transform outline-none focus:outline-none relative group ${
+                className={`group relative p-6 sm:p-7 rounded-2xl border-2 transition-all duration-300 transform focus:outline-none ${
                   data.objective === value
-                    ? 'bg-gradient-to-br from-gold-600 to-gold-700 text-white border-gold-700 shadow-lg shadow-gold-600/30 scale-105'
-                    : 'bg-white text-gold-700 border-gold-200 hover:border-gold-400 hover:shadow-md hover:shadow-gold-200/50'
+                    ? 'bg-gradient-to-br from-gold-600 to-gold-700 text-white border-gold-dark shadow-lg shadow-gold-dark/40'
+                    : 'bg-white text-gold-dark border-color-border hover:border-gold-primary hover:shadow-lg hover:shadow-gold-primary/20 hover:-translate-y-1'
                 }`}
               >
+                {/* Checkmark */}
                 {data.objective === value && (
-                  <div className="absolute top-2 right-2 w-5 h-5 bg-white rounded-full flex items-center justify-center animate-scaleIn">
-                    <svg className="w-3 h-3 text-gold-600" fill="currentColor" viewBox="0 0 20 20">
+                  <div className="absolute top-3 right-3 w-6 h-6 bg-white rounded-full flex items-center justify-center shadow-md animate-scaleIn">
+                    <svg className="w-4 h-4 text-gold-dark" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
                 )}
-                <div className="text-3xl mb-2">{emoji}</div>
-                <div className="font-800 text-sm leading-tight">{label}</div>
-                <div className={`text-xs mt-2 font-500 ${data.objective === value ? 'text-white/90' : 'text-color-text-muted'}`}>{desc}</div>
+                
+                <div className="text-4xl sm:text-5xl mb-3">{emoji}</div>
+                <div className="font-700 text-lg sm:text-xl leading-tight mb-2">{label}</div>
+                <div className={`text-xs sm:text-sm font-500 ${data.objective === value ? 'text-white' : 'text-color-text-muted group-hover:text-gold-dark'}`}>
+                  {desc}
+                </div>
               </button>
             ))}
           </div>
@@ -308,37 +347,34 @@ export default function WizardForm() {
 
       {/* Step 2: Level */}
       {step === 2 && (
-        <div className="animate-slideInRight space-y-4">
-          <div>
-            <h2 className="text-xl sm:text-2xl font-display font-800 text-color-text mb-2">¿Cuál es tu experiencia en entrenamiento?</h2>
-            <p className="text-color-text-muted text-xs sm:text-sm">Esto determina progresión, técnica y adaptación del programa a tu capacidad actual</p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+        <div className="animate-slideInRight space-y-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
             {[
-              { value: 'principiante', label: 'Principiante', emoji: '🌱', desc: 'Menos de 6 meses o sin experiencia previa. Aprenderé técnica básica.' },
-              { value: 'intermedio', label: 'Intermedio', emoji: '🏋️', desc: '6-18 meses de entrenamiento consistente. Conozco movimientos principales.' },
-              { value: 'avanzado', label: 'Avanzado', emoji: '🦾', desc: '+18 meses o muy entrenado. Busco progresión avanzada y periodización.' },
+              { value: 'principiante', label: 'Principiante', emoji: '🌱', desc: 'Sin experiencia. Técnica base' },
+              { value: 'intermedio', label: 'Intermedio', emoji: '🏋️', desc: 'Conozco movimientos principales' },
+              { value: 'avanzado', label: 'Avanzado', emoji: '🦾', desc: 'Progresión avanzada' },
             ].map(({ value, label, emoji, desc }) => (
               <button
                 key={value}
                 onClick={() => setData({ ...data, level: value as any })}
-                className={`p-4 rounded-xl border-2 font-500 text-center transition-all duration-300 transform outline-none focus:outline-none relative ${
+                className={`group relative p-6 sm:p-7 rounded-2xl border-2 transition-all duration-300 transform focus:outline-none ${
                   data.level === value
-                    ? 'bg-[#997a3c] text-white border-[#997a3c] shadow-lg scale-105'
-                    : 'bg-white text-[#997a3c] border-[#e8dcc8] hover:border-[#c9a563] hover:shadow-md'
+                    ? 'bg-gradient-to-br from-gold-600 to-gold-700 text-white border-gold-dark shadow-lg shadow-gold-dark/40'
+                    : 'bg-white text-gold-dark border-color-border hover:border-gold-primary hover:shadow-lg hover:shadow-gold-primary/20 hover:-translate-y-1'
                 }`}
               >
                 {data.level === value && (
-                  <div className="absolute top-2 right-2 w-5 h-5 bg-white rounded-full flex items-center justify-center">
-                    <svg className="w-3 h-3 text-gold-primary" fill="currentColor" viewBox="0 0 20 20">
+                  <div className="absolute top-3 right-3 w-6 h-6 bg-white rounded-full flex items-center justify-center shadow-md animate-scaleIn">
+                    <svg className="w-4 h-4 text-gold-dark" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
                 )}
-                <div className="text-3xl mb-2">{emoji}</div>
-                <div className="font-700 text-sm">{label}</div>
-                <div className={`text-xs mt-2 font-400 ${data.level === value ? 'text-white/90' : 'text-color-text-muted'}`}>{desc}</div>
+                <div className="text-4xl sm:text-5xl mb-3">{emoji}</div>
+                <div className="font-700 text-lg sm:text-xl leading-tight mb-2">{label}</div>
+                <div className={`text-xs sm:text-sm font-500 ${data.level === value ? 'text-white' : 'text-color-text-muted group-hover:text-gold-dark'}`}>
+                  {desc}
+                </div>
               </button>
             ))}
           </div>
@@ -347,38 +383,35 @@ export default function WizardForm() {
 
       {/* Step 3: Days */}
       {step === 3 && (
-        <div className="animate-slideInRight space-y-4">
-          <div>
-            <h2 className="text-xl sm:text-2xl font-700 text-color-text mb-1">¿Cuántos días puedes entrenar por semana?</h2>
-            <p className="text-color-text-muted text-xs sm:text-sm">La consistencia es más importante que la intensidad. Elige lo que puedas mantener regularmente</p>
-          </div>
-
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+        <div className="animate-slideInRight space-y-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
             {[
-              { days: 2, emoji: '📆', desc: 'Iniciante. 1 sesión cada 3-4 días' },
-              { days: 3, emoji: '⚡', desc: 'Ideal. Balance y recuperación óptima' },
-              { days: 4, emoji: '💪', desc: 'Volumen moderado. Mayor frecuencia' },
-              { days: 5, emoji: '🔥', desc: 'Máximo volumen. Muy dedicado' }
+              { days: 2, emoji: '📆', desc: 'Iniciante' },
+              { days: 3, emoji: '⚡', desc: 'Equilibrio' },
+              { days: 4, emoji: '💪', desc: 'Moderado' },
+              { days: 5, emoji: '🔥', desc: 'Intenso' }
             ].map(({ days, emoji, desc }) => (
               <button
                 key={days}
                 onClick={() => setData({ ...data, days })}
-                className={`p-3.5 rounded-xl border-2 font-500 text-center transition-all duration-300 transform outline-none focus:outline-none relative ${
+                className={`group relative p-5 sm:p-6 rounded-2xl border-2 transition-all duration-300 transform focus:outline-none ${
                   data.days === days
-                    ? 'bg-[#997a3c] text-white border-[#997a3c] shadow-lg scale-105'
-                    : 'bg-white text-[#997a3c] border-[#e8dcc8] hover:border-[#c9a563] hover:shadow-md'
+                    ? 'bg-gradient-to-br from-gold-600 to-gold-700 text-white border-gold-dark shadow-lg shadow-gold-dark/40'
+                    : 'bg-white text-gold-dark border-color-border hover:border-gold-primary hover:shadow-lg hover:shadow-gold-primary/20 hover:-translate-y-1'
                 }`}
               >
                 {data.days === days && (
-                  <div className="absolute top-1.5 right-1.5 w-4 h-4 bg-white rounded-full flex items-center justify-center">
-                    <svg className="w-2.5 h-2.5 text-gold-primary" fill="currentColor" viewBox="0 0 20 20">
+                  <div className="absolute top-2.5 right-2.5 w-5 h-5 bg-white rounded-full flex items-center justify-center shadow-md animate-scaleIn">
+                    <svg className="w-3 h-3 text-gold-dark" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
                 )}
-                <div className="font-700 text-lg">{days}</div>
-                <div className="text-xl my-1.5">{emoji}</div>
-                <div className={`text-xs font-500 ${data.days === days ? 'text-white/90' : 'text-color-text-muted'}`}>{desc}</div>
+                <div className="text-4xl mb-2.5">{emoji}</div>
+                <div className="font-800 text-2xl sm:text-3xl leading-tight mb-2">{days}</div>
+                <div className={`text-xs font-600 ${data.days === days ? 'text-white' : 'text-color-text-muted group-hover:text-gold-dark'}`}>
+                  {desc}
+                </div>
               </button>
             ))}
           </div>
@@ -387,36 +420,33 @@ export default function WizardForm() {
 
       {/* Step 4: Location */}
       {step === 4 && (
-        <div className="animate-slideInRight space-y-4">
-          <div>
-            <h2 className="text-xl sm:text-2xl font-700 text-color-text mb-1">¿Dónde realizarás tus entrenamientos?</h2>
-            <p className="text-color-text-muted text-xs sm:text-sm">Esto determina disponibilidad de equipamiento, ejercicios y progresión posible</p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+        <div className="animate-slideInRight space-y-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
             {[
-              { value: 'gimnasio', label: 'Gimnasio', emoji: '🏢', desc: 'Acceso a pesas, mancuernas, máquinas y toda gama de ejercicios' },
-              { value: 'casa', label: 'Casa', emoji: '🏠', desc: 'Peso corporal o equipamiento limitado. Usaré movimientos adaptados' },
+              { value: 'gimnasio', label: 'Gimnasio', emoji: '🏢', desc: 'Toda gama de ejercicios' },
+              { value: 'casa', label: 'Casa', emoji: '🏠', desc: 'Equipamiento limitado' },
             ].map(({ value, label, emoji, desc }) => (
               <button
                 key={value}
                 onClick={() => setData({ ...data, location: value as any })}
-                className={`p-4 rounded-xl border-2 font-500 text-center transition-all duration-300 transform outline-none focus:outline-none relative ${
+                className={`group relative p-6 sm:p-7 rounded-2xl border-2 transition-all duration-300 transform focus:outline-none ${
                   data.location === value
-                    ? 'bg-[#997a3c] text-white border-[#997a3c] shadow-lg scale-105'
-                    : 'bg-white text-[#997a3c] border-[#e8dcc8] hover:border-[#c9a563] hover:shadow-md'
+                    ? 'bg-gradient-to-br from-gold-600 to-gold-700 text-white border-gold-dark shadow-lg shadow-gold-dark/40'
+                    : 'bg-white text-gold-dark border-color-border hover:border-gold-primary hover:shadow-lg hover:shadow-gold-primary/20 hover:-translate-y-1'
                 }`}
               >
                 {data.location === value && (
-                  <div className="absolute top-2 right-2 w-5 h-5 bg-white rounded-full flex items-center justify-center">
-                    <svg className="w-3 h-3 text-gold-primary" fill="currentColor" viewBox="0 0 20 20">
+                  <div className="absolute top-3 right-3 w-6 h-6 bg-white rounded-full flex items-center justify-center shadow-md animate-scaleIn">
+                    <svg className="w-4 h-4 text-gold-dark" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
                 )}
-                <div className="text-4xl mb-2">{emoji}</div>
-                <div className="font-700 text-sm">{label}</div>
-                <div className={`text-xs mt-2 font-400 ${data.location === value ? 'text-white/90' : 'text-color-text-muted'}`}>{desc}</div>
+                <div className="text-5xl sm:text-6xl mb-4">{emoji}</div>
+                <div className="font-700 text-xl sm:text-2xl leading-tight mb-2">{label}</div>
+                <div className={`text-sm font-500 ${data.location === value ? 'text-white' : 'text-color-text-muted group-hover:text-gold-dark'}`}>
+                  {desc}
+                </div>
               </button>
             ))}
           </div>
@@ -425,37 +455,36 @@ export default function WizardForm() {
 
       {/* Step 5: Session Duration */}
       {step === 5 && (
-        <div className="animate-slideInRight space-y-3">
-          <div>
-            <h2 className="text-lg sm:text-xl font-700 text-color-text mb-1">¿Cuánto tiempo disponible tienes por sesión?</h2>
-            <p className="text-color-text-muted text-xs sm:text-sm">Determina volumen de ejercicios, descanso entre series y eficiencia del entrenamiento</p>
-          </div>
-
-          <div className="space-y-2.5">
+        <div className="animate-slideInRight space-y-4 md:space-y-5">
+          <div className="space-y-1.5 md:space-y-2">
             {([
-              { value: '30' as const, label: '⚡ 30 min', desc: 'Muy comprimido. Solo ejercicios clave' },
-              { value: '45' as const, label: '💪 45 min', desc: 'Balance efectivo. Tiempo suficiente' },
-              { value: '60' as const, label: '⏱️ 60 min', desc: 'Estándar ideal. Calentamiento + volumen' },
-              { value: '90' as const, label: '🔥 90+ min', desc: 'Máximo tiempo. Más volumen y accesorios' },
+              { value: '30' as const, label: '⚡ 30 min', desc: 'Comprimido. Ejercicios clave' },
+              { value: '45' as const, label: '💪 45 min', desc: 'Balance efectivo' },
+              { value: '60' as const, label: '⏱️ 60 min', desc: 'Estándar ideal' },
+              { value: '90' as const, label: '🔥 90+ min', desc: 'Máximo volumen' },
             ] as const).map(({ value, label, desc }) => (
               <button
                 key={value}
                 onClick={() => setData({ ...data, sessionDuration: value })}
-                className={`w-full p-3 rounded-xl border-2 font-500 text-left transition-all duration-300 transform outline-none focus:outline-none relative ${
+                className={`w-full p-4 md:p-5 rounded-xl md:rounded-2xl border-2 font-600 text-left transition-all duration-300 transform focus:outline-none flex items-center justify-between group ${
                   data.sessionDuration === value
-                    ? 'bg-[#997a3c] text-white border-[#997a3c] shadow-lg'
-                    : 'bg-white text-[#997a3c] border-[#e8dcc8] hover:border-[#c9a563] hover:shadow-md'
+                    ? 'bg-gradient-to-r from-gold-600 to-gold-700 text-white border-gold-dark shadow-lg'
+                    : 'bg-white text-gold-dark border-color-border hover:border-gold-primary hover:shadow-md hover:shadow-gold-primary/20'
                 }`}
               >
+                <div>
+                  <div className="font-700 text-base md:text-lg">{label}</div>
+                  <div className={`text-xs md:text-sm font-500 mt-1 ${data.sessionDuration === value ? 'text-white' : 'text-color-text-muted group-hover:text-gold-dark'}`}>
+                    {desc}
+                  </div>
+                </div>
                 {data.sessionDuration === value && (
-                  <div className="absolute top-2 right-2 w-4 h-4 bg-white rounded-full flex items-center justify-center">
-                    <svg className="w-2.5 h-2.5 text-gold-primary" fill="currentColor" viewBox="0 0 20 20">
+                  <div className="flex-shrink-0 w-5 h-5 bg-white rounded-full flex items-center justify-center ml-3 shadow-sm animate-scaleIn">
+                    <svg className="w-3 h-3 text-gold-dark" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
                 )}
-                <div className="font-700 text-sm">{label}</div>
-                <div className={`text-xs mt-1.5 font-400 ${data.sessionDuration === value ? 'text-white/90' : 'text-color-text-muted'}`}>{desc}</div>
               </button>
             ))}
           </div>
@@ -464,20 +493,15 @@ export default function WizardForm() {
 
       {/* Step 6: Injuries */}
       {step === 6 && (
-        <div className="animate-slideInRight space-y-3">
-          <div>
-            <h2 className="text-lg sm:text-xl font-700 text-color-text mb-1">¿Tienes lesiones o limitaciones físicas?</h2>
-            <p className="text-color-text-muted text-xs sm:text-sm">Selecciona las que apliquen. Adaptaré ejercicios para proteger esas zonas (puedes seleccionar varias)</p>
-          </div>
-
-          <div className="space-y-2.5">
+        <div className="animate-slideInRight space-y-4 md:space-y-5">
+          <div className="space-y-1.5 md:space-y-2">
             {[
-              { id: 'espalda', label: '🔵 Espalda baja', desc: 'Evitaré extensión forzada de columna' },
-              { id: 'rodilla', label: '🟠 Rodillas', desc: 'Limitaré profundidad y impacto' },
-              { id: 'hombro', label: '🟡 Hombros', desc: 'Reduciré rango y presión' },
-              { id: 'muñeca', label: '🟢 Muñecas', desc: 'Modificaré agarres y empujes' },
-              { id: 'cuello', label: '🔴 Cuello', desc: 'Evitaré flexión/extensión extrema' },
-              { id: 'ninguna', label: '✅ Sin limitaciones', desc: 'Acceso a todos los ejercicios' },
+              { id: 'espalda', label: '🔵 Espalda baja', desc: 'Evitaré alta extensión' },
+              { id: 'rodilla', label: '🟠 Rodillas', desc: 'Limitaré profundidad' },
+              { id: 'hombro', label: '🟡 Hombros', desc: 'Reduciré rango' },
+              { id: 'muñeca', label: '🟢 Muñecas', desc: 'Modificaré agarres' },
+              { id: 'cuello', label: '🔴 Cuello', desc: 'Evitaré flexión extrema' },
+              { id: 'ninguna', label: '✅ Sin limitaciones', desc: 'Todos los ejercicios' },
             ].map(({ id, label, desc }) => (
               <button
                 key={id}
@@ -493,21 +517,25 @@ export default function WizardForm() {
                     }
                   }
                 }}
-                className={`w-full p-3 rounded-xl border-2 font-500 text-left transition-all duration-300 transform outline-none focus:outline-none relative ${
+                className={`w-full p-4 md:p-5 rounded-xl md:rounded-2xl border-2 font-600 text-left transition-all duration-300 transform focus:outline-none flex items-center justify-between group ${
                   data.injuries?.includes(id) || (id === 'ninguna' && data.injuries?.length === 0)
-                    ? 'bg-[#997a3c] text-white border-[#997a3c] shadow-lg'
-                    : 'bg-white text-[#997a3c] border-[#e8dcc8] hover:border-[#c9a563] hover:shadow-md'
+                    ? 'bg-gradient-to-r from-gold-600 to-gold-700 text-white border-gold-dark shadow-lg'
+                    : 'bg-white text-gold-dark border-color-border hover:border-gold-primary hover:shadow-md hover:shadow-gold-primary/20'
                 }`}
               >
+                <div>
+                  <div className="font-700 text-base md:text-lg">{label}</div>
+                  <div className={`text-xs md:text-sm font-500 mt-1 ${data.injuries?.includes(id) || (id === 'ninguna' && data.injuries?.length === 0) ? 'text-white' : 'text-color-text-muted group-hover:text-gold-dark'}`}>
+                    {desc}
+                  </div>
+                </div>
                 {(data.injuries?.includes(id) || (id === 'ninguna' && data.injuries?.length === 0)) && (
-                  <div className="absolute top-2 right-2 w-4 h-4 bg-white rounded-full flex items-center justify-center">
-                    <svg className="w-2.5 h-2.5 text-gold-primary" fill="currentColor" viewBox="0 0 20 20">
+                  <div className="flex-shrink-0 w-5 h-5 bg-white rounded-full flex items-center justify-center ml-3 shadow-sm animate-scaleIn">
+                    <svg className="w-3 h-3 text-gold-dark" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
                 )}
-                <div className="font-700 text-sm">{label}</div>
-                <div className={`text-xs mt-1.5 font-400 ${data.injuries?.includes(id) || (id === 'ninguna' && data.injuries?.length === 0) ? 'text-white/90' : 'text-color-text-muted'}`}>{desc}</div>
               </button>
             ))}
           </div>
@@ -516,18 +544,13 @@ export default function WizardForm() {
 
       {/* Step 7: Exercise Preferences */}
       {step === 7 && (
-        <div className="animate-slideInRight space-y-3">
-          <div>
-            <h2 className="text-lg sm:text-xl font-700 text-color-text mb-1">¿Qué tipos de ejercicios prefieres?</h2>
-            <p className="text-color-text-muted text-xs sm:text-sm">Selecciona los que más te gustan. Prioridad en tu plan (puedes marcar varios)</p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+        <div className="animate-slideInRight space-y-4 md:space-y-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
             {[
-              { id: 'compuestos', label: '🏋️ Compuestos', desc: 'Sentadilla, press, remo. Máxima fuerza' },
-              { id: 'aislamiento', label: '💪 Aislamiento', desc: 'Rosca, extensión. Trabajo específico' },
-              { id: 'cardio', label: '🏃 Cardio', desc: 'Correr, bicicleta. Resistencia cardiovascular' },
-              { id: 'funcional', label: '⚙️ Funcional', desc: 'Movimientos prácticos. Fuerza aplicada' },
+              { id: 'compuestos', label: '🏋️ Compuestos', desc: 'Máxima fuerza' },
+              { id: 'aislamiento', label: '💪 Aislamiento', desc: 'Trabajo específico' },
+              { id: 'cardio', label: '🏃 Cardio', desc: 'Resistencia' },
+              { id: 'funcional', label: '⚙️ Funcional', desc: 'Aplicada' },
             ].map(({ id, label, desc }) => (
               <button
                 key={id}
@@ -539,21 +562,24 @@ export default function WizardForm() {
                     setData({ ...data, exercisePreferences: [...current, id] });
                   }
                 }}
-                className={`p-3.5 rounded-xl border-2 font-500 text-center transition-all duration-300 transform outline-none focus:outline-none relative ${
+                className={`group relative p-5 sm:p-6 rounded-2xl border-2 transition-all duration-300 transform focus:outline-none ${
                   data.exercisePreferences?.includes(id)
-                    ? 'bg-[#997a3c] text-white border-[#997a3c] shadow-lg scale-105'
-                    : 'bg-white text-[#997a3c] border-[#e8dcc8] hover:border-[#c9a563] hover:shadow-md'
+                    ? 'bg-gradient-to-br from-gold-600 to-gold-700 text-white border-gold-dark shadow-lg shadow-gold-dark/40'
+                    : 'bg-white text-gold-dark border-color-border hover:border-gold-primary hover:shadow-lg hover:shadow-gold-primary/20 hover:-translate-y-1'
                 }`}
               >
                 {data.exercisePreferences?.includes(id) && (
-                  <div className="absolute top-1.5 right-1.5 w-4 h-4 bg-white rounded-full flex items-center justify-center">
-                    <svg className="w-2.5 h-2.5 text-gold-primary" fill="currentColor" viewBox="0 0 20 20">
+                  <div className="absolute top-3 right-3 w-6 h-6 bg-white rounded-full flex items-center justify-center shadow-md animate-scaleIn">
+                    <svg className="w-4 h-4 text-gold-dark" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
                 )}
-                <div className="font-700 text-sm">{label}</div>
-                <div className={`text-xs mt-1.5 font-400 ${data.exercisePreferences?.includes(id) ? 'text-white/90' : 'text-color-text-muted'}`}>{desc}</div>
+                <div className="text-3xl sm:text-4xl mb-3">{label.split(' ')[0]}</div>
+                <div className="font-700 text-lg sm:text-xl leading-tight mb-2">{label}</div>
+                <div className={`text-xs sm:text-sm font-500 ${data.exercisePreferences?.includes(id) ? 'text-white' : 'text-color-text-muted group-hover:text-gold-dark'}`}>
+                  {desc}
+                </div>
               </button>
             ))}
           </div>
@@ -562,36 +588,35 @@ export default function WizardForm() {
 
       {/* Step 8: Cardio Level */}
       {step === 8 && (
-        <div className="animate-slideInRight space-y-4">
-          <div>
-            <h2 className="text-xl sm:text-2xl font-700 text-color-text mb-1">¿Cuánto énfasis en cardio?</h2>
-            <p className="text-color-text-muted text-xs sm:text-sm">Balance entre fuerza y resistencia según tu objetivo y recuperación</p>
-          </div>
-
-          <div className="space-y-2.5">
+        <div className="animate-slideInRight space-y-4 md:space-y-5">
+          <div className="space-y-1.5 md:space-y-2">
             {[
-              { value: 'bajo', label: '🏋️ Bajo', desc: 'Máximo enfoque en fuerza e hipertrofia' },
-              { value: 'moderado', label: '⚖️ Moderado', desc: 'Balance entre pesas y cardio. Recomendado' },
-              { value: 'alto', label: '🏃 Alto', desc: 'Mucho cardio. Resistencia y definición' },
+              { value: 'bajo', label: '🏋️ Bajo', desc: 'Máximo enfoque en fuerza' },
+              { value: 'moderado', label: '⚖️ Moderado', desc: 'Balance recomendado' },
+              { value: 'alto', label: '🏃 Alto', desc: 'Mucho cardio' },
             ].map(({ value, label, desc }) => (
               <button
                 key={value}
                 onClick={() => setData({ ...data, cardio: value as any })}
-                className={`w-full p-3 rounded-xl border-2 font-500 text-left transition-all duration-300 transform outline-none focus:outline-none relative ${
+                className={`w-full p-4 md:p-5 rounded-xl md:rounded-2xl border-2 font-600 text-left transition-all duration-300 transform focus:outline-none flex items-center justify-between group ${
                   data.cardio === value
-                    ? 'bg-[#997a3c] text-white border-[#997a3c] shadow-lg'
-                    : 'bg-white text-[#997a3c] border-[#e8dcc8] hover:border-[#c9a563] hover:shadow-md'
+                    ? 'bg-gradient-to-r from-gold-600 to-gold-700 text-white border-gold-dark shadow-lg'
+                    : 'bg-white text-gold-dark border-color-border hover:border-gold-primary hover:shadow-md hover:shadow-gold-primary/20'
                 }`}
               >
+                <div>
+                  <div className="font-700 text-base md:text-lg">{label}</div>
+                  <div className={`text-xs md:text-sm font-500 mt-1 ${data.cardio === value ? 'text-white' : 'text-color-text-muted group-hover:text-gold-dark'}`}>
+                    {desc}
+                  </div>
+                </div>
                 {data.cardio === value && (
-                  <div className="absolute top-2 right-2 w-4 h-4 bg-white rounded-full flex items-center justify-center">
-                    <svg className="w-2.5 h-2.5 text-gold-primary" fill="currentColor" viewBox="0 0 20 20">
+                  <div className="flex-shrink-0 w-5 h-5 bg-white rounded-full flex items-center justify-center ml-3 shadow-sm animate-scaleIn">
+                    <svg className="w-3 h-3 text-gold-dark" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
                 )}
-                <div className="font-700 text-sm">{label}</div>
-                <div className={`text-xs mt-1.5 font-400 ${data.cardio === value ? 'text-white/90' : 'text-color-text-muted'}`}>{desc}</div>
               </button>
             ))}
           </div>
@@ -600,53 +625,36 @@ export default function WizardForm() {
 
       {/* Step 9: Training Style */}
       {step === 9 && (
-        <div className="animate-slideInRight space-y-4">
-          <div>
-            <h2 className="text-xl sm:text-2xl font-700 text-color-text mb-1">¿Cuáles es tu estilo de entrenamiento preferido?</h2>
-            <p className="text-color-text-muted text-xs sm:text-sm">Determina estructura, frecuencia y cómo se agrupan los ejercicios</p>
-          </div>
-
-          <div className="space-y-2.5">
+        <div className="animate-slideInRight space-y-4 md:space-y-5">
+          <div className="space-y-1.5 md:space-y-2">
             {[
-              { 
-                value: 'ppl', 
-                label: '🔄 Push/Pull/Legs', 
-                desc: 'Divide por tracción/empuje. Ideal para volumen' 
-              },
-              { 
-                value: 'upperlower', 
-                label: '↕️ Upper/Lower', 
-                desc: 'Tren superior e inferior alternados. Muy efectivo' 
-              },
-              { 
-                value: 'fullbody', 
-                label: '🌟 Full Body', 
-                desc: 'Todo el cuerpo cada sesión. Máxima frecuencia muscular' 
-              },
-              { 
-                value: 'roulet', 
-                label: '⭐ Mi rutina anterior', 
-                desc: 'Adaptación de tu estilo previo' 
-              },
+              { value: 'ppl', label: '🔄 Push/Pull/Legs', desc: 'Ideal para volumen' },
+              { value: 'upperlower', label: '↕️ Upper/Lower', desc: 'Muy efectivo' },
+              { value: 'fullbody', label: '🌟 Full Body', desc: 'Máxima frecuencia' },
+              { value: 'roulet', label: '⭐ Mi rutina anterior', desc: 'Adaptación previa' },
             ].map(({ value, label, desc }) => (
               <button
                 key={value}
                 onClick={() => setData({ ...data, trainingStyle: value as any })}
-                className={`w-full p-3 rounded-xl border-2 font-500 text-left transition-all duration-300 transform outline-none focus:outline-none relative ${
+                className={`w-full p-4 md:p-5 rounded-xl md:rounded-2xl border-2 font-600 text-left transition-all duration-300 transform focus:outline-none flex items-center justify-between group ${
                   data.trainingStyle === value
-                    ? 'bg-[#997a3c] text-white border-[#997a3c] shadow-lg'
-                    : 'bg-white text-[#997a3c] border-[#e8dcc8] hover:border-[#c9a563] hover:shadow-md'
+                    ? 'bg-gradient-to-r from-gold-600 to-gold-700 text-white border-gold-dark shadow-lg'
+                    : 'bg-white text-gold-dark border-color-border hover:border-gold-primary hover:shadow-md hover:shadow-gold-primary/20'
                 }`}
               >
+                <div>
+                  <div className="font-700 text-base md:text-lg">{label}</div>
+                  <div className={`text-xs md:text-sm font-500 mt-1 ${data.trainingStyle === value ? 'text-white' : 'text-color-text-muted group-hover:text-gold-dark'}`}>
+                    {desc}
+                  </div>
+                </div>
                 {data.trainingStyle === value && (
-                  <div className="absolute top-2 right-2 w-4 h-4 bg-white rounded-full flex items-center justify-center">
-                    <svg className="w-2.5 h-2.5 text-gold-primary" fill="currentColor" viewBox="0 0 20 20">
+                  <div className="flex-shrink-0 w-5 h-5 bg-white rounded-full flex items-center justify-center ml-3 shadow-sm animate-scaleIn">
+                    <svg className="w-3 h-3 text-gold-dark" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
                 )}
-                <div className="font-700 text-sm">{label}</div>
-                <div className={`text-xs mt-1.5 font-400 ${data.trainingStyle === value ? 'text-white/90' : 'text-color-text-muted'}`}>{desc}</div>
               </button>
             ))}
           </div>
@@ -655,37 +663,36 @@ export default function WizardForm() {
 
       {/* Step 10: Availability */}
       {step === 10 && (
-        <div className="animate-slideInRight space-y-4">
-          <div>
-            <h2 className="text-xl sm:text-2xl font-700 text-color-text mb-1">¿A qué hora prefieres entrenar?</h2>
-            <p className="text-color-text-muted text-xs sm:text-sm">Optimizaré nutrición y energía según tu horario</p>
-          </div>
-
-          <div className="space-y-2.5">
+        <div className="animate-slideInRight space-y-4 md:space-y-5">
+          <div className="space-y-1.5 md:space-y-2">
             {[
-              { value: 'manana', label: '🌅 Mañana (6-9 AM)', desc: 'Energía matutina fresca. Hormonal óptimo' },
-              { value: 'mediodía', label: '☀️ Mediodía (12-1 PM)', desc: 'Descanso laboral. Nutrición pre-entreno' },
-              { value: 'tarde', label: '🌤️ Tarde (3-6 PM)', desc: 'Mejor rendimiento y máxima fuerza' },
-              { value: 'noche', label: '🌙 Noche (6-9 PM)', desc: 'Post-trabajo. Mayor volumen posible' },
+              { value: 'manana', label: '🌅 Mañana', desc: 'Energía fresca' },
+              { value: 'mediodía', label: '☀️ Mediodía', desc: 'Descanso laboral' },
+              { value: 'tarde', label: '🌤️ Tarde', desc: 'Mejor rendimiento' },
+              { value: 'noche', label: '🌙 Noche', desc: 'Post-trabajo' },
             ].map(({ value, label, desc }) => (
               <button
                 key={value}
                 onClick={() => setData({ ...data, trainingTime: value as any })}
-                className={`w-full p-3 rounded-xl border-2 font-500 text-left transition-all duration-300 transform outline-none focus:outline-none relative ${
+                className={`w-full p-4 md:p-5 rounded-xl md:rounded-2xl border-2 font-600 text-left transition-all duration-300 transform focus:outline-none flex items-center justify-between group ${
                   data.trainingTime === value
-                    ? 'bg-[#997a3c] text-white border-[#997a3c] shadow-lg'
-                    : 'bg-white text-[#997a3c] border-[#e8dcc8] hover:border-[#c9a563] hover:shadow-md'
+                    ? 'bg-gradient-to-r from-gold-600 to-gold-700 text-white border-gold-dark shadow-lg'
+                    : 'bg-white text-gold-dark border-color-border hover:border-gold-primary hover:shadow-md hover:shadow-gold-primary/20'
                 }`}
               >
+                <div>
+                  <div className="font-700 text-base md:text-lg">{label}</div>
+                  <div className={`text-xs md:text-sm font-500 mt-1 ${data.trainingTime === value ? 'text-white' : 'text-color-text-muted group-hover:text-gold-dark'}`}>
+                    {desc}
+                  </div>
+                </div>
                 {data.trainingTime === value && (
-                  <div className="absolute top-2 right-2 w-4 h-4 bg-white rounded-full flex items-center justify-center">
-                    <svg className="w-2.5 h-2.5 text-gold-primary" fill="currentColor" viewBox="0 0 20 20">
+                  <div className="flex-shrink-0 w-5 h-5 bg-white rounded-full flex items-center justify-center ml-3 shadow-sm animate-scaleIn">
+                    <svg className="w-3 h-3 text-gold-dark" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
                 )}
-                <div className="font-700 text-sm">{label}</div>
-                <div className={`text-xs mt-1.5 font-400 ${data.trainingTime === value ? 'text-white/90' : 'text-color-text-muted'}`}>{desc}</div>
               </button>
             ))}
           </div>
@@ -694,48 +701,35 @@ export default function WizardForm() {
 
       {/* Step 11: Recovery Priority */}
       {step === 11 && (
-        <div className="animate-slideInRight space-y-4">
-          <div>
-            <h2 className="text-xl sm:text-2xl font-700 text-color-text mb-1">¿Cuál es tu capacidad de recuperación?</h2>
-            <p className="text-color-text-muted text-xs sm:text-sm">Sueño, nutrición y estrés. CRÍTICO para resultados</p>
-          </div>
-
-          <div className="space-y-2.5">
+        <div className="animate-slideInRight space-y-4 md:space-y-5">
+          <div className="space-y-1.5 md:space-y-2">
             {[
-              { 
-                value: 'alto', 
-                label: '✅ Excelente', 
-                desc: '8+ h de sueño, nutrición consistente, bajo estrés' 
-              },
-              { 
-                value: 'medio', 
-                label: '⚠️ Promedio', 
-                desc: '6-7h de sueño, nutrición regular, estrés moderado' 
-              },
-              { 
-                value: 'bajo', 
-                label: '⛔ Limitada', 
-                desc: '<6h de sueño, nutrición variable, estrés alto' 
-              },
+              { value: 'alto', label: '✅ Excelente', desc: '8+ horas, nutrición, bajo estrés' },
+              { value: 'medio', label: '⚠️ Promedio', desc: '6-7h, regular, estrés moderado' },
+              { value: 'bajo', label: '⛔ Limitada', desc: '<6h, variable, estrés alto' },
             ].map(({ value, label, desc }) => (
               <button
                 key={value}
                 onClick={() => setData({ ...data, recoveryPriority: value as any })}
-                className={`w-full p-3 rounded-xl border-2 font-500 text-left transition-all duration-300 transform outline-none focus:outline-none relative ${
+                className={`w-full p-4 md:p-5 rounded-xl md:rounded-2xl border-2 font-600 text-left transition-all duration-300 transform focus:outline-none flex items-center justify-between group ${
                   data.recoveryPriority === value
-                    ? 'bg-[#997a3c] text-white border-[#997a3c] shadow-lg'
-                    : 'bg-white text-[#997a3c] border-[#e8dcc8] hover:border-[#c9a563] hover:shadow-md'
+                    ? 'bg-gradient-to-r from-gold-600 to-gold-700 text-white border-gold-dark shadow-lg'
+                    : 'bg-white text-gold-dark border-color-border hover:border-gold-primary hover:shadow-md hover:shadow-gold-primary/20'
                 }`}
               >
+                <div>
+                  <div className="font-700 text-base md:text-lg">{label}</div>
+                  <div className={`text-xs md:text-sm font-500 mt-1 ${data.recoveryPriority === value ? 'text-white' : 'text-color-text-muted group-hover:text-gold-dark'}`}>
+                    {desc}
+                  </div>
+                </div>
                 {data.recoveryPriority === value && (
-                  <div className="absolute top-2 right-2 w-4 h-4 bg-white rounded-full flex items-center justify-center">
-                    <svg className="w-2.5 h-2.5 text-gold-primary" fill="currentColor" viewBox="0 0 20 20">
+                  <div className="flex-shrink-0 w-5 h-5 bg-white rounded-full flex items-center justify-center ml-3 shadow-sm animate-scaleIn">
+                    <svg className="w-3 h-3 text-gold-dark" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
                 )}
-                <div className="font-700 text-sm">{label}</div>
-                <div className={`text-xs mt-1.5 font-400 ${data.recoveryPriority === value ? 'text-white/90' : 'text-color-text-muted'}`}>{desc}</div>
               </button>
             ))}
           </div>
@@ -744,20 +738,15 @@ export default function WizardForm() {
 
       {/* Step 12: Equipment (if home) */}
       {data.location === 'casa' && step === 12 && (
-        <div className="animate-slideInRight space-y-4">
-          <div>
-            <h2 className="text-xl sm:text-2xl font-700 text-color-text mb-1">¿Qué equipamiento tienes en casa?</h2>
-            <p className="text-color-text-muted text-xs sm:text-sm">Determina ejercicios posibles. Puedes seleccionar múltiples opciones</p>
-          </div>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+        <div className="animate-slideInRight space-y-4 md:space-y-5">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
             {[
-              { id: 'mancuernas', label: '🔵 Mancuernas', desc: 'Versátil y con progresión' },
-              { id: 'barra', label: '🟠 Barra + Discos', desc: 'Máxima carga posible' },
-              { id: 'bandas', label: '🟡 Bandas Elásticas', desc: 'Resistencia variable' },
-              { id: 'domina', label: '🟢 Barra Dominadas', desc: 'Ejercicios tracción' },
-              { id: 'kettlebell', label: '🔴 Kettlebell', desc: 'Movimientos explosivos' },
-              { id: 'poco', label: '⚪ Solo peso corporal', desc: 'Sin equipamiento' },
+              { id: 'mancuernas', label: '🔵 Mancuernas', desc: 'Versátil' },
+              { id: 'barra', label: '🟠 Barra', desc: 'Máxima carga' },
+              { id: 'bandas', label: '🟡 Bandas', desc: 'Variable' },
+              { id: 'domina', label: '🟢 Dominadas', desc: 'Tracción' },
+              { id: 'kettlebell', label: '🔴 Kettlebell', desc: 'Explosivos' },
+              { id: 'poco', label: '⚪ Solo peso', desc: 'Básico' },
             ].map(({ id, label, desc }) => (
               <button
                 key={id}
@@ -769,21 +758,24 @@ export default function WizardForm() {
                     setData({ ...data, equipment: [...current, id] });
                   }
                 }}
-                className={`p-3.5 rounded-xl border-2 font-500 text-center transition-all duration-300 transform outline-none focus:outline-none relative text-sm ${
+                className={`group relative p-5 sm:p-6 rounded-2xl border-2 transition-all duration-300 transform focus:outline-none ${
                   data.equipment?.includes(id)
-                    ? 'bg-[#997a3c] text-white border-[#997a3c] shadow-lg scale-105'
-                    : 'bg-white text-[#997a3c] border-[#e8dcc8] hover:border-[#c9a563] hover:shadow-md'
+                    ? 'bg-gradient-to-br from-gold-600 to-gold-700 text-white border-gold-dark shadow-lg shadow-gold-dark/40'
+                    : 'bg-white text-gold-dark border-color-border hover:border-gold-primary hover:shadow-lg hover:shadow-gold-primary/20 hover:-translate-y-1'
                 }`}
               >
                 {data.equipment?.includes(id) && (
-                  <div className="absolute top-1.5 right-1.5 w-4 h-4 bg-white rounded-full flex items-center justify-center">
-                    <svg className="w-2.5 h-2.5 text-gold-primary" fill="currentColor" viewBox="0 0 20 20">
+                  <div className="absolute top-3 right-3 w-5 h-5 bg-white rounded-full flex items-center justify-center shadow-md animate-scaleIn">
+                    <svg className="w-3 h-3 text-gold-dark" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
                 )}
-                <div className="font-700 text-xs">{label}</div>
-                <div className={`text-xs mt-1.5 font-400 ${data.equipment?.includes(id) ? 'text-white/90' : 'text-color-text-muted'}`}>{desc}</div>
+                <div className="text-2xl sm:text-3xl mb-2">{label.split(' ')[0]}</div>
+                <div className="font-700 text-sm sm:text-base leading-tight mb-2">{label}</div>
+                <div className={`text-xs font-500 ${data.equipment?.includes(id) ? 'text-white' : 'text-color-text-muted group-hover:text-gold-dark'}`}>
+                  {desc}
+                </div>
               </button>
             ))}
           </div>
@@ -838,7 +830,7 @@ export default function WizardForm() {
                   </div>
                 )}
                 <div className="font-700 text-sm">{label}</div>
-                <div className={`text-xs mt-1.5 font-400 ${data.experienceMonths === value ? 'text-white/90' : 'text-color-text-muted'}`}>{desc}</div>
+                <div className={`text-xs mt-1.5 font-400 ${data.experienceMonths === value ? 'text-white' : 'text-color-text-muted'}`}>{desc}</div>
               </button>
             ))}
           </div>
@@ -893,7 +885,7 @@ export default function WizardForm() {
                   </div>
                 )}
                 <div className="font-700 text-sm">{label}</div>
-                <div className={`text-xs mt-1.5 font-400 ${data.experienceMonths === value ? 'text-white/90' : 'text-color-text-muted'}`}>{desc}</div>
+                <div className={`text-xs mt-1.5 font-400 ${data.experienceMonths === value ? 'text-white' : 'text-color-text-muted'}`}>{desc}</div>
               </button>
             ))}
           </div>
@@ -940,27 +932,27 @@ export default function WizardForm() {
         </div>
       )}
 
-      {/* Validation Error Message */}
+      {/* Validation Error Message - Minimalist */}
       {validationError && (
-        <div className="px-4 py-3 bg-red-50 border-l-4 border-red-500 rounded flex items-start gap-3 mb-4 animate-pulse">
-          <svg className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+        <div className="px-4 md:px-6 py-4 md:py-4 bg-red-50 border-l-4 border-red-500 rounded-lg flex items-center gap-3 mb-4 animate-pulse">
+          <svg className="w-5 h-5 text-red-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
             <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
           </svg>
-          <p className="text-sm font-600 text-red-700">{validationError}</p>
+          <p className="text-sm md:text-base font-600 text-red-700">{validationError}</p>
         </div>
       )}
 
-      {/* Buttons */}
-      <div className="flex gap-3 justify-between pt-6 border-t border-color-border-light bg-white/95 backdrop-blur-sm sticky bottom-0 -mx-6 px-6 pb-6 z-40">
+      {/* Buttons - Optimized for mobile & desktop */}
+      <div className="flex flex-col-reverse sm:flex-row gap-2 md:gap-3 pt-6 md:pt-8 border-t border-color-border-light bg-gradient-to-t from-white via-white to-transparent sticky bottom-0 -mx-6 sm:-mx-8 px-6 sm:px-8 pb-6 md:pb-8 z-40">
         <button
           onClick={handleBack}
-          className={`flex-1 px-4 py-3 rounded-xl font-600 transition-all duration-300 flex items-center justify-center gap-2 text-sm outline-none ${
+          className={`flex-1 px-4 md:px-6 py-3 md:py-3.5 rounded-xl md:rounded-2xl font-600 transition-all duration-300 flex items-center justify-center gap-2 text-sm md:text-base outline-none ${
             step === 1
               ? 'bg-color-bg-secondary text-color-text-muted cursor-not-allowed'
-              : 'bg-color-bg-secondary text-color-text hover:bg-color-border hover:shadow-sm'
+              : 'bg-color-bg-secondary text-color-text hover:bg-color-border hover:shadow-md active:scale-95'
           }`}
         >
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
           <span>Atrás</span>
@@ -968,7 +960,7 @@ export default function WizardForm() {
 
         <button
           onClick={handleNext}
-          className={`flex-1 px-4 py-3 rounded-xl font-700 transition-all duration-300 flex items-center justify-center gap-2 text-sm outline-none ${
+          className={`flex-1 px-4 md:px-6 py-3 md:py-3.5 rounded-xl md:rounded-2xl font-700 transition-all duration-300 flex items-center justify-center gap-2 text-sm md:text-base outline-none ${
             (step === 1 && !data.objective) ||
             (step === 2 && !data.level) ||
             (step === 3 && !data.days) ||
@@ -982,16 +974,16 @@ export default function WizardForm() {
             (step === 12 && data.location === 'casa' && (!data.equipment || data.equipment.length === 0)) ||
             (step === 13 && data.location === 'casa' && !data.experienceMonths) ||
             (step === 12 && data.location === 'gimnasio' && !data.experienceMonths)
-              ? 'bg-gold-light/30 text-color-text-muted cursor-not-allowed'
-              : 'bg-[#997a3c] text-white hover:bg-[#8a6a34] hover:shadow-lg shadow-[#997a3c]/20'
+              ? 'bg-gradient-to-r from-gold-600 to-gold-700 text-white opacity-60 cursor-not-allowed'
+              : 'bg-gradient-to-r from-gold-600 to-gold-700 text-white hover:shadow-lg shadow-gold-dark/30 active:scale-95'
           }`}
         >
           {step === getActualTotalSteps() ? (
-            <>✨ Generar Rutina</>
+            <span>✨ Generar Rutina</span>
           ) : (
             <>
               <span>Siguiente</span>
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </>

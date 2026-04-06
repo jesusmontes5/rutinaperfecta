@@ -11,25 +11,21 @@ export default function RutinasPage() {
 
   return (
     <div>
-      {/* Back Button Header */}
-      <div className="bg-white border-b border-gold-light/30 py-3 sm:py-4 sticky top-0 z-40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-3">
-          <button
-            onClick={() => router.back()}
-            className="flex items-center gap-2 text-color-text hover:text-gold-dark hover:bg-gold-light/10 px-3 py-2 rounded-lg transition-all font-500"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-            <span className="text-sm sm:text-base">Atrás</span>
-          </button>
-        </div>
-      </div>
+      {/* Floating Back Button - Top Right */}
+      <button
+        onClick={() => router.back()}
+        className="fixed top-20 right-6 z-40 flex items-center justify-center w-10 h-10 bg-white text-gold-dark border-2 border-gold-light/40 rounded-full shadow-md hover:shadow-lg hover:border-gold-primary transition-all hover:scale-110 font-600 text-sm hover:bg-gold-light/10"
+        title="Volver atrás"
+      >
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
 
       {/* Hero */}
       <section className="py-12 md:py-16 bg-white border-b border-gold-light/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-gold-dark mb-4">
+          <h1 className="text-4xl md:text-5xl font-display font-800 bg-gradient-to-r from-gold-dark to-gold-primary bg-clip-text text-transparent mb-4">
             Todas nuestras rutinas
           </h1>
           <p className="text-lg text-color-text-muted max-w-2xl mx-auto mb-6">
@@ -56,7 +52,7 @@ export default function RutinasPage() {
           </div>
 
           {/* SEO Content Section */}
-          <div className="space-y-12 mt-20 pt-20 border-t border-gray-200">
+          <div className="space-y-12 mt-20 pt-20 border-t border-gray-200 min-h-screen">
             {/* Rutina 3 Días */}
             <div className="prose prose-sm sm:prose max-w-none">
               <h2 className="text-3xl font-bold text-gold-dark mb-4">Rutina 3 Días: La Mejor Opción para Principiantes</h2>

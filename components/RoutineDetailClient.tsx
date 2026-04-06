@@ -131,25 +131,14 @@ export default function RoutineDetailClient({ routine, allRoutines }: RoutineDet
 
   return (
     <div>
-      {/* Back Button Header */}
-      <div className="bg-gradient-to-r from-white to-gold-very-light/50 border-b border-gold-light/40 py-4 sm:py-6 sticky top-0 z-40 shadow-lg shadow-gold-600/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          <button
-            onClick={() => router.back()}
-            className="flex items-center gap-2 text-color-text hover:text-gold-primary hover:bg-gold-light/30 px-4 py-2 rounded-xl transition-all font-700 duration-300 group border border-gold-light/20 hover:border-gold-light/40"
-          >
-            <svg className="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-            <span className="text-sm sm:text-base font-700">Atrás</span>
-          </button>
-          <h1 className="text-lg sm:text-3xl font-display font-800 text-gold-dark truncate flex-1 ml-4 bg-gradient-to-r from-gold-dark to-gold-primary bg-clip-text text-transparent">{routine.title}</h1>
-        </div>
-      </div>
-
       {/* Main Content */}
-      <div ref={contentRef} className="min-h-screen bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div ref={contentRef} className="min-h-screen bg-white pt-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Routine Title */}
+        <h1 className="text-4xl sm:text-5xl font-display font-800 mb-8 bg-gradient-to-r from-gold-dark to-gold-primary bg-clip-text text-transparent">
+          {routine.title}
+        </h1>
+        
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Left Column - Content */}
           <div className="lg:col-span-2 space-y-6">
@@ -246,14 +235,14 @@ export default function RoutineDetailClient({ routine, allRoutines }: RoutineDet
                       const level = paragraph.match(/^#+/)?.[0].length || 1;
                       const text = paragraph.replace(/^#+\s*/, '');
                       const headingClass = {
-                        1: 'text-2xl font-bold',
-                        2: 'text-xl font-bold',
-                        3: 'text-lg font-bold',
-                        4: 'text-base font-bold',
+                        1: 'text-2xl font-display font-800',
+                        2: 'text-xl font-display font-800',
+                        3: 'text-lg font-display font-800',
+                        4: 'text-base font-display font-800',
                       }[level] || 'font-bold';
 
                       return (
-                        <h2 key={i} className={`text-gold-dark ${headingClass}`}>
+                        <h2 key={i} className={`${headingClass} bg-gradient-to-r from-gold-dark to-gold-primary bg-clip-text text-transparent`}>
                           {text}
                         </h2>
                       );
@@ -336,7 +325,7 @@ export default function RoutineDetailClient({ routine, allRoutines }: RoutineDet
           {/* Right Column - Sidebar */}
           <div className="space-y-4">
             {/* Info Box - FIXED POSITION */}
-            <div data-sidebar-box className="bg-gradient-to-b from-white to-gold-very-light/40 border border-gold-light/40 rounded-2xl p-7 sticky top-24 shadow-lg hover:shadow-xl transition-shadow h-fit">
+            <div data-sidebar-box className="bg-gradient-to-b from-white to-gold-very-light/40 border border-gold-light/40 rounded-2xl p-7 sticky top-24 lg:fixed lg:top-32 lg:right-8 lg:w-80 lg:max-h-screen lg:overflow-y-auto shadow-lg hover:shadow-xl transition-shadow h-fit">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 bg-gradient-to-br from-gold-dark to-gold-light rounded-lg flex items-center justify-center text-white font-display font-800">
                   ℹ
