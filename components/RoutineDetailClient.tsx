@@ -335,8 +335,8 @@ export default function RoutineDetailClient({ routine, allRoutines }: RoutineDet
 
           {/* Right Column - Sidebar */}
           <div className="space-y-4">
-            {/* Info Box - STICKY */}
-            <div data-sidebar-box className="bg-gradient-to-b from-white to-gold-very-light/50 border border-gold-light/40 rounded-2xl p-7 sticky top-24 shadow-md">
+            {/* Info Box - FIXED POSITION */}
+            <div data-sidebar-box className="bg-gradient-to-b from-white to-gold-very-light/50 border border-gold-light/40 rounded-2xl p-7 sticky top-20 shadow-md h-fit">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 bg-gradient-to-br from-gold-dark to-gold-light rounded-lg flex items-center justify-center text-white font-bold">
                   ℹ
