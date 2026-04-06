@@ -21,6 +21,11 @@ export interface WizardData {
   experience?: 'novato' | 'menos_1año' | '1a2años' | 'mas_2años' | null;
   experienceMonths?: 'novato' | '0-6m' | '6-12m' | '+1año' | null;
   
+  // Datos personales (nuevos - para cálculos nutricionales)
+  weight?: number; // kg
+  height?: number; // cm
+  age?: number; // años
+  
   // Limitaciones
   injuries?: string[]; // p.ej: ['espalda', 'rodilla']
   
@@ -33,6 +38,11 @@ export interface WizardData {
   trainingStyle?: 'ppl' | 'upperlower' | 'fullbody' | 'roulet' | null;
   trainingTime?: 'manana' | 'mediodía' | 'tarde' | 'noche' | null;
   recoveryPriority?: 'alto' | 'medio' | 'bajo' | null;
+  
+  // Nutrición (nuevos - para recomendaciones específicas)
+  dietarySensitivity?: string[]; // p.ej: ['lactosa', 'gluten', 'vegetariano']
+  supplementInterest?: string[]; // p.ej: ['proteína', 'creatina', 'vitaminas']
+  mealFrequency?: '3' | '4' | '5' | '6'; // comidas por día
   
   // Equipamiento disponible (para casa)
   equipment?: string[]; // p.ej: ['mancuernas', 'barra', 'bandas']

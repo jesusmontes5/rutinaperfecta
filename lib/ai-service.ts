@@ -1,4 +1,5 @@
 import Groq from 'groq-sdk';
+import TokenManager from './token-manager';
 
 const groq = new Groq({
   apiKey: process.env.GROQ_API_KEY || '',
@@ -12,65 +13,86 @@ const logger = {
   timing: (label: string, ms: number) => console.log(`⏱️  [AI Service] ${label} - ${ms}ms`),
 };
 
-// Fallback values - Mejoradas significativamente por objetivo
+/* ==============================
+   MEJORADAS DESCRIPCIÓN PROFESIONAL
+   ============================== */
+
 const FALLBACK_DESCRIPTIONS_MASA = [
-  'Rutina de hipertrofia diseñada científicamente para maximizar ganancia muscular. Enfatiza ejercicios compuestos en rango 6-12 reps con énfasis en la tensión mecánica, el principal factor de crecimiento muscular. Estructura de volumen alto con suficiente recuperación entre sets para mantener intensidad. Resultados realistas: 3-5kg de músculo puro en 8-12 semanas con nutrición y sueño adecuados.',
-  'Programa profesional de ganancia de masa musculoesquelética basado en periodización lineal. Combina fases de fuerza (6-8 reps) con hipertrofia (8-12 reps) para máximo crecimiento. Incluye progresión de peso planificada, variación de ejercicios cada 4 semanas y recuperación estratégica. Diseñado para principiantes a avanzados.',
-  'Rutina de musculación que aplica los 3 pilares de la hipertrofia: tensión mecánica, daño muscular y estrés metabólico. Estructura full-body o PPL según tu disponibilidad, con cardio moderado para preservar musculatura mientras mejoras salud cardiovascular. Progressive overload es clave.',
-  'Entrenamiento de construcción muscular optimizado para tu nivel y experiencia. Utiliza periodización para evitar mesetas, varía ángulos y ejercicios sistemáticamente, e integra deload weeks cada 4-5 semanas. Resultado esperado: crecimiento consistente sin lesiones.',
-  'Programa de hipertrofia miofibrilar y sarcoplasmática diseñado para máximo y rápido crecimiento muscular. Combina densidad ideal de sets (16-20 sets/grupo muscular/semana), recuperación suficiente (48-72 horas entre grupos) y progresión consistente. Base científica sólida.',
+  'Rutina de hipertrofia científicamente diseñada para maximizar ganancia muscular. Estructura: 3-4 días Full Body o PPL, con énfasis en ejercicios compuestos pesados (6-10 reps) combinado con accesorios en rango 10-15 reps para estrés metabólico. Frecuencia de 2x/semana por grupo muscular es óptima según investigación reciente (Schoenfeld). Recuperación: 48-72 horas entre grupos, 4 días entre entrenamientos. Progressive overload es fundamentales cada semana (+2.5-5kg o +1-2 reps). Resultados: 0.5-1kg músculo puro/semana = 4-8kg en 8-12 semanas con nutrición correcta.',
+  
+  'Programa profesional de ganancia de masa musculoesquelética usando periodización lineal. Ciclo: Semanas 1-2 (adaptación), 3-4 (fuerza 6-8 reps), 5-8 (hipertrofia 8-12 reps), 9-12 (volumen 10-15 reps), luego deload. Combina 3 pilares de hipertrofia: (1) Tensión Mecánica 40% (ejercicios pesados), (2) Daño Muscular 30% (rango completo), (3) Estrés Metabólico 30% (altos reps, descansos cortos). Volumen: 60-70 sets/semana distribuidos. Nutrición: Superávit +300-500 kcal, proteína 2.0-2.2g/kg. Cardio: Moderado (LISS 20-30min, 2x/semana).',
+  
+  'Rutina de construcción muscular que aplica ciencia moderna de hipertrofia. Estructura adaptativa: principiantes = Full Body 3x/semana, intermedios = PPL o Upper/Lower, avanzados = split specializado. Enfoque: Máxima frecuencia de entreno (2-3x por grupo/semana), volumen óptimo (50-70 sets/semana), intensidad consistente (RPE 7-9), progresión planificada. Incluye: Movimientos variados cada 4-6 semanas, deload weeks, recuperación estratégica. Nutrición crítica: 2000-2800 kcal según peso, proteína 160-200g, carbs 4-5g/kg para energía entreno.',
+  
+  'Entrenamiento periodizado para ganancia muscular máxima sin lesiones. Diseño científico basado en síntesis proteica muscular (MPS), que pico a 24-48h post-entreno. Cada grupo muscular se entrena 2-3 veces/semana para múltiples picos MPS. Estructura: Ejercicios compuestos pesados (3-4 series × 6-10 reps con 2-3min descanso) seguido de accesorios eficientes (3 series × 10-15 reps con 60-90s descanso). Resultados: Consistencia > Perfección. 2kg extra ganancia natural por año es norma realista.',
+  
+  'Rutina de hipertrofia miofibrilar y sarcoplasmática integrada. Volumen distribuido: Compuestos pesados (60% de volumen) desarrollan fuerza pura + activación neural máxima. Accesorios moderados (40% de volumen) crean pump, daño microscópico y estrés metabólico. Frecuencia: Cada músculo entrenado 2 veces/semana en diferentes ángulos. Progresión: Semana 1-2 establecer línea base, semana 3-4 aumentar peso, semana 5-6 aumentar reps o sets, semana 7-8 variar ejercicios. Sin deload = meseta garantizada.',
 ];
 
 const FALLBACK_DESCRIPTIONS_GRASA = [
-  'Rutina de pérdida de grasa preservando músculo máximo. Combina entrenamiento de resistencia intenso (para preservar proteína muscular) con cardio estratégico. Estructura de volumen moderado en rango 8-12 reps alta intensidad, minimizando catabolismo. Cardio HIIT incorporado 2-3 veces/semana. Déficit calórico + proteína alta = éxito.',
-  'Programa profesional de definición y recomposición corporal. Énfasis máximo en preservar/construir músculo mientras pierdes grasa. Combina pesos pesados (fuerza) + volumen moderado + cardio HIIT. Requiere disciplina nutricional estricta pero resultados visibles en 6-8 semanas.',
-  'Rutina de cutting basada en evidencia para máxima pérdida de grasa minimizando pérdida muscular. Utiliza entrenamiento de resistencia frecuente, cardio HIIT de baja duración, y déficit calórico moderado. Incluye estrategias de periodización para mantener fuerza y volumen.',
-  'Entrenamiento de transformación corporal para pérdida de grasa sin sacrificar musculatura. Estructura funcional con pesos compuestos pesados + cardio metabólico. Resultado esperado: cambio visual significativo en 10-12 semanas con adherencia nutricional.',
-  'Programa de definición muscular que prioriza preservación de masa magra mediante entrenamiento inteligente. Énfasis en progressive overload incluso en déficit, cardio eficiente, y nutrición optimizada. Ideal para aquellos que desean verse musculosos y definidos.',
+  'Rutina de pérdida de grasa maximizando preservación muscular. Fundamento: En déficit calórico, tu cuerpo degrada músculo si no lo estimulas suficientemente. Solución: Entrenamientos frecuentes, pesados e intensos. Estructura: 4-5 días/semana con énfasis en compuestos fuertes (6-10 reps, RPE 8-9) para mantener fuerza, seguidos accesorios en 10-12 reps con descansós cortos (45-60s) para HIIT metabólico. Cardio: HIIT 2-3 veces/semana (20-30min máximo) + LISS 1x/semana (30-45min). Nutrición: Déficit -400 a -500 kcal, proteína MÁXIMA 2.4-2.6g/kg (crítico), carbos moderados. Resultados: -0.5 a -1kg/semana grasa con preservación 100% músculo.',
+  
+  'Programa de cutting basado en recomposición corporal inteligente. Objetivo: Perder grasa sin perder fuerza ni músculo. Estrategia: Entrenamiento pesado 4x/semana (movimientos compuestos en 6-10 reps = máxima retención muscular), cardio metabólico inteligente (HIIT 2x/semana no circuito sino series cortas pesadas), deficiencia calórica moderada (-400 a -500, no -1000). Macros: Proteína prioritaria (204-220g para 85kg), carbos post-entreno, grasas mínimas. Suplementos recomendados: Creatina (preserva fuerza en déficit), cafeína (mejora enfoque y EPOC), Beta-alanina (resiste fatiga en HIIT). Resultados: -10kg en 12 semanas donde 80% es grasa, no músculo.',
+  
+  'Rutina de transformación corporal para definición visible. Enfoque dual: Mantener/construir músculo MIENTRAS pierdes grasa = recomposición. Clave: Frecuencia alta de entreno (cada grupo muscular 2-3x/semana) con intensidad sostenida. Volumen: 40-50 sets/semana (menos que ganancia pero suficiente para preservar). Estructura: A) Movimientos pesados (squat, bench, fila, press) 80kg+ per 4-6 reps × 3-4 series = fuerza pura. B) Ejercicios secundarios 10-12 reps × 3 series = eficiencia. C) Finalizadores 12-15 reps × 2-3 series = pump. Cardio: Integrado (no separado): 30-60 segundos cardio entre ejercicios compuestos. Resultado: Músculo visible, definición clara, fuerza preservada.',
+  
+  'Entrenamiento de eliminación grasa con énfasis en preservación de masa magra. Metodología: Déficit mínimo (300-400 kcal) sostenible, proteína máxima (2.4-2.6g/kg), entrenamiento de resistencia pesado (denso en series cortas intensas). Estructura: 4-5 días, ejercicios compuestos en primero 45-50 minutos (squat, bench, fila, press + movimiento complementario), luego finalizador de 10-15 minutos (cardio HIIT o circuito). Cardio separado: LISS 1 x/semana 45-60min OR HIIT 2x/semana 20-30min. Una comida semanal flexible (cheat meal) ayuda psicología + leptina. Resultados: Visible body transformation en 10 semanas.',
+  
+  'Rutina científica de cutting preservando músculo máximo. Basada en: (1) Proteína alta mantiene MPS incluso en déficit, (2) Entrenamiento pesado manda señal al cuerpo "necesito este músculo", (3) Déficit moderado -400 a -500 es tolerable vs -1000 (insostenible). Estructura: Lunes (pierna pesada) → Martes (pecho/tris) → Miércoles (cardio/active recovery) → Jueves (espalda/bis) → Viernes (pierna vol) → Sábado (cardio HIIT) → Domingo (descanso). Progresión: Semana 1-4 establecer baseline, 5-8 small decreases (-5kg) manteniendo reps, 9-12 increase conditioning. Final: Composición 12-15% grasa corporal visible.',
 ];
 
 const FALLBACK_DESCRIPTIONS_MANTENER = [
-  'Rutina de mantenimiento y tonificación diseñada para preservar musculatura mientras mejoras composición corporal. Estructura balanceada con volumen moderado, enfoque en movimientos funcionales, y cardio ligero. Sostenible a largo plazo como estilo de vida fitness.',
-  'Programa de fitness integral para mantener e incrementar calidad muscular. Combina entrenamiento de resistencia, cardio moderado y movilidad. Ideal para personas que desean permanecer activas, saludables y fuertes sin obsesión por cambios extremos.',
-  'Rutina de entrenamiento funcional para mantenimiento de fuerza, masa y salud general. Estructura versátil que permite variar según disponibilidad, con énfasis en técnica y movimiento calidad. Cardio ligero a moderado para preservar salud cardiovascular.',
-  'Programa de wellness y tonificación corporal balanceado entre fuerza y cardio. Estructura flexible que permite consistencia año redondo sin fatiga mental. Ideal para mantener un físico saludable y atractivo sin stress nutricional extremo.',
-  'Entrenamiento de estilo de vida enfocado en preservar masa muscular, mejorar funcionalidad y mantener salud óptima. Estructura sostenible diseñada como hábito permanente, no como fase temporal. Incluye flexibilidad nutricional y adaptabilidad.',
+  'Rutina de mantenimiento y bienestar diseñada para preservar musculatura mientras mejoras composición corporal. Estructura flexible: 3-4 días/semana con movimientos funcionales balanceados. Énfasis: Calidad sobre cantidad. Cada grupo muscular entrenado 1-2 veces/semana suficiente en mantenimiento. Volumen: 40-50 sets/semana (menos que ganancia pero previene atrofia). Intensidad: RPE 6-8 (no exhaustivo pero suficiente). Cardio: Moderado (LISS 30-45min 2-3x/semana, sin HIIT agresivo). Nutrición: Balance calórico exacto (TDEE), proteína 1.6-1.8g/kg (suficiente). Dieta flexible, sostenible de por vida.',
+  
+  'Programa de fitness integral para mantener fuerza y salud año redondo. Filosofía: Entrenamiento como hábito NO como tortura. Estructura: 3-4 días pesas (movimientos clave: squat, bench, fila, press + accesorios), 1-2 días cardio ligero (caminar, bicicleta, natación). Variación: Cambia ejercicios mensualmente para evitar aburrimiento. Técnica: Enfoque en movimiento limpio, control, conexión muscular. Nutrición: Come cuando tienes hambre, respeta tus macro aproximadamente, 80/20 alimentos limpios vs disfrute. Resultado: Físico atractivo + funcional + sostenible.',
+  
+  'Rutina funcional para mantenimiento de fuerza y movilidad. Objetivo: Estar fuerte, móvil, sin lesiones, con vida social activa. Estructura: 3 días compuestos clave (Full Body o Upper/Lower alternando), 1-2 cardio moderado, 1-2 movilidad/yoga. Ejercicios: 5-8 por sesión, 3 series × 8-12 reps (peso moderado), enfoque en forma perfecta. Recuperación: 48-72 horas entre sesiones es suficiente. Nutrición: No conteo estricto, come balanceado, proteína en cada comida, carbos sano, grasas variadas. Flexibilidad: Viajes, eventos sociales, comidas fuera = NORMAL, no desrail plan.',
 ];
+
+/* ==============================
+   TIPS MOTIVACIONALES PROFESIONALES - MASA (GANANCIA)
+   ============================== */
 
 const FALLBACK_TIPS_MASA = [
-  'Superávit calórico es obligatorio: 300-500 calorías sobre mantenimiento. Sin excedente, simplemente no crecerás. Calcula mantenimiento y suma: peso(kg) × 30 = calorías diarias aproximadas.',
-  'Proteína mínima: 1.6-2.2g por kg de peso corporal. Un atleta de 80kg necesita 128-176g diarios. Distribuye en 4-5 comidas para máxima síntesis proteica.',
-  'Progressive overload es clave: aumenta peso 1-2kg cada semana en ejercicios principales o +1 rep. Sin progresión, sin crecimiento. Registra tus entrenamientos religiosamente.',
-  'Sueño 7-9 horas cada noche. Durante sueño profundo ocurre síntesis proteica y hormona de crecimiento. Dormir poco reduce crecimiento 30-40%.',
-  'Entrenamiento 3-5 días/semana es suficiente. Más no es mejor. Recuperación entre sesiones es donde crece el músculo. No necesitas estar siempre en el gym.',
-  'Variación cada 4-6 semanas: cambia ejercicios, reps, o ángulos. Previene adaptación y mesetas. El músculo necesita nuevos estímulos para continuar creciendo.',
-  'Deload week cada 4-5 semanas: reduce volumen 40-50% para recuperación nerviosa. Mantiene fuerza y previene lesiones por fatiga acumulada.',
-  'Prioritiza ejercicios compuestos: Sentadillas, Peso Muerto, Press de Banca, Remos. 70% del volumen debe ser compuesto. Son los que más hipertrofia generan.',
+  'Superávit calórico 300-500 kcal es obligatorio: sin excedente, simplemente no crecerás. Calcula: peso(kg) × 30-32 = calorías mantenimiento, luego suma 300-500 extra.',
+  'Proteína 1.6-2.2g/kg corporal es clave. Un atleta de 80kg necesita 128-176g diarios. Distribuye en 4-5 comidas para máxima síntesis proteica (MPS) cada 3-4 horas.',
+  'Progressive overload CADA SEMANA: suma +2.5-5kg a ejercicios compuestos O +1-2 reps. Sin progresión = sin crecimiento. Registra entrenamientos en app o libreta religiosamente.',
+  'Sueño 7-9 horas cada noche: síntesis proteica y hormona de crecimiento ocurren en sueño profundo. Dormir poco reduce crecimiento 30-40%. Prioridad 1.',
+  'Entrenamientos 3-5 días/semana es suficiente. Más no es mejor. Musculatura crece FUERA del gym, en recuperación. No necesitas estar siempre entrenando.',
+  'Variación de ejercicios cada 4-6 semanas: cambia ángulos, rangos, equipamiento. Previene adaptación y mesetas. Mantén ejercicios clave pero varía accesorios.',
+  'Deload week cada 4-5 semanas: reduce volumen 40-50% para recuperación nerviosa. Mantiene fuerza, previene lesiones por fatiga acumulada, reinicia con más fuerza.',
+  'Ejercicios compuestos primero: Sentadillas, Peso Muerto, Press de Banca, Remos. 70% de tu volumen debe ser compuesto. Generan máxima ganancia hormonal y muscular.',
 ];
+
+/* ==============================
+   TIPS MOTIVACIONALES PROFESIONALES - CUTTING (PÉRDIDA GRASA)
+   ============================== */
 
 const FALLBACK_TIPS_GRASA = [
-  'Déficit calórico 300-500 calorías: demasiado agresivo = pérdida muscular. Muy ligero = sin cambios. El punto dulce es -400 kcal/día = ~0.5kg/semana.',
-  'Proteína ALTA: 2-2.5g por kg de peso corporal. Crítica para preservar músculo en déficit. A mayor proteína, más fácil mantener volumen durante cutting.',
-  'Entrenamiento de resistencia PRIORITARIO: pesas pesadas preservan musculatura. Combina con cardio pero no reemplaces pesos por cardio. Pesas salvan músculos en déficit.',
-  'Cardio HIIT 20-30 min: 2-3 veces/semana es óptimo. Más eficiente que cardio lento para perder grasa sin catabolismo. 30seg intensidad / 30seg descanso.',
-  'Sueño 7-8 horas: déficit de sueño aumenta cortisol y apetito, saboteando tu déficit. Duerme bien para mantener disciplina nutricional.',
-  'Paciencia: 0.5kg/semana es ideal. Rápido = músculo perdido. Lento = adherencia fácil. 10-12 semanas para transformación visible es realista.',
-  'Macros: 40% proteína / 40% carbs / 20% grasas es un buen start. Ajusta según tu respuesta. Algunos prefieren menos carbs, otros más.',
-  'Cardio después de pesas o separado: nunca antes. Pre-cardio compromete fuerza. Haz pesas primero con máxima energía, luego cardio si es necesario.',
+  'Proteína MÁXIMA es crítico en cutting: 2.4-2.6g/kg corporal. Un atleta de 85kg necesita 204-221g diarios. Previene catabolismo muscular en déficit. Distribuye en 4-5 comidas.',
+  'Déficit calórico moderado (-400 a -500 kcal) es sostenible. Déficit extremo (-1000+) destruye músculo y metabolismo. Mejor perder 0.5-1kg/semana 12 semanas que 2kg/semana 4 semanas.',
+  'Progressive overload incluso en cutting: mantén pesos pesados o sube reps. Si bajaste peso tanto, mandas señal "no necesito este músculo". Fuerza preserva masa en déficit.',
+  'HIIT 2-3 veces/semana (20-30 min máximo) quema grasa estratégico sin destruir músculo. Mejor que 60 min cardio lento que consume masa. Alta intensidad = preserva fuerza.',
+  'Cardio después de pesas o separado completamente: NUNCA antes. Pre-cardio quema glucógeno que necesitas para fuerza. Pesas primero (al máximo), luego cardio si queda energía.',
+  'Agua infinita: 3-4 litros diarios mínimo. Mayor hidratación = mejor metabolismo, menos hambre, mejor rendimiento, recuperación mejorada. Cero calorías pero tremendo impacto.',
+  'Creatina 5g diarios en cutting: preserva fuerza y volumen muscular cuando caen calorías. Ganancia de investigación última década: creatina marca la diferencia muscular vs grasa pura.',
+  'Una comida "flexible" semanal: 1x/semana una comida que disfrutes (pizza, hamburguesa, postre). Mantiene psicología positiva, lepina elevada, adherencia real. NO desbarata progreso si es 1x/semana.',
 ];
+
+/* ==============================
+   TIPS MOTIVACIONALES PROFESIONALES - MANTENIMIENTO
+   ============================== */
 
 const FALLBACK_TIPS_MANTENER = [
-  'Mantén mantenimiento calórico: peso actual × 28-30 = calorías diarias. Variar ±200-300 es normal. El objetivo es estabilidad, no obsesión.',
-  'Proteína moderada: 1.2-1.6g por kg de peso corporal es suficiente para preservar. No necesitas exceso extremo si no buscas crecimiento rápido.',
-  'Entrenamientos 3-4 días/semana es ideal: suficiente para mantener, bajo compromiso de tiempo. Consistencia es más importante que volumen extremo.',
-  'Cardio 150min/semana moderado O 75min/semana intenso: recomendación OMS para salud cardiovascular. Mantiene resistencia y ayuda composición corporal.',
-  'Sueño 7-8 horas: fundamental para recuperación cotidiana y salud general. A largo plazo, dormir bien es tu mejor inversión.',
-  'Flexibilidad nutricional: puedes permitirte 1-2 comidas "libres"/semana si mantienes disciplina el resto. Sostenibilidad = consistencia a largo plazo.',
-  'Varía ejercicios cada 2-3 meses: previene aburrimiento y lesiones por repetición. Mantén movimientos principales pero experimenta variaciones.',
-  'Evalúa composición, no solo peso: una persona tonificada pesa lo mismo que una con grasa. Espejo y cómo te ves es mejor métrica que la báscula.',
+  'Mantén balance calórico aproximado: peso actual (kg) × 28-30 = calorías mantenimiento. Variar ±200-300 es completamente normal. Objetivo = ESTABILIDAD, no precisión obsesiva.',
+  'Proteína moderada 1.6-1.8g/kg es suficiente para preservar. No necesitas extremo 2.2g/kg si no buscas crecimiento rápido. Come proteína en cada comida principales.',
+  'Entrenamientos 3-4 días/semana es IDEAL en mantenimiento: suficiente para preservar fuerza/músculo, bajo compromiso tiempo, mejor balance vida. Consistencia > volumen.',
+  'Cardio 150 minutos/semana moderado O 75 minutos/semana intenso: recomendación OMS para salud cardiovascular. Mantiene corazón fuerte, composición estable, energía óptima.',
+  'Sueño 7-8 horas noche: fundamento de recuperación cotidiana. A largo plazo, dormir bien es tu mejor inversión fitness. Sin sueño, todo lo demás se desmorona lentamente.',
+  'Flexibilidad nutricional: disfruta 1-2 comidas "libres" semanales sin afectar progreso. Sostenibilidad = consistencia 80% de años, no perfección 100% de semanas.',
+  'Varía ejercicios cada 2-3 meses: previene aburrimiento mental y lesiones por repetición. Mantén principales (squat, bench, fila) pero experimenta variaciones nuevas.',
+  'Mentalidad: Estar fit es viaje infinito, no destino final. Aprecia fuerza actual, disfruta entrenamientos, celebra consistencia. Objetivo = vida larga, saludable, fuerte sin estrés.',
 ];
-
-
 
 interface RoutineAIData {
   objective: string;
@@ -86,12 +108,35 @@ interface RoutineAIData {
  * Generate routine description using Groq AI
  * Falls back to hardcoded values if API fails
  * ALWAYS returns a string (never null)
+ * Implementa: Cache + Token Manager + Fallbacks inteligentes
  */
 export async function generateRoutineDescriptionAI(data: RoutineAIData): Promise<string> {
   const startTime = Date.now();
+  const cacheKey = TokenManager.getCacheKey(data.objective, data.level, data.days);
   
   try {
-    // Check if API key is configured
+    // 1. Intentar desde cache primero
+    const cached = TokenManager.getFromCache(cacheKey);
+    if (cached) {
+      logger.info('✅ Obteniendo descripción desde CACHE');
+      return cached.description;
+    }
+
+    // 2. Verificar disponibilidad de tokens
+    const tokenStatus = TokenManager.canMakeAPICall(150); // Descripción usa ~150 tokens
+    const fallbackMode = TokenManager.getFallbackMode();
+
+    if (!tokenStatus.allowed) {
+      logger.warn(`❌ ${tokenStatus.reason}`);
+      return getFallbackDescription(data.objective);
+    }
+
+    if (fallbackMode === 'cache_only' || fallbackMode === 'fallback_only') {
+      logger.warn(`⚠️ Modo ${fallbackMode}: usando fallback local`);
+      return getFallbackDescription(data.objective);
+    }
+
+    // 3. Check if API key is configured
     if (!process.env.GROQ_API_KEY) {
       logger.warn('GROQ_API_KEY not configured');
       return getFallbackDescription(data.objective);
@@ -189,7 +234,16 @@ ADELANTE: Genera la descripción profesional COMPLETA ahora (solo descripción, 
     const content = message.choices[0].message.content;
     if (content && content.trim().length > 100) {  // At least 100 chars for a good description
       const result = content.trim();
+      
+      // 4. Registrar tokens usados (estimado)
+      const estimatedTokensUsed = Math.ceil(prompt.length / 4 + result.length / 4);
+      TokenManager.recordTokenUsage('generateRoutineDescription', estimatedTokensUsed, true);
+      
+      // 5. Guardar en cache para futuras llamadas similares
+      TokenManager.saveToCache(cacheKey, result, []);
+      
       logger.timing('generateRoutineDescription', Date.now() - startTime);
+      logger.info(`✅ Description generada y cacheada (${estimatedTokensUsed} tokens)`);
       return result;
     }
 
@@ -197,6 +251,13 @@ ADELANTE: Genera la descripción profesional COMPLETA ahora (solo descripción, 
     return getFallbackDescription(data.objective);
   } catch (error: any) {
     logger.error('Failed to generate routine description', error);
+    
+    // Registrar intento fallido
+    if ((error as any).error?.error?.message?.includes('rate_limit')) {
+      logger.warn('⚠️ Rate limit alcanzado - activando fallback permanente');
+      TokenManager.recordTokenUsage('generateRoutineDescription', 0, false);
+    }
+    
     logger.info('Using fallback description');
     return getFallbackDescription(data.objective);
   }
@@ -301,11 +362,29 @@ IMPORTANTE: Solo responde con los nombres, nada más.
  * Generate motivational tips for a routine
  * Falls back to hardcoded tips if API fails
  * ALWAYS returns an array with 3+ tips (never null)
+ * Con cache + token manager
  */
 export async function generateMotivationalTipsAI(objective: string, level: string, trainingStyle?: string | null): Promise<string[]> {
   const startTime = Date.now();
+  const cacheKey = TokenManager.getCacheKey(objective, level, 0);
   
   try {
+    // 1. Intentar desde cache
+    const cached = TokenManager.getFromCache(cacheKey);
+    if (cached && cached.tips.length > 0) {
+      logger.info('✅ Tips obtenidos desde CACHE');
+      return cached.tips;
+    }
+
+    // 2. Verificar tokens
+    const tokenStatus = TokenManager.canMakeAPICall(100);
+    const fallbackMode = TokenManager.getFallbackMode();
+
+    if (!tokenStatus.allowed || fallbackMode !== 'full_ai') {
+      logger.warn(`Mode: ${fallbackMode} - usando fallback`);
+      return getFallbackTips(objective);
+    }
+
     if (!process.env.GROQ_API_KEY) {
       logger.warn('GROQ_API_KEY not configured');
       return getFallbackTips(objective);
@@ -396,7 +475,13 @@ Adelante - GENERA LOS 6 TIPS PROFESIONALES AHORA (nada más, solo los tips limpi
         .slice(0, 6);  // Límitar a 6 tips
       
       if (tips.length >= 3) {
+        // Registrar tokens y cachear
+        const estimatedTokens = Math.ceil(prompt.length / 4 + content.length / 4);
+        TokenManager.recordTokenUsage('generateMotivationalTips', estimatedTokens, true);
+        TokenManager.saveToCache(cacheKey, '', tips);
+        
         logger.timing('generateMotivationalTips', Date.now() - startTime);
+        logger.info(`✅ Tips generados y cacheados (${estimatedTokens} tokens)`);
         return tips;
       }
     }
@@ -405,6 +490,12 @@ Adelante - GENERA LOS 6 TIPS PROFESIONALES AHORA (nada más, solo los tips limpi
     return getFallbackTips(objective);
   } catch (error: any) {
     logger.error(`Failed to generate motivational tips for ${objective}`, error);
+    
+    if ((error as any).error?.error?.message?.includes('rate_limit')) {
+      logger.warn('⚠️ Rate limit alcanzado');
+      TokenManager.recordTokenUsage('generateMotivationalTips', 0, false);
+    }
+    
     logger.info('Using fallback tips');
     return getFallbackTips(objective);
   }
