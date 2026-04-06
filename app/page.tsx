@@ -197,14 +197,16 @@ export default function Home() {
         <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center">
           <div className="space-y-8">
             {/* Main Headline */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-700 tracking-tight leading-tight">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-900 tracking-tighter leading-tight text-color-text">
               Tu rutina perfecta
               <br />
-              <span className="text-gold-primary">en 2 minutos</span>
+              <span className="bg-gradient-to-r from-gold-600 via-gold-400 to-gold-600 bg-clip-text text-transparent">
+                en 2 minutos
+              </span>
             </h1>
 
             {/* Subheading */}
-            <p className="text-lg md:text-xl text-color-text-muted max-w-2xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-color-text-muted max-w-2xl mx-auto leading-relaxed font-medium">
               Generador de rutinas personalizadas con IA. Sin suscripción. 100% gratis.
             </p>
 
@@ -269,7 +271,7 @@ export default function Home() {
       <section ref={wizardRef} id="wizard" className="py-16 md:py-24">
         <div className="max-w-3xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-12 space-y-3">
-            <h2 className="text-4xl md:text-5xl font-700">Crea tu rutina</h2>
+            <h2 className="text-4xl md:text-5xl font-display font-800 text-color-text">Crea tu rutina</h2>
             <p className="text-lg text-color-text-muted">Responde algunas preguntas y listo.</p>
           </div>
           <div className="bg-white rounded-2xl border border-color-border-light p-8 md:p-12">
@@ -282,7 +284,7 @@ export default function Home() {
       <section ref={routinesRef} className="py-16 md:py-24 border-t border-color-border-light bg-color-bg-tertiary">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-12 space-y-3">
-            <h2 className="text-4xl md:text-5xl font-700">Rutinas populares</h2>
+            <h2 className="text-4xl md:text-5xl font-display font-800 text-color-text">Rutinas populares</h2>
             <p className="text-lg text-color-text-muted max-w-xl mx-auto">Hechas por expertos. Personalizables.</p>
           </div>
 

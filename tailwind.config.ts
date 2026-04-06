@@ -7,7 +7,23 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        display: ['Playfair Display', 'serif'],
+        sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+      },
       colors: {
+        gold: {
+          50: '#faf8f3',
+          100: '#f5f0e8',
+          200: '#ebe1d1',
+          300: '#dccfad',
+          400: '#c9a563',
+          500: '#b89552',
+          600: '#997a3c',
+          700: '#7a5d2a',
+          800: '#5a441f',
+          900: '#3d2b14',
+        },
         primary: {
           50: '#f0f9ff',
           100: '#e0f2fe',
@@ -72,6 +88,9 @@ const config: Config = {
         pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         shimmer: 'shimmer 2s infinite',
         bounce: 'bounce 1s infinite',
+        float: 'float 3s ease-in-out infinite',
+        glow: 'glow 2s ease-in-out infinite',
+        scaleIn: 'scaleIn 0.5s ease-out',
       },
       keyframes: {
         fadeIn: {
@@ -90,11 +109,19 @@ const config: Config = {
           '0%': { transform: 'translateY(20px)', opacity: '0' },
           '100%': { transform: 'translateY(0)', opacity: '1' },
         },
+        float: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-8px)' },
+        },
+        glow: {
+          '0%, 100%': { boxShadow: '0 0 8px rgba(201, 165, 99, 0.3)' },
+          '50%': { boxShadow: '0 0 20px rgba(201, 165, 99, 0.8)' },
+        },
+        scaleIn: {
+          '0%': { transform: 'scale(0.95)', opacity: '0' },
+          '100%': { transform: 'scale(1)', opacity: '1' },
+        },
       },
-      fontFamily: {
-        sans: ['system-ui', 'sans-serif'],
-        display: ['system-ui', 'sans-serif'],
-      }
     },
   },
   plugins: [],
