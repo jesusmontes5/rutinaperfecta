@@ -10,13 +10,19 @@ function NavLink({ href, children, isActive }: { href: string; children: React.R
   return (
     <Link
       href={href}
-      className={`inline-flex h-10 items-center rounded-lg px-4 text-sm font-600 transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c9a563] ${
+      className={`inline-flex h-10 items-center rounded-lg px-4 text-sm font-700 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-primary relative group ${
         isActive
-          ? 'text-gold-dark border-b-2 border-gold-dark'
+          ? 'text-gold-dark'
           : 'text-color-text hover:text-gold-dark'
       }`}
     >
       {children}
+      {isActive && (
+        <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-gold-600 to-gold-500 rounded-full"></span>
+      )}
+      {!isActive && (
+        <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-gold-600 to-gold-500 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+      )}
     </Link>
   );
 }
@@ -45,21 +51,21 @@ export default function Navbar() {
     <header
       className={`sticky top-0 z-40 transition-all duration-300 border-b ${
         scrolled
-          ? 'bg-white/95 backdrop-blur-xl border-gold-light/30 shadow-lg'
-          : 'bg-white border-gold-light/20'
+          ? 'bg-white/98 backdrop-blur-xl border-gold-light/40 shadow-lg shadow-gold-600/10'
+          : 'bg-white/95 border-gold-light/20'
       }`}
     >
       <div className="max-w-7xl mx-auto flex w-full items-center justify-between gap-4 px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
         {/* Logo */}
-        <Link href="/" className="inline-flex items-center gap-2 hover:opacity-80 transition-opacity shrink-0">
+        <Link href="/" className="inline-flex items-center gap-2 hover:opacity-90 transition-opacity shrink-0 group">
           <Logo size="large" />
-          <span className="hidden text-sm font-700 text-gold-dark sm:inline hover:text-[#c9a563] transition-colors">
+          <span className="hidden text-sm font-800 text-gold-dark sm:inline group-hover:text-gold-primary transition-colors duration-300 font-display">
             Rutina Perfecta
           </span>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden items-center gap-1 md:flex">
+        <nav className="hidden items-center gap-2 md:flex">
           <NavLink href="/" isActive={isActive('/')}>
             Inicio
           </NavLink>
@@ -72,25 +78,25 @@ export default function Navbar() {
         <button
           type="button"
           onClick={() => setMobileOpen((prev) => !prev)}
-          className="inline-flex h-11 min-w-11 items-center justify-center rounded-lg border border-gold-light/30 bg-white px-3 text-xs font-600 text-color-text transition-colors duration-150 hover:bg-gold-light/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c9a563] md:hidden"
+          className="inline-flex h-10 min-w-10 items-center justify-center rounded-lg border-2 border-gold-light/40 bg-gradient-to-br from-white to-gold-very-light/20 px-3 text-xs font-700 text-gold-dark transition-all duration-200 hover:border-gold-primary hover:shadow-md hover:shadow-gold-600/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-primary md:hidden"
           aria-expanded={mobileOpen}
           aria-label="Abrir menú"
         >
-          {mobileOpen ? '✕' : '☰ Menú'}
+          {mobileOpen ? '✕' : '☰'}
         </button>
       </div>
 
       {/* Mobile Navigation */}
       {mobileOpen && (
-        <div className="border-t border-gold-light/20 bg-white px-4 sm:px-6 lg:px-8 py-3 md:hidden animate-in slide-in-from-top-2 duration-200">
+        <div className="border-t border-gold-light/30 bg-gradient-to-b from-white to-gold-very-light/30 px-4 sm:px-6 lg:px-8 py-3 md:hidden animate-in slide-in-from-top-2 duration-300">
           <nav className="grid gap-2">
             <Link
               href="/"
               onClick={() => setMobileOpen(false)}
-              className={`block px-4 py-3 rounded-lg font-600 text-sm transition-all duration-200 ${
+              className={`block px-4 py-3 rounded-lg font-700 text-sm transition-all duration-200 ${
                 isActive('/')
-                  ? 'bg-gold-light/20 text-gold-dark border-l-4 border-gold-dark'
-                  : 'text-color-text hover:bg-gold-light/10 hover:text-gold-dark'
+                  ? 'bg-gradient-to-r from-gold-600 to-gold-700 text-white shadow-md shadow-gold-600/30'
+                  : 'text-color-text hover:bg-gold-light/20 hover:text-gold-dark'
               }`}
             >
               Inicio
@@ -98,10 +104,10 @@ export default function Navbar() {
             <Link
               href="/rutinas"
               onClick={() => setMobileOpen(false)}
-              className={`block px-4 py-3 rounded-lg font-600 text-sm transition-all duration-200 ${
+              className={`block px-4 py-3 rounded-lg font-700 text-sm transition-all duration-200 ${
                 isActive('/rutinas')
-                  ? 'bg-gold-light/20 text-gold-dark border-l-4 border-gold-dark'
-                  : 'text-color-text hover:bg-gold-light/10 hover:text-gold-dark'
+                  ? 'bg-gradient-to-r from-gold-600 to-gold-700 text-white shadow-md shadow-gold-600/30'
+                  : 'text-color-text hover:bg-gold-light/20 hover:text-gold-dark'
               }`}
             >
               Rutinas

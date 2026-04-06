@@ -132,18 +132,18 @@ export default function RoutineDetailClient({ routine, allRoutines }: RoutineDet
   return (
     <div>
       {/* Back Button Header */}
-      <div className="bg-gradient-to-r from-white to-gold-very-light/30 border-b border-gold-light/40 py-4 sm:py-5 sticky top-0 z-40 shadow-sm">
+      <div className="bg-gradient-to-r from-white to-gold-very-light/50 border-b border-gold-light/40 py-4 sm:py-6 sticky top-0 z-40 shadow-lg shadow-gold-600/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           <button
             onClick={() => router.back()}
-            className="flex items-center gap-2 text-color-text hover:text-gold-dark hover:bg-gold-light/20 px-4 py-2 rounded-xl transition-all font-600 duration-300 group"
+            className="flex items-center gap-2 text-color-text hover:text-gold-primary hover:bg-gold-light/30 px-4 py-2 rounded-xl transition-all font-700 duration-300 group border border-gold-light/20 hover:border-gold-light/40"
           >
             <svg className="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
-            <span className="text-sm sm:text-base">Atrás</span>
+            <span className="text-sm sm:text-base font-700">Atrás</span>
           </button>
-          <h1 className="text-lg sm:text-2xl font-700 text-gold-dark truncate flex-1 ml-4">{routine.title}</h1>
+          <h1 className="text-lg sm:text-3xl font-display font-800 text-gold-dark truncate flex-1 ml-4 bg-gradient-to-r from-gold-dark to-gold-primary bg-clip-text text-transparent">{routine.title}</h1>
         </div>
       </div>
 
@@ -155,12 +155,12 @@ export default function RoutineDetailClient({ routine, allRoutines }: RoutineDet
           <div className="lg:col-span-2 space-y-6">
             {/* Exercises Breakdown */}
             {('exercises' in routine && routine.exercises) && (
-              <div data-exercises className="bg-white border border-gold-light/30 rounded-2xl p-6 shadow-md">
+              <div data-exercises className="bg-white border border-gold-light/30 rounded-2xl p-6 shadow-md hover:shadow-lg transition-shadow">
                 <div className="flex items-center gap-3 mb-5">
                   <div className="w-10 h-10 bg-gradient-to-br from-gold-light to-gold-very-light rounded-lg flex items-center justify-center">
                     <span className="text-xl">💪</span>
                   </div>
-                  <h3 className="text-xl font-bold text-gold-dark">Desglose diario</h3>
+                  <h3 className="text-2xl font-display font-800 text-gold-dark">Desglose diario</h3>
                 </div>
                 <div className="space-y-4">
                   {routine.exercises.map((dayDetail, dayIndex) => (
@@ -193,11 +193,11 @@ export default function RoutineDetailClient({ routine, allRoutines }: RoutineDet
             )}
 
             {/* Detailed Content - Enhanced Styling */}
-            <div data-detail-content className="bg-white border border-gold-light/30 rounded-2xl p-8 max-h-96 overflow-y-auto">
+            <div data-detail-content className="bg-white border border-gold-light/30 rounded-2xl p-8 max-h-96 overflow-y-auto hover:shadow-lg transition-shadow">
               <style>{`
-                .routine-content h2 { color: #997a3c; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; font-size: 1.25rem; }
-                .routine-content h3 { color: #c9a563; font-weight: 600; margin-top: 1rem; margin-bottom: 0.5rem; font-size: 1.1rem; }
-                .routine-content h4 { color: #1d1d1f; font-weight: 600; margin-top: 0.75rem; margin-bottom: 0.5rem; }
+                .routine-content h2 { color: #997a3c; font-weight: 800; margin-top: 1.5rem; margin-bottom: 0.75rem; font-size: 1.5rem; font-family: 'Playfair Display', serif; letter-spacing: -0.5px; }
+                .routine-content h3 { color: #c9a563; font-weight: 700; margin-top: 1rem; margin-bottom: 0.5rem; font-size: 1.25rem; font-family: 'Playfair Display', serif; }
+                .routine-content h4 { color: #1d1d1f; font-weight: 700; margin-top: 0.75rem; margin-bottom: 0.5rem; font-family: 'Plus Jakarta Sans', sans-serif; }
                 .routine-content p { line-height: 1.7; margin-bottom: 1rem; color: #1d1d1f; }
                 .routine-content ul { margin-left: 1.5rem; margin-bottom: 1rem; }
                 .routine-content li { margin-bottom: 0.5rem; line-height: 1.6; }
@@ -295,15 +295,15 @@ export default function RoutineDetailClient({ routine, allRoutines }: RoutineDet
             </div>
 
             {/* Call to Action - Enhanced Design */}
-            <div data-cta-box className="bg-gradient-to-br from-gold-very-light via-white to-color-bg-secondary border-2 border-gold-light/50 rounded-2xl p-8 shadow-lg">
+            <div data-cta-box className="bg-gradient-to-br from-gold-very-light via-white to-color-bg-secondary border-2 border-gold-light/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow">
               <div className="text-center mb-8">
-                <div className="inline-block mb-4 px-4 py-2 bg-gold-light/30 rounded-full">
-                  <span className="text-sm font-600 text-gold-dark">🎯 Tu rutina ideal</span>
+                <div className="inline-block mb-4 px-4 py-2 bg-gradient-to-r from-gold-light/40 to-gold-very-light/40 rounded-full backdrop-blur">
+                  <span className="text-sm font-700 text-gold-dark">🎯 Tu rutina ideal</span>
                 </div>
-                <h3 className="text-3xl font-bold text-gold-dark mb-4">
+                <h3 className="text-4xl font-display font-800 text-gold-dark mb-4 bg-gradient-to-r from-gold-dark to-gold-primary bg-clip-text text-transparent">
                   ¿Te gusta esta rutina?
                 </h3>
-                <p className="text-color-text-muted text-base leading-relaxed">
+                <p className="text-color-text-muted text-base leading-relaxed max-w-xl mx-auto">
                   Descarga esta rutina completa en PDF o personalízala usando nuestro generador inteligente de entrenamientos.
                 </p>
               </div>
@@ -312,12 +312,12 @@ export default function RoutineDetailClient({ routine, allRoutines }: RoutineDet
               <div className="flex flex-col sm:flex-row gap-3 justify-center mb-6">
                 <button
                   onClick={() => downloadRoutineAsPDF(routine as any)}
-                  className="px-6 py-3 bg-[#997a3c] text-white font-500 rounded-lg hover:shadow-md transition flex items-center justify-center gap-2 flex-1 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="btn-primary px-8 py-4 font-700 rounded-lg flex items-center justify-center gap-2 flex-1 sm:flex-none disabled:opacity-50 disabled:cursor-not-allowed text-white shadow-lg hover:shadow-xl transition-all"
                 >
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8m0 8a8 8 0 100-16 8 8 0 000 16z" />
                   </svg>
-                  Descargar
+                  Descargar PDF
                 </button>
               </div>
 
@@ -325,9 +325,9 @@ export default function RoutineDetailClient({ routine, allRoutines }: RoutineDet
               <div className="text-center">
                 <Link
                   href="/"
-                  className="inline-block px-6 py-3 bg-[#997a3c] text-white font-500 rounded-lg hover:shadow-md transition"
+                  className="inline-block btn-primary px-8 py-4 font-700 rounded-lg shadow-lg hover:shadow-xl transition-all text-white"
                 >
-                  Personalizar →
+                  Personalizar mi rutina →
                 </Link>
               </div>
             </div>
@@ -336,49 +336,49 @@ export default function RoutineDetailClient({ routine, allRoutines }: RoutineDet
           {/* Right Column - Sidebar */}
           <div className="space-y-4">
             {/* Info Box - FIXED POSITION */}
-            <div data-sidebar-box className="bg-gradient-to-b from-white to-gold-very-light/50 border border-gold-light/40 rounded-2xl p-7 sticky top-20 shadow-md h-fit">
+            <div data-sidebar-box className="bg-gradient-to-b from-white to-gold-very-light/40 border border-gold-light/40 rounded-2xl p-7 sticky top-24 shadow-lg hover:shadow-xl transition-shadow h-fit">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 bg-gradient-to-br from-gold-dark to-gold-light rounded-lg flex items-center justify-center text-white font-bold">
+                <div className="w-10 h-10 bg-gradient-to-br from-gold-dark to-gold-light rounded-lg flex items-center justify-center text-white font-display font-800">
                   ℹ
                 </div>
-                <h3 className="font-bold text-gold-dark text-lg">Información</h3>
+                <h3 className="font-display font-800 text-gold-dark text-xl">Información</h3>
               </div>
               <div className="space-y-5">
-                <div className="flex items-center justify-between pb-4 border-b border-gold-light/30 hover:bg-white/50 px-2 py-1 rounded transition">
+                <div className="flex items-center justify-between pb-4 border-b border-gold-light/30 hover:bg-gold-light/10 px-2 py-1 rounded transition">
                   <div className="flex items-center gap-2">
-                    <span className="text-gold-dark">📅</span>
-                    <span className="text-color-text-muted font-500">Días</span>
+                    <span className="text-lg">📅</span>
+                    <span className="text-color-text-muted font-600">Días</span>
                   </div>
-                  <span className="font-bold text-gold-dark bg-gold-light/20 px-3 py-1 rounded-lg">{routine.days}</span>
+                  <span className="font-700 text-gold-dark bg-gradient-to-r from-gold-light/30 to-gold-very-light px-3 py-1 rounded-lg">{routine.days}</span>
                 </div>
-                <div className="flex items-center justify-between pb-4 border-b border-gold-light/30 hover:bg-white/50 px-2 py-1 rounded transition">
+                <div className="flex items-center justify-between pb-4 border-b border-gold-light/30 hover:bg-gold-light/10 px-2 py-1 rounded transition">
                   <div className="flex items-center gap-2">
-                    <span className="text-gold-dark">⭐</span>
-                    <span className="text-color-text-muted font-500">Nivel</span>
+                    <span className="text-lg">⭐</span>
+                    <span className="text-color-text-muted font-600">Nivel</span>
                   </div>
-                  <span className="font-bold text-gold-dark bg-gold-light/20 px-3 py-1 rounded-lg capitalize">{routine.level}</span>
+                  <span className="font-700 text-gold-dark bg-gradient-to-r from-gold-light/30 to-gold-very-light px-3 py-1 rounded-lg capitalize">{routine.level}</span>
                 </div>
-                <div className="flex items-center justify-between pb-4 border-b border-gold-light/30 hover:bg-white/50 px-2 py-1 rounded transition">
+                <div className="flex items-center justify-between pb-4 border-b border-gold-light/30 hover:bg-gold-light/10 px-2 py-1 rounded transition">
                   <div className="flex items-center gap-2">
-                    <span className="text-gold-dark">🎯</span>
-                    <span className="text-color-text-muted font-500">Objetivo</span>
+                    <span className="text-lg">🎯</span>
+                    <span className="text-color-text-muted font-600">Objetivo</span>
                   </div>
-                  <span className="font-bold text-gold-dark bg-gold-light/20 px-3 py-1 rounded-lg capitalize">{routine.objective}</span>
+                  <span className="font-700 text-gold-dark bg-gradient-to-r from-gold-light/30 to-gold-very-light px-3 py-1 rounded-lg capitalize">{routine.objective}</span>
                 </div>
-                <div className="flex items-center justify-between hover:bg-white/50 px-2 py-1 rounded transition">
+                <div className="flex items-center justify-between hover:bg-gold-light/10 px-2 py-1 rounded transition">
                   <div className="flex items-center gap-2">
-                    <span className="text-gold-dark">📍</span>
-                    <span className="text-color-text-muted font-500">Ubicación</span>
+                    <span className="text-lg">📍</span>
+                    <span className="text-color-text-muted font-600">Ubicación</span>
                   </div>
-                  <span className="font-bold text-gold-dark bg-gold-light/20 px-3 py-1 rounded-lg">Gimnasio</span>
+                  <span className="font-700 text-gold-dark bg-gradient-to-r from-gold-light/30 to-gold-very-light px-3 py-1 rounded-lg">Gimnasio</span>
                 </div>
               </div>
             </div>
 
             {/* Similar Routines - Solo para PrebuiltRoutines */}
             {allRoutines && (
-              <div data-sidebar-box className="bg-white border border-gold-light/30 rounded-2xl p-6">
-                <h3 className="font-bold text-gold-dark text-lg mb-4">Rutinas similares</h3>
+              <div data-sidebar-box className="bg-white border border-gold-light/30 rounded-2xl p-6 hover:shadow-lg transition-shadow">
+                <h3 className="font-display font-800 text-gold-dark text-lg mb-4">Rutinas similares</h3>
                 <ul className="space-y-3">
                   {allRoutines
                     .filter(
@@ -391,7 +391,7 @@ export default function RoutineDetailClient({ routine, allRoutines }: RoutineDet
                       <li key={r.id}>
                         <Link
                           href={`/rutinas/${r.slug}`}
-                          className="text-color-text hover:text-gold-dark hover:underline text-sm"
+                          className="text-color-text hover:text-gold-primary hover:underline text-sm font-600 transition-colors"
                         >
                           {r.title}
                         </Link>
@@ -402,20 +402,23 @@ export default function RoutineDetailClient({ routine, allRoutines }: RoutineDet
             )}
 
             {/* Tips - Dinámicos si están disponibles */}
-            <div data-sidebar-box className="bg-gold-light/10 border border-gold-light/40 rounded-2xl p-6">
-              <h3 className="font-bold text-gold-dark text-lg mb-3">💡 Tips</h3>
-              <ul className="space-y-2 text-sm text-color-text">
+            <div data-sidebar-box className="bg-gradient-to-b from-gold-light/10 to-gold-very-light/20 border border-gold-light/40 rounded-2xl p-6 hover:shadow-lg transition-shadow">
+              <h3 className="font-display font-800 text-gold-dark text-lg mb-3">💡 Tips</h3>
+              <ul className="space-y-2.5 text-sm text-color-text">
                 {('benefits' in routine && routine.benefits && routine.benefits.length > 0) ? (
                   routine.benefits.map((tip, i) => (
-                    <li key={i}>• {tip}</li>
+                    <li key={i} className="flex gap-2">
+                      <span className="text-gold-primary font-bold mt-0.5">•</span>
+                      <span>{tip}</span>
+                    </li>
                   ))
                 ) : (
                   <>
-                    <li>• Mantén la forma correcta en cada ejercicio</li>
-                    <li>• Progresa gradualmente aumentando peso</li>
-                    <li>• Descansa 3-5 minutos entre sets pesados</li>
-                    <li>• Come suficiente proteína</li>
-                    <li>• Duerme 7-8 horas cada noche</li>
+                    <li className="flex gap-2"><span className="text-gold-primary font-bold mt-0.5">•</span><span>Mantén la forma correcta en cada ejercicio</span></li>
+                    <li className="flex gap-2"><span className="text-gold-primary font-bold mt-0.5">•</span><span>Progresa gradualmente aumentando peso</span></li>
+                    <li className="flex gap-2"><span className="text-gold-primary font-bold mt-0.5">•</span><span>Descansa 3-5 minutos entre sets pesados</span></li>
+                    <li className="flex gap-2"><span className="text-gold-primary font-bold mt-0.5">•</span><span>Come suficiente proteína</span></li>
+                    <li className="flex gap-2"><span className="text-gold-primary font-bold mt-0.5">•</span><span>Duerme 7-8 horas cada noche</span></li>
                   </>
                 )}
               </ul>
@@ -427,9 +430,11 @@ export default function RoutineDetailClient({ routine, allRoutines }: RoutineDet
 
       {/* Other Routines Section */}
       {allRoutines && allRoutines.length > 0 && (
-        <section ref={sectionRef} className="py-8 bg-color-bg-secondary">
+        <section ref={sectionRef} className="py-12 bg-gradient-to-b from-color-bg-secondary to-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl font-bold text-gold-dark mb-6 text-center">Otras rutinas</h2>
+            <h2 className="text-3xl sm:text-4xl font-display font-800 text-gold-dark mb-8 text-center bg-gradient-to-r from-gold-dark to-gold-primary bg-clip-text text-transparent">
+              Otras rutinas destacadas
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {allRoutines
                 .filter((r) => r.slug !== routine.slug)

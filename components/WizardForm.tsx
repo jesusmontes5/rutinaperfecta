@@ -1,7 +1,8 @@
 // components/WizardForm.tsx
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import gsap from 'gsap';
 import { downloadRoutineAsPDF } from '@/lib/download-utils';
 import type { WizardData, Routine } from '@/types';
 import RoutineCard from './RoutineCard';
@@ -11,6 +12,7 @@ export default function WizardForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [generatedRoutine, setGeneratedRoutine] = useState<Routine | null>(null);
   const [validationError, setValidationError] = useState<string>('');
+  const stepContainerRef = useRef<HTMLDivElement>(null);
 
   const [data, setData] = useState<WizardData>({
     objective: null,
@@ -24,6 +26,17 @@ export default function WizardForm() {
     cardio: null,
     equipment: [],
   });
+
+  useEffect(() => {
+    // Animate step transitions
+    if (stepContainerRef.current) {
+      gsap.fromTo(
+        stepContainerRef.current,
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }
+      );
+    }
+  }, [step]);
 
   const getActualTotalSteps = () => {
     return data.location === 'casa' ? 14 : 13;
@@ -203,31 +216,31 @@ export default function WizardForm() {
     return (
       <div className="space-y-8 animate-fadeIn">
         <div className="text-center space-y-4 pb-8">
-          <h2 className="text-5xl font-700 text-color-text">Tu rutina está lista</h2>
-          <p className="text-lg text-color-text-muted">Está completamente personalizada y optimizada para ti</p>
+          <h2 className="text-4xl md:text-5xl font-display font-800 text-color-text">Tu rutina está lista</h2>
+          <p className="text-lg text-color-text-muted font-medium">Está completamente personalizada y optimizada para ti</p>
         </div>
 
         <RoutineCard routine={generatedRoutine} expanded={true} />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4">
-            <button
-              onClick={() => downloadRoutineAsPDF(generatedRoutine)}
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#997a3c] text-white font-500 rounded-lg hover:shadow-md transition text-base outline-none"
-            >
+          <button
+            onClick={() => downloadRoutineAsPDF(generatedRoutine)}
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 btn-primary text-white font-600 rounded-lg text-base hover:scale-105 active:scale-95"
+          >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
             </svg>
-            Descargar
+            Descargar PDF
           </button>
 
           <button
             onClick={resetWizard}
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-color-bg-secondary text-color-text font-500 rounded-lg hover:bg-color-border transition text-base border border-color-border-light outline-none"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gold-50 text-gold-700 font-600 rounded-lg border-2 border-gold-400 hover:border-gold-600 hover:bg-gold-100 transition text-base"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
             </svg>
-            Nueva
+            Crear otra
           </button>
         </div>
       </div>
@@ -235,20 +248,20 @@ export default function WizardForm() {
   }
 
   return (
-    <div className="space-y-6 sm:space-y-8">
+    <div ref={stepContainerRef} className="space-y-6 sm:space-y-8">
       {/* Progress Section - Modern Minimalist */}
       <div className="space-y-3">
         <div className="flex items-center justify-between">
-          <h3 className="text-sm font-600 text-color-text-muted uppercase tracking-wider">Paso {step} de {getActualTotalSteps()}</h3>
-          <div className="text-sm font-700 text-gold-primary bg-gold-light/20 px-3 py-1 rounded-full">
+          <h3 className="text-sm font-700 text-color-text-muted uppercase tracking-wider">Paso {step} de {getActualTotalSteps()}</h3>
+          <div className="text-sm font-700 text-white bg-gradient-to-r from-gold-600 to-gold-700 px-3 py-1.5 rounded-full">
             {Math.round((step / getActualTotalSteps()) * 100)}%
           </div>
         </div>
 
-        {/* Progress Bar - Clean & Modern */}
-        <div className="w-full bg-color-border-light rounded-full h-1 overflow-hidden">
+        {/* Progress Bar - Clean & Modern with Gradient */}
+        <div className="w-full bg-gold-100/40 rounded-full h-2 overflow-hidden border border-gold-200/50">
           <div
-            className="bg-gold-primary h-full transition-all duration-500 rounded-full"
+            className="bg-gradient-to-r from-gold-600 to-gold-700 h-full transition-all duration-700 rounded-full shadow-md shadow-gold-600/30"
             style={{ width: `${(step / getActualTotalSteps()) * 100}%` }}
           ></div>
         </div>
@@ -258,35 +271,35 @@ export default function WizardForm() {
       {step === 1 && (
         <div className="animate-fadeIn space-y-4">
           <div>
-            <h2 className="text-xl sm:text-2xl font-700 text-color-text mb-1">¿Cuál es tu objetivo principal?</h2>
-            <p className="text-color-text-muted text-xs sm:text-sm">Esto determinará ejercicios, volumen, intensidad y nutrición recomendada para máximos resultados</p>
+            <h2 className="text-xl sm:text-2xl font-display font-800 text-color-text mb-2">¿Cuál es tu objetivo principal?</h2>
+            <p className="text-color-text-muted text-xs sm:text-sm font-medium">Esto determinará ejercicios, volumen, intensidad y nutrición recomendada</p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             {[
-              { value: 'masa', label: 'Ganar Masa', emoji: '💪', desc: 'Aumentar tamaño muscular (superávit calórico + hipertrofia)' },
-              { value: 'grasa', label: 'Perder Grasa', emoji: '🔥', desc: 'Definición muscular (déficit + preservación de masa)' },
-              { value: 'mantener', label: 'Mantener', emoji: '⚖️', desc: 'Preservar forma actual (equilibrio y wellness)' },
+              { value: 'masa', label: 'Ganar Masa', emoji: '💪', desc: 'Superávit + hipertrofia' },
+              { value: 'grasa', label: 'Perder Grasa', emoji: '🔥', desc: 'Déficit + preservación' },
+              { value: 'mantener', label: 'Mantener', emoji: '⚖️', desc: 'Equilibrio y wellness' },
             ].map(({ value, label, emoji, desc }) => (
               <button
                 key={value}
                 onClick={() => setData({ ...data, objective: value as any })}
-                className={`p-4 rounded-xl border-2 font-500 text-center transition-all duration-300 transform outline-none focus:outline-none relative ${
+                className={`p-5 rounded-xl border-2 font-600 text-center transition-all duration-300 transform outline-none focus:outline-none relative group ${
                   data.objective === value
-                    ? 'bg-[#997a3c] text-white border-[#997a3c] shadow-lg scale-105'
-                    : 'bg-white text-[#997a3c] border-[#e8dcc8] hover:border-[#c9a563] hover:shadow-md'
+                    ? 'bg-gradient-to-br from-gold-600 to-gold-700 text-white border-gold-700 shadow-lg shadow-gold-600/30 scale-105'
+                    : 'bg-white text-gold-700 border-gold-200 hover:border-gold-400 hover:shadow-md hover:shadow-gold-200/50'
                 }`}
               >
                 {data.objective === value && (
-                  <div className="absolute top-2 right-2 w-5 h-5 bg-white rounded-full flex items-center justify-center">
-                    <svg className="w-3 h-3 text-gold-primary" fill="currentColor" viewBox="0 0 20 20">
+                  <div className="absolute top-2 right-2 w-5 h-5 bg-white rounded-full flex items-center justify-center animate-scaleIn">
+                    <svg className="w-3 h-3 text-gold-600" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
                 )}
-                <div className="text-3xl mb-2">{emoji} </div>
-                <div className="font-700 text-sm">{label}</div>
-                <div className={`text-xs mt-2 font-400 ${data.objective === value ? 'text-white/90' : 'text-color-text-muted'}`}>{desc}</div>
+                <div className="text-3xl mb-2">{emoji}</div>
+                <div className="font-800 text-sm leading-tight">{label}</div>
+                <div className={`text-xs mt-2 font-500 ${data.objective === value ? 'text-white/90' : 'text-color-text-muted'}`}>{desc}</div>
               </button>
             ))}
           </div>
@@ -297,7 +310,7 @@ export default function WizardForm() {
       {step === 2 && (
         <div className="animate-slideInRight space-y-4">
           <div>
-            <h2 className="text-xl sm:text-2xl font-700 text-color-text mb-1">¿Cuál es tu experiencia en entrenamiento?</h2>
+            <h2 className="text-xl sm:text-2xl font-display font-800 text-color-text mb-2">¿Cuál es tu experiencia en entrenamiento?</h2>
             <p className="text-color-text-muted text-xs sm:text-sm">Esto determina progresión, técnica y adaptación del programa a tu capacidad actual</p>
           </div>
 
