@@ -5,7 +5,6 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import RoutineCard from '@/components/RoutineCard';
 import { downloadRoutineAsPDF } from '@/lib/download-utils';
 import type { PrebuiltRoutine, Routine } from '@/types';
@@ -18,7 +17,6 @@ interface RoutineDetailClientProps {
 }
 
 export default function RoutineDetailClient({ routine, allRoutines }: RoutineDetailClientProps) {
-  const router = useRouter();
   const contentRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
 
