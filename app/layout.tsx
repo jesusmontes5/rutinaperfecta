@@ -46,8 +46,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: '/logo.png',
-        width: 512,
-        height: 512,
+        width: 1024,
+        height: 1024,
         alt: 'Rutina Perfecta - Generador de Fitness',
         type: 'image/png',
       },
@@ -57,6 +57,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Generador de Rutinas Personalizadas - Fitness IA',
     description: 'Crea tu rutina personalizada en minutos',
+    image: '/logo.png',
   },
   alternates: {
     canonical: 'https://rutinaperfecta.com',
@@ -93,8 +94,16 @@ export default function RootLayout({
         <meta name="author" content="Rutina Perfecta" />
         
         {/* Favicon & Icons */}
-        <link rel="icon" href="/logo.png" />
+        <link rel="icon" type="image/png" href="/logo.png" />
+        <link rel="shortcut icon" href="/logo.png" />
         <link rel="apple-touch-icon" href="/logo.png" />
+        
+        {/* Explicit OG Image Meta Tags */}
+        <meta property="og:image" content="/logo.png" />
+        <meta property="og:image:width" content="1024" />
+        <meta property="og:image:height" content="1024" />
+        <meta property="og:image:type" content="image/png" />
+        <meta name="twitter:image" content="/logo.png" />
         
         {/* PWA Manifest */}
         <link rel="manifest" href="/manifest.json" />
