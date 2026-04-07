@@ -57,7 +57,6 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Generador de Rutinas Personalizadas - Fitness IA',
     description: 'Crea tu rutina personalizada en minutos',
-    image: '/logo.png',
   },
   alternates: {
     canonical: 'https://rutinaperfecta.com',
