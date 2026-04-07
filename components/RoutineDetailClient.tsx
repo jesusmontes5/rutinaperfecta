@@ -131,6 +131,46 @@ export default function RoutineDetailClient({ routine, allRoutines }: RoutineDet
 
   return (
     <div>
+      {/* Desktop Sidebar - TRULY FIXED OUTSIDE FLOW */}
+      <div data-sidebar-box className="hidden lg:block fixed top-40 right-8 w-72 max-h-[calc(100vh-160px)] overflow-y-auto z-30 bg-gradient-to-b from-white to-gold-very-light/40 border border-gold-light/40 rounded-2xl p-7 shadow-lg hover:shadow-xl transition-shadow">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-10 h-10 bg-gradient-to-br from-gold-dark to-gold-light rounded-lg flex items-center justify-center text-white font-display font-800">
+            ℹ
+          </div>
+          <h3 className="font-display font-800 text-gold-dark text-xl">Información</h3>
+        </div>
+        <div className="space-y-5">
+          <div className="flex items-center justify-between pb-4 border-b border-gold-light/30 hover:bg-gold-light/10 px-2 py-1 rounded transition">
+            <div className="flex items-center gap-2">
+              <span className="text-lg">📅</span>
+              <span className="text-color-text-muted font-600">Días</span>
+            </div>
+            <span className="font-700 text-gold-dark bg-gradient-to-r from-gold-light/30 to-gold-very-light px-3 py-1 rounded-lg">{routine.days}</span>
+          </div>
+          <div className="flex items-center justify-between pb-4 border-b border-gold-light/30 hover:bg-gold-light/10 px-2 py-1 rounded transition">
+            <div className="flex items-center gap-2">
+              <span className="text-lg">⭐</span>
+              <span className="text-color-text-muted font-600">Nivel</span>
+            </div>
+            <span className="font-700 text-gold-dark bg-gradient-to-r from-gold-light/30 to-gold-very-light px-3 py-1 rounded-lg capitalize">{routine.level}</span>
+          </div>
+          <div className="flex items-center justify-between pb-4 border-b border-gold-light/30 hover:bg-gold-light/10 px-2 py-1 rounded transition">
+            <div className="flex items-center gap-2">
+              <span className="text-lg">🎯</span>
+              <span className="text-color-text-muted font-600">Objetivo</span>
+            </div>
+            <span className="font-700 text-gold-dark bg-gradient-to-r from-gold-light/30 to-gold-very-light px-3 py-1 rounded-lg capitalize">{routine.objective}</span>
+          </div>
+          <div className="flex items-center justify-between hover:bg-gold-light/10 px-2 py-1 rounded transition">
+            <div className="flex items-center gap-2">
+              <span className="text-lg">📍</span>
+              <span className="text-color-text-muted font-600">Ubicación</span>
+            </div>
+            <span className="font-700 text-gold-dark bg-gradient-to-r from-gold-light/30 to-gold-very-light px-3 py-1 rounded-lg">Gimnasio</span>
+          </div>
+        </div>
+      </div>
+
       {/* Main Content */}
       <div ref={contentRef} className="min-h-screen bg-white pt-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -324,47 +364,7 @@ export default function RoutineDetailClient({ routine, allRoutines }: RoutineDet
 
           {/* Right Column - Sidebar */}
           <div className="space-y-4">
-            {/* Info Box - FIXED POSITION - NO OVERLAP */}
-            <div data-sidebar-box className="bg-gradient-to-b from-white to-gold-very-light/40 border border-gold-light/40 rounded-2xl p-7 shadow-lg hover:shadow-xl transition-shadow h-fit hidden lg:block lg:fixed lg:top-40 lg:right-8 lg:w-72 lg:max-h-[calc(100vh-160px)] lg:overflow-y-auto lg:z-30">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 bg-gradient-to-br from-gold-dark to-gold-light rounded-lg flex items-center justify-center text-white font-display font-800">
-                  ℹ
-                </div>
-                <h3 className="font-display font-800 text-gold-dark text-xl">Información</h3>
-              </div>
-              <div className="space-y-5">
-                <div className="flex items-center justify-between pb-4 border-b border-gold-light/30 hover:bg-gold-light/10 px-2 py-1 rounded transition">
-                  <div className="flex items-center gap-2">
-                    <span className="text-lg">📅</span>
-                    <span className="text-color-text-muted font-600">Días</span>
-                  </div>
-                  <span className="font-700 text-gold-dark bg-gradient-to-r from-gold-light/30 to-gold-very-light px-3 py-1 rounded-lg">{routine.days}</span>
-                </div>
-                <div className="flex items-center justify-between pb-4 border-b border-gold-light/30 hover:bg-gold-light/10 px-2 py-1 rounded transition">
-                  <div className="flex items-center gap-2">
-                    <span className="text-lg">⭐</span>
-                    <span className="text-color-text-muted font-600">Nivel</span>
-                  </div>
-                  <span className="font-700 text-gold-dark bg-gradient-to-r from-gold-light/30 to-gold-very-light px-3 py-1 rounded-lg capitalize">{routine.level}</span>
-                </div>
-                <div className="flex items-center justify-between pb-4 border-b border-gold-light/30 hover:bg-gold-light/10 px-2 py-1 rounded transition">
-                  <div className="flex items-center gap-2">
-                    <span className="text-lg">🎯</span>
-                    <span className="text-color-text-muted font-600">Objetivo</span>
-                  </div>
-                  <span className="font-700 text-gold-dark bg-gradient-to-r from-gold-light/30 to-gold-very-light px-3 py-1 rounded-lg capitalize">{routine.objective}</span>
-                </div>
-                <div className="flex items-center justify-between hover:bg-gold-light/10 px-2 py-1 rounded transition">
-                  <div className="flex items-center gap-2">
-                    <span className="text-lg">📍</span>
-                    <span className="text-color-text-muted font-600">Ubicación</span>
-                  </div>
-                  <span className="font-700 text-gold-dark bg-gradient-to-r from-gold-light/30 to-gold-very-light px-3 py-1 rounded-lg">Gimnasio</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Mobile Info Box */}
+            {/* Mobile Info Box - SOLO MÓVIL */}
             <div data-sidebar-box className="lg:hidden bg-gradient-to-b from-white to-gold-very-light/40 border border-gold-light/40 rounded-2xl p-7 shadow-lg hover:shadow-xl transition-shadow">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 bg-gradient-to-br from-gold-dark to-gold-light rounded-lg flex items-center justify-center text-white font-display font-800">
