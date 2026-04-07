@@ -47,64 +47,74 @@ export default function Navbar() {
 
   const isActive = (href: string) => pathname === href;
 
-  const navItems = [
-    { href: '/', icon: '🏠', label: 'Inicio' },
-    { href: '/rutinas', icon: '💪', label: 'Rutinas' },
-  ];
-
   return (
-    <>
-      {/* Desktop Navbar */}
-      <header
-        className={`sticky top-0 z-40 transition-all duration-300 border-b hidden sm:block ${
-          scrolled
-            ? 'bg-white/98 backdrop-blur-xl border-gold-light/40 shadow-lg shadow-gold-600/10'
-            : 'bg-white/95 border-gold-light/20'
-        }`}
-      >
+    <header
+      className={`sticky top-0 z-40 transition-all duration-300 border-b ${
+        scrolled
+          ? 'bg-white/98 backdrop-blur-xl border-gold-light/40 shadow-lg shadow-gold-600/10'
+          : 'bg-white/95 border-gold-light/20'
+      }`}
+    >
       <div className="max-w-7xl mx-auto flex w-full items-center justify-between gap-4 px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
         {/* Logo */}
         <Link href="/" className="inline-flex items-center gap-2 hover:opacity-90 transition-opacity shrink-0 group">
           <Logo size="large" />
-          <span className="text-sm font-800 text-gold-dark group-hover:text-gold-primary transition-colors duration-300 font-display">
+          <span className="hidden text-sm font-800 text-gold-dark sm:inline group-hover:text-gold-primary transition-colors duration-300 font-display">
             Rutina Perfecta
           </span>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="flex items-center gap-2">
-          {navItems.map(({ href, label }) => (
-            <NavLink key={href} href={href} isActive={isActive(href)}>
-              {label}
-            </NavLink>
-          ))}
+        <nav className="hidden items-center gap-2 md:flex">
+          <NavLink href="/" isActive={isActive('/')}>
+            Inicio
+          </NavLink>
+          <NavLink href="/rutinas" isActive={isActive('/rutinas')}>
+            Rutinas
+          </NavLink>
         </nav>
-      </div>
-    </header>
 
-    {/* Mobile Bottom Navigation */}
-    <nav className="fixed bottom-0 left-0 right-0 z-40 flex sm:hidden bg-white/95 backdrop-blur-xl border-t border-gold-light/40 shadow-lg shadow-gold-600/10">
-      {navItems.map(({ href, icon, label }) => (
-        <Link
-          key={href}
-          href={href}
-          className={`flex-1 flex flex-col items-center justify-center py-3 px-2 text-xs font-700 transition-all duration-200 relative group ${
-            isActive(href)
-              ? 'text-gold-dark'
-              : 'text-color-text-muted hover:text-gold-dark'
-          }`}
+        {/* Mobile Menu Button */}
+        <button
+          type="button"
+          onClick={() => setMobileOpen((prev) => !prev)}
+          className="inline-flex h-10 min-w-10 items-center justify-center rounded-lg border-2 border-gold-light/40 bg-gradient-to-br from-white to-gold-very-light/20 px-3 text-xs font-700 text-gold-dark transition-all duration-200 hover:border-gold-primary hover:shadow-md hover:shadow-gold-600/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-primary md:hidden"
+          aria-expanded={mobileOpen}
+          aria-label="Abrir menú"
         >
-          <span className="text-xl mb-1">{icon}</span>
-          <span className="text-xs text-center">{label}</span>
-          {isActive(href) && (
-            <span className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-gold-primary to-gold-dark rounded-b-full animate-slideDown"></span>
-          )}
-        </Link>
-      ))}
-    </nav>
+          {mobileOpen ? '✕' : '☰'}
+        </button>
+      </div>
 
-    {/* Padding Spacer for Mobile Bottom Nav */}
-    <div className="h-20 sm:hidden" />
-    </>
+      {/* Mobile Navigation */}
+      {mobileOpen && (
+        <div className="border-t border-gold-light/30 bg-gradient-to-b from-white to-gold-very-light/30 px-4 sm:px-6 lg:px-8 py-3 md:hidden animate-in slide-in-from-top-2 duration-300">
+          <nav className="grid gap-2">
+            <Link
+              href="/"
+              onClick={() => setMobileOpen(false)}
+              className={`block px-4 py-3 rounded-lg font-700 text-sm transition-all duration-200 ${
+                isActive('/')
+                  ? 'bg-gradient-to-r from-gold-600 to-gold-700 text-white shadow-md shadow-gold-600/30'
+                  : 'text-color-text hover:bg-gold-light/20 hover:text-gold-dark'
+              }`}
+            >
+              Inicio
+            </Link>
+            <Link
+              href="/rutinas"
+              onClick={() => setMobileOpen(false)}
+              className={`block px-4 py-3 rounded-lg font-700 text-sm transition-all duration-200 ${
+                isActive('/rutinas')
+                  ? 'bg-gradient-to-r from-gold-600 to-gold-700 text-white shadow-md shadow-gold-600/30'
+                  : 'text-color-text hover:bg-gold-light/20 hover:text-gold-dark'
+              }`}
+            >
+              Rutinas
+            </Link>
+          </nav>
+        </div>
+      )}
+    </header>
   );
 }
