@@ -5,6 +5,7 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import RoutineCard from '@/components/RoutineCard';
 import { downloadRoutineAsPDF } from '@/lib/download-utils';
 import type { PrebuiltRoutine, Routine } from '@/types';
@@ -17,6 +18,7 @@ interface RoutineDetailClientProps {
 }
 
 export default function RoutineDetailClient({ routine, allRoutines }: RoutineDetailClientProps) {
+  const router = useRouter();
   const contentRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
 
@@ -173,13 +175,13 @@ export default function RoutineDetailClient({ routine, allRoutines }: RoutineDet
       <div ref={contentRef} className="min-h-screen bg-white pt-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Back Button */}
-        <Link
-          href="/rutinas"
-          className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-lg border border-gold-light/40 bg-white hover:bg-gold-very-light/50 text-gold-dark font-600 transition-all duration-200 hover:border-gold-primary hover:shadow-md"
+        <button
+          onClick={() => router.back()}
+          className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-lg border border-gold-light/40 bg-white hover:bg-gold-very-light/50 text-gold-dark font-600 transition-all duration-200 hover:border-gold-primary hover:shadow-md cursor-pointer"
         >
           <span>←</span>
-          <span>Volver a rutinas</span>
-        </Link>
+          <span>Volver</span>
+        </button>
 
         {/* Routine Title */}
         <h1 className="text-4xl sm:text-5xl font-display font-800 mb-8 bg-gradient-to-r from-gold-dark to-gold-primary bg-clip-text text-transparent">
