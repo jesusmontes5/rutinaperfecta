@@ -1,7 +1,5 @@
 {
-  "buildCommand": "next build",
-  "installCommand": "npm install",
-  "env": {
-    "NODE_OPTIONS": "--no-deprecation"
-  }
+  "buildCommand": "npm run build",
+  "installCommand": "npm ci",
+  "nodejs": "20.x"
 }
