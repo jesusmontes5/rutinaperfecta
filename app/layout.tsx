@@ -74,18 +74,26 @@ export default function RootLayout({
     <html lang="es">
       <head>
         <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=5" />
         <meta name="theme-color" content="#ffffff" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="white" />
+        <meta name="apple-mobile-web-app-title" content="Rutina Perfecta" />
+        
+        {/* Additional Mobile Optimizations */}
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="x-ua-compatible" content="IE=edge" />
+        <meta name="apple-touch-fullscreen" content="yes" />
         
         {/* SEO Meta Tags */}
         <meta name="description" content="Crea tu rutina de fitness personalizada en minutos con IA. 100% gratis." />
         <meta name="keywords" content="rutinas fitness, generador de rutinas, entrenamiento personalizado" />
         <meta name="author" content="Rutina Perfecta" />
         
-        {/* Favicon */}
+        {/* Favicon & Icons */}
         <link rel="icon" href="/logo.png" />
+        <link rel="apple-touch-icon" href="/logo.png" />
         
         {/* PWA Manifest */}
         <link rel="manifest" href="/manifest.json" />
