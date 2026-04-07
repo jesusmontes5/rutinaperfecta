@@ -58,7 +58,12 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto flex w-full items-center justify-between gap-4 px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
         {/* Logo */}
         <Link href="/" className="inline-flex items-center gap-2 hover:opacity-90 transition-opacity shrink-0 group">
-          <Logo size="large" />
+          <div className="sm:hidden">
+            <Logo size="small" />
+          </div>
+          <div className="hidden sm:block">
+            <Logo size="large" />
+          </div>
           <span className="hidden text-sm font-800 text-gold-dark sm:inline group-hover:text-gold-primary transition-colors duration-300 font-display">
             Rutina Perfecta
           </span>

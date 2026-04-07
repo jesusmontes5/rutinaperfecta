@@ -45,10 +45,11 @@ export const metadata: Metadata = {
     siteName: 'Rutina Perfecta',
     images: [
       {
-        url: 'https://rutinaperfecta.com/og-image.jpg',
-        width: 1200,
-        height: 630,
+        url: '/logo.png',
+        width: 512,
+        height: 512,
         alt: 'Rutina Perfecta - Generador de Fitness',
+        type: 'image/png',
       },
     ],
   },
