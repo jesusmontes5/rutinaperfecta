@@ -74,6 +74,9 @@ export default function Navbar() {
           <NavLink href="/" isActive={isActive('/')}>
             Inicio
           </NavLink>
+          <NavLink href="/body-explorer" isActive={isActive('/body-explorer')}>
+            Ejercicios
+          </NavLink>
           <NavLink href="/rutinas" isActive={isActive('/rutinas')}>
             Rutinas
           </NavLink>
@@ -105,6 +108,17 @@ export default function Navbar() {
               }`}
             >
               Inicio
+            </Link>
+            <Link
+              href="/body-explorer"
+              onClick={() => setMobileOpen(false)}
+              className={`block px-4 py-3 rounded-lg font-700 text-sm transition-all duration-200 ${
+                isActive('/body-explorer')
+                  ? 'bg-gradient-to-r from-gold-600 to-gold-700 text-white shadow-md shadow-gold-600/30'
+                  : 'text-color-text hover:bg-gold-light/20 hover:text-gold-dark'
+              }`}
+            >
+              Ejercicios
             </Link>
             <Link
               href="/rutinas"

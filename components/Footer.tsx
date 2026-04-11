@@ -22,7 +22,7 @@ export default function Footer() {
                 </h3>
               </div>
               <p className="text-sm text-color-text-muted leading-relaxed max-w-xs">
-                La plataforma inteligente para crear rutinas de entrenamiento personalizadas con IA.
+                Generador de rutinas con IA + Explorador de ejercicios con técnicas de ejecución paso a paso.
               </p>
             </div>
 
@@ -41,6 +41,11 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
+                  <a href="/#exercises" className="text-color-text-muted hover:text-gold-primary hover:translate-x-1 transition-all font-600 duration-200 inline-block">
+                    → Ejercicios
+                  </a>
+                </li>
+                <li>
                   <a href="#wizard" className="text-color-text-muted hover:text-gold-primary hover:translate-x-1 transition-all font-600 duration-200 inline-block">
                     → Crear
                   </a>
@@ -52,18 +57,9 @@ export default function Footer() {
             <div className="hover:translate-y-1 transition-transform duration-300">
               <h4 className="font-display font-800 text-gold-dark mb-5 text-sm uppercase tracking-wide">Características</h4>
               <ul className="space-y-3 text-sm">
-                <li className="flex items-center gap-2">
-                  <span className="text-gold-primary">✨</span>
-                  <span className="text-color-text-muted font-600">Generador IA</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-gold-primary">⚙️</span>
-                  <span className="text-color-text-muted font-600">Personalizadas</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-gold-primary">📄</span>
-                  <span className="text-color-text-muted font-600">Descarga PDF</span>
-                </li>
+                <li className="text-color-text-muted font-600">Generador IA de rutinas</li>
+                <li className="text-color-text-muted font-600">Explorador de 66 ejercicios</li>
+                <li className="text-color-text-muted font-600">Guías paso a paso</li>
               </ul>
             </div>
 

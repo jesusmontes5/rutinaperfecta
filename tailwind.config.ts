@@ -23,6 +23,10 @@ const config: Config = {
           700: '#7a5d2a',
           800: '#5a441f',
           900: '#3d2b14',
+          primary: '#D4A574',
+          dark: '#B8894F',
+          light: '#E6C79C',
+          'very-light': '#F6EBDD',
         },
         primary: {
           50: '#f0f9ff',
