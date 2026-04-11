@@ -28,8 +28,8 @@ export default function ExerciseDetail({ exercise, onClose }: ExerciseDetailProp
   };
 
   return (
-    <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-2 sm:p-4 animate-in fade-in">
-      <div className="bg-white rounded-xl sm:rounded-2xl md:rounded-3xl w-full max-w-2xl lg:max-w-3xl h-[90vh] sm:h-[95vh] md:h-auto md:max-h-[85vh] lg:max-h-[90vh] shadow-2xl animate-in slide-in-from-bottom-4 flex flex-col">
+    <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-2 sm:p-4 animate-in fade-in overflow-y-auto">
+      <div className="bg-white rounded-xl sm:rounded-2xl md:rounded-3xl w-full max-w-2xl lg:max-w-3xl h-auto max-h-[90vh] sm:max-h-[95vh] md:h-auto md:max-h-[85vh] lg:max-h-[90vh] shadow-2xl animate-in slide-in-from-bottom-4 flex flex-col my-auto">
         {/* Header - Fijo arriba */}
         <div className="bg-gradient-to-r from-gold-primary to-gold-light p-3 sm:p-4 md:p-6 lg:p-8 sticky top-0 z-10 flex-shrink-0">
           <div className="flex items-start justify-between gap-3 sm:gap-4">
