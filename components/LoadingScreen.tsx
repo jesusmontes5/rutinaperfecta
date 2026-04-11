@@ -14,15 +14,15 @@ export default function LoadingScreen() {
       // First load - show loading screen
       setIsVisible(true);
       
-      // Hide after 3.5 seconds with exit animation
+      // Hide after 1 second with exit animation
       const timer = setTimeout(() => {
         setIsExiting(true);
         const exitTimer = setTimeout(() => {
           setIsVisible(false);
           sessionStorage.setItem('__loading_shown__', 'true');
-        }, 600);
+        }, 300);
         return () => clearTimeout(exitTimer);
-      }, 3500);
+      }, 1000);
 
       return () => clearTimeout(timer);
     }

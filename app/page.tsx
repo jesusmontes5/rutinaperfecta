@@ -227,7 +227,7 @@ export default function Home() {
                 </svg>
               </button>
               <a
-                href="/rutinas"
+                href="/body-explorer"
                 className="btn-primary inline-flex items-center justify-center gap-2"
               >
                 Explorar
