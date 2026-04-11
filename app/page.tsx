@@ -227,7 +227,7 @@ export default function Home() {
                 </svg>
               </button>
               <a
-                href="/body-explorer"
+                href="/rutinas"
                 className="btn-primary inline-flex items-center justify-center gap-2"
               >
                 Explorar
@@ -302,6 +302,50 @@ export default function Home() {
               className="inline-flex items-center justify-center gap-2 px-6 py-3 btn-primary text-white font-500 rounded-lg text-base"
             >
               Ver todas
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Exercises Section */}
+      <section className="py-16 md:py-24 border-t border-color-border-light bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-12 space-y-3">
+            <h2 className="text-4xl md:text-5xl font-display font-800 text-color-text">Explora nuestros ejercicios</h2>
+            <p className="text-lg text-color-text-muted max-w-xl mx-auto">66 ejercicios categorizados por grupos musculares. Con instructivos paso a paso.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            {[
+              { name: 'Pecho', icon: '💪', color: 'bg-red-50' },
+              { name: 'Espalda', icon: '🏋️', color: 'bg-blue-50' },
+              { name: 'Piernas', icon: '🦵', color: 'bg-green-50' },
+            ].map((group, i) => (
+              <Link
+                key={i}
+                href="/body-explorer"
+                className="group h-40 rounded-xl bg-white border border-color-border-light p-6 hover:border-gold-light transition-all hover:shadow-lg"
+              >
+                <div className="flex flex-col justify-between h-full">
+                  <span className="text-4xl">{group.icon}</span>
+                  <div>
+                    <h3 className="text-xl font-600 text-color-text group-hover:text-gold-primary transition">{group.name}</h3>
+                    <p className="text-sm text-color-text-muted mt-1">Explorar ejercicios →</p>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <Link
+              href="/body-explorer"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 btn-primary text-white font-500 rounded-lg text-base"
+            >
+              Ver todos los ejercicios
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>

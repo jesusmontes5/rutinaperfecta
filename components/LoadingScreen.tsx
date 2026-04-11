@@ -3,18 +3,18 @@
 import { useEffect, useState } from 'react';
 
 export default function LoadingScreen() {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const [isExiting, setIsExiting] = useState(false);
 
   useEffect(() => {
     // Only show loading screen on initial page load, not on navigation
     const hasShownLoading = sessionStorage.getItem('__loading_shown__');
     
-    if (!hasShownLoading) {
-      // First load - show loading screen
-      setIsVisible(true);
-      
-      // Hide after 1 second with exit animation
+    if (hasShownLoading) {
+      // Already shown before - hide immediately
+      setIsVisible(false);
+    } else {
+      // First load - show loading screen for 3 seconds
       const timer = setTimeout(() => {
         setIsExiting(true);
         const exitTimer = setTimeout(() => {
@@ -22,7 +22,7 @@ export default function LoadingScreen() {
           sessionStorage.setItem('__loading_shown__', 'true');
         }, 300);
         return () => clearTimeout(exitTimer);
-      }, 1000);
+      }, 3000);
 
       return () => clearTimeout(timer);
     }
@@ -78,7 +78,12 @@ export default function LoadingScreen() {
         {/* Barra de progreso premium */}
         <div className={`w-64 mt-6 space-y-3 animate-fade-in-up transition-all duration-700`} style={{ animationDelay: '0.4s' }}>
           <div className="relative h-1 bg-gold-light/30 rounded-full overflow-hidden">
-            <div className="absolute inset-y-0 left-0 bg-gradient-to-r from-gold-light via-gold-primary to-gold-light rounded-full animate-progress-bar" />
+            <div 
+              className="absolute inset-y-0 left-0 bg-gradient-to-r from-gold-light via-gold-primary to-gold-light rounded-full" 
+              style={{
+                animation: 'fill-progress 3s ease-in-out forwards'
+              }}
+            />
           </div>
           <p className="text-xs text-center text-color-text-muted font-500">Preparando tu experiencia...</p>
         </div>
@@ -108,6 +113,15 @@ export default function LoadingScreen() {
           50% {
             opacity: 1;
             transform: scale(1.2);
+          }
+        }
+
+        @keyframes fill-progress {
+          0% {
+            width: 0%;
+          }
+          100% {
+            width: 100%;
           }
         }
 
