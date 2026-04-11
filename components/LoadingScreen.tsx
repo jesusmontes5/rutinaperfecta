@@ -44,9 +44,9 @@ export default function LoadingScreen() {
   if (!isVisible) return null;
 
   return (
-    <div className={`fixed inset-0 z-50 flex items-center justify-center overflow-hidden transition-all duration-600 pointer-events-none ${isExiting ? 'opacity-0' : 'opacity-100'}`}>
+    <div className={`fixed inset-0 z-50 flex items-center justify-center overflow-hidden transition-all duration-600 ${isExiting ? 'opacity-0 pointer-events-none' : 'opacity-100 pointer-events-auto'}`}>
       {/* Fondo premium con gradiente */}
-      <div className={`absolute inset-0 bg-gradient-to-br from-white via-gold-very-light/30 to-white transition-all duration-700 ${isExiting ? 'scale-110 opacity-0' : 'scale-100 opacity-100'}`} />
+      <div className={`absolute inset-0 bg-gradient-to-br from-white via-gold-very-light to-white transition-all duration-700 ${isExiting ? 'scale-110 opacity-0' : 'scale-100 opacity-100'}`} />
 
       {/* Orbes de luz animadas - Fondo */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
