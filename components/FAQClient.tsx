@@ -25,7 +25,7 @@ const faqCategories = [
       },
       {
         q: '¿Obtengo soporte en vivo si algo no funciona?',
-        a: 'Sí. Tenemos email de soporte (contacto@rutinaperfecta.com) y respondemos dentro de 48 horas. Para problemas técnicos, FAQ detallado en /contacto.'
+        a: 'Sí. Tenemos email de soporte (rutinaperfecta00@gmail.com) y respondemos dentro de 48 horas. Para problemas técnicos, FAQ detallado en /contacto.'
       }
     ]
   },

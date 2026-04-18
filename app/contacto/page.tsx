@@ -126,10 +126,10 @@ export default function ContactPage() {
               Para preguntas más específicas, escribe directamente a:
             </p>
             <a
-              href="mailto:contacto@rutinaperfecta.com"
+              href="mailto:rutinaperfecta00@gmail.com"
               className="inline-block px-6 py-3 bg-gold-primary text-white font-semibold rounded-lg hover:opacity-90 transition"
             >
-              contacto@rutinaperfecta.com
+              rutinaperfecta00@gmail.com
             </a>
             <p className="text-sm text-gray-600 mt-4">
               Respondemos dentro de 48 horas en días laborales.

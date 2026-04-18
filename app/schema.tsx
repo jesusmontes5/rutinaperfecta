@@ -11,7 +11,7 @@ export function SchemaMarkup() {
       "contact": {
         "@type": "ContactPoint",
         "contactType": "Customer Support",
-        "email": "contacto@rutinaperfecta.com"
+        "email": "rutinaperfecta00@gmail.com"
       }
     },
     website: {
