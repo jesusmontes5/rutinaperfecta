@@ -86,6 +86,15 @@ export default function Footer() {
             </div>
           </div>
 
+          {/* Legal Disclaimer */}
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-8">
+            <p className="text-xs text-blue-900 leading-relaxed">
+              <strong>Descargo de Responsabilidad:</strong> Rutina Perfecta proporciona información educativa basada en ciencia del fitness. 
+              Los resultados varían por persona. Este generador no reemplaza consejo médico profesional. 
+              Consulta a un médico antes de iniciar cualquier programa de ejercicio, especialmente si tienes condiciones médicas preexistentes.
+            </p>
+          </div>
+
           {/* Divider */}
           <div className="border-t border-gold-light/30 pt-8">
             <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs sm:text-sm text-color-text-muted">

@@ -8,11 +8,6 @@ export function SchemaMarkup() {
       "url": "https://www.rutinaperfecta.com",
       "logo": "https://www.rutinaperfecta.com/logo.png",
       "description": "Generador de rutinas de fitness personalizado con IA",
-      "sameAs": [
-        "https://www.facebook.com/rutinaperfecta",
-        "https://twitter.com/rutinaperfecta",
-        "https://www.instagram.com/rutinaperfecta"
-      ],
       "contact": {
         "@type": "ContactPoint",
         "contactType": "Customer Support",

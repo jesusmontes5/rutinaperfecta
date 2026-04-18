@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import Image from 'next/image';
 import gsap from 'gsap';
 
 interface LogoProps {
@@ -47,20 +48,25 @@ export default function Logo({ size = 'small', showText = false }: LogoProps) {
 
   return (
     <div className="flex items-center gap-2 hover:opacity-90 transition-all duration-300">
-      <div ref={logoRef} className={`${sizeClasses[size]} flex items-center justify-center`}>
-        <img
+      <div ref={logoRef} className={`${sizeClasses[size]} flex items-center justify-center relative`}>
+        <Image
           src="/logo.png"
-          alt="Rutina Perfecta Logo"
+          alt="Rutina Perfecta - Generador de Rutinas"
+          fill
           className="w-full h-full object-contain rounded-lg"
+          priority={size === 'lg'}
         />
       </div>
 
       {showText && (
-        <div className="w-20 h-8 flex items-center justify-center">
-          <img
+        <div className="w-20 h-8 flex items-center justify-center relative">
+          <Image
             src="/LOGOTEXTO.jpg"
             alt="Rutina Perfecta"
+            width={80}
+            height={32}
             className="h-full object-contain"
+            priority={size === 'lg'}
           />
         </div>
       )}

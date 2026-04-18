@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 
 export default function LoadingScreen() {
   const [isVisible, setIsVisible] = useState(true);
@@ -61,10 +62,13 @@ export default function LoadingScreen() {
         <div className={`relative animate-logo-entrance`}>
           <div className="absolute inset-0 bg-gradient-to-br from-gold-light/40 to-gold-light/10 rounded-3xl blur-2xl scale-125 opacity-0 group-hover:opacity-100 transition-opacity" />
           <div className="relative w-40 h-40 bg-gradient-to-br from-white to-gold-very-light rounded-3xl flex items-center justify-center shadow-2xl p-4 border border-gold-light/40">
-            <img
+            <Image
               src="/logo.png"
-              alt="Rutina Perfecta"
+              alt="Rutina Perfecta - Generador de Fitness"
+              width={160}
+              height={160}
               className="w-full h-full object-contain rounded-2xl drop-shadow-lg"
+              priority
             />
           </div>
         </div>
@@ -78,7 +82,7 @@ export default function LoadingScreen() {
         {/* Barra de progreso premium */}
         <div className={`w-64 mt-6 space-y-3 animate-fade-in-up transition-all duration-700`} style={{ animationDelay: '0.4s' }}>
           <div className="relative h-1 bg-gold-light/30 rounded-full overflow-hidden">
-            <div 
+np            <div 
               className="absolute inset-y-0 left-0 bg-gradient-to-r from-gold-light via-gold-primary to-gold-light rounded-full" 
               style={{
                 animation: 'fill-progress 3s ease-in-out forwards'

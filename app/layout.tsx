@@ -10,9 +10,10 @@ import { LenisProvider } from '@/components/LenisProvider';
 import { SchemaMarkup } from './schema';
 
 export const metadata: Metadata = {
-  title: 'Generador de Rutinas Personalizadas - Fitness IA',
+  metadataBase: new URL('https://www.rutinaperfecta.com'),
+  title: 'Generador de Rutinas Personalizadas con IA | Fitness Gratis - Rutina Perfecta',
   description:
-    'Crea tu rutina de fitness personalizada en minutos con IA. Generador de rutinas inteligente, 100% gratis, totalmente personalizable y adaptado a tu nivel.',
+    'Crea tu rutina de fitness personalizada en minutos con IA. Generador de rutinas inteligente, 100% gratis, sin suscripciones. Basado en ciencia, respaldado por expertos, usado por miles de personas para transformar su cuerpo.',
   keywords: [
     'rutinas fitness',
     'generador de rutinas',
@@ -25,6 +26,8 @@ export const metadata: Metadata = {
     'ejercicios en casa',
     'ganancia muscular',
     'pérdida de grasa',
+    'rutina hipertrofia',
+    'entrenamiento IA',
   ],
   authors: [{ name: 'Rutina Perfecta' }],
   creator: 'Rutina Perfecta',
@@ -38,18 +41,18 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Generador de Rutinas Personalizadas - Fitness IA',
-    description: 'Crea tu rutina de fitness personalizada con IA. 100% gratis, sin suscripciones. Descarga en PDF.',
+    title: 'Generador de Rutinas Personalizadas - Fitness IA Gratis',
+    description: 'Crea tu rutina de fitness personalizada con IA. 100% gratis, sin suscripciones. Descarga en PDF. Basado en ciencia del fitness.',
     type: 'website',
     locale: 'es_ES',
-    url: 'https://rutinaperfecta.com',
+    url: 'https://www.rutinaperfecta.com',
     siteName: 'Rutina Perfecta',
     images: [
       {
         url: '/logo.png',
         width: 1024,
         height: 1024,
-        alt: 'Rutina Perfecta - Generador de Fitness',
+        alt: 'Rutina Perfecta - Generador de Fitness Personalizado',
         type: 'image/png',
       },
     ],
@@ -57,10 +60,10 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Generador de Rutinas Personalizadas - Fitness IA',
-    description: 'Crea tu rutina personalizada en minutos',
+    description: 'Crea tu rutina personalizada en minutos. 100% gratis, sin pagar.',
   },
   alternates: {
-    canonical: 'https://rutinaperfecta.com',
+    canonical: 'https://www.rutinaperfecta.com',
   },
   verification: {
     google: 'XRcgIUp-HIJ8ET-vUVtRiA2UT6_E5TS9zl64IZxPT0E',

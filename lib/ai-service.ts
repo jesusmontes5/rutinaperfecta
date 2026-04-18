@@ -26,11 +26,11 @@ const FALLBACK_DESCRIPTIONS_MASA = [
   
   'Entrenamiento periodizado para ganancia muscular máxima sin lesiones. Diseño científico basado en síntesis proteica muscular (MPS), que pico a 24-48h post-entreno. Cada grupo muscular se entrena 2-3 veces/semana para múltiples picos MPS. Estructura: Ejercicios compuestos pesados (3-4 series × 6-10 reps con 2-3min descanso) seguido de accesorios eficientes (3 series × 10-15 reps con 60-90s descanso). Resultados: Consistencia > Perfección. 2kg extra ganancia natural por año es norma realista.',
   
-  'Rutina de hipertrofia miofibrilar y sarcoplasmática integrada. Volumen distribuido: Compuestos pesados (60% de volumen) desarrollan fuerza pura + activación neural máxima. Accesorios moderados (40% de volumen) crean pump, daño microscópico y estrés metabólico. Frecuencia: Cada músculo entrenado 2 veces/semana en diferentes ángulos. Progresión: Semana 1-2 establecer línea base, semana 3-4 aumentar peso, semana 5-6 aumentar reps o sets, semana 7-8 variar ejercicios. Sin deload = meseta garantizada.',
+  'Rutina de hipertrofia miofibrilar y sarcoplasmática integrada. Volumen distribuido: Compuestos pesados (60% de volumen) desarrollan fuerza pura + activación neural máxima. Accesorios moderados (40% de volumen) crean pump, daño microscópico y estrés metabólico. Frecuencia: Cada músculo entrenado 2 veces/semana en diferentes ángulos. Progresión: Semana 1-2 establecer línea base, semana 3-4 aumentar peso, semana 5-6 aumentar reps o sets, semana 7-8 variar ejercicios. Nota: Sin deload, riesgo de meseta aumenta; implementar deload cada 6-8 semanas optimiza resultados.',
 ];
 
 const FALLBACK_DESCRIPTIONS_GRASA = [
-  'Rutina de pérdida de grasa maximizando preservación muscular. Fundamento: En déficit calórico, tu cuerpo degrada músculo si no lo estimulas suficientemente. Solución: Entrenamientos frecuentes, pesados e intensos. Estructura: 4-5 días/semana con énfasis en compuestos fuertes (6-10 reps, RPE 8-9) para mantener fuerza, seguidos accesorios en 10-12 reps con descansós cortos (45-60s) para HIIT metabólico. Cardio: HIIT 2-3 veces/semana (20-30min máximo) + LISS 1x/semana (30-45min). Nutrición: Déficit -400 a -500 kcal, proteína MÁXIMA 2.4-2.6g/kg (crítico), carbos moderados. Resultados: -0.5 a -1kg/semana grasa con preservación 100% músculo.',
+  'Rutina de pérdida de grasa maximizando preservación muscular. Fundamento: En déficit calórico, tu cuerpo degrada músculo si no lo estimulas suficientemente. Solución: Entrenamientos frecuentes, pesados e intensos. Estructura: 4-5 días/semana con énfasis en compuestos fuertes (6-10 reps, RPE 8-9) para mantener fuerza, seguidos accesorios en 10-12 reps con descansós cortos (45-60s) para HIIT metabólico. Cardio: HIIT 2-3 veces/semana (20-30min máximo) + LISS 1x/semana (30-45min). Nutrición: Déficit -400 a -500 kcal, proteína MÁXIMA 2.4-2.6g/kg (crítico), carbos moderados. Resultados: -0.5 a -1kg/semana grasa con minimización de pérdida muscular (típicamente 1-2% de pérdida muscular en deficit bien ejecutado).',
   
   'Programa de cutting basado en recomposición corporal inteligente. Objetivo: Perder grasa sin perder fuerza ni músculo. Estrategia: Entrenamiento pesado 4x/semana (movimientos compuestos en 6-10 reps = máxima retención muscular), cardio metabólico inteligente (HIIT 2x/semana no circuito sino series cortas pesadas), deficiencia calórica moderada (-400 a -500, no -1000). Macros: Proteína prioritaria (204-220g para 85kg), carbos post-entreno, grasas mínimas. Suplementos recomendados: Creatina (preserva fuerza en déficit), cafeína (mejora enfoque y EPOC), Beta-alanina (resiste fatiga en HIIT). Resultados: -10kg en 12 semanas donde 80% es grasa, no músculo.',
   
@@ -401,7 +401,7 @@ export async function generateMotivationalTipsAI(objective: string, level: strin
 
     const prompt = `
 Eres un coach profesional de fitness certificado (NASM/ISSN) con 10+ años de experiencia real.
-Genera 6 tips PROFESIONALES, ESPECÍFICOS y CIENTÍFICAMENTE RESPALDADOS para máximo éxito garantizado.
+Genera 6 tips PROFESIONALES, ESPECÍFICOS y CIENTÍFICAMENTE RESPALDADOS para optimizar tus resultados basados en ciencia del fitness.
 
 ╔═ CONTEXTO DEL ATLETA ═╗
 Objetivo Específico: ${objectiveContext[objective as keyof typeof objectiveContext] || objectiveContext['mantener']}
